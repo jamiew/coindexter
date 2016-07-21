@@ -1,0 +1,21 @@
+<%= form_for(@coin) do |f| %> 
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :info_way_to_earn %>
+	<%= f.text_field :info_way_to_earn %>
+	<%= f.label :info_status %>
+	<%= f.text_field :info_status %>
+	<%= f.label :info_additional %>
+	<%= f.text_field :info_additional %>
+	<%= f.label :application_name %>
+	<%= f.text_field :application_name %>
+	<%= f.label :application_description %>
+	<%= f.text_field :application_description %>
+	<%= f.label :application_status %>
+	<%= f.text_field :application_status %>
+	<%= f.label :application_category %>
+	<%= f.text_field :application_category %>
+	<%= f.label :logo_url %>
+	<%= f.text_field :logo_url %>
+	<%= f.submit "Submit", class: "btn btn-primary" %> 
+<% end %>
