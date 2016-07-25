@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725191600) do
+ActiveRecord::Schema.define(version: 20160725201809) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -32,11 +32,11 @@ ActiveRecord::Schema.define(version: 20160725191600) do
     t.text     "application_description"
     t.string   "application_status"
     t.string   "application_category"
-    t.string   "logo_url"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "application_url"
     t.string   "coinmarketcap_url"
+    t.string   "logo_url"
   end
 
   create_table "statuses", force: :cascade do |t|

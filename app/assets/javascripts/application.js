@@ -15,8 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).keypress(function(event) {
-  var keyCode = event.which || event.keyCode; 
-  var keyChar = String.fromCharCode(keyCode); 
-  alert(keyChar);
-});

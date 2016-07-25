@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-8 data col-md-offset-4">
-		<%= image_tag("steem-logo.png", alt: "steem logo", size: "60x60", id: "coin-logo") %>
+		<%= image_tag @coin.logo_url.url if @coin.logo_url.url size: "60x60", id: "coin-logo" %>
 		<h1 id="coin-name"><%= @coin.name %></h1>
 	</div>
 </div>

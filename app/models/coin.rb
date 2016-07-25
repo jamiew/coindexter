@@ -9,7 +9,8 @@ class Coin < ApplicationRecord
 	validates :application_status, presence: true, length: { maximum: 255 }
 	validates :application_category, presence: true, length: { maximum: 255 }
 
-	belongs_to :category
-	belongs_to :status
+	belongs_to :category, required: false
+
+	mount_uploader :logo_url, LogoUploader
 
 end

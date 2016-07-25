@@ -1,8 +1,17 @@
-<%= form_for @coin, remote: true do |f| %>
+<%= form_for @coin, authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-			<%= image_tag("steem-logo.png", alt: "steem logo", size: "60x60", id: "coin-logo") %>
+			<%= image_tag @coin.logo_url.url if @coin.logo_url.url size: "60x60", id: "coin-logo" %>
+			<%= f.file_field :logo_url %>
 			<h1 id="coin-name"><%= @coin.name %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Coin name", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :name, class: "form-input" %>
 		</div>
 	</div>
 	<div class="row">
@@ -18,7 +27,7 @@
 			<%= f.label "Status", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.collection_select :info_status, Status.order(:status).reverse,:id,:status, include_blank: true %>
+			<%= select_tag(:info_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]]), include_blank: true) %>
 		</div>
 	</div>
 	<div class="row">
@@ -55,7 +64,7 @@
 			<%= f.label "Status", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.collection_select :application_status, Status.order(:created_at).reverse,:id,:status, include_blank: true %>
+			<%= select_tag(:info_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]]), include_blank: true) %>
 		</div>
 	</div>
 	<div class="row">
@@ -63,7 +72,7 @@
 			<%= f.label "Category", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			  <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
+			  <%= f.collection_select :application_category, Category.order(:name),:id,:name, include_blank: true %>
 		</div>
 	</div>	
 	<div class="row">
@@ -71,7 +80,7 @@
 			<%= f.label "URL", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :logo_url, class: "form-input" %>
+			<%= f.text_field :application_url, class: "form-input" %>
 		</div>
 	</div>	
 	<div class="row">
@@ -80,3 +89,4 @@
 		</div>
 	</div>
 <% end %>
+<%= debug(params) if Rails.env.development? %>
