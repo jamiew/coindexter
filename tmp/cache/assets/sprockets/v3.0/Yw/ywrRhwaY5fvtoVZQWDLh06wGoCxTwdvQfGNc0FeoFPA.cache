@@ -1,0 +1,5 @@
+I"8(function() {
+  $(".main").hide();
+
+}).call(this);
+:ET

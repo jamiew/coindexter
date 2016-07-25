@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :coins
 
+  match '/coins/edit', to: "coins#edit", via: "post"
+
 end

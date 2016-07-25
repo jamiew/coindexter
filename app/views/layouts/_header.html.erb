@@ -1,12 +1,20 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<nav class="navbar">
   	<div class="container">
-	  	<%= link_to "Coindexter", '#', id: "logo" %>
-	  	<nav>
+  		<div class="navbar-header">
+	  		<%= link_to image_tag("coindexter-logo.png", size: "163x30"), '#', class: "navbar-brand", id: "logo" %>
+	  	</div>
+	  	<div id="navbar">
 		  	<ul class="nav navbar-nav navbar-right">
-		  		<li>Browse by:</li>
+		  		<li><h6>Browse by</h6></li>
 			    <li><a href="#">Utility</a></li>
 			    <li><a href="#">Upcoming sales</a></li>
-			</ul> 
-		</nav>
+			    <li>
+			    	<div class="form-group">
+			    		<input type="search" class="form-control" placeholder="Search">
+			    		<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+			    	</div>
+			    </li>
+			</ul>
+		</div>
 	</div>
-</header>
+</nav>

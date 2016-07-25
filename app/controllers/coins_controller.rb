@@ -1,4 +1,5 @@
 class CoinsController < ApplicationController
+	respond_to? :html, :js
 
 	def index
 		page_title = "Coins"
@@ -15,6 +16,11 @@ class CoinsController < ApplicationController
 
 	def edit
 		@coin = Coin.find(params[:id])
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
 
 	def create

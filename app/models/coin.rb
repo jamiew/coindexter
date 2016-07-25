@@ -10,5 +10,6 @@ class Coin < ApplicationRecord
 	validates :application_category, presence: true, length: { maximum: 255 }
 
 	belongs_to :category
+	belongs_to :status
 
 end

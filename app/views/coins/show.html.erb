@@ -1,0 +1,96 @@
+<div class="row">
+	<div class="col-md-2 col-md-offset-1 left-nav">
+		<ul id="info-menu">
+			<li class="active-item"><p><%= link_to("Details", "#details") %><p></li>
+			<li><p><%= link_to("News", "#news") %></p></li>
+			<li><p><%= link_to("Discussion", "#discussion") %></p></li>
+			<li><p><%= link_to("Log", "#log") %></p></li>
+		</ul>
+	</div>
+	<div class="col-md-6 main">
+		<ul>
+			<li class="coin-main-info coin-info-block">
+				<%= render 'coin_main_info_header' %>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>how to earn</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.info_way_to_earn %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>status</h6>
+					</div>
+					<div class="col-md-8 data status">
+						<div class="live-icon"></div>
+						<p>live</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>where to buy</h6>
+					</div>
+					<div class="col-md-8 data">
+						<ul>
+							<li><a href="http://steemit.com">Steem.com <%= image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
+							<li><a href="http://gdax.com">GDAX <%= image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>additional</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.info_additional %></p>
+					</div>
+				</div>
+			</li>
+			<li class="coin-price-info coin-info-block">
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>price</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.price %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>30d</h6>
+					</div>
+					<div class="col-md-8 data status">
+						<p><%= @coin.thirty_day_price_change %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>1d</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.one_day_price_change %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>volume</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.volume %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>market cap</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.market_cap %></p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<%= link_to("Edit #{@coin.name} (⌘ + E)", edit_coin_path, remote: true, class: "edit-link", accesskey: 'E') %>
+</div>

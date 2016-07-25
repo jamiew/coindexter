@@ -1,21 +1,82 @@
-<%= form_for(@coin) do |f| %> 
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.label :info_way_to_earn %>
-	<%= f.text_field :info_way_to_earn %>
-	<%= f.label :info_status %>
-	<%= f.text_field :info_status %>
-	<%= f.label :info_additional %>
-	<%= f.text_field :info_additional %>
-	<%= f.label :application_name %>
-	<%= f.text_field :application_name %>
-	<%= f.label :application_description %>
-	<%= f.text_field :application_description %>
-	<%= f.label :application_status %>
-	<%= f.text_field :application_status %>
-	<%= f.label :application_category %>
-	<%= f.text_field :application_category %>
-	<%= f.label :logo_url %>
-	<%= f.text_field :logo_url %>
-	<%= f.submit "Submit", class: "btn btn-primary" %> 
+<%= form_for @coin, remote: true do |f| %>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<%= image_tag("steem-logo.png", alt: "steem logo", size: "60x60", id: "coin-logo") %>
+			<h1 id="coin-name"><%= @coin.name %></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "How to earn", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_area :info_way_to_earn, rows: 6, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Status", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.collection_select :info_status, Status.order(:status).reverse,:id,:status, include_blank: true %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Additional info", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_area :info_additional, rows: 6, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<h6>application</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Name", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :application_name, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Description", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_area :application_description, rows: 6, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Status", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.collection_select :application_status, Status.order(:created_at).reverse,:id,:status, include_blank: true %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Category", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			  <%= f.collection_select :category, Category.order(:name),:id,:name, include_blank: true %>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "URL", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :logo_url, class: "form-input" %>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<%= f.submit "Submit", class: "btn btn-primary" %> 
+		</div>
+	</div>
 <% end %>

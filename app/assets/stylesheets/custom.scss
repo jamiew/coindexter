@@ -1,14 +1,309 @@
-/* @import "bootstrap-sprockets"; */
-/* @import "bootstrap"; */
+@import "bootstrap-sprockets"; 
+@import "bootstrap"; 
+
 
 $primary-orange: rgb(235,107,51);
-$background-orange: rgb(235,107,51);
+$navbar-orange: rgb(253,238,233);
+$border-orange: rgb(251,226,216);
+$background-orange: rgb(254,247,245);
 $primary-blue: rgb(51,108,158);
 $primary-green: rgb(35,160,109);
+$secondary-green: rgb(86,207,158);
 $text: rgb(84,84,84);
 $text-light: rgb(204,204,204);
 
-input, label {
-	float:left;
-	clear:both;
+
+@mixin small-case {
+	text-transform:lowercase;
+	font-family: "WhitneyHTF-MediumSC";
+	letter-spacing: 0.02em;
+	color: $primary-orange;
+} 
+
+/*
+// Alt color scheme 
+
+$white: rgb(255,255,255);
+$primary-blue: rgb(51,108,158);
+$alt-blue: rgb(51,108,158);
+$secondary-blue: rgb(70,0,180);
+$teal: rgb(0,128,157);
+$light-teal: rgb(0,216,169);
+$pink: rgb(255,0,126);
+$ligth-text: rgb(230,227,234);
+
+*/
+
+
+body {
+	background-color: $background-orange;
+	color: $text;
+	font-family: "WhitneyHTF-Medium";
+	font-size: 16px;
+	line-height: 1.5;
+	.main-container {
+		padding-bottom:120px;
+	}
 }
+
+footer {
+	background-color: $navbar-orange;
+	border-top: 1px solid $border-orange;
+	ul {
+		li {
+			float:right;
+			padding: 1em 0 1em 1em;
+			@include small-case;
+		}
+	}
+}
+
+a {
+	color: $primary-blue;
+	text-decoration:none;
+	&:hover {
+		text-decoration:none;
+	}
+}
+
+ul, li {
+	list-style-type:none;
+	text-indent:none;
+}
+
+div.live-icon {
+	background-color:$secondary-green;
+	box-shadow: inset 0 0 0 3px $primary-green;
+	width:12px;
+	height: 12px;
+	border-radius: 12px;
+	float:left;
+}
+
+.navbar {
+	border-top: 8px solid $primary-orange;
+	border-bottom: 1px solid $border-orange;
+	background-color: $navbar-orange;
+	margin-bottom: 96px;
+	height: 80px;
+	padding-top: 15px;
+}
+
+.main {
+	border-left: 1px solid $border-orange;
+}
+
+label {
+	font-weight:normal;
+}
+
+nav {
+	.container {
+		.navbar-header {
+			a.navbar-brand {
+				padding-top:5px;
+				font-family:Phosphate-solid;
+				letter-spacing: 0.05em;
+				color: $primary-orange;
+				font-size:28px;
+				text-transform:uppercase;
+			}
+		}
+		#navbar {
+			ul.nav {
+				li {
+					@include small-case;
+					margin-right: 8px;
+					text-align:left;
+					h6, a {
+						padding-top:0;
+						@include small-case;
+						padding-left:2px;
+					}	
+					h6 {
+						
+						color: $text;
+						font-size:16px;
+						margin-top:10px;
+						padding-right:12px;
+					}
+					a {
+						color: $primary-orange;
+						margin-top:8px;
+					}
+					input {
+						margin-top:2px;
+						border-radius: 100px;
+						box-shadow:none;
+						border: 2px solid $primary-orange;
+						color: $primary-orange;
+					}
+					::-webkit-input-placeholder {
+						color: $primary-orange;
+					}
+					&:last-child {
+						margin-left:20px;
+					}
+					.form-group	{
+						span {
+							color: $primary-orange;
+							padding-top:2px;
+							padding-right:8px;
+						}
+					}			
+				}
+			}
+		}
+	}
+}	
+
+.left-nav {
+	/* background-color: $navbar-orange;
+	padding-bottom:163px; */
+}
+
+ul#info-menu {
+	text-align:right;
+	margin-top: 163px;
+	margin-right:20px;
+	li {
+		margin-bottom:12px;
+		opacity:0.4;
+		a {
+			color: $primary-orange;
+			font-family: "WhitneyHTF-Medium";
+			margin:0;
+			padding:0;
+		}
+		p:hover {
+			border-bottom: 1px solid $primary-orange;
+			padding-bottom:3px;
+			display:inline;
+		}
+	}
+	li.active-item {
+		opacity:1;
+		p {
+			border-bottom: 1px solid $primary-orange;
+			padding-bottom:3px;
+			display:inline;
+		}
+	}
+}
+
+.coin-info-block, .edit_coin {
+	margin-bottom:37px;
+	.row {
+		&:last-child {
+			margin-bottom:0px;
+		}
+		margin-bottom:12px;
+		.label {
+			text-align:right;
+			text-transform:lowercase;
+			font-family: 'WhitneyHTF-MediumSC';
+			font-size: 18px;
+		}
+		div[class*='col-'] {
+			p {
+				margin: 0;
+			}
+			h6, label {
+				margin: -2px 0 0 0;
+				font-family: 'WhitneyHTF-MediumSC';
+				color: $primary-orange;
+				font-size: 18px;
+			}
+			label {
+				margin-top: 13px;
+			}
+			input, textarea, select {
+				width:100%;
+				&:focus {
+					outline:none;
+					box-shadow: 0 0 2px 0 $primary-orange;
+				}
+				box-shadow:none;
+				border: 1px solid $border-orange;
+				padding: 0.8em;
+				border-radius:4px;
+				background-color: #fff;
+				&[type=submit] {
+					background-color: $primary-blue;
+					font-family: 'WhitneyHTF-MediumSC';
+					font-size: 18px;
+					text-transform:lowercase;
+					padding: 0.5em;
+					margin-top:36px;
+				}
+			}
+			select {
+				text-transform:capitalize;
+				-webkit-appearance: none;
+			    -moz-appearance: none;
+			    appearance: none;
+			    background: no-repeat right 16px top 20px #fff;
+				background-image: asset_url('down-carat');
+				option {
+					padding: 0.8em;
+					text-transform:capitalize;
+				}
+			}
+			.select-label {
+				margin-top: 10px;
+			}
+			h1#coin-name {
+				font-family: WhitneyHTF-Bold;
+				font-size:24px;
+				color: $primary-orange;
+			}
+
+			img#coin-logo {
+				margin-bottom:34px;
+			}
+			div.live-icon {
+				margin-top:7px;
+				margin-right:4px;
+			}
+			ul, li {
+				padding: 0;
+			}
+			.link-icon {
+				margin-top:-2px;
+				margin-left: 3px;
+			}
+		}
+		.status {
+			color: $primary-green;
+			font-family: 'WhitneyHTF-MediumSC';
+			font-size:18px;
+			line-height:23px;
+		}
+	}
+}
+
+form.edit_coin {
+	padding-left:40px;
+	.row {
+		div[class*='col-'] {
+			h6 {
+				margin-top:36px;
+			}
+		}
+	}
+}
+
+.edit-link {
+	position:fixed;
+	bottom: 20px;
+	right: 20px;
+	color: $text;
+	opacity: 0.5;
+	&:hover {
+		color:$primary-blue;
+		opacity:1.0;
+	}
+}
+
+
+
