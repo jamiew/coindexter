@@ -36,7 +36,7 @@ class CoinsController < ApplicationController
 	end
 
 	def update
-		@coin = Coin.find(params[:id])
+		@coin = Coin.friendly.find(params[:id])
 	  	if @coin.update_attributes(coin_params)
 	    	redirect_to @coin
 		else
