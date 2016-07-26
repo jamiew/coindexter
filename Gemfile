@@ -36,6 +36,9 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 
+# url slugs
+gem 'friendly_id', '~> 5.1.0'
+
 group :production do 
 	gem 'pg'
 end

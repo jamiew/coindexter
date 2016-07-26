@@ -7,7 +7,7 @@ class CoinsController < ApplicationController
 	end
 
 	def show
-		@coin = Coin.find(params[:id])
+		@coin = Coin.friendly.find(params[:id])
 	end
 
 	def new
@@ -17,7 +17,7 @@ class CoinsController < ApplicationController
 
 	def edit
 		@use_ajax = true
-		@coin = Coin.find(params[:id])
+		@coin = Coin.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html
 		    format.js
