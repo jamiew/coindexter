@@ -1,9 +1,8 @@
-<%= form_for @coin, authenticity_token: true, html: { multipart: true } do |f| %>
+<%= form_for @coin, authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-			<%= image_tag @coin.logo_url.url if @coin.logo_url.url size: "60x60", id: "coin-logo" %>
-			<%= f.file_field :logo_url %>
-			<h1 id="coin-name"><%= @coin.name %></h1>
+			<%= image_tag @coin.logo, size: "60x60", id: "coin-logo" if @coin.logo? %>
+			<%= f.file_field :logo, class: 'filestyle' %>
 		</div>
 	</div>
 	<div class="row">
@@ -16,18 +15,10 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 label">
-			<%= f.label "How to earn", class: "form-label" %>
-		</div>
-		<div class="col-md-8">
-			<%= f.text_area :info_way_to_earn, rows: 6, class: "form-input" %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4 label">
 			<%= f.label "Status", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= select_tag(:info_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]]), include_blank: true) %>
+			<%= f.select :coin_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]], :selected => @coin.coin_status), include_blank: true %>
 		</div>
 	</div>
 	<div class="row">
@@ -35,7 +26,7 @@
 			<%= f.label "Additional info", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_area :info_additional, rows: 6, class: "form-input" %>
+			<%= f.text_area :coin_info, rows: 6, class: "form-input" %>
 		</div>
 	</div>
 	<div class="row">
@@ -64,7 +55,7 @@
 			<%= f.label "Status", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= select_tag(:info_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]]), include_blank: true) %>
+			<%= f.select(:application_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]]), include_blank: true) %>
 		</div>
 	</div>
 	<div class="row">
@@ -72,15 +63,15 @@
 			<%= f.label "Category", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			  <%= f.collection_select :application_category, Category.order(:name),:id,:name, include_blank: true %>
+			  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Select a category' } %>
 		</div>
 	</div>	
 	<div class="row">
 		<div class="col-md-4 label">
-			<%= f.label "URL", class: "form-label" %>
+			<%= f.label "URL", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :application_url, class: "form-input" %>
+			  <%= f.text_field :application_url, class: "form-input" %>
 		</div>
 	</div>	
 	<div class="row">

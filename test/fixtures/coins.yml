@@ -2,9 +2,8 @@
 
 one:
   name: MyString
-  info_way_to_earn: MyText
-  info_status: MyString
-  info_additional: MyText
+  coin_info: MyText
+  coin_status: MyString
   price: 1
   thirty_day_price_change: 1
   one_day_price_change: 1
@@ -13,14 +12,12 @@ one:
   application_name: MyString
   application_description: MyText
   application_status: MyString
-  application_category: MyString
-  logo_url: MyString
+  category: one
 
 two:
   name: MyString
-  info_way_to_earn: MyText
-  info_status: MyString
-  info_additional: MyText
+  coin_info: MyText
+  coin_status: MyString
   price: 1
   thirty_day_price_change: 1
   one_day_price_change: 1
@@ -29,5 +26,4 @@ two:
   application_name: MyString
   application_description: MyText
   application_status: MyString
-  application_category: MyString
-  logo_url: MyString
+  category: two

@@ -13,19 +13,11 @@
 				<%= render 'coin_main_info_header' %>
 				<div class="row">
 					<div class="col-md-4 label">
-						<h6>how to earn</h6>
-					</div>
-					<div class="col-md-8 data">
-						<p><%= @coin.info_way_to_earn %></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 label">
 						<h6>status</h6>
 					</div>
 					<div class="col-md-8 data status">
-						<div class="live-icon"></div>
-						<p>live</p>
+						<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
+						<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
 					</div>
 				</div>
 				<div class="row">
@@ -44,7 +36,7 @@
 						<h6>additional</h6>
 					</div>
 					<div class="col-md-8 data">
-						<p><%= @coin.info_additional %></p>
+						<p><%= @coin.coin_info %></p>
 					</div>
 				</div>
 			</li>
@@ -90,7 +82,52 @@
 					</div>
 				</div>
 			</li>
+			<li class="application-info coin-info-block">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-4">
+						<h6>application</h6>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>App Name</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.application_name %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>App Description</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= @coin.application_description %></p>
+					</div>
+				</div>				
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>status</h6>
+					</div>
+					<div class="col-md-8 data status">
+						<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
+						<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>visit</h6>
+					</div>
+					<div class="col-md-8 data">
+						<ul>
+							<li><%= link_to @coin.application_name, @coin.application_url %><%image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
 		</ul>
 	</div>
+	<script type="text/javascript">
+
+	</script>
 	<%= link_to("Edit #{@coin.name} (⌘ + E)", edit_coin_path, remote: true, class: "edit-link", accesskey: 'E') %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725201809) do
+ActiveRecord::Schema.define(version: 20160726192456) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -20,9 +20,8 @@ ActiveRecord::Schema.define(version: 20160725201809) do
 
   create_table "coins", force: :cascade do |t|
     t.string   "name"
-    t.text     "info_way_to_earn"
-    t.string   "info_status"
-    t.text     "info_additional"
+    t.text     "coin_info"
+    t.string   "coin_status"
     t.integer  "price"
     t.integer  "thirty_day_price_change"
     t.integer  "one_day_price_change"
@@ -31,18 +30,12 @@ ActiveRecord::Schema.define(version: 20160725201809) do
     t.string   "application_name"
     t.text     "application_description"
     t.string   "application_status"
-    t.string   "application_category"
+    t.integer  "category_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "logo"
     t.string   "application_url"
-    t.string   "coinmarketcap_url"
-    t.string   "logo_url"
-  end
-
-  create_table "statuses", force: :cascade do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_coins_on_category_id"
   end
 
 end

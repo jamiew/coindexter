@@ -11,10 +11,12 @@ class CoinsController < ApplicationController
 	end
 
 	def new
+		@use_ajax = false
 		@coin = Coin.new
 	end
 
 	def edit
+		@use_ajax = true
 		@coin = Coin.find(params[:id])
 		respond_to do |format|
 		    format.html
@@ -24,14 +26,13 @@ class CoinsController < ApplicationController
 	end
 
 	def create
-		@categories = Category.all
-		@coin.categories.build(coin_params)
-		if @coin.save 
-			format.html { redirect_to @coin }
-			format.js
-		else 
-			render 'new'
-		end
+		@use_ajax = false
+		@coin = Coin.new(coin_params)
+	    if @coin.save
+		    redirect_to @coin
+		else
+	      
+	    end
 	end
 
 	def update
@@ -41,17 +42,16 @@ class CoinsController < ApplicationController
 		else
 	    	render 'edit'
 	  	end
-
 	end
 
 	def destroy
 		@coin.destroy
 	end
 
-	private 
-	
-		def coin_params 
-	    	params.require(:coin).permit(:name, :info_way_to_earn, :info_status, :info_additional, :application_name, :application_description, :application_status, :application_category, :application_category_id, :application_url)
+	private
+
+	    def coin_params
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :category_id, :logo)
 	    end
 
 end
