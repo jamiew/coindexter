@@ -2,6 +2,13 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<%= image_tag @coin.logo, size: "60x60", id: "coin-logo" if @coin.logo? %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Coin logo", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
 			<%= f.file_field :logo, class: 'filestyle' %>
 		</div>
 	</div>
@@ -15,7 +22,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 label">
-			<%= f.label "Status", class: "form-label select-label" %>
+			<%= f.label "Coin status", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
 			<%= f.select :coin_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]], :selected => @coin.coin_status), include_blank: true %>
@@ -76,8 +83,7 @@
 	</div>	
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-			<%= f.submit "Submit", class: "btn btn-primary" %> 
+			<%= f.submit "Submit changes to #{@coin.name}", class: "form-submit" %> 
 		</div>
 	</div>
 <% end %>
-<%= debug(params) if Rails.env.development? %>

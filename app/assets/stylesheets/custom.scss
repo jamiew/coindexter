@@ -231,12 +231,12 @@ ul#info-menu {
 				border-radius:4px;
 				background-color: #fff;
 				&[type=submit] {
-					background-color: $primary-blue;
-					font-family: 'WhitneyHTF-MediumSC';
-					font-size: 18px;
-					text-transform:lowercase;
-					padding: 0.5em;
-					margin-top:36px;
+					background: none !important;
+					border:none;
+					color:$primary-blue;
+					opacity:1.0;
+					display:inline;
+					text-align:right;
 				}
 				&[type=file] {
 					padding: 12px;
@@ -330,19 +330,19 @@ form.edit_coin, form.new_coin {
 	}
 }
 
-ul.action-links {
+ul.action-links, .form-submit {
 	position:fixed;
 	bottom: 20px;
 	right: 20px;
 	color: $text;
 	opacity: 0.5;
-	&:hover {
-		color:$primary-blue;
-		opacity:1.0;
-	}
 	li {
 		float:left;
 		margin-left:1em;
+		&:hover {
+			color:$primary-blue;
+			opacity:1.0;
+		}
 	}
 }
 
