@@ -330,7 +330,7 @@ form.edit_coin, form.new_coin {
 	}
 }
 
-.edit-link {
+ul.action-links {
 	position:fixed;
 	bottom: 20px;
 	right: 20px;
@@ -339,6 +339,10 @@ form.edit_coin, form.new_coin {
 	&:hover {
 		color:$primary-blue;
 		opacity:1.0;
+	}
+	li {
+		float:left;
+		margin-left:1em;
 	}
 }
 

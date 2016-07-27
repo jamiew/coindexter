@@ -120,7 +120,7 @@
 					<div class="col-md-8 data">
 						<ul>
 							<li><%= link_to @coin.application_name, @coin.application_url %>
-								<%= image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
+								<%= link_to image_tag("link-icon.png", size: "14x14", class: "link-icon"), @coin.application_url  %></a></li>
 						</ul>
 					</div>
 				</div>
@@ -128,8 +128,8 @@
 		</ul>
 	</div>
 	<%= debug(params) if Rails.env.development? %>
-	<script type="text/javascript">
-
-	</script>
-	<%= link_to("Edit #{@coin.name}", edit_coin_path, remote: true, class: "edit-link", accesskey: 'E') %>
+	<ul class="action-links">
+		<li><%= link_to("Add new coin", new_coin_path, remote: true, class: "action-link", accesskey: 'A') %></li>
+		<li><%= link_to("Edit #{@coin.name}", edit_coin_path, remote: true, class: "action-link", accesskey: 'E') %></li>
+	</ul>
 </div>
