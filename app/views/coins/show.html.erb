@@ -82,49 +82,51 @@
 					</div>
 				</div>
 			</li>
-			<li class="application-info coin-info-block">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-4">
-						<h6>application</h6>
+			<% if @coin.has_application %>
+				<li class="application-info coin-info-block">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-4">
+							<h6>application</h6>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 label">
-						<h6>App Name</h6>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>App Name</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p><%= @coin.application_name %></p>
+						</div>
 					</div>
-					<div class="col-md-8 data">
-						<p><%= @coin.application_name %></p>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>App Description</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p><%= @coin.application_description %></p>
+						</div>
+					</div>				
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>status</h6>
+						</div>
+						<div class="col-md-8 data status">
+							<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
+							<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 label">
-						<h6>App Description</h6>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>visit</h6>
+						</div>
+						<div class="col-md-8 data">
+							<ul>
+								<li><%= link_to @coin.application_name, @coin.application_url %>
+									<%= link_to image_tag("link-icon.png", size: "14x14", class: "link-icon"), @coin.application_url  %></a></li>
+							</ul>
+						</div>
 					</div>
-					<div class="col-md-8 data">
-						<p><%= @coin.application_description %></p>
-					</div>
-				</div>				
-				<div class="row">
-					<div class="col-md-4 label">
-						<h6>status</h6>
-					</div>
-					<div class="col-md-8 data status">
-						<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
-						<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 label">
-						<h6>visit</h6>
-					</div>
-					<div class="col-md-8 data">
-						<ul>
-							<li><%= link_to @coin.application_name, @coin.application_url %>
-								<%= link_to image_tag("link-icon.png", size: "14x14", class: "link-icon"), @coin.application_url  %></a></li>
-						</ul>
-					</div>
-				</div>
-			</li>
+				</li>
+			<% end %>
 		</ul>
 	</div>
 	<%= debug(params) if Rails.env.development? %>

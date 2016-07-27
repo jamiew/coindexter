@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727211656) do
+ActiveRecord::Schema.define(version: 20160727215600) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20160727211656) do
     t.text     "application_description"
     t.string   "application_status"
     t.integer  "category_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.string   "logo"
     t.string   "application_url"
     t.string   "slug"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20160727211656) do
     t.integer  "available_supply"
     t.integer  "total_supply"
     t.decimal  "one_hour_price_change"
+    t.boolean  "has_application",                   default: true
     t.index ["category_id"], name: "index_coins_on_category_id"
   end
 

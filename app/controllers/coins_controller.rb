@@ -51,7 +51,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug)
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :has_application)
 	    end
 
 end

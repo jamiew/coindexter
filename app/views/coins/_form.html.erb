@@ -43,6 +43,14 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 label">
+			<%= f.label "Has appplication?", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.check_box :has_application, class: 'has-application' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
 			<%= f.label "Name", class: "form-label" %>
 		</div>
 		<div class="col-md-8">

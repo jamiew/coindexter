@@ -230,6 +230,11 @@ ul#info-menu {
 				padding: 0.8em;
 				border-radius:4px;
 				background-color: #fff;
+				&[type=checkbox] {
+					margin: 17px 0 0 0;
+				    width: 14px;
+				    height: 14px;
+				}
 				&[type=submit] {
 					background: $primary-blue;		
 					color:white;
