@@ -1,6 +1,5 @@
 class Coin < ApplicationRecord
-  belongs_to :category
-  validates :category_id, presence: true
+  belongs_to :category, optional: true
   mount_uploader :logo, LogoUploader
   extend FriendlyId
 

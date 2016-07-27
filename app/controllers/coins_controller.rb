@@ -1,5 +1,4 @@
 class CoinsController < ApplicationController
-	respond_to? :html, :js
 
 	def index
 		page_title = "Coins"
@@ -11,7 +10,7 @@ class CoinsController < ApplicationController
 	end
 
 	def new
-		@use_ajax = false
+		@use_ajax = true
 		@coin = Coin.new
 	end
 
@@ -26,12 +25,13 @@ class CoinsController < ApplicationController
 	end
 
 	def create
-		@use_ajax = false
 		@coin = Coin.new(coin_params)
 	    if @coin.save
-		    redirect_to @coin
+	    	@coin.update_prices
+	    	@coin.save
+			redirect_to @coin
 		else
-	      
+	        render 'new'
 	    end
 	end
 
@@ -51,7 +51,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :category_id, :logo)
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug)
 	    end
 
 end

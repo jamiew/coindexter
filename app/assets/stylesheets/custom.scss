@@ -231,12 +231,8 @@ ul#info-menu {
 				border-radius:4px;
 				background-color: #fff;
 				&[type=submit] {
-					background: none !important;
-					border:none;
-					color:$primary-blue;
-					opacity:1.0;
-					display:inline;
-					text-align:right;
+					background: $primary-blue;		
+					color:white;
 				}
 				&[type=file] {
 					padding: 12px;
@@ -330,7 +326,7 @@ form.edit_coin, form.new_coin {
 	}
 }
 
-ul.action-links, .form-submit {
+ul.action-links {
 	position:fixed;
 	bottom: 20px;
 	right: 20px;
