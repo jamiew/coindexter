@@ -41,6 +41,12 @@ gem 'omniauth-auth0', '~> 1.4'
 # url slugs
 gem 'friendly_id', '~> 5.1.0'
 
+#make API calls
+gem 'httparty'
+
+#schedule jobs 
+gem 'whenever', :require => false
+
 group :production do 
 	gem 'pg'
 end

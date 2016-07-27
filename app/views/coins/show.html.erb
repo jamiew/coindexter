@@ -43,42 +43,42 @@
 			<li class="coin-price-info coin-info-block">
 				<div class="row">
 					<div class="col-md-4 label">
-						<h6>price</h6>
+						<h6>price (usd)</h6>
 					</div>
 					<div class="col-md-8 data">
-						<p><%= @coin.price %></p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 label">
-						<h6>30d</h6>
-					</div>
-					<div class="col-md-8 data status">
-						<p><%= @coin.thirty_day_price_change %></p>
+						<p><%= number_to_currency(@coin.price, :unit => '$') %></p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 label">
 						<h6>1d</h6>
 					</div>
-					<div class="col-md-8 data">
-						<p><%= @coin.one_day_price_change %></p>
+					<div class="col-md-8 data status">
+						<p><%= @coin.one_day_price_change %>%</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 label">
-						<h6>volume</h6>
+						<h6>1h</h6>
 					</div>
 					<div class="col-md-8 data">
-						<p><%= @coin.volume %></p>
+						<p><%= @coin.one_hour_price_change %>%</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4 label">
-						<h6>market cap</h6>
+						<h6>Available supply</h6>
 					</div>
 					<div class="col-md-8 data">
-						<p><%= @coin.market_cap %></p>
+						<p><%= number_to_human(@coin.available_supply) %></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Total supply</h6>
+					</div>
+					<div class="col-md-8 data">
+						<p><%= number_to_human(@coin.total_supply) %></p>
 					</div>
 				</div>
 			</li>
@@ -127,8 +127,9 @@
 			</li>
 		</ul>
 	</div>
+	<%= debug(params) if Rails.env.development? %>
 	<script type="text/javascript">
 
 	</script>
-	<%= link_to("Edit #{@coin.name} (⌘ + E)", edit_coin_path, remote: true, class: "edit-link", accesskey: 'E') %>
+	<%= link_to("Edit #{@coin.name}", edit_coin_path, remote: true, class: "edit-link", accesskey: 'E') %>
 </div>
