@@ -1,33 +1,33 @@
 @font-face{
 		font-family:'WhitneyHTF-Medium';
-		src: url('WhitneyHTF-Medium.eot');
-			src:url('WhitneyHTF-Medium.eot');
-			src:url('WhitneyHTF-Medium.eot?#iefix') format('embedded-opentype'),
-				url('WhitneyHTF-Medium.woff') format('woff'),
-				url('WhitneyHTF-Medium.ttf') format('truetype'),
-				url('WhitneyHTF-Medium.svg#WhitneyHTF-Medium') format('svg');
+		src: font-url('WhitneyHTF-Medium.eot');
+			src:font-url('WhitneyHTF-Medium.eot');
+			src:font-url('WhitneyHTF-Medium.eot?#iefix') format('embedded-opentype'),
+				font-url('WhitneyHTF-Medium.woff') format('woff'),
+				font-url('WhitneyHTF-Medium.ttf') format('truetype'),
+				font-url('WhitneyHTF-Medium.svg#WhitneyHTF-Medium') format('svg');
 		font-weight:normal;
 		font-style:normal;
 }
 
 @font-face{
 		font-family:'WhitneyHTF-MediumSC';
-			src:url('WhitneyHTF-MediumSC.eot');
-			src:url('WhitneyHTF-MediumSC?#iefix') format('embedded-opentype'),
-				url('WhitneyHTF-MediumSC.woff') format('woff'),
-				url('WhitneyHTF-MediumSC.ttf') format('truetype'),
-				url('WhitneyHTF-MediumSC.svg#WhitneyHTF-MediumSC') format('svg');
+			src:font-url('WhitneyHTF-MediumSC.eot');
+			src:font-url('WhitneyHTF-MediumSC?#iefix') format('embedded-opentype'),
+				font-url('WhitneyHTF-MediumSC.woff') format('woff'),
+				font-url('WhitneyHTF-MediumSC.ttf') format('truetype'),
+				font-url('WhitneyHTF-MediumSC.svg#WhitneyHTF-MediumSC') format('svg');
 		font-weight:normal;
 		font-style:normal;
 }
 
 @font-face{
 		font-family:'WhitneyHTF-Bold';
-			src:url('WhitneyHTF-Bold.eot');
-			src:url('WhitneyHTF-Bold?#iefix') format('embedded-opentype'),
-				url('WhitneyHTF-Bold.woff') format('woff'),
-				url('WhitneyHTF-Bold.ttf') format('truetype'),
-				url('WhitneyHTF-Bold.svg#WhitneyHTF-Medium') format('svg');
+			src:font-url('WhitneyHTF-Bold.eot');
+			src:font-url('WhitneyHTF-Bold?#iefix') format('embedded-opentype'),
+				font-url('WhitneyHTF-Bold.woff') format('woff'),
+				font-url('WhitneyHTF-Bold.ttf') format('truetype'),
+				font-url('WhitneyHTF-Bold.svg#WhitneyHTF-Medium') format('svg');
 		font-weight:normal;
 		font-style:normal;
 }
