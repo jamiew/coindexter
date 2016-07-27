@@ -7,6 +7,20 @@ class CoinsController < ApplicationController
 
 	def show
 		@coin = Coin.friendly.find(params[:id])
+		unless @coin.one_day_price_change.nil?
+			if @coin.one_day_price_change > 0
+				@one_day_up = "up"
+			else
+				@one_day_up = "down"
+			end
+		end
+		unless @coin.one_hour_price_change.nil? 
+			if @coin.one_hour_price_change > 0
+				@one_hour_up = "up"
+			else
+				@one_hour_up = "down"
+			end
+		end
 	end
 
 	def new

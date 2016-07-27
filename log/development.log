@@ -30383,3 +30383,423 @@ Processing by CoinsController#show as HTML
 Completed 200 OK in 61ms (Views: 58.1ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/coins/bitcoin" for ::1 at 2016-07-27 18:13:15 -0400
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/controllers/coins_controller.rb:10: syntax error, unexpected '='
+		@one_day_up? = @coin.one_day_price_change > 0
+		              ^
+/Users/jonathanlibov/Documents/coindexter/app/controllers/coins_controller.rb:11: syntax error, unexpected '='
+		@one_hour_up? = @coin.one_day_price_change > 0
+		               ^):
+  
+app/controllers/coins_controller.rb:10: syntax error, unexpected '='
+app/controllers/coins_controller.rb:11: syntax error, unexpected '='
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.8ms)
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/coins/bitcoin" for ::1 at 2016-07-27 18:14:41 -0400
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/controllers/coins_controller.rb:59: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/coins_controller.rb:59: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.3ms)
+Started GET "/coins/bitcoin" for ::1 at 2016-07-27 18:15:26 -0400
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/controllers/coins_controller.rb:11: syntax error, unexpected tIVAR, expecting ':'
+		@one_hour_up = true ? @coin.one_day_price_change > 0
+		            ^
+/Users/jonathanlibov/Documents/coindexter/app/controllers/coins_controller.rb:12: syntax error, unexpected keyword_end, expecting ':'
+/Users/jonathanlibov/Documents/coindexter/app/controllers/coins_controller.rb:59: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/coins_controller.rb:11: syntax error, unexpected tIVAR, expecting ':'
+app/controllers/coins_controller.rb:12: syntax error, unexpected keyword_end, expecting ':'
+app/controllers/coins_controller.rb:59: syntax error, unexpected end-of-input, expecting keyword_end
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (100.2ms)
+Started GET "/coins/bitcoin" for ::1 at 2016-07-27 18:17:13 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `>' for nil:NilClass):
+  
+app/controllers/coins_controller.rb:10:in `show'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.0ms)
+Started GET "/coins/bitcoin" for ::1 at 2016-07-27 18:17:49 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `>' for nil:NilClass):
+  
+app/controllers/coins_controller.rb:10:in `show'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.3ms)
+Started GET "/coins/bitcoin" for ::1 at 2016-07-27 18:18:03 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 109ms (ActiveRecord: 0.8ms)
+
+
+  
+NameError (undefined local variable or method `coin' for #<CoinsController:0x007faba3368ef8>
+Did you mean?  @coin):
+  
+app/controllers/coins_controller.rb:10:in `show'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (210.5ms)
+Started GET "/coins/bitcoin" for ::1 at 2016-07-27 18:18:12 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `nil' for nil:NilClass
+Did you mean?  nil?):
+  
+app/controllers/coins_controller.rb:10:in `show'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.9ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:18:34 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `nil' for #<BigDecimal:7faba345bd38,'0.687E1',18(36)>
+Did you mean?  nil?):
+  
+app/controllers/coins_controller.rb:10:in `show'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (49.8ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:18:47 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/show.html.erb within layouts/application (1.6ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 1.0ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected '='
+...;@output_buffer.append=( class="price-up" if @one_hour_up? )...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected ')'
+...s="price-up" if @one_hour_up? );@output_buffer.safe_append='...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:138: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:140: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/show.html.erb:57: syntax error, unexpected '='
+app/views/coins/show.html.erb:57: syntax error, unexpected ')'
+app/views/coins/show.html.erb:138: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/show.html.erb:140: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (57.7ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:19:23 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.0ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected '='
+...;@output_buffer.append=( class="price-up" if @one_hour_up en...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected keyword_end, expecting ')'
+...="price-up" if @one_hour_up end );@output_buffer.safe_append...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:138: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:140: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/show.html.erb:57: syntax error, unexpected '='
+app/views/coins/show.html.erb:57: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/show.html.erb:138: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/show.html.erb:140: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.0ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:21:52 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 0.9ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected =>, expecting ')'
+...utput_buffer.append=( :class => "up" ? @one_day_up );@output...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected ')', expecting ':'
+... :class => "up" ? @one_day_up );@output_buffer.safe_append='...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:138: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:140: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/show.html.erb:57: syntax error, unexpected =>, expecting ')'
+app/views/coins/show.html.erb:57: syntax error, unexpected ')', expecting ':'
+app/views/coins/show.html.erb:138: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/show.html.erb:140: syntax error, unexpected keyword_end, expecting ')'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.6ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:22:22 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+...uffer.append=( if @one_day_up "up" );@output_buffer.safe_app...
+...                               ^):
+  
+app/views/coins/show.html.erb:57: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (54.5ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:22:34 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/show.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+...ffer.append=( if @one_day_up up );@output_buffer.safe_append...
+...                               ^):
+  
+app/views/coins/show.html.erb:57: syntax error, unexpected tIDENTIFIER, expecting keyword_then or ';' or '\n'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (52.4ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:22:41 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/show.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+...uffer.append=( if @one_day_up 'up' );@output_buffer.safe_app...
+...                               ^):
+  
+app/views/coins/show.html.erb:57: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (55.3ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:22:44 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/show.html.erb:57: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+...uffer.append=( if @one_day_up 'up' );@output_buffer.safe_app...
+...                               ^):
+  
+app/views/coins/show.html.erb:57: syntax error, unexpected tSTRING_BEG, expecting keyword_then or ';' or '\n'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (60.2ms)
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:23:58 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.0ms)
+  Rendered coins/show.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_rails_default.html.erb (62.1ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 115ms (Views: 91.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:24:41 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.5ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (0.8ms)
+  Rendered coins/show.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_rails_default.html.erb (37.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 63ms (Views: 58.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:24:57 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (0.7ms)
+  Rendered coins/show.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_rails_default.html.erb (27.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 72ms (Views: 46.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:25:27 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.5ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (0.8ms)
+  Rendered coins/show.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_rails_default.html.erb (1993.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2019ms (Views: 2014.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:26:06 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.5ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (0.7ms)
+  Rendered coins/show.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_rails_default.html.erb (1851.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1877ms (Views: 1874.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/ethereum" for ::1 at 2016-07-27 18:26:28 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"ethereum"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "ethereum"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.1ms)
+  Rendered coins/show.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_rails_default.html.erb (1761.1ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1788ms (Views: 1784.8ms | ActiveRecord: 0.2ms)
+
+

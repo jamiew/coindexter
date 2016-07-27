@@ -54,7 +54,7 @@
 						<h6>1d</h6>
 					</div>
 					<div class="col-md-8 data">
-						<p><%= @coin.one_day_price_change %>%</p>
+						<p class=<%= @one_day_up %>><%= @coin.one_day_price_change %>%</p>
 					</div>
 				</div>
 				<div class="row">
@@ -62,7 +62,7 @@
 						<h6>1h</h6>
 					</div>
 					<div class="col-md-8 data">
-						<p><%= @coin.one_hour_price_change %>%</p>
+						<p class=<%= @one_hour_up %>><%= @coin.one_hour_price_change %>%</p>
 					</div>
 				</div>
 				<div class="row">
