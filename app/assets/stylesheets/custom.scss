@@ -60,6 +60,12 @@ footer {
 			@include small-case;
 		}
 	}
+	clear:both;
+	height: 60px;
+}
+
+.push {
+	height:60px;
 }
 
 a {
@@ -193,7 +199,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .edit_coin, .new_coin {
+.coin-info-block, .edit_coin, .new_coin, .sign-in-up {
 	margin-bottom:37px;
 	.row {
 		&:last-child {
@@ -329,7 +335,7 @@ ul#info-menu {
 	}
 }
 
-form.edit_coin, form.new_coin {
+form.edit_coin, form.new_coin, .sign-in-up {
 	padding-left:40px;
 	.row {
 		div[class*='col-'] {

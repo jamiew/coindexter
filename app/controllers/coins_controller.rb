@@ -3,6 +3,7 @@ class CoinsController < ApplicationController
 	def index
 		page_title = "Coins"
 		@coins = Coin.all
+		@user = session[:userinfo]["info"]["name"]
 	end
 
 	def show

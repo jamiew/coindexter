@@ -1,5 +1,6 @@
 <div class="row">
 	<div class="col-md-6">
+		<h2>Welcome <%= @user %></h2>
 		<ul>
 			<% @coins.each do |coin| %>
 				<li><%= link_to coin.name, coin %> <%= link_to '[Edit]', edit_coin_path(coin.id) %> <%= link_to '[Delete]', coin, method: :delete, data: { confirm: "Are you sure?" } %></li> 
