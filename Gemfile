@@ -47,6 +47,9 @@ gem 'httparty'
 #schedule jobs 
 gem 'whenever', :require => false
 
+#authentication
+gem 'devise'
+
 group :production do 
 	gem 'pg'
 end

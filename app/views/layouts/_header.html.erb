@@ -15,10 +15,11 @@
 			    	</div>
 			    </li>
 			    <li>
-			    	<% if session[:userinfo].nil? %>
-			    		<%= link_to 'login', 'user_login_path' %>
+			    	<% if user_signed_in? %>
+			    		<%= link_to 'login', '/sign_up' %>
 			    	<% else %>
-			    		<h6><%= session[:userinfo]["info"]["name"] %><h6>
+			    		<%= link_to 'login', '/sign_up' %>
+			    		<!-- <h6>placeholder<h6> -->
 					<% end %>
 			    </li>
 			</ul>

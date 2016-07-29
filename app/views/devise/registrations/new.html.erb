@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 main">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class => 'sign-in-up'}) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <h1>Sign up</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 label">
+          <%= f.label :email %>
+        </div>
+        <div class="col-md-8">
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 label">
+          <%= f.label :password %><br />
+          <% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+        <div class="col-md-8">
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 label">
+          <%= f.label 'Confirm password' %><br />
+        </div>
+        <div class="col-md-8">
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <%= f.submit "Sign up" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <h1>Or <%= render "devise/shared/links"%></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <h6>or, sign up with...</h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <button class="signin-twitter">Sign in with Twitter</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-4">
+          <button class="signin-facebook">Sign in with Facebook</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
