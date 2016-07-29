@@ -35,8 +35,6 @@ gem 'bootstrap-sass', '3.3.6'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
-gem 'omniauth', '~> 1.3'
-gem 'omniauth-auth0', '~> 1.4'
 
 # url slugs
 gem 'friendly_id', '~> 5.1.0'
@@ -49,6 +47,15 @@ gem 'whenever', :require => false
 
 #authentication
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'twitter'
+gem 'omniauth-google-oauth2'
+gem 'google-api-client'
+
+#environmental variables
+gem 'dotenv-rails', :groups => [:development, :test]
 
 group :production do 
 	gem 'pg'

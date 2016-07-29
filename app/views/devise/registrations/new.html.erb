@@ -39,26 +39,7 @@
           <%= f.submit "Sign up" %>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-4">
-          <h1>Or <%= render "devise/shared/links"%></h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-4">
-          <h6>or, sign up with...</h6>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-4">
-          <button class="signin-twitter">Sign in with Twitter</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8 col-md-offset-4">
-          <button class="signin-facebook">Sign in with Facebook</button>
-        </div>
-      </div>
+      <%= render "devise/shared/links"%>
     <% end %>
   </div>
 </div>

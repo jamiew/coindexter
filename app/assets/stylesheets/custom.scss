@@ -15,6 +15,9 @@ $concept-outer: #EB3333;
 $concept-inner: #F56565; 
 $pre-production-outer: #EBCB33;
 $pre-production-inner: #F5DC65;
+$twitter: rgb(29,161,242);
+$facebook: rgb(59,89,152);
+$google: rgb(221,75,57);
 
 
 @mixin small-case {
@@ -54,8 +57,12 @@ body {
 	height: 100%;
 }
 
+.main {
+	border-left: 1px solid $border-orange;
+}
+
 #wrap {
-	min-height:80%;
+	min-height:90%;
 	height: auto !important;
 	margin: 0 auto -60px;
 }
@@ -205,7 +212,6 @@ ul#info-menu {
 }
 
 .coin-info-block, .edit_coin, .new_coin, .sign-in-up {
-	border-left: 1px solid $border-orange;
 	margin-bottom:111px;
 	.row {
 		&:last-child {
@@ -224,6 +230,18 @@ ul#info-menu {
 				font-style:normal;
 			}
 		}
+		.already-have-account {
+			margin-top:24px;
+			h6 {
+				margin-top:12px;
+			}
+
+		}
+
+		.social-sign-in {
+			margin-bottom:-12px;
+		}
+
 		div[class*='col-'] {
 			p {
 				margin: 0;
@@ -231,11 +249,47 @@ ul#info-menu {
 			h6, label {
 				margin: -2px 0 0 0;
 				font-family: 'WhitneyHTF-MediumSC';
-				color: $primary-orange;
+				color: $text;
 				font-size: 18px;
 				span {
 					color: $text-light;
 				}
+				/* text-transform:downcase; */
+				.oauth-signin {
+					padding: 8px 16px 9px 44px;
+					border-radius: 4px;
+					background-repeat: no-repeat;
+					background-position: left 8px top 6px;
+					background-size: 26px 26px;
+					color:white;
+					margin-top: -12px;
+				}
+				.twitter {
+					border: 2px solid $twitter;
+					background-color: $twitter;
+					background-image: url("twitter.png");
+				}
+				.facebook {
+					border: 2px solid $facebook;
+					background-color: $facebook;
+					background-image: url("facebook.png");
+				}
+				.google {
+					border: 2px solid $google;
+					background-color: $google;
+					background-image: url("google.png");
+				}
+				.coindexter-signin {
+					border: 2px solid $primary-orange;
+					background-color: $primary-orange;
+					background-image: url("logo-button-white.png");
+				}
+			}
+			.sign-in-alternative {
+				margin-bottom:-27px;
+			}
+			.sign-in-change {
+				margin-bottom:-15px;
 			}
 			label {
 				margin-top: 13px;
@@ -252,12 +306,13 @@ ul#info-menu {
 				border-radius:4px;
 				background-color: #fff;
 				&[type=checkbox] {
-					margin: 17px 0 0 0;
-				    width: 14px;
-				    height: 14px;
+					/* margin: 17px 0 0 0;
+				     width: 14px;
+				    height: 14px; */
+				    width: initial;
 				}
 				&[type=submit] {
-					background: $primary-blue;		
+					background: $primary-orange;		
 					color:white;
 				}
 				&[type=file] {
@@ -283,7 +338,7 @@ ul#info-menu {
 			h1 {
 				font-family: WhitneyHTF-Bold;
 				font-size:24px;
-				color: $primary-orange;
+				color: $text;
 			}
 
 			img#coin-logo {
