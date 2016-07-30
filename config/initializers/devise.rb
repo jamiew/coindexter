@@ -267,6 +267,6 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   config.omniauth :twitter, ENV['TWITTER_PUBLIC'], ENV['TWITTER_SECRET']
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'], scope: "email"
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: "email"
   config.omniauth :google_oauth2, ENV['GOOGLE_PUBLIC'], ENV['GOOGLE_SECRET'], scope: "email,profile,offline", prompt: "consent"
 end
