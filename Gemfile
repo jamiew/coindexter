@@ -52,7 +52,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'twitter'
 gem 'omniauth-google-oauth2'
-gem 'google-api-client'
 
 #environmental variables
 gem 'dotenv-rails', :groups => [:development, :test]
