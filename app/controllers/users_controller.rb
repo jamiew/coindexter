@@ -33,4 +33,12 @@ class UsersController < ApplicationController
   def show
     @coin = User.friendly.find(params[:id])
   end
+
+  def verify
+    respond_to do |format|
+        format.html { render 'googlefa776d738ee14df5'}
+        format.js
+        format.json
+    end 
+  end
 end
