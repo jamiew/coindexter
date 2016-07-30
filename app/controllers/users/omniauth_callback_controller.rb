@@ -1,4 +1,4 @@
-class OmniauthCallbackController < Devise::OmniauthCallbacksController
+class Users::OmniauthCallbackController < Devise::OmniauthCallbacksController
 
   def facebook
     generic_callback( 'facebook' )
@@ -13,6 +13,7 @@ class OmniauthCallbackController < Devise::OmniauthCallbacksController
   end
 
   def generic_callback( provider )
+    logger.info env["omniauth.auth"]
     @identity = Identity.find_for_oauth env["omniauth.auth"]
 
     @user = @identity.user || current_user
