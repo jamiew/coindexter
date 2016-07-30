@@ -12,6 +12,4 @@ Rails.application.routes.draw do
 
   devise_scope :user do get "/signup" => "devise/registrations#new" end
 
-  match 'googlefa776d738ee14df5.html', to: "users#verify", via: "get"
-
 end
