@@ -1,4 +1,4 @@
-class Users::OmniauthCallbackController < Devise::OmniauthCallbacksController
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     generic_callback( 'facebook' )
