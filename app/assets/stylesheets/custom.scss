@@ -267,22 +267,22 @@ ul#info-menu {
 				.twitter {
 					border: 2px solid $twitter;
 					background-color: $twitter;
-					background-image: url("twitter.png");
+					background-image: image-url("twitter.png");
 				}
 				.facebook {
 					border: 2px solid $facebook;
 					background-color: $facebook;
-					background-image: url("facebook.png");
+					background-image: image-url("facebook.png");
 				}
 				.google {
 					border: 2px solid $google;
 					background-color: $google;
-					background-image: url("google.png");
+					background-image: image-url("google.png");
 				}
 				.coindexter-signin {
 					border: 2px solid $primary-orange;
 					background-color: $primary-orange;
-					background-image: url("logo-button-white.png");
+					background-image: image-url("logo-button-white.png");
 				}
 			}
 			.sign-in-alternative {
