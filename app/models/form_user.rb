@@ -9,6 +9,12 @@ class FormUser < User
   validates_confirmation_of :password, if: :password_required?
   validates_length_of       :password, within: Devise.password_length, allow_blank: true
 
+  validates_presence_of     :first_name, if: :name_required?
+  validates_confirmation_of :first_name, if: :name_required?
+
+  validates_presence_of     :last_name, if: :name_required?
+  validates_confirmation_of :last_name, if: :name_required?
+
   def password_required?
     return false if email.blank?
     !persisted? || !password.nil? || !password_confirmation.nil?
@@ -17,4 +23,9 @@ class FormUser < User
   def email_required?
     true
   end
+
+  def name_required?
+    true
+  end
+
 end

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.friendly.find(params[:id])
-    if @user.update_attributes(coin_params)
+    if @user.update_attributes(user_params)
         redirect_to @user
     else
         render 'edit'
