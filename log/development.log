@@ -43511,3 +43511,5 @@ Migrating to ChangeCoinNameInCoins (20160731124751)
             FROM sqlite_temp_master
             WHERE name='sqlite_autoindex_users_1' AND type='index'
 [0m
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
