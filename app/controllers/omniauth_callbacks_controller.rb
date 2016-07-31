@@ -18,7 +18,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = @identity.user || current_user
     if @user.nil?
-      @user = User.create( email: @identity.email || "", name: @identity.name || "")
+      first_name = @identity.name.split[0]
+      last_name = @identity.name.split[1]
+      @user = User.create( email: @identity.email || "", first_name: first_name || "", last_name: last_name || "")
       @identity.update_attribute( :user_id, @user.id )
     end
 
@@ -27,7 +29,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     if @user.name.blank? && @identity.name
-      @user.update_attribute( :name, @identity.name)
+      first_name = @identity.name.split[0]
+      last_name = @identity.name.split[1]
+      @user.update_attribute( :first_name => first_name, :last_name => last_name)
     end
 
     if @user.persisted?

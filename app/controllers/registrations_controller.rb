@@ -1,7 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  before_action :user_params, if: :devise_controller?
-
 	def update_resource(resource, params)
     if resource.encrypted_password.blank? # || params[:password].blank?
       resource.email = params[:email] if params[:email]
@@ -22,10 +20,6 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  private
-
-    def user_params 
-      params.require(:user).permit(:first_name, :last_name)
-    end
+ 
 
 end

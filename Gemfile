@@ -47,7 +47,7 @@ gem 'whenever', :require => false
 
 #authentication
 gem 'devise'
-gem 'omniauth'
+gem 'omniauth-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'twitter'
