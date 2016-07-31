@@ -16,7 +16,9 @@
 			    </li>
 			    <li>
 			    	<% if user_signed_in? %>
-			    		<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+			    		<%= link_to destroy_user_session_path, method: :delete do %>
+			    			<%= current_user.avatar? ? image_tag(current_user.avatar, size: '25x25', class: 'avatar') + current_user.first_name : 'Sign out' %>
+			    		<% end %>
 			    	<% else %>
 			    		<%= link_to 'login', '/signup' %>
 			    		<!-- <h6>placeholder<h6> -->

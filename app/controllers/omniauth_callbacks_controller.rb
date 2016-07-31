@@ -19,7 +19,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.nil?
       @existing_user = User.find_by_email(@identity.email) unless @identity.email.blank?
       if @existing_user.nil?
-        @user = User.create( email: @identity.email || nil, first_name: @name.first || nil, last_name: @name.last || nil )
+        @user = User.create( email: @identity.email || nil, first_name: @name.first || nil, last_name: @name.last || nil, remote_avatar_url: @identity.image || nil )
       else
         @user = @existing_user
         if @user.email.blank? && @identity.email
@@ -28,26 +28,17 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         if @user.first_name.blank?
           @user.update_attributes( :first_name => first_name(@identity.name), :last_name => last_name(@identity.name))
         end
+        @user.update_attribute( :remote_avatar_url, @identity.image)
       end
       @identity.update_attribute( :user_id, @user.id )
     end
 
     if @user.persisted?
-      if @user.avatar.blank?
-        # case provider 
-        #  when 'google_oauth2'
-        #    @user.update_attribute( :avatar => @identity[3][0])
-        logger.info "@identity is "
-        @identity.attributes.each_pair do |name, value| 
-          logger.info "#{name} = #{value}"
-        end
-        # end
-      end
-
       @identity.update_attribute( :user_id, @user.id )
       # This is because we've created the user manually, and Device expects a
       # FormUser class (with the validations)
       @user = FormUser.find @user.id
+      @user.update_attribute( :remote_avatar_url, @identity.image)
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: provider.capitalize) if is_navigational_format?
     else
