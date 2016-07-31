@@ -42509,3 +42509,1005 @@ app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
   Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
   Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.0ms)
+Started GET "/" for ::1 at 2016-07-31 08:20:29 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (1.5ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (53.1ms)
+Started GET "/" for ::1 at 2016-07-31 08:20:29 -0400
+  Rendered layouts/_rails_default.html.erb (104.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 223ms (Views: 192.1ms | ActiveRecord: 2.7ms)
+
+
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (1.0ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (31.1ms)
+  Rendered layouts/_rails_default.html.erb (56.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 136ms (Views: 111.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:20:32 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_rails_default.html.erb (67.1ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 118ms (Views: 93.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:20:34 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:20:34 -0400
+Started GET "/users/auth/google_oauth2/callback?state=d4fa17eca12787d82d7db92f75a0432d162e9c625975f3f8&code=4/_jmScRrwt0bF9gRZIfWGn3fECXQPW-LzPluoRjncekk" for ::1 at 2016-07-31 08:20:42 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"d4fa17eca12787d82d7db92f75a0432d162e9c625975f3f8", "code"=>"4/_jmScRrwt0bF9gRZIfWGn3fECXQPW-LzPluoRjncekk"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.2ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xA-Ivgp8Gq1VhP4eyGOGpZNw6YnfuMAc8ErGe6Ri097OlElnOUBFyX93KXsUTAw"], ["refreshtoken", "1/TVaQtFyJCU7-KTv-P97eDeoXVGygmCZ7bqgMi_oGbIE"], ["updated_at", 2016-07-31 12:20:42 UTC], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+#<OmniAuth::AuthHash credentials=#<OmniAuth::AuthHash expires=true expires_at=1469971242 refresh_token="1/TVaQtFyJCU7-KTv-P97eDeoXVGygmCZ7bqgMi_oGbIE" token="ya29.Ci8xA-Ivgp8Gq1VhP4eyGOGpZNw6YnfuMAc8ErGe6Ri097OlElnOUBFyX93KXsUTAw"> extra=#<OmniAuth::AuthHash id_info=#<OmniAuth::AuthHash at_hash="tnvgwW5blu1mPv_gOFtH-Q" aud="686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com" azp="686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com" email="jonathan.libov@gmail.com" email_verified=true exp=1469971242 iat=1469967642 iss="accounts.google.com" sub="111369675581474989131"> id_token="eyJhbGciOiJSUzI1NiIsImtpZCI6IjEzNjUxMDA0NTIwOGY0YjE3NDQ4MDM2ZTdkYTFiY2U4Y2Q4ZWY4NTYifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXRfaGFzaCI6InRudmd3VzVibHUxbVB2X2dPRnRILVEiLCJhdWQiOiI2ODYxNTcyMjE0MzItamIxOXF2ZXAya3JoN3BpZmRwZjZvdW9xczQ5cG5nMmsuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTEzNjk2NzU1ODE0NzQ5ODkxMzEiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiNjg2MTU3MjIxNDMyLWpiMTlxdmVwMmtyaDdwaWZkcGY2b3VvcXM0OXBuZzJrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiZW1haWwiOiJqb25hdGhhbi5saWJvdkBnbWFpbC5jb20iLCJpYXQiOjE0Njk5Njc2NDIsImV4cCI6MTQ2OTk3MTI0Mn0.Ay6LtN08403BQKH-yPBy9tF9xC1R2k5gZ-AiLKJyoqmog4TC_ipfW96pJbhjhvLNv5pJslRvYgnCdX89VgBxxPQWwG8vvXcgmk9dreO5mokc3qKifiU2HfF4j_Dvn4-swwCWTQYG1z6Zq1zXyGLlCG69jU8JexP2XIsBJqlDnCEMqyMJr8FHyB_51hlB7D5EqrkO5j-LZzQ-gJlGtTr1o27OHoYhFrPk86WFox9WLuDxKcy-upGj27pH-wTELME7bLs9DE_GToOe9h4O77K_mkZhGBAillxTjl-C4asqORS_Gwg3BTpscfTOotiYCO3z4K0g6qzxBYF-gLDNa43_TQ" raw_info=#<OmniAuth::AuthHash email="jonathan.libov@gmail.com" email_verified="true" family_name="Libov" gender="male" given_name="Jonathan" kind="plus#personOpenIdConnect" locale="en" name="Jonathan Libov" picture="https://lh5.googleusercontent.com/-hKwGq-29iv0/AAAAAAAAAAI/AAAAAAAACAk/DIIVEC9oHZw/photo.jpg?sz=50" profile="https://plus.google.com/111369675581474989131" sub="111369675581474989131">> info=#<OmniAuth::AuthHash::InfoHash email="jonathan.libov@gmail.com" first_name="Jonathan" image="https://lh5.googleusercontent.com/-hKwGq-29iv0/AAAAAAAAAAI/AAAAAAAACAk/DIIVEC9oHZw/photo.jpg" last_name="Libov" name="Jonathan Libov" urls=#<OmniAuth::AuthHash Google="https://plus.google.com/111369675581474989131">> provider="google_oauth2" uid="111369675581474989131">
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 2.8ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/omniauth_callbacks_controller.rb:28:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (71.2ms)
+Started GET "/" for ::1 at 2016-07-31 08:22:51 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (16.8ms)
+  Rendered layouts/_rails_default.html.erb (46.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 92ms (Views: 79.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:22:53 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_rails_default.html.erb (35.7ms)
+  Rendered layouts/_shim.html.erb (9.1ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 106ms (Views: 69.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:22:56 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:22:56 -0400
+Started GET "/users/auth/google_oauth2/callback?state=735b25c8f3bd5f04cd316d4706b8247f7844a733d5007131&code=4/RU2u8MowKwvAd8dEpihgHT5n1CEqVzEPckICaJ3j0a4" for ::1 at 2016-07-31 08:23:19 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"735b25c8f3bd5f04cd316d4706b8247f7844a733d5007131", "code"=>"4/RU2u8MowKwvAd8dEpihgHT5n1CEqVzEPckICaJ3j0a4"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.1ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xAyCBYN2lveF3cxFJ6PdaUamMw2-giTUj8RGxrimd05VicvmhLDqFhXjERHXnRw"], ["refreshtoken", "1/NuFyyy52bJol6r-7bLoXAO-Y9y993AM94Et-SMFdW1I"], ["updated_at", 2016-07-31 12:23:20 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 103ms (ActiveRecord: 2.2ms)
+
+
+  
+NoMethodError (undefined method `split_name' for #<OmniauthCallbacksController:0x007f9a8cfd4fe8>):
+  
+app/controllers/omniauth_callbacks_controller.rb:28:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (123.1ms)
+Started GET "/" for ::1 at 2016-07-31 08:23:44 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (21.2ms)
+  Rendered layouts/_rails_default.html.erb (44.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 96ms (Views: 85.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:23:46 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_rails_default.html.erb (75.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 146ms (Views: 101.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:23:47 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:23:48 -0400
+Started GET "/users/auth/google_oauth2/callback?state=f067fe992bbbbfa630bac4801e14d7ee72ab35d1c60f9ed3&code=4/sTaMfKAwdIovv-Y4OhR-Wz5n1CEqVzEPckICaJ3j0a4" for ::1 at 2016-07-31 08:23:52 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"f067fe992bbbbfa630bac4801e14d7ee72ab35d1c60f9ed3", "code"=>"4/sTaMfKAwdIovv-Y4OhR-Wz5n1CEqVzEPckICaJ3j0a4"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.2ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xA6Ssr8LXhqRAZEoFlyTkSAflKnFTd-1jFbqt_UDpGxjeJRxpui8AWd0GvOPAIQ"], ["refreshtoken", "1/2pHHSbqVre8gSUwxJgoEUFoCX8eDN8c33cR0PJoeJwM"], ["updated_at", 2016-07-31 12:23:53 UTC], ["id", 1]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 10.4ms)
+
+
+  
+NoMethodError (undefined method `first=' for "Jonathan Libov":String
+Did you mean?  first):
+  
+app/controllers/omniauth_callbacks_controller.rb:56:in `split_name'
+app/controllers/omniauth_callbacks_controller.rb:28:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.1ms)
+Started GET "/" for ::1 at 2016-07-31 08:27:35 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (19.8ms)
+  Rendered layouts/_rails_default.html.erb (68.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 113ms (Views: 103.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:27:37 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (7.1ms)
+  Rendered layouts/_rails_default.html.erb (37.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 100ms (Views: 60.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:27:40 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:27:40 -0400
+Started GET "/users/auth/google_oauth2/callback?state=a93f20e01a435c1d4eb3d936a70e0b4971375e85981aa977&code=4/1vHtFbU9XTBs4asLmA3-HQcqC9_Bp5AkfKXdVvPNNM0" for ::1 at 2016-07-31 08:27:45 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"a93f20e01a435c1d4eb3d936a70e0b4971375e85981aa977", "code"=>"4/1vHtFbU9XTBs4asLmA3-HQcqC9_Bp5AkfKXdVvPNNM0"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.1ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xA8DjgdoPjeLcbA0E7cCvqQ52qbsFUxTdF654lRq08GhSnLSeOeuWuFLlXe-E1w"], ["refreshtoken", "1/SRHop_BTlFPk1wc_bbRbKJ-ZxHome4zuSnwvK60dKdg"], ["updated_at", 2016-07-31 12:27:46 UTC], ["id", 1]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "first_name", "last_name") VALUES (?, ?, ?, ?, ?)[0m  [["email", "jonathan.libov@gmail.com"], ["created_at", 2016-07-31 12:27:46 UTC], ["updated_at", 2016-07-31 12:27:46 UTC], ["first_name", "Jonathan"], ["last_name", "Libov"]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 11.2ms)
+
+
+  
+ActiveRecord::RecordNotUnique (SQLite3::ConstraintException: UNIQUE constraint failed: users.email: INSERT INTO "users" ("email", "created_at", "updated_at", "first_name", "last_name") VALUES (?, ?, ?, ?, ?)):
+  
+app/controllers/omniauth_callbacks_controller.rb:28:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (13.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.0ms)
+Started GET "/" for ::1 at 2016-07-31 08:29:42 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (16.5ms)
+  Rendered layouts/_rails_default.html.erb (43.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 91ms (Views: 80.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 08:29:42 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (4.9ms)
+  Rendered layouts/_rails_default.html.erb (89.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 118ms (Views: 114.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:29:44 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_rails_default.html.erb (33.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 98ms (Views: 60.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:29:45 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:29:45 -0400
+Started GET "/users/auth/google_oauth2/callback?state=3678d0da613c4e18a84f157825e1102f2294d9a159ad5de8&code=4/puZgWO3PCpyYoz2LdMO4DYCKUJl6VD5bPYSIINHpg4A" for ::1 at 2016-07-31 08:29:50 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"3678d0da613c4e18a84f157825e1102f2294d9a159ad5de8", "code"=>"4/puZgWO3PCpyYoz2LdMO4DYCKUJl6VD5bPYSIINHpg4A"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.2ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xA5uBvSQCEdQFyRLHL5PukIl-zq8IURfKuY0z5-qbSWXj94kKmTqf2BSOVglf2g"], ["refreshtoken", "1/JqZ5N-7hZBTgFblzOTwjOrUqDhc5Yv4ACqs5Jl6R4DQ"], ["updated_at", 2016-07-31 12:29:51 UTC], ["id", 1]]
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (12.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 22.2ms)
+
+
+  
+NoMethodError (undefined method `name' for #<User:0x007f9a9251ed00>):
+  
+app/controllers/omniauth_callbacks_controller.rb:30:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (58.5ms)
+Started GET "/" for ::1 at 2016-07-31 08:31:13 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (15.7ms)
+  Rendered layouts/_rails_default.html.erb (42.2ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 98ms (Views: 86.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:31:15 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_rails_default.html.erb (41.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 114ms (Views: 67.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:31:17 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:31:17 -0400
+Started GET "/users/auth/google_oauth2/callback?state=250c8ac8205ced15e4fe9badef1e61461fbb1623ec43807a&code=4/aJATOjbiTbTSFPjBtSSjqVWtJj-rVhLLY83mWD4Cz9Y" for ::1 at 2016-07-31 08:31:22 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"250c8ac8205ced15e4fe9badef1e61461fbb1623ec43807a", "code"=>"4/aJATOjbiTbTSFPjBtSSjqVWtJj-rVhLLY83mWD4Cz9Y"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.1ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xAzTj0KY-pDm2TaY7kzGD_zmW0u2sS2Qp-70OoQn4iLPMdlBMO_ux-kijF3PLfA"], ["refreshtoken", "1/QCrN44ZfBdT3qJHodQhld1s9xNIFZXpoycpf1WWQME0"], ["updated_at", 2016-07-31 12:31:22 UTC], ["id", 1]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (26.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 36.0ms)
+
+
+  
+NoMethodError (undefined method `split_name' for #<OmniauthCallbacksController:0x007f9a9245c340>
+Did you mean?  last_name):
+  
+app/controllers/omniauth_callbacks_controller.rb:31:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (151.6ms)
+Started GET "/" for ::1 at 2016-07-31 08:31:42 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (13.4ms)
+  Rendered layouts/_rails_default.html.erb (27.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 58ms (Views: 50.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:31:43 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.4ms)
+  Rendered layouts/_rails_default.html.erb (41.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 95ms (Views: 64.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:31:45 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:31:45 -0400
+Started GET "/users/auth/google_oauth2/callback?state=e304a0768e14057e5477bcf6ee7194c26464bc01a1b1138a&code=4/DJ2tXekt2Z6aH_T-Dxc3eqsd0a_GhKx1PDRZ2kKlZPg" for ::1 at 2016-07-31 08:31:49 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"e304a0768e14057e5477bcf6ee7194c26464bc01a1b1138a", "code"=>"4/DJ2tXekt2Z6aH_T-Dxc3eqsd0a_GhKx1PDRZ2kKlZPg"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.1ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xAxBZhdfe6Hu7QO91xof5cgvYx8EfW7uan1XrK1xuuXIUghxon1y1w9Wo_1bf4w"], ["refreshtoken", "1/OWs5zNGfja_EvRIOAVbTvkOxM2EP6N8c2FkwBvb4v_8"], ["updated_at", 2016-07-31 12:31:50 UTC], ["id", 1]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 10.9ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 1, expected 2)):
+  
+app/controllers/omniauth_callbacks_controller.rb:30:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (61.3ms)
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2016-07-31 08:33:11 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (31.9ms)
+  Rendered layouts/_rails_default.html.erb (102.0ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 182ms (Views: 158.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 08:33:12 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_rails_default.html.erb (63.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 138ms (Views: 93.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:33:14 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 08:33:14 -0400
+Started GET "/users/auth/google_oauth2/callback?state=83beb1ac13dab0140900c93f71d9d3fcbbc6b53d9734b335&code=4/zbTSjCOSEd0GKx_nsZ_uS8wGQ7Sy0bNpy8WqswErVS0" for ::1 at 2016-07-31 08:33:19 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"83beb1ac13dab0140900c93f71d9d3fcbbc6b53d9734b335", "code"=>"4/zbTSjCOSEd0GKx_nsZ_uS8wGQ7Sy0bNpy8WqswErVS0"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.1ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.Ci8xA0OAj3mrtWzv_MlBdEEicmSt4Nls6jBNVErBgLtm5aJEytNq9miMnf47hlCfGg"], ["refreshtoken", "1/vf3BDa_DHvAU_7tKXv-2jtlL65VeFBV4ogxQDVwk0b4"], ["updated_at", 2016-07-31 12:33:21 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jonathan.libov@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "first_name" = ?, "last_name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["first_name", "Jonathan"], ["last_name", "Libov"], ["updated_at", 2016-07-31 12:33:21 UTC], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "identities" SET "user_id" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["user_id", 1], ["updated_at", 2016-07-31 12:33:21 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-07-31 12:33:21 UTC], ["current_sign_in_ip", "::1"], ["sign_in_count", 2], ["updated_at", 2016-07-31 12:33:21 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 40ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 08:33:21 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_rails_default.html.erb (46.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 71ms (Views: 68.3ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeEmail2InUsers (20160731123654)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "avatar" varchar, "first_name" varchar, "last_name" varchar, "full_name" varchar)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name")
+                     SELECT "id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name" FROM "users"[0m
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeEmail2InUsers (20160731123654)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeEmail2InUsers (20160731123654)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeEmail2InUsers (20160731123654)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeEmail2InUsers (20160731123654)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "avatar" varchar, "first_name" varchar, "last_name" varchar, "full_name" varchar)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name")
+                     SELECT "id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name" FROM "users"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeEmail2InUsers (20160731123654)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "avatar" varchar, "first_name" varchar, "last_name" varchar, "full_name" varchar)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name")
+                     SELECT "id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name" FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" unique DEFAULT '' NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "avatar" varchar, "first_name" varchar, "last_name" varchar, "full_name" varchar)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "users" ("id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name")
+                     SELECT "id","email","username","created_at","updated_at","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","avatar","first_name","last_name","full_name" FROM "ausers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35mSQL (8.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160731123654"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_type' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_identities_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_identities_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+[0m
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeEmail2InUsers (20160731123654)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeCoinNameInCoins (20160731124751)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeCoinNameInCoins (20160731124751)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_coins_on_name" ON "coins" ("name")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acoins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "coin_info" text, "coin_status" varchar, "price" decimal, "one_day_price_change" decimal, "volume" integer, "market_cap" integer(6), "application_name" varchar, "application_description" text, "application_status" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "logo" varchar, "application_url" varchar, "slug" varchar, "coinmarketcap_url" varchar, "available_supply" integer, "total_supply" integer, "one_hour_price_change" decimal, "has_application" boolean DEFAULT 't')[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_name' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_acoins_on_name" ON "acoins" ("name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_acoins_on_category_id" ON "acoins" ("category_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "acoins" ("id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application")
+                     SELECT "id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application" FROM "coins"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "coins"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "coins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" unique, "coin_info" text, "coin_status" varchar, "price" decimal, "one_day_price_change" decimal, "volume" integer, "market_cap" integer(6), "application_name" varchar, "application_description" text, "application_status" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "logo" varchar, "application_url" varchar, "slug" varchar, "coinmarketcap_url" varchar, "available_supply" integer, "total_supply" integer, "one_hour_price_change" decimal, "has_application" boolean DEFAULT 't')[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_acoins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_acoins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_acoins_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_acoins_on_name' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_coins_on_category_id" ON "coins" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_coins_on_name" ON "coins" ("name")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "coins" ("id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application")
+                     SELECT "id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application" FROM "acoins"[0m
+  [1m[35m (8.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mCoin Load (2.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (2.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Load (0.1ms)[0m  [1m[34mSELECT "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC[0m  [["sluggable_id", 6], ["sluggable_type", "Coin"]]
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."id" = ?[0m  [["id", 5]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "coins" WHERE "coins"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeCoinNameInCoins (20160731124751)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_coins_on_name" ON "coins" ("name")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acoins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "coin_info" text, "coin_status" varchar, "price" decimal, "one_day_price_change" decimal, "volume" integer, "market_cap" integer(6), "application_name" varchar, "application_description" text, "application_status" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "logo" varchar, "application_url" varchar, "slug" varchar, "coinmarketcap_url" varchar, "available_supply" integer, "total_supply" integer, "one_hour_price_change" decimal, "has_application" boolean DEFAULT 't')[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_name' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_acoins_on_name" ON "acoins" ("name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_acoins_on_category_id" ON "acoins" ("category_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "acoins" ("id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application")
+                     SELECT "id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application" FROM "coins"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "coins"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "coins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" unique, "coin_info" text, "coin_status" varchar, "price" decimal, "one_day_price_change" decimal, "volume" integer, "market_cap" integer(6), "application_name" varchar, "application_description" text, "application_status" varchar, "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "logo" varchar, "application_url" varchar, "slug" varchar, "coinmarketcap_url" varchar, "available_supply" integer, "total_supply" integer, "one_hour_price_change" decimal, "has_application" boolean DEFAULT 't')[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_acoins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_acoins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_acoins_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_acoins_on_name' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_coins_on_category_id" ON "coins" ("category_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_coins_on_name" ON "coins" ("name")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "coins" ("id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application")
+                     SELECT "id","name","coin_info","coin_status","price","one_day_price_change","volume","market_cap","application_name","application_description","application_status","category_id","created_at","updated_at","logo","application_url","slug","coinmarketcap_url","available_supply","total_supply","one_hour_price_change","has_application" FROM "acoins"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acoins"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160731124751"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_name' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_name' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_coins_on_category_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_coins_1' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_type' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_slug_and_sluggable_type' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_friendly_id_slugs_on_sluggable_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_identities_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_identities_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='sqlite_autoindex_users_1' AND type='index'
+[0m

@@ -3,6 +3,8 @@ class Coin < ApplicationRecord
   mount_uploader :logo, LogoUploader
   extend FriendlyId
 
+  validates_uniqueness_of :name
+
   friendly_id :name, use: [:slugged, :history]
 
   def should_generate_new_friendly_id?

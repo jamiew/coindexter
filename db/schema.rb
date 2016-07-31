@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160730181748) do
+ActiveRecord::Schema.define(version: 20160731124751) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160730181748) do
   end
 
   create_table "coins", force: :cascade do |t|
-    t.string   "name"
+    t.         "name"
     t.text     "coin_info"
     t.string   "coin_status"
     t.decimal  "price"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20160730181748) do
     t.decimal  "one_hour_price_change"
     t.boolean  "has_application",                   default: true
     t.index ["category_id"], name: "index_coins_on_category_id"
+    t.index ["name"], name: "index_coins_on_name"
+    t.index ["name"], name: "sqlite_autoindex_coins_1", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -73,7 +75,7 @@ ActiveRecord::Schema.define(version: 20160730181748) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
+    t.         "email",                  default: "", null: false
     t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 20160730181748) do
     t.string   "last_name"
     t.string   "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "sqlite_autoindex_users_1", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
