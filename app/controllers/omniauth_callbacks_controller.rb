@@ -14,7 +14,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def generic_callback( provider )
     @identity = Identity.find_for_oauth env["omniauth.auth"]
-    logger.info env[@identity]
 
     @user = @identity.user || current_user
     if @user.nil?
@@ -34,6 +33,17 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     if @user.persisted?
+      if @user.avatar.blank?
+        # case provider 
+        #  when 'google_oauth2'
+        #    @user.update_attribute( :avatar => @identity[3][0])
+        logger.info "@identity is "
+        @identity.attributes.each_pair do |name, value| 
+          logger.info "#{name} = #{value}"
+        end
+        # end
+      end
+
       @identity.update_attribute( :user_id, @user.id )
       # This is because we've created the user manually, and Device expects a
       # FormUser class (with the validations)

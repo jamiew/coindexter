@@ -5,12 +5,6 @@ class CoinsController < ApplicationController
 	def index
 		page_title = "Coins"
 		@coins = Coin.all
-		logger.info ENV['GOOGLE_OAUTH2_APP_ID']
-		logger.info ENV['GOOGLE_OAUTH2_APP_SECRET']
-		logger.info ENV['TWITTER_APP_ID']
-		logger.info ENV['TWITTER_APP_SECRET']
-		logger.info "hey"
-
 	end
 
 	def show

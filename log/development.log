@@ -43562,3 +43562,863 @@ hey
 Completed 200 OK in 134ms (Views: 118.8ms | ActiveRecord: 2.6ms)
 
 
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started DELETE "/users/sign_out" for ::1 at 2016-07-31 17:42:09 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"t9O4SkmFxsHFB2oh1LAF0H/0X8RgdxXvODbB+NsSq6/feZUNuUKDbAQ1nadLDQk34Tb/MNu4dKA6dBIFSpKnhg=="}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:42:09 -0400
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (27.5ms)
+  Rendered layouts/_rails_default.html.erb (75.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (6.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 143ms (Views: 127.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:42:10 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (42.4ms)
+  Rendered layouts/_rails_default.html.erb (85.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 154ms (Views: 151.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:42:12 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:42:12 -0400
+Started GET "/users/auth/google_oauth2/callback?state=5532cecafe82d9a9cfc14956297b52285d7d6c2e8c61600e&code=4/Xoko2o3k5UXjkER9CRYqb7nrAccyldQwb3ytIDrsbIQ" for ::1 at 2016-07-31 17:42:16 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"5532cecafe82d9a9cfc14956297b52285d7d6c2e8c61600e", "code"=>"4/Xoko2o3k5UXjkER9CRYqb7nrAccyldQwb3ytIDrsbIQ"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.6ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "refreshtoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQxA2keGqF6P_WfC8jQkybXk9H8ibjUgkA9zc4WFEMvQbI2XB-YDzTHhu4yN3p_swL2kLK8"], ["refreshtoken", nil], ["updated_at", 2016-07-31 21:42:17 UTC], ["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-07-31 21:42:17 UTC], ["last_sign_in_at", 2016-07-31 12:33:21 UTC], ["last_sign_in_ip", "::1"], ["sign_in_count", 3], ["updated_at", 2016-07-31 21:42:17 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 60ms (ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:42:17 -0400
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_rails_default.html.erb (35.9ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.1ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started DELETE "/users/sign_out" for ::1 at 2016-07-31 17:43:52 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ePfXo4nKgFDyCP2y1pICtG3MWHVpC65bgoyjDgfCHaH139DCqaPwgbl/ZflaB2Hj9EXSThyfy8b1bcfafmr+kQ=="}
+  [1m[36mFormUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:43:52 -0400
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (25.5ms)
+  Rendered layouts/_rails_default.html.erb (83.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 139ms (Views: 129.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:43:54 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (16.9ms)
+  Rendered layouts/_rails_default.html.erb (59.4ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 109ms (Views: 103.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:43:56 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:43:56 -0400
+Started GET "/users/auth/google_oauth2/callback?state=edb278ab4f1acf0956614e6a3f3fa3066057ef57c848632e&code=4/AvpDIjBWAnP35LkGblyTLE5b_urZa-zQNF0_Wmro0ng" for ::1 at 2016-07-31 17:43:59 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"edb278ab4f1acf0956614e6a3f3fa3066057ef57c848632e", "code"=>"4/AvpDIjBWAnP35LkGblyTLE5b_urZa-zQNF0_Wmro0ng"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.4ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQxA6-mLKb23xXk_vPTKMlzgyDRJy82kdTAAzgsaVM7HRVViPvLJE_UT6lENgKxhgOmelvL"], ["updated_at", 2016-07-31 21:44:00 UTC], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/omniauth_callbacks_controller.rb:40:in `generic_callback'
+app/controllers/omniauth_callbacks_controller.rb:12:in `google_oauth2'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.5ms)
+Started GET "/" for ::1 at 2016-07-31 17:45:59 -0400
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (53.1ms)
+Started GET "/" for ::1 at 2016-07-31 17:45:59 -0400
+  Rendered layouts/_rails_default.html.erb (70.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 162ms (Views: 147.0ms | ActiveRecord: 1.7ms)
+
+
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (32.3ms)
+  Rendered layouts/_rails_default.html.erb (76.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 167ms (Views: 128.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:46:01 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_rails_default.html.erb (37.3ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 124ms (Views: 73.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:46:03 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:46:03 -0400
+Started GET "/users/auth/google_oauth2/callback?state=0b9f31da13cbdeabf6cc5a567a4bc942ba43bec9f183b143&code=4/B4WhG8pk_eyFX91atu8zq3mlE1D7TiwuAyfCmI8Su7c" for ::1 at 2016-07-31 17:46:05 -0400
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:65: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/omniauth_callbacks_controller.rb:65: syntax error, unexpected keyword_end, expecting end-of-input
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (64.5ms)
+Started GET "/" for ::1 at 2016-07-31 17:46:18 -0400
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (34.3ms)
+Started GET "/" for ::1 at 2016-07-31 17:46:18 -0400
+  Rendered layouts/_rails_default.html.erb (60.4ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 134ms (Views: 118.2ms | ActiveRecord: 1.7ms)
+
+
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.7ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (30.3ms)
+  Rendered layouts/_rails_default.html.erb (71.9ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 142ms (Views: 123.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:46:20 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_rails_default.html.erb (43.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 127ms (Views: 72.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:46:21 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:46:22 -0400
+Started GET "/users/auth/google_oauth2/callback?state=d9523a5c7501f291adc95db896132457d7dea53e31d45126&code=4/1sVcHBoEY6R_2K1CxazZBOMYTS1BWr79q6VIsWIO3vI" for ::1 at 2016-07-31 17:46:24 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"d9523a5c7501f291adc95db896132457d7dea53e31d45126", "code"=>"4/1sVcHBoEY6R_2K1CxazZBOMYTS1BWr79q6VIsWIO3vI"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.2ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQxAwQcMHk0zqcHqj_5ILML4hI7e9ojz2BXSluChk3x7vnyLFnBErZSphytEktf8q8nXeQS"], ["updated_at", 2016-07-31 21:46:24 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:17)
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+#<Identity:0x007fe254e706b0>
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-07-31 21:46:24 UTC], ["last_sign_in_at", 2016-07-31 21:42:17 UTC], ["sign_in_count", 4], ["updated_at", 2016-07-31 21:46:24 UTC], ["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:46:24 -0400
+Processing by CoinsController#index as HTML
+686157221432-jb19qvep2krh7pifdpf6ouoqs49png2k.apps.googleusercontent.com
+X5G4IL6-R34I72jJYEi5uFlV
+
+
+hey
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_rails_default.html.erb (37.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.7ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 61ms (Views: 58.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-07-31 17:48:13 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2ZeCF35XEyf0FG+D4RcjXUWp8usd0TalqxEpj/GJ5FjP50PjIm8HmwktpnxR4zqNMYydM0d9Is63qfTWnqnOYQ=="}
+  [1m[36mFormUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 37ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:48:13 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (18.9ms)
+  Rendered layouts/_rails_default.html.erb (68.6ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 140ms (Views: 129.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:48:14 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_rails_default.html.erb (57.5ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 95ms (Views: 92.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:48:17 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:48:17 -0400
+Started GET "/users/auth/google_oauth2/callback?state=c9b9e34ccb63b8d56d10924e0a69049bf4217a57a145ad41&code=4/c1T0AUrrU4ibN5Po1YHHOINxWlbBxiX6v8Qxjgjca2E" for ::1 at 2016-07-31 17:48:19 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"c9b9e34ccb63b8d56d10924e0a69049bf4217a57a145ad41", "code"=>"4/c1T0AUrrU4ibN5Po1YHHOINxWlbBxiX6v8Qxjgjca2E"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.2ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQxA8aOztIqJRSG0nbD0DR4rKB4GAU1gPt-Ty-7Ftkgi_yz98zX47PATlVl5AyyjsjXW7FG"], ["updated_at", 2016-07-31 21:48:20 UTC], ["id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+@identity is 
+#<Identity:0x007fe24c4f7cd0>
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-07-31 21:48:20 UTC], ["last_sign_in_at", 2016-07-31 21:46:24 UTC], ["sign_in_count", 5], ["updated_at", 2016-07-31 21:48:20 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 52ms (ActiveRecord: 6.9ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:48:20 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_rails_default.html.erb (45.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.6ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 69ms (Views: 67.0ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-07-31 17:48:41 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ori7s+6lsmw0DbtlsXVgNLom00LjjLrKBCRGkeLin73WWBVV13Uyysjm9NaWs09WXorpeVYulsl+AtFxuN6M4g=="}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:48:41 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (19.6ms)
+  Rendered layouts/_rails_default.html.erb (57.2ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 107ms (Views: 96.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:48:44 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.3ms)
+  Rendered layouts/_rails_default.html.erb (57.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 107ms (Views: 105.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:48:45 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:48:46 -0400
+Started GET "/users/auth/google_oauth2/callback?state=835854628e6132d087a54a2fee13e6deb4aad5fc56c428cd&code=4/RTxBA_Rwrs-o3QK-i6eeYoRmLbfgZ8W3gUhiUDbQqPU" for ::1 at 2016-07-31 17:48:49 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"835854628e6132d087a54a2fee13e6deb4aad5fc56c428cd", "code"=>"4/RTxBA_Rwrs-o3QK-i6eeYoRmLbfgZ8W3gUhiUDbQqPU"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.2ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQxA2b_no6vQ4kpP_cWGHzEKcC44yNxK0_uI9x9-7cHpkeRA3H-10T2s8unvjvy7oPRmMTI"], ["updated_at", 2016-07-31 21:48:49 UTC], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+@identity is 
+
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-07-31 21:48:49 UTC], ["last_sign_in_at", 2016-07-31 21:48:20 UTC], ["sign_in_count", 6], ["updated_at", 2016-07-31 21:48:49 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 35ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:48:49 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_rails_default.html.erb (70.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mFormUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 126ms (Views: 123.1ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-07-31 17:49:07 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mzS+0Zl9RWSUJ7RFUHx4BZNwrzERA4Ln+/JRAeg2EHyYkSyyjswtkshyQEpmwoFlAC4z5iqa6PQhZMpvzntNlQ=="}
+  [1m[36mFormUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 32ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:49:07 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (27.7ms)
+  Rendered layouts/_rails_default.html.erb (96.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 158ms (Views: 146.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:49:09 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_rails_default.html.erb (44.4ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (6.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 90ms (Views: 88.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:49:11 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:49:11 -0400
+Started GET "/users/auth/google_oauth2/callback?state=ab9af2d21bb405bce8f813938875f65b209cf75e10fe8b8d&code=4/lfWmkLqV02bSZ-sdzY_rA0PGlpzyEDcgSBs95GFxjWc" for ::1 at 2016-07-31 17:49:14 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"ab9af2d21bb405bce8f813938875f65b209cf75e10fe8b8d", "code"=>"4/lfWmkLqV02bSZ-sdzY_rA0PGlpzyEDcgSBs95GFxjWc"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.1ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQxAzAgC1tcEFQ3UK6ne0r-YPKXv06MQumMRdjRZaOyCHz0mcq4Hwz4aLuHD5ltJ9c5MgAX"], ["updated_at", 2016-07-31 21:49:14 UTC], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+@identity is 
+Jonathan Libov
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-07-31 21:49:14 UTC], ["last_sign_in_at", 2016-07-31 21:48:49 UTC], ["sign_in_count", 7], ["updated_at", 2016-07-31 21:49:14 UTC], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:49:14 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_rails_default.html.erb (42.4ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 74ms (Views: 66.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:50:41 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.7ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (20.7ms)
+  Rendered layouts/_rails_default.html.erb (75.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (34.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 159ms (Views: 144.3ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-07-31 17:50:43 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kEPqZWnwkxS2A34b+17rQl5sKxDKJzdJMdPlAfL1PplyWiDB3ZR3E8DzqsLHtLDuhdyUD2vOiZfE1oYcNg1O7A=="}
+  [1m[36mFormUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:50:43 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_rails_default.html.erb (75.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 99ms (Views: 94.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:50:46 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (5.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_rails_default.html.erb (40.6ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 79ms (Views: 77.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:50:48 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-07-31 17:50:48 -0400
+Started GET "/users/auth/google_oauth2/callback?state=b361227c2822a6c307d2cdeb6015df0e6d1be16e0ccf655f&code=4/_rQQe_SazoHU1HhB9nsxDiq4yOUvNsCeeGSyUhgYsZU" for ::1 at 2016-07-31 17:50:51 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"b361227c2822a6c307d2cdeb6015df0e6d1be16e0ccf655f", "code"=>"4/_rQQe_SazoHU1HhB9nsxDiq4yOUvNsCeeGSyUhgYsZU"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.3ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQxA8yEJzbgMdkptvuUyFL21Xz7dmp3OneEL3OUSCoOqe73nAnY_4cIfQOepMGklk8UCcxO"], ["updated_at", 2016-07-31 21:50:52 UTC], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+@identity is 
+accesstoken = ya29.CjQxA8yEJzbgMdkptvuUyFL21Xz7dmp3OneEL3OUSCoOqe73nAnY_4cIfQOepMGklk8UCcxO
+refreshtoken = 
+name = Jonathan Libov
+email = jonathan.libov@gmail.com
+nickname = 
+image = https://lh5.googleusercontent.com/-hKwGq-29iv0/AAAAAAAAAAI/AAAAAAAACAk/DIIVEC9oHZw/photo.jpg
+phone = 
+urls = {"Google":"https://plus.google.com/111369675581474989131"}
+id = 1
+uid = 111369675581474989131
+provider = google_oauth2
+user_id = 1
+created_at = 2016-07-31 01:43:26 UTC
+updated_at = 2016-07-31 21:50:52 UTC
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2016-07-31 21:50:52 UTC], ["last_sign_in_at", 2016-07-31 21:49:14 UTC], ["sign_in_count", 8], ["updated_at", 2016-07-31 21:50:52 UTC], ["id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 48ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:50:52 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_rails_default.html.erb (37.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.4ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 61ms (Views: 57.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2016-07-31 17:51:32 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/zV4NrrihDuEZ/QttU17fqD+DCotb+9rHGfoliC7niXdVKtCbYLI60haMlE93yMXxRk+h0zibHJGJdD5gLqM0A=="}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:51:32 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_rails_default.html.erb (41.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 64ms (Views: 62.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:51:35 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_rails_default.html.erb (47.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 90ms (Views: 88.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for ::1 at 2016-07-31 17:51:37 -0400
+  
+OAuth::Unauthorized (400 Bad Request):
+  
+oauth (0.5.1) lib/oauth/consumer.rb:217:in `token_request'
+oauth (0.5.1) lib/oauth/consumer.rb:136:in `get_request_token'
+omniauth-oauth (1.1.0) lib/omniauth/strategies/oauth.rb:28:in `request_phase'
+omniauth-twitter (1.2.1) lib/omniauth/strategies/twitter.rb:61:in `request_phase'
+omniauth (1.3.1) lib/omniauth/strategy.rb:215:in `request_call'
+omniauth (1.3.1) lib/omniauth/strategy.rb:183:in `call!'
+omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (59.3ms)
+Started GET "/signup" for ::1 at 2016-07-31 17:51:58 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_rails_default.html.erb (46.4ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 79ms (Views: 78.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2016-07-31 17:52:01 -0400
+Started GET "/users/auth/facebook" for ::1 at 2016-07-31 17:52:01 -0400
+Started GET "/" for ::1 at 2016-07-31 17:52:49 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_rails_default.html.erb (76.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 112ms (Views: 110.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:52:49 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (5.3ms)
+  Rendered layouts/_rails_default.html.erb (72.5ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 104ms (Views: 100.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:52:51 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_rails_default.html.erb (48.9ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 87ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for ::1 at 2016-07-31 17:52:53 -0400
+Started GET "/users/auth/facebook" for ::1 at 2016-07-31 17:52:53 -0400
+Started GET "/" for ::1 at 2016-07-31 17:55:23 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_rails_default.html.erb (103.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 135ms (Views: 131.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2016-07-31 17:55:23 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_rails_default.html.erb (62.3ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 88ms (Views: 85.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/signup" for ::1 at 2016-07-31 17:55:27 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_rails_default.html.erb (55.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 99ms (Views: 97.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/twitter" for ::1 at 2016-07-31 17:55:29 -0400
+  
+OAuth::Unauthorized (400 Bad Request):
+  
+oauth (0.5.1) lib/oauth/consumer.rb:217:in `token_request'
+oauth (0.5.1) lib/oauth/consumer.rb:136:in `get_request_token'
+omniauth-oauth (1.1.0) lib/omniauth/strategies/oauth.rb:28:in `request_phase'
+omniauth-twitter (1.2.1) lib/omniauth/strategies/twitter.rb:61:in `request_phase'
+omniauth (1.3.1) lib/omniauth/strategy.rb:215:in `request_call'
+omniauth (1.3.1) lib/omniauth/strategy.rb:183:in `call!'
+omniauth (1.3.1) lib/omniauth/strategy.rb:164:in `call'
+warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+warden (1.2.6) lib/warden/manager.rb:34:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.0) lib/active_record/migration.rb:552:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.8ms)
+Started GET "/signup" for ::1 at 2016-07-31 17:55:32 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.7ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_rails_default.html.erb (52.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 87ms (Views: 85.5ms | ActiveRecord: 0.0ms)
+
+
