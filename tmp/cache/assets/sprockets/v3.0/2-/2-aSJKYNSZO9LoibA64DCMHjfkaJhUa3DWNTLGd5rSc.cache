@@ -1,0 +1,9 @@
+I"¥(function() {
+  jQuery(function() {
+    return $('.has_application').change(function() {
+      return $('.application-info').toggle();
+    });
+  });
+
+}).call(this);
+:ET

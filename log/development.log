@@ -50065,3 +50065,2608 @@ Processing by CoinsController#index as HTML
 Completed 200 OK in 367ms (Views: 363.8ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/" for ::1 at 2016-08-01 11:03:12 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_rails_default.html.erb (350.5ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 384ms (Views: 373.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2016-08-01 11:03:26 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (4.1ms)
+  Rendered layouts/_rails_default.html.erb (329.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 353ms (Views: 349.0ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" ORDER BY "coins"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2016-08-01 11:08:45 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  Rendered coins/index.html.erb within layouts/application (24.1ms)
+  Rendered layouts/_rails_default.html.erb (89.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (50.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 201ms (Views: 187.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/coins/2/edit" for ::1 at 2016-08-01 11:08:49 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "2"], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" INNER JOIN "friendly_id_slugs" ON "friendly_id_slugs"."sluggable_id" = "coins"."id" AND "friendly_id_slugs"."sluggable_type" = ? WHERE ("friendly_id_slugs"."sluggable_type" = 'Coin' AND "friendly_id_slugs"."slug" = '2') ORDER BY "coins"."id" ASC LIMIT ?[0m  [["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (73.4ms)
+  Rendered coins/edit.html.erb within layouts/application (76.4ms)
+  Rendered layouts/_rails_default.html.erb (42.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 185ms (Views: 141.8ms | ActiveRecord: 2.5ms)
+
+
+Started PATCH "/coins/steem" for ::1 at 2016-08-01 11:08:51 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qutfrWAMZ2VCAZa/FMaV244ZUkS/vXwqmTHRZkCLw/M6FMs3E2dwmEdXJG61nWB8knR3QUaMZNgjWi6GljNdSw==", "coin"=>{"name"=>"Steem", "coin_status"=>"Live", "coin_info"=>"Steem is an overvalued coin", "has_application"=>"1", "application_name"=>"SteemIt", "application_description"=>"Steem is a blockchain-based social media platform where anyone can earn rewards.", "application_status"=>"", "category_id"=>"1", "application_url"=>"http://steemit.com"}, "commit"=>"Submit changes", "id"=>"steem"}
+  [1m[36mFormUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 2], ["sluggable_type", "Coin"], ["slug", "steem"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Steem"], ["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "coins" SET "has_application" = ?, "updated_at" = ? WHERE "coins"."id" = ?[0m  [["has_application", true], ["updated_at", 2016-08-01 15:08:51 UTC], ["id", 2]]
+  [1m[36mFriendlyId::Slug Load (0.1ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 2], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/steem
+Completed 200 OK in 40ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/coins/steem" for ::1 at 2016-08-01 11:08:51 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.7ms)
+  Rendered coins/show.html.erb within layouts/application (44.1ms)
+  Rendered layouts/_rails_default.html.erb (44.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 124ms (Views: 117.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:08:57 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (0.8ms)
+  Rendered coins/show.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_rails_default.html.erb (37.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 63ms (Views: 59.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:08:58 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.1ms)
+  Rendered coins/edit.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_rails_default.html.erb (43.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 78ms (Views: 74.0ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/coins/bitcoin" for ::1 at 2016-08-01 11:09:01 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cN1EWQ2RUqocVydHnjViynvoDhSdAOmNQLbw/MBnEa/RI+arTjqzoj9CXF+1m5ABEbyqO4voD250oUh2cnmsgA==", "coin"=>{"name"=>"Bitcoin", "coin_status"=>"Live", "coin_info"=>"The world's #1 cryptocurrency", "has_application"=>"1", "application_name"=>"n/a", "application_description"=>"n/a", "application_status"=>"", "category_id"=>"3", "application_url"=>""}, "commit"=>"Submit changes", "id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Bitcoin"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE "coins" SET "has_application" = ?, "application_status" = ?, "updated_at" = ? WHERE "coins"."id" = ?[0m  [["has_application", true], ["application_status", ""], ["updated_at", 2016-08-01 15:09:01 UTC], ["id", 5]]
+  [1m[36mFriendlyId::Slug Load (0.2ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin
+Completed 200 OK in 20ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:09:01 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.7ms)
+  Rendered coins/show.html.erb within layouts/application (41.0ms)
+  Rendered layouts/_rails_default.html.erb (95.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 168ms (Views: 162.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:09:11 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.3ms)
+  Rendered coins/show.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (54.0ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 88ms (Views: 83.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:09:12 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.7ms)
+  Rendered coins/edit.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_rails_default.html.erb (43.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 68ms (Views: 64.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:09:51 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.6ms)
+  Rendered coins/edit.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_rails_default.html.erb (2234.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2268ms (Views: 2263.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:10:01 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.6ms)
+  Rendered coins/edit.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_rails_default.html.erb (2363.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2393ms (Views: 2387.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:12:58 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.1ms)
+  Rendered coins/edit.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_rails_default.html.erb (739.6ms)
+Completed 500 Internal Server Error in 780ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:15:3: unexpected if):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266518213520'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266501521920'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (10.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (126.6ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:13:32 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.5ms)
+  Rendered coins/edit.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_rails_default.html.erb (358.7ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 397ms (Views: 391.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:13:51 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (16.6ms)
+  Rendered coins/edit.html.erb within layouts/application (18.6ms)
+  Rendered layouts/_rails_default.html.erb (333.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 373ms (Views: 368.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:16:14 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (13.4ms)
+  Rendered coins/edit.html.erb within layouts/application (16.3ms)
+  Rendered layouts/_rails_default.html.erb (262.3ms)
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 2.1ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:15:1: unexpected indentation):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266419072920'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266449164580'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (61.3ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:16:28 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (9.3ms)
+  Rendered coins/edit.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_rails_default.html.erb (365.9ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 409ms (Views: 402.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:16:38 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.3ms)
+  Rendered coins/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (323.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 355ms (Views: 349.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:17:09 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.9ms)
+  Rendered coins/edit.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_rails_default.html.erb (266.3ms)
+Completed 500 Internal Server Error in 287ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:16:2: unexpected if):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266497944280'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266463128820'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (70.6ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:17:19 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.8ms)
+  Rendered coins/edit.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_rails_default.html.erb (345.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 378ms (Views: 370.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:17:35 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.8ms)
+  Rendered coins/edit.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_rails_default.html.erb (356.4ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 391ms (Views: 384.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:17:44 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.9ms)
+  Rendered coins/edit.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_rails_default.html.erb (44.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 72ms (Views: 67.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:18:23 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.5ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (9.5ms)
+  Rendered coins/edit.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_rails_default.html.erb (347.2ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 377ms (Views: 371.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:18:36 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.6ms)
+  Rendered coins/edit.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_rails_default.html.erb (340.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 369ms (Views: 363.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:18:44 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.1ms)
+  Rendered coins/edit.html.erb within layouts/application (8.5ms)
+  Rendered layouts/_rails_default.html.erb (337.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 370ms (Views: 364.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:18:49 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (10.0ms)
+  Rendered coins/edit.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_rails_default.html.erb (344.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 379ms (Views: 373.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:18:57 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (9.1ms)
+  Rendered coins/edit.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_rails_default.html.erb (56.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 94ms (Views: 85.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:19:04 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.6ms)
+  Rendered coins/edit.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_rails_default.html.erb (329.8ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 362ms (Views: 355.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:19:27 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.6ms)
+  Rendered coins/edit.html.erb within layouts/application (11.0ms)
+  Rendered layouts/_rails_default.html.erb (62.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 101ms (Views: 94.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:19:37 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.4ms)
+  Rendered coins/edit.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_rails_default.html.erb (40.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 67ms (Views: 62.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:20:10 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.6ms)
+  Rendered coins/edit.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_rails_default.html.erb (343.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 372ms (Views: 367.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:21:04 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (10.9ms)
+  Rendered coins/edit.html.erb within layouts/application (13.6ms)
+  Rendered layouts/_rails_default.html.erb (405.1ms)
+  Rendered layouts/_shim.html.erb (1.4ms)
+  Rendered layouts/_header.html.erb (8.3ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 463ms (Views: 454.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:21:12 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.7ms)
+  Rendered coins/edit.html.erb within layouts/application (11.2ms)
+  Rendered layouts/_rails_default.html.erb (349.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 386ms (Views: 381.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:21:15 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_rails_default.html.erb (46.8ms)
+  Rendered layouts/_shim.html.erb (1.9ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 78ms (Views: 74.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:21:34 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.5ms)
+  Rendered coins/edit.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_rails_default.html.erb (353.2ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 390ms (Views: 385.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:21:59 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (9.4ms)
+  Rendered coins/edit.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_rails_default.html.erb (2764.3ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2792ms (Views: 2787.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:22:28 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.5ms)
+  Rendered coins/edit.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_rails_default.html.erb (2328.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 2359ms (Views: 2354.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:22:46 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.2ms)
+  Rendered coins/edit.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_rails_default.html.erb (2234.8ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2266ms (Views: 2262.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:23:29 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.5ms)
+  Rendered coins/edit.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_rails_default.html.erb (2474.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2507ms (Views: 2502.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:24:12 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.6ms)
+  Rendered coins/edit.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_rails_default.html.erb (415.4ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 457ms (Views: 451.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/steem" for ::1 at 2016-08-01 11:24:18 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.2ms)
+  Rendered coins/show.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_rails_default.html.erb (56.8ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 89ms (Views: 84.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/coins/steem/edit" for ::1 at 2016-08-01 11:24:19 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.2ms)
+  Rendered coins/edit.html.erb within layouts/application (7.6ms)
+  Rendered layouts/_rails_default.html.erb (49.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 78ms (Views: 73.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/steem/edit" for ::1 at 2016-08-01 11:24:34 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.3ms)
+  Rendered coins/edit.html.erb within layouts/application (13.6ms)
+  Rendered layouts/_rails_default.html.erb (304.1ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 345ms (Views: 338.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/steem/edit" for ::1 at 2016-08-01 11:24:45 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_rails_default.html.erb (285.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 327ms (Views: 321.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/steem/edit" for ::1 at 2016-08-01 11:26:11 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_rails_default.html.erb (233.4ms)
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:15:23: unexpected identifier):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266514039580'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266520011520'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (67.2ms)
+Started GET "/coins/steem/edit" for ::1 at 2016-08-01 11:26:18 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.2ms)
+  Rendered coins/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (258.4ms)
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:15:38: unexpected ->):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266479118040'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266476548260'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (59.8ms)
+Started GET "/coins/steem/edit" for ::1 at 2016-08-01 11:27:55 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_rails_default.html.erb (339.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 372ms (Views: 366.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/steem/edit" for ::1 at 2016-08-01 11:30:35 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"steem"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "steem"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (12.0ms)
+  Rendered coins/edit.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_rails_default.html.erb (392.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 438ms (Views: 431.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:30:43 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_rails_default.html.erb (46.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 78ms (Views: 74.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:30:56 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.4ms)
+  Rendered coins/edit.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_rails_default.html.erb (333.3ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 363ms (Views: 358.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:31:05 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.0ms)
+  Rendered coins/edit.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_rails_default.html.erb (351.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 387ms (Views: 381.7ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/coins/bitcoin" for ::1 at 2016-08-01 11:31:11 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CoK6ge4uAGDnw0ehraOh5ESER3xbtTeuphRW8h4h6DerfBhzrYXhaMTWPLmGDVMvLtDjU01d0U2SA+54rD9VGA==", "coin"=>{"name"=>"Bitcoin", "coin_status"=>"Live", "coin_info"=>"The world's #1 cryptocurrency", "has_application"=>"0", "application_name"=>"n/a", "application_description"=>"n/a", "application_status"=>"", "category_id"=>"3", "application_url"=>""}, "commit"=>"Submit changes", "id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Bitcoin"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (8.1ms)[0m  [1m[33mUPDATE "coins" SET "has_application" = ?, "updated_at" = ? WHERE "coins"."id" = ?[0m  [["has_application", false], ["updated_at", 2016-08-01 15:31:11 UTC], ["id", 5]]
+  [1m[36mFriendlyId::Slug Load (0.2ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin
+Completed 200 OK in 47ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:31:11 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (2.0ms)
+  Rendered coins/show.html.erb within layouts/application (16.8ms)
+  Rendered layouts/_rails_default.html.erb (66.6ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mFormUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 122ms (Views: 117.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:31:15 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.8ms)
+  Rendered coins/edit.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_rails_default.html.erb (44.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 70ms (Views: 65.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:31:37 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (13.2ms)
+  Rendered coins/edit.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_rails_default.html.erb (102.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 146ms (Views: 139.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:32:19 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.6ms)
+  Rendered coins/edit.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_rails_default.html.erb (347.0ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 385ms (Views: 377.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:32:29 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.9ms)
+  Rendered coins/edit.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_rails_default.html.erb (300.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 333ms (Views: 328.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:32:33 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (5.9ms)
+  Rendered coins/edit.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_rails_default.html.erb (35.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 63ms (Views: 57.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:32:41 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.9ms)
+  Rendered coins/edit.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_rails_default.html.erb (286.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 313ms (Views: 309.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:33:16 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.3ms)
+  Rendered coins/edit.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_rails_default.html.erb (339.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 375ms (Views: 367.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:33:40 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.9ms)
+  Rendered coins/edit.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_rails_default.html.erb (323.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 354ms (Views: 348.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:34:27 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.5ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.0ms)
+  Rendered coins/edit.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_rails_default.html.erb (346.9ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (4.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 382ms (Views: 375.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:38:42 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (10.3ms)
+  Rendered coins/edit.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_rails_default.html.erb (329.0ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 373ms (Views: 365.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:38:53 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_rails_default.html.erb (310.2ms)
+  Rendered layouts/_shim.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 344ms (Views: 337.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:40:04 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.2ms)
+  Rendered coins/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (239.4ms)
+Completed 500 Internal Server Error in 261ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:16:5: unexpected .):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266481266040'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266449267520'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (77.3ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:42:36 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.9ms)
+  Rendered coins/edit.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_rails_default.html.erb (264.0ms)
+Completed 500 Internal Server Error in 287ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:16:5: unexpected .):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266501112420'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266274229780'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (68.9ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:42:40 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_rails_default.html.erb (268.9ms)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:16:5: unexpected .):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266298482740'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266283757580'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (66.4ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:42:51 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.9ms)
+  Rendered coins/edit.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_rails_default.html.erb (260.8ms)
+Completed 500 Internal Server Error in 287ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (SyntaxError: [stdin]:16:5: unexpected .):
+    1: <%= csrf_meta_tags %>
+    2: <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    3: <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    4: <script>
+    5:     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    6:     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  
+app/views/layouts/_rails_default.html.erb:3:in `_app_views_layouts__rails_default_html_erb___2384222214379860400_70266491011600'
+app/views/layouts/application.html.erb:6:in `_app_views_layouts_application_html_erb___3949879931212707414_70266518811560'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.4ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (69.8ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:43:02 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.6ms)
+  Rendered coins/edit.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_rails_default.html.erb (462.7ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 502ms (Views: 497.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/coins/bitcoin" for ::1 at 2016-08-01 11:43:08 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e38OPMJqclkb5Wt8zLax2O0T72YOFwNYPWxNcq++Z+bagazOgcGTUTjwEGTnGEMTh0dLSRj/5bsJe/X4HaDayQ==", "coin"=>{"name"=>"Bitcoin", "coin_status"=>"Live", "coin_info"=>"The world's #1 cryptocurrency", "has_application"=>"0", "application_name"=>"n/a", "application_description"=>"n/a", "application_status"=>"", "category_id"=>"3", "application_url"=>""}, "commit"=>"Submit changes", "id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Bitcoin"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mFriendlyId::Slug Load (0.1ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin
+Completed 200 OK in 19ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:43:08 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.7ms)
+  Rendered coins/show.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_rails_default.html.erb (55.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.4ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 114ms (Views: 93.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:43:11 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.6ms)
+  Rendered coins/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (38.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 67ms (Views: 62.6ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/coins/bitcoin" for ::1 at 2016-08-01 11:43:16 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"REzgKiCAJjlX85arndDnF0MzoU67L3WrqjIt4Rp713HlskLYYyvHMXTm7bO2fhXcKWcFYa3Hk0ieJZVrqGVqXg==", "coin"=>{"name"=>"Bitcoin", "coin_status"=>"Live", "coin_info"=>"The world's #1 cryptocurrency", "has_application"=>"0", "application_name"=>"n/a", "application_description"=>"n/a", "application_status"=>"", "category_id"=>"3", "application_url"=>""}, "commit"=>"Submit changes", "id"=>"bitcoin"}
+  [1m[36mFormUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Bitcoin"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mFriendlyId::Slug Load (0.2ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin
+Completed 200 OK in 42ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:43:16 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (0.9ms)
+  Rendered coins/show.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_rails_default.html.erb (61.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 98ms (Views: 93.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:43:20 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.2ms)
+  Rendered coins/edit.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_rails_default.html.erb (44.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 70ms (Views: 65.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:43:44 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (13.7ms)
+  Rendered coins/edit.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_rails_default.html.erb (47.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 151ms (Views: 87.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:44:43 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.8ms)
+  Rendered coins/edit.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_rails_default.html.erb (358.2ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 391ms (Views: 386.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:44:56 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.7ms)
+  Rendered coins/edit.html.erb within layouts/application (13.5ms)
+  Rendered layouts/_rails_default.html.erb (327.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 365ms (Views: 358.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:45:06 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_rails_default.html.erb (349.0ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 378ms (Views: 373.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:45:27 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.0ms)
+  Rendered coins/edit.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_rails_default.html.erb (344.4ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 380ms (Views: 374.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:45:39 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.8ms)
+  Rendered coins/edit.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_rails_default.html.erb (327.2ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 363ms (Views: 355.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:45:51 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (11.2ms)
+  Rendered coins/edit.html.erb within layouts/application (17.0ms)
+  Rendered layouts/_rails_default.html.erb (1010.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1069ms (Views: 1061.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:46:09 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.9ms)
+  Rendered coins/edit.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_rails_default.html.erb (332.5ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 372ms (Views: 364.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:46:26 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.7ms)
+  Rendered coins/edit.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_rails_default.html.erb (316.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 348ms (Views: 341.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:46:30 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (8.8ms)
+  Rendered layouts/_rails_default.html.erb (37.4ms)
+  Rendered layouts/_shim.html.erb (1.1ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 69ms (Views: 62.5ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/coins/bitcoin" for ::1 at 2016-08-01 11:46:35 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xFaCcQg38QkXtnMiOS3J/KNpxGz6kLnEMQxWFzuTVpRlqCCDS5wQATSjCDoSgzs3yT1gQ+x4XycFG+6diY3ruw==", "coin"=>{"name"=>"Bitcoin", "coin_status"=>"Live", "coin_info"=>"The world's #1 cryptocurrency", "has_application"=>"0", "application_name"=>"n/a", "application_description"=>"n/a", "application_status"=>"", "category_id"=>"3", "application_url"=>""}, "commit"=>"Submit changes", "id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Bitcoin"], ["id", 5], ["LIMIT", 1]]
+  [1m[36mFriendlyId::Slug Load (0.1ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin
+Completed 200 OK in 22ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:46:35 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.3ms)
+  Rendered coins/show.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_rails_default.html.erb (96.3ms)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 146ms (Views: 131.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:46:39 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.2ms)
+  Rendered coins/edit.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_rails_default.html.erb (41.2ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 68ms (Views: 63.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:46:49 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_rails_default.html.erb (349.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 381ms (Views: 376.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:47:01 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (10.1ms)
+  Rendered coins/edit.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_rails_default.html.erb (413.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 452ms (Views: 444.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:47:04 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.6ms)
+  Rendered coins/edit.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_rails_default.html.erb (53.9ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 83ms (Views: 78.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:47:14 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.6ms)
+  Rendered coins/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (340.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 370ms (Views: 365.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:47:20 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.1ms)
+  Rendered coins/edit.html.erb within layouts/application (10.1ms)
+  Rendered layouts/_rails_default.html.erb (361.2ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (4.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 395ms (Views: 390.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:47:24 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (1.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (10.9ms)
+  Rendered coins/edit.html.erb within layouts/application (13.7ms)
+  Rendered layouts/_rails_default.html.erb (57.3ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 98ms (Views: 88.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:47:25 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.5ms)
+  Rendered coins/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (46.9ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 75ms (Views: 71.2ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/coins/bitcoin" for ::1 at 2016-08-01 11:47:35 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9NyaTyglv3a2FqJ6+lLyoO8r6Aqcx0/yuLGr3TxGAl9VIji9a45efpUD2WLR/ABrhX9MJYovqRGMphNXjli/cA==", "coin"=>{"name"=>"Bitcoin", "coin_status"=>"Live", "coin_info"=>"The world's #1 cryptocurrency", "has_application"=>"1", "application_name"=>"n/a", "application_description"=>"n/a", "application_status"=>"", "category_id"=>"3", "application_url"=>""}, "commit"=>"Submit changes", "id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Bitcoin"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (8.0ms)[0m  [1m[33mUPDATE "coins" SET "has_application" = ?, "updated_at" = ? WHERE "coins"."id" = ?[0m  [["has_application", true], ["updated_at", 2016-08-01 15:47:35 UTC], ["id", 5]]
+  [1m[36mFriendlyId::Slug Load (0.2ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin
+Completed 200 OK in 35ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:47:36 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.4ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.5ms)
+  Rendered coins/show.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_rails_default.html.erb (347.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 416ms (Views: 408.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 11:47:36 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.1ms)
+  Rendered coins/show.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_rails_default.html.erb (38.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 75ms (Views: 71.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 11:47:41 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (29.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (10.1ms)
+  Rendered coins/edit.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_rails_default.html.erb (45.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 106ms (Views: 71.3ms | ActiveRecord: 29.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:25:57 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (9.0ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (5124.4ms)
+  Rendered coins/edit.html.erb within layouts/application (5151.0ms)
+Completed 500 Internal Server Error in 5465ms (ActiveRecord: 21.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `has_application' for #<#<Class:0x007fd05cbc7508>:0x007fd063b73be0>):
+    54: 			<%= f.label "Name", class: "form-label" %>
+    55: 		</div>
+    56: 		<div class="col-md-8">
+    57: 			<%= f.text_field :application_name, class: "form-input application-info", disabled: has_application %>
+    58: 		</div>
+    59: 	</div>
+    60: 	<div class="row application-info">
+  
+app/views/coins/_form.html.erb:57:in `block in _app_views_coins__form_html_erb__412076003376635540_70266285201960'
+app/views/coins/_form.html.erb:1:in `_app_views_coins__form_html_erb__412076003376635540_70266285201960'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266515366720'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (35.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (12.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (5.2ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (796.7ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:26:15 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (8.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (1.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (36.4ms)
+  Rendered coins/edit.html.erb within layouts/application (42.7ms)
+  Rendered layouts/_rails_default.html.erb (1678.2ms)
+  Rendered layouts/_shim.html.erb (2.1ms)
+  Rendered layouts/_header.html.erb (10.3ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1829ms (Views: 1802.4ms | ActiveRecord: 11.8ms)
+
+
+Started PATCH "/coins/bitcoin" for ::1 at 2016-08-01 14:26:23 -0400
+Processing by CoinsController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dzlAIejUcW9m6xsrW3s4g0bAFKV5qQs2RdUlOisDWZjWx+LTq3+QZ0X+YDNw1cpILJSwim9B7dVxwp2wmR3ktw==", "coin"=>{"name"=>"Bitcoin", "coin_status"=>"Live", "coin_info"=>"The world's #1 cryptocurrency", "has_application"=>"0", "application_description"=>"n/a", "application_status"=>"", "category_id"=>"3", "application_url"=>""}, "commit"=>"Submit changes", "id"=>"bitcoin"}
+  [1m[36mFormUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.5ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFriendlyId::Slug Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? AND "friendly_id_slugs"."slug" = ? LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["slug", "bitcoin"], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."name" = ? AND ("coins"."id" != ?) LIMIT ?[0m  [["name", "Bitcoin"], ["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[33mUPDATE "coins" SET "has_application" = ?, "updated_at" = ? WHERE "coins"."id" = ?[0m  [["has_application", false], ["updated_at", 2016-08-01 18:26:23 UTC], ["id", 5]]
+  [1m[36mFriendlyId::Slug Load (0.7ms)[0m  [1m[34mSELECT  "friendly_id_slugs".* FROM "friendly_id_slugs" WHERE "friendly_id_slugs"."sluggable_id" = ? AND "friendly_id_slugs"."sluggable_type" = ? ORDER BY "friendly_id_slugs".id DESC LIMIT ?[0m  [["sluggable_id", 5], ["sluggable_type", "Coin"], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin
+Completed 200 OK in 57ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 14:26:23 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (1.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (4.8ms)
+  Rendered coins/show.html.erb within layouts/application (46.9ms)
+  Rendered layouts/_rails_default.html.erb (193.3ms)
+  Rendered layouts/_shim.html.erb (1.5ms)
+  [1m[36mFormUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (52.5ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 496ms (Views: 428.2ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:26:30 -0400
+Processing by CoinsController#edit as JS
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.js.erb
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (27.8ms)
+  Rendered coins/edit.js.erb (47.5ms)
+Completed 200 OK in 126ms (Views: 104.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 14:28:08 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (3.6ms)
+  Rendered coins/show.html.erb within layouts/application (30.0ms)
+  Rendered layouts/_rails_default.html.erb (546.2ms)
+  Rendered layouts/_shim.html.erb (7.9ms)
+  [1m[36mFormUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (64.0ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 885ms (Views: 870.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:28:16 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (36.7ms)
+  Rendered coins/edit.html.erb within layouts/application (44.5ms)
+  Rendered layouts/_rails_default.html.erb (378.6ms)
+  Rendered layouts/_shim.html.erb (10.9ms)
+  Rendered layouts/_header.html.erb (29.0ms)
+  Rendered layouts/_footer.html.erb (1.3ms)
+Completed 200 OK in 568ms (Views: 548.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:29:04 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (190.7ms)
+  Rendered coins/edit.html.erb within layouts/application (207.0ms)
+  Rendered layouts/_rails_default.html.erb (10008.7ms)
+  Rendered layouts/_shim.html.erb (1.6ms)
+  Rendered layouts/_header.html.erb (10.5ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 10459ms (Views: 10437.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:29:47 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.9ms)
+  Rendered coins/edit.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_rails_default.html.erb (2092.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2119ms (Views: 2115.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 14:30:38 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (0.9ms)
+  Rendered coins/show.html.erb within layouts/application (6.4ms)
+  Rendered layouts/_rails_default.html.erb (72.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 99ms (Views: 96.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:31:48 -0400
+Processing by CoinsController#edit as JS
+  Parameters: {"id"=>"bitcoin"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:32:03 -0400
+Processing by CoinsController#edit as JS
+  Parameters: {"id"=>"bitcoin"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:32:38 -0400
+Processing by CoinsController#edit as JS
+  Parameters: {"id"=>"bitcoin"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:33:26 -0400
+Processing by CoinsController#edit as JS
+  Parameters: {"id"=>"bitcoin"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/coins/bitcoin" for ::1 at 2016-08-01 14:33:28 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_coin_main_info_header.html.erb (1.1ms)
+  Rendered coins/show.html.erb within layouts/application (10.3ms)
+  Rendered layouts/_rails_default.html.erb (53.4ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 89ms (Views: 78.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:33:33 -0400
+Processing by CoinsController#edit as JS
+  Parameters: {"id"=>"bitcoin"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:33:36 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-08-01 14:33:36 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+  Rendered layouts/_rails_default.html.erb (37.5ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 62ms (Views: 60.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2016-08-01 14:33:38 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_rails_default.html.erb (43.8ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 79ms (Views: 76.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-08-01 14:33:41 -0400
+Started GET "/users/auth/google_oauth2" for ::1 at 2016-08-01 14:33:41 -0400
+Started GET "/users/auth/google_oauth2/callback?state=66b7dabf5e320962b90cfe7fd7e1e62f5d36b42795c2215d&code=4/MEKTOaQTdcuxRqmvUk2NrzMGccez4EQdDaT41pkMadg" for ::1 at 2016-08-01 14:33:45 -0400
+Processing by OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"66b7dabf5e320962b90cfe7fd7e1e62f5d36b42795c2215d", "code"=>"4/MEKTOaQTdcuxRqmvUk2NrzMGccez4EQdDaT41pkMadg"}
+DEPRECATION WARNING: env is deprecated and will be removed from Rails 5.1 (called from generic_callback at /Users/jonathanlibov/Documents/coindexter/app/controllers/omniauth_callbacks_controller.rb:16)
+  [1m[36mIdentity Load (0.4ms)[0m  [1m[34mSELECT  "identities".* FROM "identities" WHERE "identities"."provider" = ? AND "identities"."uid" = ? LIMIT ?[0m  [["provider", "google_oauth2"], ["uid", "111369675581474989131"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIdentity Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "identities" WHERE "identities"."uid" = ? AND ("identities"."id" != ?) AND "identities"."provider" = ? LIMIT ?[0m  [["uid", "111369675581474989131"], ["id", 1], ["provider", "google_oauth2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "identities" SET "accesstoken" = ?, "updated_at" = ? WHERE "identities"."id" = ?[0m  [["accesstoken", "ya29.CjQyA5Anoqxqtd2Kuon_6oZJKAhetE5sbc0xzMwerTHBbTHt-ZV1hMfI_U1Rog_L0dV-7daB"], ["updated_at", 2016-08-01 18:33:46 UTC], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "avatar" = ? WHERE "users"."id" = ?[0m  [["updated_at", 2016-08-01 18:33:47 UTC], ["avatar", "photo.jpg"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ? WHERE "users"."id" = ?[0m  [["updated_at", 2016-08-01 18:33:47 UTC], ["sign_in_count", 24], ["current_sign_in_at", 2016-08-01 18:33:47 UTC], ["last_sign_in_at", 2016-08-01 04:09:46 UTC], ["id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/coins/bitcoin/edit
+Completed 302 Found in 1004ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:33:47 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.1ms)
+  Rendered coins/edit.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_rails_default.html.erb (34.7ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 60ms (Views: 55.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:34:15 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.2ms)
+  Rendered coins/edit.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_rails_default.html.erb (48.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 81ms (Views: 75.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:34:29 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (5.4ms)
+  Rendered coins/edit.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_rails_default.html.erb (40.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 65ms (Views: 61.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:35:23 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.6ms)
+  Rendered coins/edit.html.erb within layouts/application (9.0ms)
+  Rendered layouts/_rails_default.html.erb (33.5ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 63ms (Views: 57.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:36:01 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (10.0ms)
+  Rendered coins/edit.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_rails_default.html.erb (45.6ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 84ms (Views: 79.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:36:24 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.4ms)
+  Rendered coins/edit.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ',', expecting ')'
+...roduction"],["Live","Live"]])), include_blank: true, disable...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: Can't assign to true
+...Live"]])), include_blank: true, disabled: !@coin.has_applica...
+...                               ^):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ',', expecting ')'
+app/views/coins/_form.html.erb:73: Can't assign to true
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266478761560'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (82.5ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:36:48 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.1ms)
+  Rendered coins/edit.html.erb within layouts/application (8.3ms)
+  Rendered layouts/_rails_default.html.erb (36.8ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 64ms (Views: 60.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:37:04 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (2.2ms)
+  Rendered coins/edit.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ',', expecting ')'
+...Live"]]), include_blank: true), disabled: !@coin.has_applica...
+...                               ^):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ',', expecting ')'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266444500420'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (84.9ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:37:32 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.3ms)
+  Rendered coins/edit.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+...bled => !@coin.has_application) );@output_buffer.safe_append...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266285216300'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (63.5ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:37:51 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.3ms)
+  Rendered coins/edit.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ',', expecting =>
+...production"],["Live","Live"]]), include_blank: true) );@outp...
+...                               ^):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ',', expecting =>
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266304916760'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (9.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.7ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:37:55 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (5.8ms)
+  Rendered coins/edit.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_rails_default.html.erb (35.2ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 59ms (Views: 55.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:38:40 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.5ms)
+  Rendered coins/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+...sabled: !@coin.has_application) );@output_buffer.safe_append...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266503036960'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (70.7ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:38:46 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.2ms)
+  Rendered coins/edit.html.erb within layouts/application (2.6ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+...bled => !@coin.has_application) );@output_buffer.safe_append...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266482718160'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.9ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:38:58 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.3ms)
+  Rendered coins/edit.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.4ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+...bled => !@coin.has_application)} );@output_buffer.safe_appen...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266500670880'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (62.7ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:39:10 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.4ms)
+  Rendered coins/edit.html.erb within layouts/application (11.5ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.3ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+...sabled: !@coin.has_application)} );@output_buffer.safe_appen...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266474556600'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (68.7ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:39:16 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  Rendered coins/_form.html.erb (1.4ms)
+  Rendered coins/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.5ms)
+
+
+  
+SyntaxError (/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+...Live"]]), {include_blank: true)} );@output_buffer.safe_appen...
+...                               ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+'.freeze; end ;@output_buffer.to_s
+             ^
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+/Users/jonathanlibov/Documents/coindexter/app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'):
+  
+app/views/coins/_form.html.erb:73: syntax error, unexpected ')', expecting '}'
+app/views/coins/_form.html.erb:97: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/_form.html.erb:98: syntax error, unexpected keyword_ensure, expecting ')'
+app/views/coins/_form.html.erb:100: syntax error, unexpected keyword_end, expecting ')'
+app/views/coins/edit.html.erb:2:in `_app_views_coins_edit_html_erb___3336850735902292916_70266446239180'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (106.4ms)
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:39:25 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.3ms)
+  Rendered coins/edit.html.erb within layouts/application (8.9ms)
+  Rendered layouts/_rails_default.html.erb (39.6ms)
+  Rendered layouts/_shim.html.erb (0.3ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 68ms (Views: 63.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:39:34 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.5ms)
+  Rendered coins/edit.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_rails_default.html.erb (44.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 74ms (Views: 69.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:40:16 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (5.8ms)
+  Rendered coins/edit.html.erb within layouts/application (7.5ms)
+  Rendered layouts/_rails_default.html.erb (34.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 59ms (Views: 55.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:40:47 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (14.2ms)
+  Rendered coins/edit.html.erb within layouts/application (16.9ms)
+  Rendered layouts/_rails_default.html.erb (106.7ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (3.9ms)
+Completed 200 OK in 164ms (Views: 156.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:41:01 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (9.1ms)
+  Rendered coins/edit.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_rails_default.html.erb (2050.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 2089ms (Views: 2084.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:42:19 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (9.7ms)
+  Rendered coins/edit.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_rails_default.html.erb (331.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 364ms (Views: 359.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:42:34 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.3ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.9ms)
+  Rendered coins/edit.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_rails_default.html.erb (306.8ms)
+  Rendered layouts/_shim.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (4.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 344ms (Views: 336.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:42:43 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.7ms)
+  Rendered coins/edit.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_rails_default.html.erb (324.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 360ms (Views: 354.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:43:58 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.6ms)
+  Rendered coins/edit.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_rails_default.html.erb (274.2ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 307ms (Views: 303.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:44:12 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (6.4ms)
+  Rendered coins/edit.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_rails_default.html.erb (274.9ms)
+  Rendered layouts/_shim.html.erb (0.9ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 305ms (Views: 299.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:46:37 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.9ms)
+  Rendered coins/edit.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_rails_default.html.erb (297.6ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 324ms (Views: 320.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:48:35 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (8.8ms)
+  Rendered coins/edit.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_rails_default.html.erb (302.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 339ms (Views: 333.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bitcoin/edit" for ::1 at 2016-08-01 14:49:26 -0400
+Processing by CoinsController#edit as HTML
+  Parameters: {"id"=>"bitcoin"}
+  [1m[36mFormUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (0.1ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = ? ORDER BY "coins"."id" ASC LIMIT ?[0m  [["slug", "bitcoin"], ["LIMIT", 1]]
+  Rendering coins/edit.html.erb within layouts/application
+  [1m[36mCategory Load (0.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered coins/_form.html.erb (7.4ms)
+  Rendered coins/edit.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_rails_default.html.erb (50.2ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 81ms (Views: 76.6ms | ActiveRecord: 0.5ms)
+
+

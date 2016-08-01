@@ -6,8 +6,17 @@ jQuery ->
 	$text = $('.account').text()
 	$img = $('.account').find('img')
 	$('.account').mouseover ->
-			$(this).text ' Signout'
-			$(this).prepend $img 
+		$(this).text ' Signout'
+		$(this).prepend $img 
 	$('.account').mouseout ->
-			$(this).text $text
-			$(this).prepend $img 
+		$(this).text $text
+		$(this).prepend $img
+	$('.has-application').change ->
+		$('.application-info').prop 'disabled', false
+
+	
+
+
+
+	
+

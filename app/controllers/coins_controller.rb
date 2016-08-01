@@ -33,6 +33,7 @@ class CoinsController < ApplicationController
 	def edit
 		@use_ajax = true
 		@coin = Coin.friendly.find(params[:id])
+		#set_has_application(@coin)
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -42,6 +43,7 @@ class CoinsController < ApplicationController
 
 	def create
 		@coin = Coin.new(coin_params)
+		#set_has_application(@coin)
 	    if @coin.save
 	    	@coin.update_prices
 	    	@coin.save
@@ -53,6 +55,7 @@ class CoinsController < ApplicationController
 
 	def update
 		@coin = Coin.friendly.find(params[:id])
+		#set_has_application(@coin)
 	  	if @coin.update_attributes(coin_params)
 	    	redirect_to @coin
 		else
@@ -69,5 +72,11 @@ class CoinsController < ApplicationController
 	    def coin_params
 	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :has_application)
 	    end
+
+	    def set_has_application(coin)
+	    	unless @coin.application_url.nil? && @coin.application.name.nil? && application_description.nil?
+				@coin.has_application = true
+			end
+		end
 
 end

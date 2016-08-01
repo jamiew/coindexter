@@ -330,10 +330,17 @@ ul#info-menu {
 				border-radius:4px;
 				background-color: #fff;
 				&[type=checkbox] {
-					/* margin: 17px 0 0 0;
-				     width: 14px;
+					margin: 17px 0 0 0;
+				    /*  width: 14px;
 				    height: 14px; */
-				    width: initial;
+				    text-align:left;
+				    width:initial;
+				    &:active {
+				    	outline:none;
+				    }
+				    &:focus {
+				    	outline:none;
+				    }
 				}
 				&[type=submit] {
 					background: $primary-orange;		
@@ -342,6 +349,9 @@ ul#info-menu {
 				&[type=file] {
 					padding: 12px;
 					font-family: 'WhitneyHTF-Medium'
+				}
+				&:disabled {
+					opacity:0.6;
 				}
 			}
 			select {

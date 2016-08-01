@@ -1,0 +1,25 @@
+I""(function() {
+  jQuery(function() {
+    var $img, $text;
+    $text = $('.account').text();
+    $img = $('.account').find('img');
+    $('.account').mouseover(function() {
+      $(this).text(' Signout');
+      return $(this).prepend($img);
+    });
+    return $('.account').mouseout(function() {
+      $(this).text($text);
+      return $(this).prepend($img);
+    });
+  });
+
+  $(function() {
+    return jquery(function() {
+      return $('.has_application').click(function() {
+        return $(this).toggle();
+      });
+    });
+  });
+
+}).call(this);
+:ET
