@@ -59,6 +59,7 @@ body {
 
 .main {
 	border-left: 1px solid $border-orange;
+	min-height:500px;
 }
 
 #wrap {
@@ -235,7 +236,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .edit_coin, .new_coin, .sign-in-up {
+.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block {
 	margin-bottom:111px;
 	.row {
 		&:last-child {
@@ -416,6 +417,24 @@ ul#info-menu {
 					background-color: $primary-green;
 				}
 			}
+			
+		}
+		h4.category-name {
+			margin-left:-15px;
+			font-size:24px;
+			@include small-case;	
+		}
+		.coin-widget {
+			text-align:center;
+			.coin-in-categories {
+				background-color: #fff;
+				border: 1px solid $border-orange;
+				padding: 1em;
+				.coin-logo {
+					margin: 0 auto 18px auto;
+					text-align:center;
+				}
+			}
 		}
 		.status {
 			font-family: 'WhitneyHTF-MediumSC';
@@ -455,6 +474,10 @@ ul#info-menu {
 			}
 		}
 	}
+}
+
+.category-coin-block {
+	margin-bottom:30px;
 }
 
 form.edit_coin, form.new_coin, .sign-in-up {

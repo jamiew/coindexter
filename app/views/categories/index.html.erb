@@ -1,0 +1,27 @@
+<div class="row">
+	<%= render 'category_menu' %>
+	<div class="col-md-6 main">
+		<% @categories.each do |category| %>
+			<ul>
+				<li class="category-coin-block">
+					<div class="row">
+						<div class="col-md-11 col-md-offset-1">
+							<h4 class="category-name"><%= category.name %></h4>
+							<div class="row coins-in-categories">
+								<% category.coins.each_with_index do |coin, i| %>		
+									<%= link_to(coin, class: 'coin-widget') do %>
+										<div class="col-md-3 <%= "col-md-offset-1" unless i == 0 || i % 3 == 0 %> coin-in-categories">
+											<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
+											<h6><%= coin.name.downcase %></h6>
+										</div>
+									<% end %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+					
+				</li>
+			</ul>
+		<% end %>
+	</div>
+</div>

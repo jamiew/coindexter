@@ -1,0 +1,6 @@
+<%= link_to(coin, class: 'coin-widget') do %>
+	<div class="col-md-3 <%= "col-md-offset-1" unless i == 0 || i % 3 == 0 %> coin-in-categories">
+		<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
+		<h6><%= coin.name.downcase %></h6>
+	</div>
+<% end %>

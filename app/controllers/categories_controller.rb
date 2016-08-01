@@ -1,11 +1,22 @@
 class CategoriesController < ApplicationController
 
 	def index
-		@categories = Category.all
+		@categories = Category.all.order('name')
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end	
 	end
 
 	def show
-		@category = Category.find(params[:id])
+		@categories = Category.all.order('name')
+		@category = Category.friendly.find(params[:id])
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end	
 	end
 
 	def new
@@ -13,7 +24,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def edit
-		@category = Category.find(params[:id])
+		@category = Category.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -31,7 +42,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def update
-		@category = Category.find(params[:id])
+		@category = Category.friendly.find(params[:id])
 	  	if @Category.update_attributes(coin_params)
 	    	redirect_to @category
 		else
