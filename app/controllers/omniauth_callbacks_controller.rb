@@ -39,8 +39,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # FormUser class (with the validations)
       @user = FormUser.find @user.id
       if @user.email.blank? && @identity.email
-          @user.update_attribute( :email, @identity.email)
-        end
+        @user.update_attribute( :email, @identity.email)
+      end
       if @user.first_name.blank?
         @user.update_attributes( :first_name => first_name(@identity.name), :last_name => last_name(@identity.name))
       end

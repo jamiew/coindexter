@@ -118,7 +118,6 @@ nav, .navbar {
 	.container {
 		.navbar-header {
 			a.navbar-brand {
-				padding-top:5px;
 				font-family:Phosphate-solid;
 				letter-spacing: 0.05em;
 				color: $primary-orange;
@@ -126,6 +125,8 @@ nav, .navbar {
 				text-transform:uppercase;
 				margin-top:7px;
 				float:left;
+				padding:0;
+				margin:4px -4px 0 0;
 			}
 			.form-group	{
 				float:left;
@@ -135,7 +136,7 @@ nav, .navbar {
 					padding-right:8px;
 				}
 				input {
-					border-radius: 4px;
+					border-radius: 0 4px 4px 0;
 					box-shadow:none;
 					border: 2px solid $primary-orange;
 					color: $text;
