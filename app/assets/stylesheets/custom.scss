@@ -97,12 +97,7 @@ ul, li {
 }
 
 .navbar {
-	border-top: 8px solid $primary-orange;
-	border-bottom: 1px solid $border-orange;
-	background-color: $navbar-orange;
-	margin-bottom: 34px;
-	height: 80px;
-	padding-top: 15px;
+
 }
 
 
@@ -111,6 +106,12 @@ label {
 }
 
 nav, .navbar {
+	border-top: 8px solid $primary-orange;
+	border-bottom: 1px solid $border-orange;
+	background-color: $navbar-orange;
+	margin-bottom: 30px;
+	height: 80px;
+	padding-top: 8px;
 	border-radius: 0;
 	border-left: 0;
 	border-right: 0;
@@ -123,11 +124,42 @@ nav, .navbar {
 				color: $primary-orange;
 				font-size:28px;
 				text-transform:uppercase;
+				margin-top:7px;
+				float:left;
 			}
+			.form-group	{
+				float:left;
+				span {
+					color: $primary-orange;
+					padding-top:11px;
+					padding-right:8px;
+				}
+				input {
+					border-radius: 4px;
+					box-shadow:none;
+					border: 2px solid $primary-orange;
+					color: $text;
+					font-family: "WhitneyHTF-Medium";
+					padding: 22px 12px;
+					font-size:16px;
+					width:320px;
+					margin-top:4px;
+					&:active {
+						color:$text;
+					}
+				}
+				::-webkit-input-placeholder {
+					color: $text-light;
+				}
+				.form-control-feedback {
+					z-index:3;
+				}
+			} 
 		}
 		#navbar {
 			border: none;
 			ul.nav {
+				margin-top: 14px;
 				li {
 					@include small-case;
 					margin-right: 8px;
@@ -140,36 +172,24 @@ nav, .navbar {
 					h6 {
 						color: $text;
 						font-size:16px;
-						margin-top:10px;
+						margin-top:2px;
+						padding-top:0;
 						padding-right:12px;
 					}
 					a {
 						color: $primary-orange;
-						margin-top:8px;
 						&:hover {
 							background:none;
 						}
 					}
-					input {
-						margin-top:2px;
-						border-radius: 100px;
-						box-shadow:none;
-						border: 2px solid $primary-orange;
-						color: $primary-orange;
-						font-family: "WhitneyHTF-Medium";
+					a.account {
+						margin-top:-4px;
 					}
-					::-webkit-input-placeholder {
-						color: $primary-orange;
-					}
-					&:last-child {
-						margin-left:20px;
-					}
-					.form-group	{
-						span {
-							color: $primary-orange;
-							padding-top:2px;
-							padding-right:8px;
-						}
+					img.avatar {
+						border: 1px solid #fff;
+						box-shadow: 0px 0px 0px 1px $border-orange;
+						border-radius: 20px;
+						margin-right: 6px;
 					}			
 				}
 			}

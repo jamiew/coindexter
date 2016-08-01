@@ -1,7 +1,0 @@
-I"I(function() {
-  $(".main").hide();
-
-  alert('hey');
-
-}).call(this);
-:ET

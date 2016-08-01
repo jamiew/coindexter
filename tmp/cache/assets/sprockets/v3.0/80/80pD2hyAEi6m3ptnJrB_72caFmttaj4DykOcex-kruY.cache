@@ -1,0 +1,7 @@
+I"{(function() {
+  $('account').toggle('hover', function(ev) {
+    return $(this).text("signout");
+  });
+
+}).call(this);
+:ET

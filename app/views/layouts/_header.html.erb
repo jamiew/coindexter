@@ -1,7 +1,13 @@
 <nav class="navbar">
   	<div class="container">
   		<div class="navbar-header">
-	  		<%= link_to image_tag("coindexter-logo.png", size: "163x30"), '/', class: "navbar-brand", id: "logo" %>
+	  		<%= link_to image_tag("logo-orange.png", size: "30x30"), '/', class: "navbar-brand", id: "logo" %>
+	  		<div class="form-group">
+	  			<div class="input-group">
+		    		<input type="search" class="form-control" placeholder="Search for coins or categories">
+		    		<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+		    	</div>
+			</div>
 	  	</div>
 	  	<div id="navbar">
 		  	<ul class="nav navbar-nav navbar-right">
@@ -9,15 +15,9 @@
 			    <li><a href="#">Utility</a></li>
 			    <li><a href="#">Upcoming sales</a></li>
 			    <li>
-			    	<div class="form-group">
-			    		<input type="search" class="form-control" placeholder="Search">
-			    		<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-			    	</div>
-			    </li>
-			    <li>
 			    	<% if user_signed_in? %>
-			    		<%= link_to destroy_user_session_path, method: :delete do %>
-			    			<%= current_user.avatar? ? image_tag(current_user.avatar, size: '25x25', class: 'avatar') + current_user.first_name : 'Sign out' %>
+			    		<%= link_to destroy_user_session_path, method: :delete, class: 'account' do %>
+			    			<%= current_user.avatar? ? image_tag(current_user.avatar, size: '34x34', class: 'avatar') + current_user.first_name : 'Sign out' %>
 			    		<% end %>
 			    	<% else %>
 			    		<%= link_to 'login', '/signup' %>

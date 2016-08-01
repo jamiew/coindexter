@@ -1,0 +1,7 @@
+I"](function() {
+  $('.avatar').hover(function() {
+    alert('hey');
+  });
+
+}).call(this);
+:ET
