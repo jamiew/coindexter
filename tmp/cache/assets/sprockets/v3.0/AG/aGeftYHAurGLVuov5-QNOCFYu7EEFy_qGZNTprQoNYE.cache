@@ -1,0 +1,16 @@
+I"b(function() {
+  jQuery(function() {
+    var $img, $text;
+    $text = $('.account').text;
+    $img = $('.account').find('img');
+    $('.account').mouseover(function() {
+      $(this).text('Signout');
+      return $(this).prepend($img);
+    });
+    return $('.account').mouseout(function() {
+      return $(this).text('hey');
+    });
+  });
+
+}).call(this);
+:ET

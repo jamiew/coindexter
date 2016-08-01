@@ -3,7 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-	$('.account').hover ->
-		$img = $(this).find('img')
-		$(this).text 'Signout'
-		$(this).prepend $img 
+	$text = $('.account').text()
+	$img = $('.account').find('img')
+	$('.account').mouseover ->
+			$(this).text ' Signout'
+			$(this).prepend $img 
+	$('.account').mouseout ->
+			$(this).text $text
+			$(this).prepend $img 
