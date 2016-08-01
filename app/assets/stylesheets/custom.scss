@@ -1,6 +1,6 @@
 @import "bootstrap-sprockets"; 
 @import "bootstrap"; 
-
+@import "bootstrap3-switch";
 
 $primary-orange: rgb(235,107,51);
 $navbar-orange: rgb(253,238,233);
@@ -329,19 +329,6 @@ ul#info-menu {
 				padding: 0.8em;
 				border-radius:4px;
 				background-color: #fff;
-				&[type=checkbox] {
-					margin: 17px 0 0 0;
-				    /*  width: 14px;
-				    height: 14px; */
-				    text-align:left;
-				    width:initial;
-				    &:active {
-				    	outline:none;
-				    }
-				    &:focus {
-				    	outline:none;
-				    }
-				}
 				&[type=submit] {
 					background: $primary-orange;		
 					color:white;
@@ -397,6 +384,37 @@ ul#info-menu {
 			}
 			p.down {
 				color: $concept-outer;
+			}
+			.bootstrap-switch {
+				margin-top:-2px;
+				border-color: $border-orange;
+				box-shadow:none;
+				height:52px;
+				border-radius:4px;
+				.bootstrap-switch-container {
+					height:50px;
+					background-color:#fff;
+					margin-top:-1px;
+					&:active, &:focus {
+						outline:none;
+						box-shadow:none;
+					}
+					.bootstrap-switch-handle-on, .bootstrap-switch-handle-off {
+						width:60px;
+						font-size:14px;
+						padding-top:16px;
+					}
+					.bootstrap-switch-handle-off {
+						margin-right:-2px;
+					}
+					.bootstrap-switch-label {
+						margin-right:4px;
+						border-radius:4px;
+					}
+				}
+				.bootstrap-switch, .bootstrap-switch-handle-on, bootstrap-switch-success {
+					background-color: $primary-green;
+				}
 			}
 		}
 		.status {

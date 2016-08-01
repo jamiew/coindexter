@@ -1,3 +1,10 @@
+<% content_for :head do %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('input:checkbox').bootstrapSwitch();
+		});
+	</script>
+<% end %>
 <%= form_for @coin, authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
@@ -46,7 +53,7 @@
 			<%= f.label "Has appplication?", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.check_box :has_application, class: 'has-application' %>
+			<%= f.check_box :has_application, class: 'has-application', :data => { :size=>'small', 'on-color'=>'success', 'on-text'=>'YES', 'off-text'=>'NO', :class=> 'has-application' } %>
 		</div>
 	</div>
 	<div class="row">

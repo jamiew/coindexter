@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 
 #Bootstrap
 gem 'bootstrap-sass', '3.3.6'
+#Convert checkboxes to switches
+gem 'bootstrap-switch-rails', '~> 3.0.0'
 
 # Image uploads
 gem 'carrierwave'
