@@ -1,0 +1,12 @@
+I"ã(function() {
+  jQuery(function() {
+    return $('.account').hover(function() {
+      var $img;
+      $img = $(this).find('img');
+      $(this).text('Signout');
+      return $(this).prepend($img);
+    });
+  });
+
+}).call(this);
+:ET

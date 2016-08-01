@@ -1,0 +1,9 @@
+I"„(function() {
+  jQuery(function() {
+    return $('.account').hover(function() {
+      alert($(this));
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,12 @@
+I"è(function() {
+  jQuery(function() {
+    return $('.account').hover(function() {
+      var $img, nodeValue;
+      $img = $(this).find('img');
+      nodeValue = $(this).nodeValue;
+      alert(nodeValue);
+    });
+  });
+
+}).call(this);
+:ET
