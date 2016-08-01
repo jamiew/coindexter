@@ -12,7 +12,7 @@
 	  	<div id="navbar">
 		  	<ul class="nav navbar-nav navbar-right">
 		  		<li><h6>Browse by</h6></li>
-			    <li><a href="#">Utility</a></li>
+			    <li><%= link_to 'Category', categories_url %></a></li>
 			    <li><a href="#">Upcoming sales</a></li>
 			    <li>
 			    	<% if user_signed_in? %>
