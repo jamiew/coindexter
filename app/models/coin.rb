@@ -2,6 +2,8 @@ class Coin < ApplicationRecord
   belongs_to :category, optional: true
   mount_uploader :logo, LogoUploader
   extend FriendlyId
+  include PgSearch
+  multisearchable :against => [:name, :application_name]
 
   validates_uniqueness_of :name
 

@@ -10,31 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160801211420) do
+ActiveRecord::Schema.define(version: 20160802125400) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "slug"
-    t.index ["name"], name: "index_categories_on_name", unique: true
-    t.index ["slug"], name: "index_categories_on_slug", unique: true
+    t.index ["name"], name: "index_categories_on_name", unique: true, using: :btree
+    t.index ["slug"], name: "index_categories_on_slug", unique: true, using: :btree
   end
 
   create_table "coins", force: :cascade do |t|
-    t.         "name"
+    t.string   "name"
     t.text     "coin_info"
     t.string   "coin_status"
     t.decimal  "price"
     t.decimal  "one_day_price_change"
     t.integer  "volume"
-    t.integer  "market_cap",              limit: 6
+    t.bigint   "market_cap"
     t.string   "application_name"
     t.text     "application_description"
     t.string   "application_status"
     t.integer  "category_id"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "logo"
     t.string   "application_url"
     t.string   "slug"
@@ -42,10 +45,9 @@ ActiveRecord::Schema.define(version: 20160801211420) do
     t.integer  "available_supply"
     t.integer  "total_supply"
     t.decimal  "one_hour_price_change"
-    t.boolean  "has_application",                   default: true
-    t.index ["category_id"], name: "index_coins_on_category_id"
-    t.index ["name"], name: "index_coins_on_name"
-    t.index ["name"], name: "sqlite_autoindex_coins_1", unique: true
+    t.boolean  "has_application",         default: true
+    t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
+    t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -54,10 +56,10 @@ ActiveRecord::Schema.define(version: 20160801211420) do
     t.string   "sluggable_type", limit: 50
     t.string   "scope"
     t.datetime "created_at"
-    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
-    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
-    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
-    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "identities", force: :cascade do |t|
@@ -74,11 +76,29 @@ ActiveRecord::Schema.define(version: 20160801211420) do
     t.string   "urls"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_identities_on_user_id"
+    t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string   "link"
+    t.string   "title"
+    t.integer  "coin_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.string   "searchable_type"
+    t.integer  "searchable_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.         "email",                  default: "", null: false
+    t.string   "email",                  default: "", null: false
     t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -95,9 +115,10 @@ ActiveRecord::Schema.define(version: 20160801211420) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "full_name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["email"], name: "sqlite_autoindex_users_1", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "coins", "categories"
+  add_foreign_key "identities", "users"
 end

@@ -1,0 +1,9 @@
+I"Ÿ(function() {
+  $(function() {
+    return $('#info-menu > li').on('click', function() {
+      return $(this).addClass('active');
+    });
+  });
+
+}).call(this);
+:ET

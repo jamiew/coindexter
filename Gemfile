@@ -58,8 +58,13 @@ gem 'omniauth-google-oauth2'
 #environmental variables
 gem 'dotenv-rails', :groups => [:development, :test]
 
+#database 
+gem 'pg'
+
+#search
+gem 'pg_search'
+
 group :production do 
-	gem 'pg'
   gem 'rails_12factor'
 end
 
