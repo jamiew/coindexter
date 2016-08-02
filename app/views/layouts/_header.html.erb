@@ -2,12 +2,7 @@
   	<div class="container">
   		<div class="navbar-header">
 	  		<%= link_to image_tag("logo-search-orange.png", size: "48x48"), '/', class: "navbar-brand", id: "logo" %>
-	  		<div class="form-group">
-	  			<div class="input-group">
-		    		<input type="search" class="form-control" placeholder="Search for coins or categories">
-		    		<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
-		    	</div>
-			</div>
+	  		<%= render '/layouts/header/search' %>
 	  	</div>
 	  	<div id="navbar">
 		  	<ul class="nav navbar-nav navbar-right">

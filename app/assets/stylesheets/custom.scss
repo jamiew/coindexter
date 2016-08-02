@@ -129,32 +129,34 @@ nav, .navbar {
 				padding:0;
 				margin:4px -4px 0 0;
 			}
-			.form-group	{
+			form {
 				float:left;
-				span {
-					color: $primary-orange;
-					padding-top:11px;
-					padding-right:8px;
-				}
-				input {
-					border-radius: 0 4px 4px 0;
-					box-shadow:none;
-					border: 2px solid $primary-orange;
-					color: $text;
-					font-family: "WhitneyHTF-Medium";
-					padding: 22px 12px;
-					font-size:16px;
-					width:320px;
-					margin-top:4px;
-					&:active {
-						color:$text;
+				.form-group	{
+					span {
+						color: $primary-orange;
+						padding-top:11px;
+						padding-right:8px;
 					}
-				}
-				::-webkit-input-placeholder {
-					color: $text-light;
-				}
-				.form-control-feedback {
-					z-index:3;
+					input {
+						border-radius: 0 4px 4px 0;
+						box-shadow:none;
+						border: 2px solid $primary-orange;
+						color: $text;
+						font-family: "WhitneyHTF-Medium";
+						padding: 22px 12px;
+						font-size:16px;
+						width:320px;
+						margin-top:4px;
+						&:active {
+							color:$text;
+						}
+					}
+					::-webkit-input-placeholder {
+						color: $text-light;
+					}
+					.form-control-feedback {
+						z-index:3;
+					}
 				}
 			} 
 		}
@@ -236,7 +238,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block {
+.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block {
 	margin-bottom:63px;
 	.row {
 		&:last-child {
@@ -419,15 +421,14 @@ ul#info-menu {
 			}
 			
 		}
-		h4.category-name {
-			margin-left:-15px;
+		h4.list-name {
 			font-size:24px;
 			@include small-case;	
 		}
 		.coin-widget {
 			text-align:center;
 			.coin-in-categories {
-				background-color: rgba(255,255,255,0.8	);
+				background-color: rgba(255,255,255,0.8);
 				border: 1px solid $border-orange;
 				padding: 1em;
 				.coin-logo {

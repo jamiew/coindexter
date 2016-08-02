@@ -6,7 +6,8 @@ $ ->
 	$text = $('.account').text()
 	$img = $('.account').find('img')
 	$('.has-application').bootstrapSwitch 'state', true
-	$switchState = true
+	$switchState = $('.has-application').bootstrapSwitch 'state'
+	$('.application-info').prop 'disabled', !$switchState
 	$('.account').mouseover ->
 		$(this).text ' Signout'
 		$(this).prepend $img 
@@ -14,7 +15,6 @@ $ ->
 		$(this).text $text
 		$(this).prepend $img
 	$('.bootstrap-switch-id-coin_has_application').on 'switchChange.bootstrapSwitch', ->
-		$switchState = !$switchState
 		$('.application-info').prop 'disabled', $switchState
 
 

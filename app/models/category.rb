@@ -3,5 +3,5 @@ class Category < ApplicationRecord
 	extend FriendlyId
   	friendly_id :name, use: :slugged
   	include PgSearch
-  	multisearchable :against => [:name, :application_name]
+  	multisearchable :against => [:name]
 end

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :categories
   resources :coins
   resources :users
+  resources :searches
+
+  match '/search', to:"searches#results", via: "get"
 
   match '/coins/edit', to: "coins#edit", via: "post"
 

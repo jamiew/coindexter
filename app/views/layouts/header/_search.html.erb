@@ -1,0 +1,9 @@
+<%= form_for :search_by_coin_or_category, :url => {:controller => 'searches', :action => 'results'},
+  :html => {:method => 'get'} do |f| %>
+	<div class="form-group">
+		<div class="input-group">
+			<%= search_field_tag :query, params[:query], class: 'form-control', placeholder: 'Search for coins or categories' %>
+			<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+		</div>
+	</div>
+<% end %>

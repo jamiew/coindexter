@@ -3,7 +3,8 @@ class Coin < ApplicationRecord
   mount_uploader :logo, LogoUploader
   extend FriendlyId
   include PgSearch
-  multisearchable :against => [:name, :application_name]
+  multisearchable :against => [:name, :application_name, :application_description]
+  pg_search_scope(:search, against: [:name,:application_name,:application_description])
 
   validates_uniqueness_of :name
 
