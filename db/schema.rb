@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802170609) do
+ActiveRecord::Schema.define(version: 20160802225337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,10 +44,11 @@ ActiveRecord::Schema.define(version: 20160802170609) do
     t.string   "application_url"
     t.string   "slug"
     t.string   "coinmarketcap_url"
-    t.integer  "available_supply"
-    t.integer  "total_supply"
+    t.bigint   "available_supply"
+    t.bigint   "total_supply"
     t.decimal  "one_hour_price_change"
     t.boolean  "has_application",         default: true
+    t.string   "symbol"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
   end

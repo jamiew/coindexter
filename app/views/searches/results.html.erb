@@ -10,7 +10,7 @@
 							<p>No coins found</p>
 						<% else %>
 							<% @results.each_with_index do |result, i| %>
-								<%= render '/categories/coin_widget', :coin => result, :i => i %>
+								<%= render '/coins/coin_widget', :coin => result, :i => i %>
 							<% end %>
 						<% end %>
 					</div>

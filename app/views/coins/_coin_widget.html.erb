@@ -2,5 +2,7 @@
 	<div class="col-md-3 <%= "col-md-offset-1" unless i == 0 || i % 3 == 0 %> coin-in-categories">
 		<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
 		<h6><%= coin.name.downcase %></h6>
+		<p class="market-cap">$<%= number_to_human(coin.market_cap) %></p>
+		<p class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= coin.one_day_price_change %>%</p>
 	</div>
 <% end %>

@@ -4,7 +4,7 @@ class CoinsController < ApplicationController
 
 	def index
 		page_title = "Coins"
-		@coins = Coin.all
+		@categories = Category.all
 	end
 
 	def show
@@ -45,6 +45,7 @@ class CoinsController < ApplicationController
 		@coin = Coin.new(coin_params)
 		#set_has_application(@coin)
 	    if @coin.save
+	    	@coin.category_id = 2 ? @coin.category_id.nil? : @coin.category_id
 	    	@coin.update_prices
 	    	@coin.save
 			redirect_to @coin
@@ -78,5 +79,4 @@ class CoinsController < ApplicationController
 				@coin.has_application = true
 			end
 		end
-
 end
