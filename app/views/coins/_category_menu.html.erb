@@ -1,9 +1,9 @@
 <div class="col-md-2 col-md-offset-1 left-nav">
 	<ul id="info-menu">
-		<li><%= link_to("All",:action => "index", :remote => true) %></li>
+		<li id="show-all" class="active-item"><p>All</p></li>
 		<% @categories.each do |category| %>
 			<% unless category.coins.empty? %>
-				<li><%= link_to(category.name.camelize, category, :remote => true) %></li>
+				<li id=<%= category.name %>><p><%= category.name.capitalize %></p></li>
 			<% end %>	
 		<% end %>
 	</ul>

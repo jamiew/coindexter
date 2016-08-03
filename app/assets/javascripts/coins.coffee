@@ -16,6 +16,15 @@ $ ->
 		$(this).prepend $img
 	$('.bootstrap-switch-id-coin_has_application').on 'switchChange.bootstrapSwitch', ->
 		$('.application-info').prop 'disabled', $switchState
+	$('ul#info-menu > li').click ->
+		selector = 'ul#' + $(this).attr 'id'
+		$('.show-all').removeClass 'active-item'
+		$('ul.full-category-cnt').hide()
+		$(selector).show()
+	$('#show-all').click ->
+		$('ul.full-category-cnt').show()
+
+
 
 
 	

@@ -1,0 +1,26 @@
+I"O(function() {
+  $(function() {
+    var $img, $switchState, $text;
+    $text = $('.account').text();
+    $img = $('.account').find('img');
+    $('.has-application').bootstrapSwitch('state', true);
+    $switchState = $('.has-application').bootstrapSwitch('state');
+    $('.application-info').prop('disabled', !$switchState);
+    $('.account').mouseover(function() {
+      $(this).text(' Signout');
+      return $(this).prepend($img);
+    });
+    $('.account').mouseout(function() {
+      $(this).text($text);
+      return $(this).prepend($img);
+    });
+    $('.bootstrap-switch-id-coin_has_application').on('switchChange.bootstrapSwitch', function() {
+      return $('.application-info').prop('disabled', $switchState);
+    });
+    return $('ul#info-menu > li').click(function() {
+      return alert($(this)["class"]);
+    });
+  });
+
+}).call(this);
+:ET

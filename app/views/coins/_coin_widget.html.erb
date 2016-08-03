@@ -7,6 +7,6 @@
 		<% end %>
 		<h6><%= coin.name.downcase %></h6>
 		<p class="market-cap">$<%= number_to_human(coin.market_cap) %></p>
-		<p class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= coin.one_day_price_change %>%</p>
+		<p>1d <span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>> <%= coin.one_day_price_change %>%</span></p>
 	</div>
 <% end %>

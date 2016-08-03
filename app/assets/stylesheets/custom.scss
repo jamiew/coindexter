@@ -224,12 +224,18 @@ ul#info-menu {
 		}
 		p:hover {
 			border-bottom: 1px solid $primary-orange;
+			color: $primary-orange;
 			padding-bottom:3px;
 			display:inline;
+			cursor:pointer;
+		}
+		&:hover {
+			opacity:1;
 		}
 	}
 	li.active-item {
 		opacity:1;
+		color: $primary-orange;
 		p {
 			border-bottom: 1px solid $primary-orange;
 			padding-bottom:3px;
@@ -484,13 +490,13 @@ ul#info-menu {
 	}
 }
 
-p.up {
+span.up {
 	color: $primary-green;
 	&:before {
 		content: "+";
 	}
 }
-p.down {
+span.down {
 	color: $concept-outer;
 }
 
