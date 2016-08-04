@@ -244,7 +244,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block {
+.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link {
 	margin-bottom:63px;
 	.row {
 		&:last-child {
@@ -426,7 +426,7 @@ ul#info-menu {
 			text-align:center;
 			margin-bottom:1em;
 			.coin-in-categories {
-				margin-bottom:1em;
+				margin-bottom:2em;
 				background-color: rgba(255,255,255,0.8);
 				border: 1px solid $border-orange;
 				padding: 1em 0;

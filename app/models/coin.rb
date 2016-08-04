@@ -10,6 +10,8 @@ class Coin < ApplicationRecord
 
   friendly_id :name, use: [:slugged, :history]
 
+  has_many :links
+
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?
   end

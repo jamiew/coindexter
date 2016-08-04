@@ -1,0 +1,21 @@
+<div class="row">
+	<%= render 'dummy_menu' %>
+	<div class="col-md-6 main">
+		<ul class="full-category-cnt">
+			<li class="category-coin-block">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-2">
+						<div class="row coins-in-categories" >
+						<h4 class="list-name">By market cap</h4> <br>
+							<% @coins.each_with_index do |coin, i| %>
+								<% unless coin.market_cap.nil? %>
+									<%= render 'coin_widget', :coin => coin, :i => i %>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

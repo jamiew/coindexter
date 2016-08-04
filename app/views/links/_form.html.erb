@@ -1,0 +1,30 @@
+<% content_for :head do %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('input:checkbox').bootstrapSwitch();
+		});
+	</script>
+<% end %>
+<%= form_for @link, authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Title", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :title, class: 'filestyle' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "URL", class: "form-input" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :link, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<%= f.submit "Post", class: "form-submit" %> 
+		</div>
+	</div>
+<% end %>

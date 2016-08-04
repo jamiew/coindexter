@@ -7,6 +7,10 @@ class CoinsController < ApplicationController
 		@categories = Category.all
 	end
 
+	def sorted_by_market_cap
+		@coins = Coin.all.order(market_cap: 'desc')
+	end
+
 	def show
 		@coin = Coin.friendly.find(params[:id])
 		unless @coin.one_day_price_change.nil?
