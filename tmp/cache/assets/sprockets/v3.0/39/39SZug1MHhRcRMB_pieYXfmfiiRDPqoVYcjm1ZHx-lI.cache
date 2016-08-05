@@ -1,0 +1,11 @@
+I"(function() {
+  $(function() {
+    return $('.coin-option').each(function() {
+      var $url;
+      $url = $(this).data('icon');
+      return $(this).css('background-image', "url('http://coindexter.herokuapp.com" + $url + "')");
+    });
+  });
+
+}).call(this);
+:ET

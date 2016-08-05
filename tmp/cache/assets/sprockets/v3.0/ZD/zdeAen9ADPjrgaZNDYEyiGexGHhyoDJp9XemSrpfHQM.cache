@@ -1,0 +1,8 @@
+I"‚(function() {
+  $(function() {
+    $('#link-option > option');
+    return alert($(this).data('data-icon'));
+  });
+
+}).call(this);
+:ET

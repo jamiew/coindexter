@@ -1,0 +1,7 @@
+I" (function() {
+  $(function() {
+    return $('#link-option > option').css('background-image', 'url("' + $(this).attr('data-icon') + '")');
+  });
+
+}).call(this);
+:ET

@@ -27,6 +27,11 @@ class CoinsController < ApplicationController
 				@one_hour_up = "down"
 			end
 		end
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
 
 	def new

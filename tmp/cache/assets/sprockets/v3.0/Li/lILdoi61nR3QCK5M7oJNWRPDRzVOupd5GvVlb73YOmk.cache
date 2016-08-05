@@ -1,0 +1,7 @@
+I"†(function() {
+  $(function() {
+    return $('.coin-option').css('background-image', 'url("http://image.com")');
+  });
+
+}).call(this);
+:ET

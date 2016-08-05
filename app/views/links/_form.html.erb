@@ -5,7 +5,7 @@
 		});
 	</script>
 <% end %>
-<%= form_for @link, authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
+<%= form_for @link, authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Title", class: "form-label" %>
@@ -22,6 +22,14 @@
 			<%= f.text_field :link, class: "form-input" %>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Coins", class: "form-input" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.select :coin_ids, options_for_select(Coin.all.order("market_cap DESC").where("market_cap > ?", 0).map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}), {}, {multiple: true, size: 8, id: "link-option"} %>
+		</div>
+	</div>	
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<%= f.submit "Post", class: "form-submit" %> 

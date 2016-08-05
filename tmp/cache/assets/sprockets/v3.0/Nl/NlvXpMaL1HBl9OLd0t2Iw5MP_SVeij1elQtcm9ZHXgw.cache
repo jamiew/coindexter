@@ -1,0 +1,11 @@
+I"×(function() {
+  $(function() {
+    return $('#link-option').on("change", function() {
+      var $img;
+      $img = $('.coin-option:first-child').data('icon');
+      return alert($img);
+    });
+  });
+
+}).call(this);
+:ET

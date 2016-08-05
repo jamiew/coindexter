@@ -5,7 +5,7 @@ class LinksController < ApplicationController
 	end
 
 	def show
-		@links = Link.friendly.find(params[:id])
+		@link = Link.friendly.find(params[:id])
 	end
 
 
@@ -26,18 +26,17 @@ class LinksController < ApplicationController
 	end
 
 	def create
-		@link = Links.new(link_params)
+		@link = Link.new(link_params)
 		if @link.save
 	    	redirect_to @link
 		else
-	        render 'new'
+	        puts 'not working'
 	    end
 	end
 
 	def update
 		@link = Link.friendly.find(params[:id])
-		#set_has_application(@coin)
-	  	if @link.update_attributes(coin_params)
+	  	if @link.update_attributes(link_params)
 	    	redirect_to @link
 		else
 	    	render 'edit'
@@ -50,8 +49,8 @@ class LinksController < ApplicationController
 
 	private
 
-	    def coin_params
-	    	params.require(:link).permit(:link, :title, :coin_id)
+	    def link_params
+	    	params.require(:link).permit(:link, :title, :coin_id => [], :coin_ids => [])
 	    end	
 
 end

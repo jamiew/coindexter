@@ -1,0 +1,9 @@
+I"‘(function() {
+  $(function() {
+    return $('#link-option').live("change", function() {
+      return alert('hey');
+    });
+  });
+
+}).call(this);
+:ET

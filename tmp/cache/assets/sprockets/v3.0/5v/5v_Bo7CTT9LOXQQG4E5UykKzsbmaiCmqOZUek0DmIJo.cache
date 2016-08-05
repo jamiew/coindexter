@@ -1,0 +1,7 @@
+I"Ç(function() {
+  $(function() {
+    return $('#link-option > option').css('background-image', 'url("https://s3.amazonaws.com/whoops-images/images/logo/logo-shield%4005x.png")');
+  });
+
+}).call(this);
+:ET

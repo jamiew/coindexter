@@ -1,25 +1,31 @@
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<ul id="info-menu">
-			<li class="active-item"><p><%= link_to("Details", "#details") %><p></li>
-			<li><p><%= link_to("News", "#news") %></p></li>
-			<li><p><%= link_to("Discussion", "#discussion") %></p></li>
-			<li><p><%= link_to("Log", "#log") %></p></li>
+			<% if @link.coins.any? %>
+				<li class="menu-title">mentioned</li>
+				<% @link.coins.each do |coin| %>
+					<li>
+						<%= link_to coin do %>
+							<p><%= coin.name %></p>
+							<%= image_tag(coin.logo, class: "coin-logo") %>
+						<% end %>
+					</li>
+				<% end %>
+			<% end %>
 		</ul>
 	</div>
 	<div class="col-md-6 main">
 		<ul>
 			<li class="link-block">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-4">
-						<%= link_to @link, link.title %>
+					<div class="col-md-10 col-md-offset-1">
+						<h1><%= link_to @link.title, @link.link %></h1>
 					</div>
 				</div>
 				
 			</li>
 		</ul>
 	</div>
-	<%= debug(params) if Rails.env.development? %>
 	<ul class="action-links">
 		<li><%= link_to("Add new link", new_link_path, remote: true, class: "action-link", accesskey: 'A') %></li>
 		<li><%= link_to("Edit this", edit_link_path, remote: true, class: "action-link", accesskey: 'E') %></li>

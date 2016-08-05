@@ -1,0 +1,10 @@
+I"(function() {
+  $(function() {
+    $('#link-option > option').css('background-image', 'url("' + $(this).data("data-icon") + '")');
+    return $('#link-option > option').change(function() {
+      return $(this).css('color', 'red');
+    });
+  });
+
+}).call(this);
+:ET

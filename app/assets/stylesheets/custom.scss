@@ -214,23 +214,35 @@ ul#info-menu {
 	margin-top: 163px;
 	margin-right:20px;
 	li {
-		margin-bottom:12px;
+		margin-bottom:14px;
 		opacity:0.4;
+		clear:both;
+		height:24px;
 		a {
 			color: $primary-orange;
 			font-family: "WhitneyHTF-Medium";
 			margin:0;
 			padding:0;
 		}
+		p {
+			float:right;
+			margin-left:8px;
+		}
 		p:hover {
 			border-bottom: 1px solid $primary-orange;
 			color: $primary-orange;
-			padding-bottom:3px;
+			padding-bottom:1px;
 			display:inline;
 			cursor:pointer;
 		}
 		&:hover {
 			opacity:1;
+		}
+		img {
+			float:right;
+			height: 20px;
+			width: 20px;
+			margin-top:2px;
 		}
 	}
 	li.active-item {
@@ -238,9 +250,13 @@ ul#info-menu {
 		color: $primary-orange;
 		p {
 			border-bottom: 1px solid $primary-orange;
-			padding-bottom:3px;
+			padding-bottom:1px;
 			display:inline;
 		}
+	}
+	li.menu-title {
+		font-family:'WhitneyHTF-MediumSC';
+		font-size:18px;
 	}
 }
 
@@ -360,6 +376,15 @@ ul#info-menu {
 				option {
 					padding: 0.8em;
 					text-transform:capitalize;
+				}
+				.coin-option {
+					background-size:24px 24px;
+					background-repeat:no-repeat;
+					padding-left:48px;
+					background-position: 8px 11px;
+				}
+				.coin-option:checked {
+					color: $primary-orange !important;
 				}
 			}
 			.select-label {
