@@ -3,6 +3,7 @@ class Link < ApplicationRecord
 	extend FriendlyId
 	friendly_id :title, use: [:slugged, :history]
 	accepts_nested_attributes_for :coins
+	has_many :comments, as: :commentable
 
 	def has_coins 
     	coins

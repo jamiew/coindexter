@@ -20,6 +20,10 @@
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
 						<h1><%= link_to @link.title, @link.link %></h1>
+						<%= render 'comments/form', story: @link %>
+						<ul>
+						  <%= render 'comments/comment', collection: @link.comments %>
+						</ul>
 					</div>
 				</div>
 				
