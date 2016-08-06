@@ -1,14 +1,7 @@
 <%= form_for [@link, Comment.new] do |f| %>
-  	<div class="row">
-  		<div class="col-md-3 label">
-        <%= f.label "Comment", class: "form-label" %>
-      </div>
-      <div class="col-md-9">
-      	<%= f.text_area :body, placeholder: "Add a Reply" %><br/>
-      </div>
-    </div>
+    <%= f.text_area :body, placeholder: "Add a Reply", rows: 4 %><br/>
     <div class="row">
-    	<div class="col-md-9 col-md-offset-3">
+    	<div class="col-md-12">
     		<%= f.submit "Reply"  %>
     	</div>
     </div>

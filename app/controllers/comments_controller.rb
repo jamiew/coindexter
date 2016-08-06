@@ -1,12 +1,15 @@
 class CommentsController < ApplicationController
-before_action :find_commentable
+    
+    before_action :find_commentable
+    before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
     def new
-      @comment = Comment.new
+      @comment = current_user.comments.new
     end
 
     def create
       @comment = @commentable.comments.new comment_params
+      @comment.user = current_user
 
       if @comment.save
         redirect_to :back, notice: 'Your comment was successfully posted!'
@@ -23,7 +26,7 @@ before_action :find_commentable
 
     def find_commentable
       @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-      @commentable = Story.find_by_id(params[:story_id]) if params[:story_id]
+      @commentable = Link.friendly.find(params[:link_id]) if params[:link_id]
     end
 
 end

@@ -260,7 +260,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment {
+.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block {
 	margin-bottom:63px;
 	.row {
 		&:last-child {
@@ -410,6 +410,17 @@ ul#info-menu {
 				margin-top:-2px;
 				margin-left: 3px;
 			}
+			h3 {
+				line-height:140%;
+			}
+			h6.when-posted {
+				margin-top:4px;
+				margin-bottom:38px;
+				font-family: "WhitneyHTF-MediumSC";
+				color:$text-light;
+				font-size:14px;
+				text-transform: uppercase;
+			}
 			.bootstrap-switch {
 				margin-top:-2px;
 				border-color: $border-orange;
@@ -442,10 +453,6 @@ ul#info-menu {
 				}
 			}
 			
-		}
-		h4.list-name {
-			font-size:24px;
-			@include small-case;	
 		}
 		.coin-widget {
 			text-align:center;

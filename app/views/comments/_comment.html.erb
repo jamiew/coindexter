@@ -1,5 +1,9 @@
 <li>
-  <ul>
-      <%#= render partial: 'comments/comment', collection: comment.comments %>
-  </ul>
+	<% unless comment.user.nil? %> 
+		<%= image_tag(comment.user.avatar)  %>
+	<% end %>
+	<%= comment.body %> 
+	<ul>
+	  <%= render(partial: 'comments/comment', collection: comment.comments) %>
+	</ul>
 </li>

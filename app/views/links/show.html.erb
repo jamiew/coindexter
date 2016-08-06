@@ -19,14 +19,14 @@
 			<li class="link-block">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1">
-						<h1><%= link_to @link.title, @link.link %></h1>
-						<%= render 'comments/form', story: @link %>
+						<h3><%= link_to @link.title, @link.link %></h3>
+						<h6 class="when-posted">posted <%= time_ago_in_words(@link.created_at) %> ago</h6>
+						<%= render 'comments/form', link: @link %>
 						<ul>
-						  <%= render 'comments/comment', collection: @link.comments %>
+						  <%= render(partial: 'comments/comment', collection: @link.comments) %>
 						</ul>
 					</div>
 				</div>
-				
 			</li>
 		</ul>
 	</div>

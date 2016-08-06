@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  has_many :coins
+  has_many :links
+  has_many :comments
+
 end

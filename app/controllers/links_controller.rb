@@ -1,5 +1,7 @@
 class LinksController < ApplicationController
 
+	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
+
 	def index
 		@links = Link.all
 	end
@@ -11,7 +13,7 @@ class LinksController < ApplicationController
 
 	def new
 		@use_ajax = true
-		@link = Link.new
+		@link = current_user.links.new
 	end
 
 	def edit
@@ -26,7 +28,7 @@ class LinksController < ApplicationController
 	end
 
 	def create
-		@link = Link.new(link_params)
+		@link = current_user.links.new(link_params)
 		if @link.save
 	    	redirect_to @link
 		else
