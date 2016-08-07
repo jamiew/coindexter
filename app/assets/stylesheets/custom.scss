@@ -487,6 +487,20 @@ ul#info-menu {
 					form {
 						margin-top:3em;
 						padding-left:32px;
+						a.cancel-form {
+							width:100%;
+							background: $text-light;
+							display:block;
+							margin-top:6px;
+							border-radius: 4px;
+							height: 52px;
+							color: white;
+							text-align:center;
+							padding-top:12px;
+							&:hover {
+								cursor:pointer;
+							}
+						}
 					}
 					.hidden-form > form {
 						display:none;

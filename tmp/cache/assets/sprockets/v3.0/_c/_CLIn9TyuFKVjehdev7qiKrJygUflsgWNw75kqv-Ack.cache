@@ -1,0 +1,10 @@
+I"È(function() {
+  $(function() {
+    return $('a.reply-to-comment').on('click', function() {
+      $(this).hide();
+      return $(this).parent().children("form").toggle();
+    });
+  });
+
+}).call(this);
+:ET

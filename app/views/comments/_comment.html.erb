@@ -11,11 +11,8 @@
 		<div class="hidden-form">
 			<%= form_for [comment, Comment.new] do |f| %>
 			    <%= f.text_area :body, placeholder: "Add a Reply", rows: 4 %><br/>
-			    <div class="row">
-			    	<div class="col-md-12">
-			    		<%= f.submit "Reply"  %>
-			    	</div>
-			    </div>
+			    <%= f.submit "Reply"  %>
+			    <a class="cancel-form">Cancel</a>
 			<% end %>
 			<% unless i == 2 %>
 				<a class="reply-to-comment">reply</a>

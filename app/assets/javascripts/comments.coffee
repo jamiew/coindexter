@@ -4,4 +4,7 @@
 
 $ -> 
 	$('a.reply-to-comment').on 'click', ->
-		$(this).parent().children("form").show()
+		$(this).hide()
+		$(this).parent().children("form").toggle()
+	$('a.cancel-form').on 'click', ->
+		$(this).parent().toggle()	

@@ -1,0 +1,14 @@
+I"0(function() {
+  $(function() {
+    return $('a.reply-to-comment').on('click', function() {
+      if ($(this).text() === 'reply') {
+        $(this).text('cancel');
+      } else {
+        $(this).text('reply');
+      }
+      return $(this).parent().children("form").toggle();
+    });
+  });
+
+}).call(this);
+:ET

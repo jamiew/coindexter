@@ -1,7 +1,0 @@
-I"Š(function() {
-  $('account').toggle('hover', function(ev) {
-    return $this.text.replace(element.text("Signout"));
-  });
-
-}).call(this);
-:ET
