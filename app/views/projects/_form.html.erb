@@ -1,0 +1,109 @@
+<% content_for :head do %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('input:checkbox').bootstrapSwitch();
+		});
+	</script>
+<% end %>
+<%= form_for @project, authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<%= image_tag @project.logo, size: "60x60", id: "project-logo" if @project.logo? %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Project logo", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.file_field :logo, class: 'filestyle' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Name", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :name, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Description", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_area :description, rows: 6, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Status", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.select(:status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]]), {}, {include_blank: true, class: 'form-input'}) %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Category", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Select a category' }, class: 'form-input' %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Coins", class: "form-label select-label" %>
+			<h6 class="label-helper">Select one or more</h6>
+		</div>
+		<div class="col-md-8">
+			<%= f.select :coins, options_for_select(Coin.all.order("market_cap DESC").map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}), {}, {multiple: true, size: 8.5, id: "coin-option"} %>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "URL", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			  <%= f.text_field :link, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Organization", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			  <%= f.text_field :team, class: "form-input" %>
+		</div>
+	</div>			
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Founders", class: "form-label" %>
+		</div>
+		<div class="col-md-8 founder-list">
+			  <%= f.text_field :founders, class: "form-input" %>
+			  <a class="add-another">Add another founder</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Slack", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			  <%= f.text_field :slack, class: "form-input" %>			  
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Forum", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			  <%= f.text_field :forum, class: "form-input" %>
+		</div>
+	</div>	
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<%= f.submit "Submit changes", class: "form-submit" %> 
+		</div>
+	</div>
+<% end %>

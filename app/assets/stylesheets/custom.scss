@@ -60,6 +60,7 @@ body {
 .main {
 	border-left: 1px solid $border-orange;
 	min-height:500px;
+	margin-bottom:120px;
 }
 
 #wrap {
@@ -258,8 +259,8 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block {
-	margin-bottom:63px;
+.coin-info-block, .project-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_project, .edit_project {
+	margin-bottom:128px;
 	.row {
 		&:last-child {
 			margin-bottom:0px;
@@ -275,6 +276,13 @@ ul#info-menu {
 				font-family: 'WhitneyHTF-Medium';
 				color: $text-light;
 				font-style:normal;
+			}
+			h6.label-helper {
+				color: $text-light;
+				margin-top:4px;
+				font-family: "WhitneyHTF-Medium";
+				font-size:14px;
+				text-transform:none;
 			}
 		}
 		.already-have-account {
@@ -364,6 +372,9 @@ ul#info-menu {
 					opacity:0.6;
 				}
 			}
+			input.appended-form-input{
+				margin-top: 12px;
+			}
 			select {
 				text-transform:capitalize;
 				-webkit-appearance: none;
@@ -384,6 +395,17 @@ ul#info-menu {
 				.coin-option:checked {
 					color: $primary-orange !important;
 				}
+				&[multiple="multiple"] {
+					background-image: none;
+				}
+			}
+			.add-another {
+				margin-top:6px;
+				margin-bottom:2px;
+				font-size:14px;
+				text-align:right;
+				color: $primary-orange;
+				float:right;
 			}
 			.select-label {
 				margin-top: 10px;

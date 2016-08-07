@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160806225108) do
+ActiveRecord::Schema.define(version: 20160807211817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,20 +34,16 @@ ActiveRecord::Schema.define(version: 20160806225108) do
     t.decimal  "one_day_price_change"
     t.integer  "volume"
     t.bigint   "market_cap"
-    t.string   "application_name"
     t.text     "application_description"
-    t.string   "application_status"
     t.integer  "category_id"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "logo"
-    t.string   "application_url"
     t.string   "slug"
     t.string   "coinmarketcap_url"
     t.bigint   "available_supply"
     t.bigint   "total_supply"
     t.decimal  "one_hour_price_change"
-    t.boolean  "has_application",         default: true
     t.string   "symbol"
     t.integer  "link_id"
     t.integer  "user_id"
@@ -112,6 +108,28 @@ ActiveRecord::Schema.define(version: 20160806225108) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "link"
+    t.string   "status"
+    t.string   "team"
+    t.string   "founders"
+    t.string   "slack"
+    t.string   "forum"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.string   "logo"
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.integer  "coin_id"
+    t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
+    t.index ["coin_id"], name: "index_projects_on_coin_id", using: :btree
+    t.index ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
+    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

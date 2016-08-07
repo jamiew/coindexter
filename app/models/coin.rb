@@ -1,16 +1,18 @@
 class Coin < ApplicationRecord
   belongs_to :category, optional: true
+  belongs_to :project, optional: true
   mount_uploader :logo, LogoUploader
   extend FriendlyId
   include PgSearch
-  multisearchable :against => [:name, :application_name, :application_description]
-  pg_search_scope :search, :against => {:name => 'A',:application_name => 'B',:application_description  => 'C'}, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.1 } }
+  multisearchable :against => [:name]
+  pg_search_scope :search, :against => :name, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.1 } }
 
   validates_uniqueness_of :name
 
   friendly_id :name, use: [:slugged, :history]
 
   has_many :links
+  has_many :comments, through: :links
 
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?

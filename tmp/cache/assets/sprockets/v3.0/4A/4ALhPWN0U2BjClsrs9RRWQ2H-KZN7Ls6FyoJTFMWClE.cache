@@ -1,0 +1,9 @@
+I"›(function() {
+  $(function() {
+    return $(".add-another").live("click", function() {
+      return $(this).append($(this));
+    });
+  });
+
+}).call(this);
+:ET

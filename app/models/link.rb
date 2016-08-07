@@ -5,6 +5,7 @@ class Link < ApplicationRecord
 	accepts_nested_attributes_for :coins
 	has_many :comments, as: :commentable
 	belongs_to :user
+	belongs_to :project
 
 	def has_coins 
     	coins
