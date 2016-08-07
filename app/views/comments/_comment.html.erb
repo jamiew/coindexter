@@ -1,9 +1,28 @@
-<li>
-	<% unless comment.user.nil? %> 
-		<%= image_tag(comment.user.avatar)  %>
-	<% end %>
-	<%= comment.body %> 
+<li class="comment-block">
+	<div class="comment-block-singleton">
+		<p><%= comment.body %></p>
+		<% unless comment.user.nil? %> 
+			<div class="user-block">
+				<%= image_tag comment.user.avatar, class: "comment-avatar"  %>
+				<h6 class="comment-name"><%= comment.user.first_name.downcase %></h6>
+				<h6 class="comment-name"><%= comment.id %></h6>
+			</div>
+		<% end %>
+		<div class="hidden-form">
+			<%= form_for [comment, Comment.new] do |f| %>
+			    <%= f.text_area :body, placeholder: "Add a Reply", rows: 4 %><br/>
+			    <div class="row">
+			    	<div class="col-md-12">
+			    		<%= f.submit "Reply"  %>
+			    	</div>
+			    </div>
+			<% end %>
+			<% unless i == 2 %>
+				<a class="reply-to-comment">reply</a>
+			<% end %>
+		</div>
+	</div>
 	<ul>
-	  <%= render(partial: 'comments/comment', collection: comment.comments) %>
+	  <%= render(partial: 'comments/comment', collection: comment.comments, locals: {i: i + 1}) %>
 	</ul>
 </li>

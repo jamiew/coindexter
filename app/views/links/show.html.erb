@@ -22,8 +22,8 @@
 						<h3><%= link_to @link.title, @link.link %></h3>
 						<h6 class="when-posted">posted <%= time_ago_in_words(@link.created_at) %> ago</h6>
 						<%= render 'comments/form', link: @link %>
-						<ul>
-						  <%= render(partial: 'comments/comment', collection: @link.comments) %>
+						<ul class="comments-cnt">
+						  <%= render(partial: 'comments/comment', collection: @link.comments, locals: {i: 0}) %>
 						</ul>
 					</div>
 				</div>

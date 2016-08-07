@@ -1,0 +1,9 @@
+I"Ÿ(function() {
+  $(function() {
+    return $('a.reply-to-comment').on('click', function() {
+      return alert($(this).parent());
+    });
+  });
+
+}).call(this);
+:ET

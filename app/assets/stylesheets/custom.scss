@@ -190,9 +190,7 @@ nav, .navbar {
 						margin-top:-4px;
 					}
 					img.avatar {
-						border: 2px solid rgba(255,255,255,0.5);
-						box-shadow: 0px 0px 0px 2px $primary-orange;
-						border-radius: 20px;
+						border-radius: 4px;
 						margin-right: 6px;
 					}	
 					&:last-child {
@@ -452,7 +450,55 @@ ul#info-menu {
 					background-color: $primary-green;
 				}
 			}
-			
+			ul {
+				li.comment-block {
+					margin-left:32px;
+					.user-block {
+						display: block;
+						float:left;
+						margin-bottom:32px;
+					}
+					p {
+						margin-bottom:8px;
+					}
+					img.comment-avatar {
+						height: 24px;
+						width: 24px;
+						border-radius: 4px;
+					}
+					h6.comment-name {
+						margin: 3px 0 0 8px;
+						font-size:14px;
+						font-family: "WhitneyHTF-BoldSC";
+					}
+					h6.comment-name, a.reply-to-comment {
+						font-size:16px;
+					}
+					a.reply-to-comment {
+						margin-top:0;
+						font-family: "WhitneyHTF-MediumSC"
+					}
+					img.comment-avatar, h6.comment-name {
+						float:left;
+					}
+					a.reply-to-comment {
+						float:right
+					}
+					form {
+						margin-top:3em;
+						padding-left:32px;
+					}
+					.hidden-form > form {
+						display:none;
+					}
+					.comment-block-singleton {
+						clear:both;
+					}
+				}
+			}
+			ul.comments-cnt {
+				margin-left:-32px;
+			}
 		}
 		.coin-widget {
 			text-align:center;

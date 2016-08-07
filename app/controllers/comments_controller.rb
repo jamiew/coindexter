@@ -5,12 +5,16 @@ class CommentsController < ApplicationController
 
     def new
       @comment = current_user.comments.new
+      respond_to do |format|
+        format.html
+        format.js
+        format.json
+      end
     end
 
     def create
       @comment = @commentable.comments.new comment_params
       @comment.user = current_user
-
       if @comment.save
         redirect_to :back, notice: 'Your comment was successfully posted!'
       else
