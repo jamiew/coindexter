@@ -259,8 +259,8 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .project-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_project, .edit_project {
-	margin-bottom:128px;
+.coin-info-block, .project-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_project, .edit_project, .project-links-block {
+	margin-bottom:64px;
 	.row {
 		&:last-child {
 			margin-bottom:0px;
@@ -372,9 +372,6 @@ ul#info-menu {
 					opacity:0.6;
 				}
 			}
-			input.appended-form-input{
-				margin-top: 12px;
-			}
 			select {
 				text-transform:capitalize;
 				-webkit-appearance: none;
@@ -415,9 +412,9 @@ ul#info-menu {
 				font-size:24px;
 				color: $text;
 			}
-
-			img#coin-logo {
+			img#coin-logo, img#project-logo {
 				margin-bottom:34px;
+				border: 1px solid $border-orange;
 			}
 			div.live-icon {
 				margin-top:7px;
@@ -473,6 +470,9 @@ ul#info-menu {
 				}
 			}
 			ul {
+				li {
+					margin-bottom:4px;
+				}
 				li.comment-block {
 					margin-left:32px;
 					.user-block {
@@ -534,6 +534,14 @@ ul#info-menu {
 			}
 			ul.comments-cnt {
 				margin-left:-32px;
+			}
+		}
+		.founder-list {
+			input {
+				margin-top: 12px;
+				&:first-child {
+					margin-top: 0;
+				}
 			}
 		}
 		.coin-widget {

@@ -23,8 +23,7 @@ class ProjectsController < ApplicationController
 
 	def edit
 		@use_ajax = true
-		@project = Projects.friendly.find(params[:id])
-		#set_has_application(@project)
+		@project = Project.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -43,7 +42,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		@project = current_user.projects.friendly.find(params[:id])
+		@project = Project.friendly.find(params[:id])
+		@project.founders = params[:founders]
+		@project.status = params[:status]
 	  	if @project.update_attributes(project_params)
 	    	redirect_to @project
 		else
@@ -58,7 +59,7 @@ class ProjectsController < ApplicationController
 	private
 
 	    def project_params
-	    	params.require(:project).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :founders => [], :category_ids => [], :coin_ids => [])
+	    	params.require(:project).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, :whitepaper_title, :whitepaper_url, :founders => [], :category_ids => [], :coin_ids => [], :coins => [])
 	    end
 
 end

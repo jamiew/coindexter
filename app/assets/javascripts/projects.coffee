@@ -4,4 +4,4 @@
 
 $ -> 
 	$(".add-another").on "click", ->
-		$(this).before "<input class='form-input appended-form-input' type='text' name='project[founders]' id='project_founders'>"
+		$(this).before "<input type='text' name='founders[]'' id='founders'>"

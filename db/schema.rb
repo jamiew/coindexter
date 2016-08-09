@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807211817) do
+ActiveRecord::Schema.define(version: 20160809033137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,13 @@ ActiveRecord::Schema.define(version: 20160807211817) do
     t.string   "symbol"
     t.integer  "link_id"
     t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "links_id"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
+    t.index ["links_id"], name: "index_coins_on_links_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
+    t.index ["project_id"], name: "index_coins_on_project_id", using: :btree
+    t.index ["user_id"], name: "index_coins_on_user_id", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
@@ -116,16 +121,18 @@ ActiveRecord::Schema.define(version: 20160807211817) do
     t.string   "link"
     t.string   "status"
     t.string   "team"
-    t.string   "founders"
+    t.string   "founders",                      array: true
     t.string   "slack"
     t.string   "forum"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.string   "slug"
     t.string   "logo"
     t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "coin_id"
+    t.string   "whitepaper_title"
+    t.string   "whitepaper_url"
     t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
     t.index ["coin_id"], name: "index_projects_on_coin_id", using: :btree
     t.index ["slug"], name: "index_projects_on_slug", unique: true, using: :btree

@@ -30,10 +30,47 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 label">
-						<h6>link</h6>
+						<h6>Coins</h6>
 					</div>
 					<div class="col-md-8">
-						<%= link_to @project.name, @project.link %>
+						<% if @project.coins.any? %>
+							<ul>
+								<% @project.coins.each_with_index do |coin, i| %>
+									<li>
+										<%= link_to coin.name, coin %>
+									</li>
+								<% end %>
+							</ul>
+						<% else %>
+							<%= link_to "Add a coin to #{coin.name}", coin_edit_path %>
+						<% end %>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li class="project-links project-links-block">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-4">
+						<h6>people</h6>
+					</div>
+				</div>		
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Founders</h6>
+					</div>
+					<div class="col-md-8">
+						<% if @project.founders.nil? %>
+							<%= link_to "Add founders to #{coin.name}" %>
+						<% else %>
+							<ul>
+								<% @project.founders.each do |founder| %>
+									<li>
+										<%= founder %>
+									</li>
+								<% end %>
+							</ul>
+						<% end %>
 					</div>
 				</div>
 				<div class="row">
@@ -43,7 +80,32 @@
 					<div class="col-md-8">
 						<p><%= @project.team %></p>
 					</div>
-				</div>			
+				</div>						
+			</li>
+		</ul>
+		<ul>
+			<li class="project-links project-links-block">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-4">
+						<h6>links</h6>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>url</h6>
+					</div>
+					<div class="col-md-8">
+						<%= link_to @project.name, @project.link %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>whitepaper</h6>
+					</div>
+					<div class="col-md-8">
+						"<%= link_to @project.whitepaper_title, @project.whitepaper_url %>"
+					</div>
+				</div>
 			</li>
 		</ul>
 	</div>

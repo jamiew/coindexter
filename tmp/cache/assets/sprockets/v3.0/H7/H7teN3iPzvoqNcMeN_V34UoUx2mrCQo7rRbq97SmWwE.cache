@@ -1,0 +1,9 @@
+I"ÿ(function() {
+  $(function() {
+    return $(".add-another").on("click", function() {
+      return $(this).before("<input type='text' class='form-input appended-form-input' name='project[founders][]' id='project_founders'>");
+    });
+  });
+
+}).call(this);
+:ET
