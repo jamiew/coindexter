@@ -259,7 +259,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .project-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_project, .edit_project, .project-links-block {
+.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_network, .edit_network, .network-links-block {
 	margin-bottom:64px;
 	.row {
 		&:last-child {
@@ -412,7 +412,7 @@ ul#info-menu {
 				font-size:24px;
 				color: $text;
 			}
-			img#coin-logo, img#project-logo {
+			img#coin-logo, img#network-logo {
 				margin-bottom:34px;
 				border: 1px solid $border-orange;
 			}
@@ -535,6 +535,10 @@ ul#info-menu {
 			ul.comments-cnt {
 				margin-left:-32px;
 			}
+
+		}
+		#chart {
+			display:inline;
 		}
 		.founder-list {
 			input {

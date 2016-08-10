@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :coins
   has_many :links
   has_many :comments
-  has_many :projects
+  has_many :networks
 
 end

@@ -1,0 +1,35 @@
+I"ž(function() {
+  $(function() {
+    var $chart, $img, $switchState, $text;
+    $text = $('.account').text();
+    $img = $('.account').find('img');
+    $('.has-application').bootstrapSwitch('state', true);
+    $switchState = $('.has-application').bootstrapSwitch('state');
+    $('.application-info').prop('disabled', !$switchState);
+    $('.account').mouseover(function() {
+      $(this).text(' Signout');
+      return $(this).prepend($img);
+    });
+    $('.account').mouseout(function() {
+      $(this).text($text);
+      return $(this).prepend($img);
+    });
+    $('.bootstrap-switch-id-coin_has_application').on('switchChange.bootstrapSwitch', function() {
+      return $('.application-info').prop('disabled', $switchState);
+    });
+    $('ul#info-menu > li').click(function() {
+      var selector;
+      selector = 'ul#' + $(this).attr('id');
+      $('.show-all').removeClass('active-item');
+      $('ul.full-category-cnt').hide();
+      return $(selector).show();
+    });
+    $('#show-all').click(function() {
+      return $('ul.full-category-cnt').show();
+    });
+    $chart = new cryptowatch.Embed('bitfinex', 'btcusd');
+    return chart.mount('#chart');
+  });
+
+}).call(this);
+:ET

@@ -1,6 +1,6 @@
 class Coin < ApplicationRecord
   belongs_to :category, optional: true
-  belongs_to :project, optional: true
+  belongs_to :network, optional: true
   mount_uploader :logo, LogoUploader
   extend FriendlyId
   include PgSearch

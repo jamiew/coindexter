@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :coins
   resources :users
   resources :searches
-  resources :projects
+  resources :networks
   resources :links do
     resources :comments
   end

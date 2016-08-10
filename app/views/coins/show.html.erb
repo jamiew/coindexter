@@ -1,3 +1,6 @@
+<% content_for :head do %>
+	<script type="text/javascript" src="https://cdn.cryptowat.ch/assets/build/scripts/dist/embed.js"></script>
+<% end %>
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<ul id="info-menu">
@@ -89,10 +92,16 @@
 						<p><%= number_to_human(@coin.total_supply) %></p>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>detail</h6>
+					</div>
+					<div class="col-md-8" id="chart">
+					</div>
+				</div>
 			</li>
 		</ul>
 	</div>
-	<%= debug(params) if Rails.env.development? %>
 	<ul class="action-links">
 		<li><%= link_to("Add new coin", new_coin_path, remote: true, class: "action-link", accesskey: 'A') %></li>
 		<li><%= link_to("Edit #{@coin.name}", edit_coin_path, remote: true, class: "action-link", accesskey: 'E') %></li>

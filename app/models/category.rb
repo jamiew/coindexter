@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
-	has_many :projects
-	has_many :coins, through: :projects
-	has_many :links, through: :projects
+	has_many :networks
+	has_many :coins, through: :networks
+	has_many :links, through: :networks
 	extend FriendlyId
   	friendly_id :name, use: :slugged
   	include PgSearch

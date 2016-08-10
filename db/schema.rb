@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809033137) do
+ActiveRecord::Schema.define(version: 20160810013958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(version: 20160809033137) do
     t.string   "symbol"
     t.integer  "link_id"
     t.integer  "user_id"
-    t.integer  "project_id"
+    t.integer  "network_id"
     t.integer  "links_id"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
     t.index ["links_id"], name: "index_coins_on_links_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
-    t.index ["project_id"], name: "index_coins_on_project_id", using: :btree
+    t.index ["network_id"], name: "index_coins_on_network_id", using: :btree
     t.index ["user_id"], name: "index_coins_on_user_id", using: :btree
   end
 
@@ -106,16 +106,7 @@ ActiveRecord::Schema.define(version: 20160809033137) do
     t.index ["slug"], name: "index_links_on_slug", unique: true, using: :btree
   end
 
-  create_table "pg_search_documents", force: :cascade do |t|
-    t.text     "content"
-    t.string   "searchable_type"
-    t.integer  "searchable_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
-  end
-
-  create_table "projects", force: :cascade do |t|
+  create_table "networks", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.string   "link"
@@ -133,10 +124,19 @@ ActiveRecord::Schema.define(version: 20160809033137) do
     t.integer  "coin_id"
     t.string   "whitepaper_title"
     t.string   "whitepaper_url"
-    t.index ["category_id"], name: "index_projects_on_category_id", using: :btree
-    t.index ["coin_id"], name: "index_projects_on_coin_id", using: :btree
-    t.index ["slug"], name: "index_projects_on_slug", unique: true, using: :btree
-    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
+    t.index ["category_id"], name: "index_networks_on_category_id", using: :btree
+    t.index ["coin_id"], name: "index_networks_on_coin_id", using: :btree
+    t.index ["slug"], name: "index_networks_on_slug", unique: true, using: :btree
+    t.index ["user_id"], name: "index_networks_on_user_id", using: :btree
+  end
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.string   "searchable_type"
+    t.integer  "searchable_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|

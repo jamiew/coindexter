@@ -23,8 +23,22 @@ $ ->
 		$(selector).show()
 	$('#show-all').click ->
 		$('ul.full-category-cnt').show()
+	chart = new (cryptowatch.Embed)('coinbase', 'btcusd',
+		height: 400
+		customColorScheme:
+			bg: 'fdeee9'
+			text: '545454'
+			textStrong: '545454'
+			textWeak: 'CCCCCC'
+			short: 'EB3333'
+			shortFill: 'EB3333'
+			long: '23a06d'
+			longFill: '23a06d'
+			cta: '000000'
+			ctaHighlight: '000000'
+			alert: '000000')
 
-
+	chart.mount '#chart'
 
 
 	
