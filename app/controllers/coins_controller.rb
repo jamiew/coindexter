@@ -11,8 +11,27 @@ class CoinsController < ApplicationController
 		@coins = Coin.all.order(market_cap: 'desc')
 	end
 
+	def links
+		@links = Coin.friendly.find(params[:id]).links
+		@coin = Coin.friendly.find(params[:id])
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
+	end
+
+	def trollbox
+
+	end
+
+	def log
+
+	end	
+
 	def show
 		@coin = Coin.friendly.find(params[:id])
+		puts "the id is #{@coin.id}"
 		unless @coin.one_day_price_change.nil?
 			if @coin.one_day_price_change > 0
 				@one_day_up = "up"

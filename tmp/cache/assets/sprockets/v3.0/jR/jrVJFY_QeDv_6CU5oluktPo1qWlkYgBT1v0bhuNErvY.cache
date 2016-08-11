@@ -1,0 +1,12 @@
+I"%(function() {
+  $(function() {
+    $(".add-another").on("click", function() {
+      return $(this).before("<input type='text' name='founders[]'' id='founders'>");
+    });
+    return $("#add-another-whitepaper").on("click", function() {
+      return alert('hey');
+    });
+  });
+
+}).call(this);
+:ET

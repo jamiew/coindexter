@@ -1,6 +1,7 @@
 class Network < ApplicationRecord
 
 	has_many :coins
+	has_and_belongs_to_many :links
 	belongs_to :category, optional: true
 	belongs_to :user, optional: true
 	mount_uploader :logo, NetworkLogoUploader

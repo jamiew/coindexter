@@ -5,7 +5,30 @@ class NetworksController < ApplicationController
 	def index
 		@networks = network.all
 		page_title = "networks"
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
+
+	def links
+		@links = Network.friendly.find(params[:id]).links
+		@network = Network.friendly.find(params[:id])
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
+	end
+
+	def trollbox
+
+	end
+
+	def log
+
+	end		
 
 	def show
 		@network = Network.friendly.find(params[:id])
@@ -59,7 +82,7 @@ class NetworksController < ApplicationController
 	private
 
 	    def network_params
-	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, :whitepaper_title, :whitepaper_url, :founders => [], :category_ids => [], :coin_ids => [], :coins => [])
+	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, :whitepaper_title, :whitepaper_url, link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
 	    end
 
 end

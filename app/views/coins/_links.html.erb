@@ -1,0 +1,6 @@
+<ul>
+	<li class="coin-header coin-info-block">
+		<%= render(partial: 'coins/coin_main_info_header', object: @coin, as: :coin) %>
+	</li>
+	<%= render(partial: 'links/show_all_links', collection: @links, as: :link) %>
+</ul>

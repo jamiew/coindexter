@@ -1,0 +1,14 @@
+I"Œ(function() {
+  $(function() {
+    $("#add-another-founder").on("click", function() {
+      return $(this).before("<input type='text' name='founders[]'' id='founders'>");
+    });
+    return $("#add-another-whitepaper").on("click", function() {
+      var $toAppend;
+      $("#add-another-whitepaper").first().hide();
+      return $toAppend = $(".whitepaper").html();
+    });
+  });
+
+}).call(this);
+:ET

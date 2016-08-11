@@ -1,0 +1,94 @@
+<ul>
+	<li class="coin-header coin-info-block">
+		<%= render 'coin_main_info_header' %>
+	</li>
+	<li class="coin-main-info coin-info-block">
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>status</h6>
+			</div>
+			<div class="col-md-8 data status">
+				<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
+				<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>where to buy</h6>
+			</div>
+			<div class="col-md-8 data">
+				<ul>
+					<li><a href="http://steemit.com">Steem.com <%= image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
+					<li><a href="http://gdax.com">GDAX <%= image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>additional</h6>
+			</div>
+			<div class="col-md-8 data">
+				<p><%= @coin.coin_info %></p>
+			</div>
+		</div>
+	</li>
+	<li class="coin-price-info coin-info-block">
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>price (usd)</h6>
+			</div>
+			<div class="col-md-8 data">
+				<p><%= number_to_currency(@coin.price, :unit => '$') %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>1d</h6>
+			</div>
+			<div class="col-md-8 data">
+				<p><span class=<%= @one_day_up %>><%= @coin.one_day_price_change %>%</span></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>1h</h6>
+			</div>
+			<div class="col-md-8 data">
+				<p><span class=<%= @one_hour_up %>><%= @coin.one_hour_price_change %>%</span></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Market cap</h6>
+			</div>
+			<div class="col-md-8 data">
+				<p>$<%= number_to_human(@coin.market_cap) %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Available supply</h6>
+			</div>
+			<div class="col-md-8 data">
+				<p><%= number_to_human(@coin.available_supply) %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Total supply</h6>
+			</div>
+			<div class="col-md-8 data">
+				<p><%= number_to_human(@coin.total_supply) %></p>
+			</div>
+		</div>
+	</li>
+	<li class="coin-info-block">
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>detail</h6>
+			</div>
+			<div class="col-md-8" id="chart">
+			</div>
+		</div>
+	</li>
+</ul>

@@ -88,7 +88,7 @@
 					<%= text_field_tag 'founders[]', @network.founders[i] %>
 				<% end %>
 			<% end %>
-			<a class="add-another">Add another founder</a>
+			<a class="add-another" id="add-another-founder">Add another founder</a>
 		</div>
 	</div>
 	<div class="row">
@@ -107,22 +107,22 @@
 			  <%= f.text_field :forum, class: "form-input" %>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row whitepaper1">
 		<div class="col-md-4 label">
 			<%= f.label "Whitepaper Title", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
-			  <%= f.text_field :whitepaper_title, class: "form-input" %>
+			<%= f.text_field :whitepaper_title, class: "form-input" %>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row whitepaper2">
 		<div class="col-md-4 label">
 			<%= f.label "Whitepaper URL", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
 			<%= f.text_field :whitepaper_url, class: "form-input" %>
 		</div>
-	</div>		
+	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<%= f.submit "Submit changes", class: "form-submit" %> 

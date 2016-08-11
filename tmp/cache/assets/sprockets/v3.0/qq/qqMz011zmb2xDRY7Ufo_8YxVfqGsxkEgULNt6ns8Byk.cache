@@ -1,0 +1,19 @@
+I"(function() {
+  $(function() {
+    var $whitepaperCount;
+    $("#add-another-founder").on("click", function() {
+      return $(this).before("<input type='text' name='founders[]'' id='founders'>");
+    });
+    $whitepaperCount = 0;
+    return $("#add-another-whitepaper").on("click", function() {
+      var $toAppend1, $toAppend2;
+      $whitepaperCount += 1;
+      $("#add-another-whitepaper").first().hide();
+      $toAppend1 = $(".whitepaper1").html();
+      $toAppend2 = $(".whitepaper2").html();
+      return $(".whitepaper2").after("<div class='row whitepaper1'><div class='col-md-4 label'><label class='form-label' for='whitepaper[" + $whitepaperCount + "]title'>Whitepaper Title</label></div><div class='col-md-8'><input type='text' name='whitepaper[" + $whitepaperCount + "][title]' id='whitepaper_0_title' value='' class='form-input'></div></div><div class='row whitepaper2'><div class='col-md-4 label'><label class='form-label' for='whitepaper[" + $whitepaperCount + "]url'>Whitepaper URL</label></div><div class='col-md-8'><input type='text' name='whitepaper[" + $whitepaperCount + "][url]' id='whitepaper_0_url' value='' class='form-input'><a class='add-another' id='add-another-whitepaper' style='display: none;'>Add another whitepaper</a></div></div>");
+    });
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,16 @@
+I"=(function() {
+  $(function() {
+    $("#add-another-founder").on("click", function() {
+      return $(this).before("<input type='text' name='founders[]'' id='founders'>");
+    });
+    return $("#add-another-whitepaper").on("click", function() {
+      var $toAppend1, $toAppend2;
+      $("#add-another-whitepaper").first().hide();
+      $toAppend1 = $(".whitepaper1").html();
+      $toAppend2 = $(".whitepaper2").html();
+      return $(".whitepaper2").after("<div class='row'>" + $toAppend1 + "</div><div class='row'>" + $toAppend2 + "</div>");
+    });
+  });
+
+}).call(this);
+:ET

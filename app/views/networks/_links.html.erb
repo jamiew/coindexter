@@ -1,0 +1,6 @@
+<ul>
+	<li class="network-header network-info-block">
+		<%= render(partial: 'networks/network_main_info_header', object: @network, as: :network) %>
+	</li>
+	<%= render(partial: 'links/show_all_links', collection: @links, as: :link) %>
+</ul>

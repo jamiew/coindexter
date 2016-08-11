@@ -1,0 +1,102 @@
+<ul>
+	<li class="network-header network-info-block">
+		<%= render 'network_main_info_header' %>	
+	</li>
+	<li class="network-main-info network-info-block">
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>status</h6>
+			</div>
+			<div class="col-md-8 status">
+				<div class="status-icon <%= @network.status.downcase %>-icon"></div>
+				<p class="status <%= @network.status.downcase %>-status"><%= @network.status.downcase %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>description</h6>
+			</div>
+			<div class="col-md-8">
+				<p><%= @network.description %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Coins</h6>
+			</div>
+			<div class="col-md-8">
+				<% if @network.coins.any? %>
+					<ul>
+						<% @network.coins.each_with_index do |coin, i| %>
+							<li>
+								<%= link_to coin.name, coin %>
+							</li>
+						<% end %>
+					</ul>
+				<% else %>
+					<%= link_to "Add a coin to #{coin.name}", coin_edit_path %>
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>
+<ul>
+	<li class="network-links network-links-block">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<h6>people</h6>
+			</div>
+		</div>		
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Founders</h6>
+			</div>
+			<div class="col-md-8">
+				<% if @network.founders.nil? %>
+					<%= link_to "Add founders to #{coin.name}" %>
+				<% else %>
+					<ul>
+						<% @network.founders.each do |founder| %>
+							<li>
+								<%= founder %>
+							</li>
+						<% end %>
+					</ul>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Owner</h6>
+			</div>
+			<div class="col-md-8">
+				<p><%= @network.team %></p>
+			</div>
+		</div>						
+	</li>
+</ul>
+<ul>
+	<li class="network-links network-links-block">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<h6>links</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>url</h6>
+			</div>
+			<div class="col-md-8">
+				<%= link_to @network.name, @network.link %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>whitepaper</h6>
+			</div>
+			<div class="col-md-8">
+				<%= link_to @network.whitepaper_title, @network.whitepaper_url %>
+			</div>
+		</div>
+	</li>
+</ul>

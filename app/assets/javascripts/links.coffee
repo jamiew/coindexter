@@ -7,5 +7,8 @@ $ ->
 	$('.coin-option').each ->
 		$url = $(this).data 'icon'
 		$(this).css 'background-image', "url('http://coindexter.herokuapp.com" + $url + "')"
+	$('.network-option').each ->
+		$url = $(this).data 'icon'
+		$(this).css 'background-image', "url('http://coindexter.herokuapp.com" + $url + "')"	
 
 		

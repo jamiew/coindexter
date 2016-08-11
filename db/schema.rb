@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810013958) do
+ActiveRecord::Schema.define(version: 20160811162204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20160810013958) do
     t.index ["user_id"], name: "index_coins_on_user_id", using: :btree
   end
 
+  create_table "coins_links", id: false, force: :cascade do |t|
+    t.integer "coin_id", null: false
+    t.integer "link_id", null: false
+    t.index ["coin_id", "link_id"], name: "index_coins_links_on_coin_id_and_link_id", using: :btree
+    t.index ["link_id", "coin_id"], name: "index_coins_links_on_link_id_and_coin_id", using: :btree
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "commentable_id"
@@ -97,13 +104,22 @@ ActiveRecord::Schema.define(version: 20160810013958) do
   create_table "links", force: :cascade do |t|
     t.string   "link"
     t.string   "title"
-    t.integer  "coin_id"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "slug"
     t.integer  "user_id"
+    t.integer  "networks",    default: [],              array: true
+    t.integer  "coins",       default: [],              array: true
+    t.text     "body"
     t.index ["slug"], name: "index_links_on_slug", unique: true, using: :btree
+  end
+
+  create_table "links_networks", id: false, force: :cascade do |t|
+    t.integer "network_id", null: false
+    t.integer "link_id",    null: false
+    t.index ["link_id", "network_id"], name: "index_links_networks_on_link_id_and_network_id", using: :btree
+    t.index ["network_id", "link_id"], name: "index_links_networks_on_network_id_and_link_id", using: :btree
   end
 
   create_table "networks", force: :cascade do |t|

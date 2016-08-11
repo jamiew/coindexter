@@ -1,0 +1,6 @@
+<ul id="info-menu">
+	<li class="active-item" id="details"><p><%= link_to("Details", "#details") %><p></li>
+	<li id="links"><p><%= link_to "News", "#{@network.name.downcase}/links", remote: true %></p></li>
+	<li id="discussion"><p><%= link_to "Trollbox", "#{@network.name.downcase}/trollbox", remote: true %></p></li>
+	<li id="log"><p><%= link_to "Log", "#{@network.name.downcase}/log" %></p></li>
+</ul>

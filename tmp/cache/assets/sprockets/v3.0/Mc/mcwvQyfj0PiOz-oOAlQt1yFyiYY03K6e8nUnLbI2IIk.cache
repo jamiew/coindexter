@@ -1,0 +1,12 @@
+I"N(function() {
+  $(function() {
+    var load_javascript;
+    load_javascript($("body").data('controller'), $("body").data('action'));
+    return load_javascript = function(controller, action) {
+      $.event.trigger(controller + ".load");
+      return $.event.trigger(action + "_" + controller + ".load");
+    };
+  });
+
+}).call(this);
+:ET

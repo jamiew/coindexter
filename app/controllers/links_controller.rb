@@ -4,12 +4,21 @@ class LinksController < ApplicationController
 
 	def index
 		@links = Link.all
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
 
 	def show
 		@link = Link.friendly.find(params[:id])
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
-
 
 	def new
 		@use_ajax = true
@@ -17,9 +26,8 @@ class LinksController < ApplicationController
 	end
 
 	def edit
-		@use_ajax = true
+		@use_ajax = false
 		@link = Link.friendly.find(params[:id])
-		#set_has_application(@coin)
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -49,10 +57,18 @@ class LinksController < ApplicationController
 		@link.destroy
 	end
 
+	def comment_count(link)
+		link.comments.count
+	end
+
 	private
 
+		
+
 	    def link_params
-	    	params.require(:link).permit(:link, :title, :coin_id => [], :coin_ids => [])
+	    	params.require(:link).permit(:link, :title, :body, coin_ids: [], network_ids: [])
 	    end	
+
+	    
 
 end

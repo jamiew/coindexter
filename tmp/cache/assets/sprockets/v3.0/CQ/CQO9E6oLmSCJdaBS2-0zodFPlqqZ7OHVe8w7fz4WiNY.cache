@@ -1,0 +1,14 @@
+I"V(function() {
+  var load_javascript;
+
+  $(document).ready(function() {
+    return load_javascript($("body").data('controller'), $("body").data('action'));
+  });
+
+  load_javascript = function(controller, action) {
+    $.event.trigger(controller + ".load");
+    return $.event.trigger(action + "_" + controller + ".load");
+  };
+
+}).call(this);
+:ET

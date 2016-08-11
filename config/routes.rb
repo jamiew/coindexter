@@ -16,6 +16,14 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  match '/networks/:id/links', to:'networks#links', via: 'get'
+  match '/networks/:id/trollbox', to:'networks#trollbox', via: 'get'
+  match '/networks/:id/log', to:'networks#log', via: 'get'
+
+  match '/coins/:id/links', to:'coins#links', via: 'get'
+  match '/coins/:id/trollbox', to:'coins#trollbox', via: 'get'
+  match '/coins/:id/log', to:'coins#log', via: 'get'
+
   match '/search', to:"searches#results", via: "get"
 
   match '/coins/edit', to: "coins#edit", via: "post"

@@ -11,7 +11,7 @@ class Coin < ApplicationRecord
 
   friendly_id :name, use: [:slugged, :history]
 
-  has_many :links
+  has_and_belongs_to_many  :links
   has_many :comments, through: :links
 
   def should_generate_new_friendly_id?

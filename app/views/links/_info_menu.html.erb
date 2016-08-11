@@ -1,0 +1,24 @@
+<ul id="info-menu">
+	<% if @link.coins.any? %>
+		<li class="menu-title">related coins</li>
+		<% @link.coins.each do |coin| %>
+			<li>
+				<%= link_to coin do %>
+					<p><%= coin.name %></p>
+					<%= image_tag(coin.logo, class: "coin-logo info-menu-logo") %>
+				<% end %>
+			</li>
+		<% end %>
+	<% end %>
+	<% if @link.networks.any? %>
+		<li class="menu-title">related network</li>
+		<% @link.networks.each do |network| %>
+			<li>
+				<%= link_to network do %>
+					<p><%= network.name %></p>
+					<%= image_tag(network.logo, class: "network-logo info-menu-logo") %>
+				<% end %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>

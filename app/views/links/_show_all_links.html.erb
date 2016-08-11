@@ -1,0 +1,13 @@
+<li class="link-block">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<h3><%= link_to link.title, link.link %></h3>
+			<h6 class="when-posted">posted <%= time_ago_in_words(link.created_at) %> ago</h6>
+			<% if link.comment_count > 1 %>
+				<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
+			<% elsif link.comment_count > 0 %>
+				<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>
+			<% end %>
+		</div>
+	</div>
+</li>

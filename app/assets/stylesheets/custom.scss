@@ -91,6 +91,12 @@ a {
 	&:hover {
 		text-decoration:none;
 	}
+	&:visited {
+		text-decoration:none;
+	}
+	&:active {
+		text-decoration:none;
+	}
 }
 
 ul, li {
@@ -212,6 +218,7 @@ ul#info-menu {
 	text-align:right;
 	margin-top: 163px;
 	margin-right:20px;
+	padding-left: 0px;
 	li {
 		margin-bottom:14px;
 		opacity:0.4;
@@ -256,6 +263,7 @@ ul#info-menu {
 	li.menu-title {
 		font-family:'WhitneyHTF-MediumSC';
 		font-size:18px;
+		margin-top: 48px;
 	}
 }
 
@@ -296,7 +304,6 @@ ul#info-menu {
 		.social-sign-in {
 			margin-bottom:-12px;
 		}
-
 		div[class*='col-'] {
 			p {
 				margin: 0;
@@ -383,7 +390,7 @@ ul#info-menu {
 					padding: 0.8em;
 					text-transform:capitalize;
 				}
-				.coin-option {
+				.coin-option, .network-option {
 					background-size:24px 24px;
 					background-repeat:no-repeat;
 					padding-left:48px;
@@ -403,18 +410,17 @@ ul#info-menu {
 				text-align:right;
 				color: $primary-orange;
 				float:right;
+				&:hover {
+					cursor:pointer;
+				}
 			}
 			.select-label {
 				margin-top: 10px;
 			}
-			h1 {
-				font-family: WhitneyHTF-Bold;
-				font-size:24px;
-				color: $text;
-			}
 			img#coin-logo, img#network-logo {
-				margin-bottom:34px;
 				border: 1px solid $border-orange;
+				background-color: #fff;
+				padding: 16px;
 			}
 			div.live-icon {
 				margin-top:7px;
@@ -430,13 +436,16 @@ ul#info-menu {
 			h3 {
 				line-height:140%;
 			}
-			h6.when-posted {
+			h6.when-posted, h6.comment-count {
 				margin-top:4px;
-				margin-bottom:38px;
+				margin-bottom: 8px;
 				font-family: "WhitneyHTF-MediumSC";
 				color:$text-light;
 				font-size:14px;
 				text-transform: uppercase;
+			}
+			p.link-body {
+				margin-bottom:38px;
 			}
 			.bootstrap-switch {
 				margin-top:-2px;
@@ -613,6 +622,15 @@ ul#info-menu {
 				color: $concept-outer;
 			}
 		}
+	}
+}
+
+.network-header, .coin-header {
+	margin-bottom:24px;
+	h1 {
+		font-family: WhitneyHTF-Bold;
+		font-size:24px;
+		color: $text;
 	}
 }
 

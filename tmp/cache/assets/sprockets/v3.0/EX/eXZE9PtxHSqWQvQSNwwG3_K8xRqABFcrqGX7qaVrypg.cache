@@ -1,0 +1,16 @@
+I"Í(function() {
+  $(function() {
+    $('.coin-option').each(function() {
+      var $url;
+      $url = $(this).data('icon');
+      return $(this).css('background-image', "url('http://coindexter.herokuapp.com" + $url + "')");
+    });
+    return $('.network-option').each(function() {
+      var $url;
+      $url = $(this).data('icon');
+      return $(this).css('background-image', "url('http://coindexter.herokuapp.com" + $url + "')");
+    });
+  });
+
+}).call(this);
+:ET
