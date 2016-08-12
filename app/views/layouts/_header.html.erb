@@ -7,8 +7,10 @@
 	  	<div id="navbar">
 		  	<ul class="nav navbar-nav navbar-right">
 		  		<li><h6>Browse by</h6></li>
-			    <li><%= link_to 'Category', coins_url %></a></li>
-			    <li><a href="#">Upcoming sales</a></li>
+			    <li id="header-link-networks"><%= link_to 'Networks', networks_url %></a></li>
+			    <li id="header-link-coins"><%= link_to 'Coins', coins_url %></a></li>
+			    <li id="header-link-news"><%= link_to 'News', links_url %></a></li>
+			    <li id="header-link-sales"><a>Upcoming sales</a></li>
 			    <li>
 			    	<% if user_signed_in? %>
 			    		<%= link_to destroy_user_session_path, method: :delete, class: 'account' do %>

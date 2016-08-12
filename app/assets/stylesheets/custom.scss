@@ -3,6 +3,7 @@
 @import "bootstrap3-switch";
 
 $primary-orange: rgb(235,107,51);
+$secondary-orange: rgb(245,144,101);
 $navbar-orange: rgb(253,238,233);
 $border-orange: rgb(251,226,216);
 $background-orange: rgb(254,247,245);
@@ -86,7 +87,7 @@ footer {
 }
 
 a {
-	color: $primary-blue;
+	color: $primary-orange;
 	text-decoration:none;
 	&:hover {
 		text-decoration:none;
@@ -443,6 +444,9 @@ ul#info-menu {
 				color:$text-light;
 				font-size:14px;
 				text-transform: uppercase;
+			}
+			h6.comment-count > a {
+				color: $secondary-orange;
 			}
 			p.link-body {
 				margin-bottom:38px;
