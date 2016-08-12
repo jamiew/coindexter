@@ -194,6 +194,7 @@ nav, .navbar {
 							background:none;
 						}
 					}
+
 					a.account {
 						margin-top:-4px;
 					}
@@ -204,6 +205,9 @@ nav, .navbar {
 					&:last-child {
 						width: 150px;
 					}		
+				}
+				li#header-link-sales > a {
+					color: $text-light;
 				}
 			}
 		}
