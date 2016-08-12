@@ -1,0 +1,13 @@
+I"J(function() {
+  $(function() {
+    return $('.search-filter-categories > li').on("click", function() {
+      var $id;
+      $('.search-filter-categories > li').removeClass("active-item");
+      $(this).addClass("active-item");
+      $id = $(this).attr('id');
+      return $('#uncategorized').hide();
+    });
+  });
+
+}).call(this);
+:ET

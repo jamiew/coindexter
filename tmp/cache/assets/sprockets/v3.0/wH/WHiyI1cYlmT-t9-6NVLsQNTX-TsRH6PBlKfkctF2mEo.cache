@@ -1,0 +1,14 @@
+I"j(function() {
+  $(function() {
+    return $('.search-filter-categories > li').on("click", function() {
+      var $id;
+      $('.search-filter-categories > li').removeClass("active-item");
+      $(this).addClass("active-item");
+      $('.coin-in-categories').hide();
+      $id = $(this).attr('id');
+      return $('##{$id}').show();
+    });
+  });
+
+}).call(this);
+:ET

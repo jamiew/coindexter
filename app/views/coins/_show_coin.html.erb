@@ -62,7 +62,7 @@
 				<h6>Market cap</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p>$<%= number_to_human(@coin.market_cap) %></p>
+				<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') %></p>
 			</div>
 		</div>
 		<div class="row">
@@ -70,7 +70,7 @@
 				<h6>Available supply</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p><%= number_to_human(@coin.available_supply) %></p>
+				<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') %></p>
 			</div>
 		</div>
 		<div class="row">
@@ -78,7 +78,7 @@
 				<h6>Total supply</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p><%= number_to_human(@coin.total_supply) %></p>
+				<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') %></p>
 			</div>
 		</div>
 	</li>

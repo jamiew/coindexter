@@ -23,6 +23,13 @@ $ ->
 		$(selector).show()
 	$('#show-all').click ->
 		$('ul.full-category-cnt').show()
+	$("#add-another-repo").on "click", ->
+		$parent_id = $(this).parent().attr 'id'
+		$parent_id_length = $parent_id.length
+		$repo_number = parseInt($parent_id.substring($parent_id_length - 1,$parent_id_length))
+		$repo_plus_one = $repo_number + 1
+		$(this).hide()
+		$(this).parent().parent().after '<div class="row"><div class="col-md-4 label"><label class="form-label select-label" for="coin_Repo name">Repo name</label></div><div class="col-md-8"><input type="text" name="repository[' +  $repo_plus_one + '][0]" value=""></div></div><div class="row"><div class="col-md-4 label"><label class="form-label select-label" for="coin_Repo url">Repo url</label></div><div class="col-md-8" id="repository-' + $repo_plus_one + '"><input type="text" name="repository[' + $repo_plus_one + '][1][\'url\']" value=""><a class="add-another" id="add-another-repo">Add another repo</a></div></div>'
 	if $(".coin-main-info").length > 0
 		chart = new (cryptowatch.Embed)('coinbase', 'btcusd',
 			height: 300

@@ -1,7 +1,0 @@
-I"Š(function() {
-  $(function() {
-    return $('#link-option > option').css('background-image', $(this).data('icon'));
-  });
-
-}).call(this);
-:ET

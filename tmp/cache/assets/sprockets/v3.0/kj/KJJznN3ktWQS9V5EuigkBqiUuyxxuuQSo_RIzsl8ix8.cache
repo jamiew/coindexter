@@ -1,0 +1,14 @@
+I"d(function() {
+  $(function() {
+    return $('.search-filter-categories > li').on("click", function() {
+      var id;
+      id = "div#" + ($(this).attr('id'));
+      alert(id);
+      $('.search-filter-categories > li').removeClass("active-item");
+      $(this).addClass("active-item");
+      return alert('$("{#id}").hide()');
+    });
+  });
+
+}).call(this);
+:ET

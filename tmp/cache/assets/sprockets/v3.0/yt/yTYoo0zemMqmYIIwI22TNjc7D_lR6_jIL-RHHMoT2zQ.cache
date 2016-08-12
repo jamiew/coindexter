@@ -1,0 +1,10 @@
+I"ù(function() {
+  $(function() {
+    return $('.search-filter-categories > li').on("click", function() {
+      $('.search-filter-categories > li').removeClass("active-item");
+      return $(this).addClass("active-item");
+    });
+  });
+
+}).call(this);
+:ET

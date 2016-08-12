@@ -31,7 +31,6 @@ class CoinsController < ApplicationController
 
 	def show
 		@coin = Coin.friendly.find(params[:id])
-		puts "the id is #{@coin.id}"
 		unless @coin.one_day_price_change.nil?
 			if @coin.one_day_price_change > 0
 				@one_day_up = "up"
@@ -84,7 +83,12 @@ class CoinsController < ApplicationController
 
 	def update
 		@coin = Coin.friendly.find(params[:id])
-		#set_has_application(@coin)
+		@repository = params[:repository]
+		@repository.each do |repository|
+			@coin.repositories["name"] = repository[1].first.second
+			@coin.repositories["name"]["url"] = repository[1]["1"]["'url'"]
+			puts @coin.repositories.inspect
+		end
 	  	if @coin.update_attributes(coin_params)
 	    	redirect_to @coin
 		else
@@ -99,7 +103,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :has_application)
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, :repositories)
 	    end
 
 	    def set_has_application(coin)

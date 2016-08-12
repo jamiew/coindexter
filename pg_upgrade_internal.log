@@ -1,0 +1,112 @@
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:43:36 2016
+-----------------------------------------------------------------
+
+You must identify the directory where the old cluster binaries reside.
+Please use the -b command-line option or the PGBINOLD environment variable.
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:45:52 2016
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.4.5_2/bin" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:46:19 2016
+-----------------------------------------------------------------
+
+You must identify the directory where the old cluster binaries reside.
+Please use the -b command-line option or the PGBINOLD environment variable.
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:46:23 2016
+-----------------------------------------------------------------
+
+You must identify the directory where the old cluster binaries reside.
+Please use the -b command-line option or the PGBINOLD environment variable.
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:53:14 2016
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.4.5_2/bin" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:53:52 2016
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.4.3/bin" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:54:09 2016
+-----------------------------------------------------------------
+
+check for "/usr/local/var/postgres" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:54:24 2016
+-----------------------------------------------------------------
+
+check for "/usr/local/var/postgres9.5" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:54:48 2016
+-----------------------------------------------------------------
+
+Performing Consistency Checks
+-----------------------------
+Checking cluster versions                                   This utility cannot be used to downgrade to older major PostgreSQL versions.
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 11:59:59 2016
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/9.4.5_2/bin" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 12:00:34 2016
+-----------------------------------------------------------------
+
+check for "/usr/local/var/postgres9.5" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 12:00:52 2016
+-----------------------------------------------------------------
+
+You must identify the directory where the new cluster data resides.
+Please use the -D command-line option or the PGDATANEW environment variable.
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 12:01:09 2016
+-----------------------------------------------------------------
+
+Performing Consistency Checks
+-----------------------------
+Checking cluster versions                                   This utility can only upgrade to PostgreSQL version 9.3.
+
+-----------------------------------------------------------------
+  pg_upgrade run on Fri Aug 12 12:01:53 2016
+-----------------------------------------------------------------
+
+You must identify the directory where the old cluster binaries reside.
+Please use the -b command-line option or the PGBINOLD environment variable.

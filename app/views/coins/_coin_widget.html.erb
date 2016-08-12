@@ -1,12 +1,12 @@
 <%= link_to(coin, class: 'coin-widget') do %>
-	<div class="col-md-3 <%= "col-md-offset-1" unless i == 0 || i % 3 == 0 %> coin-in-categories">
+	<div class="col-md-3 <%= coin.category.name.downcase %> <%= "col-md-offset-1" unless i == 0 || i % 3 == 0 %> coin-in-categories">
 		<% if coin.logo.nil? %>
 			<%= image_tag "fallback/no-coin-image.png", size: '60x60', class: 'coin-logo' %>
 		<% else %>
 			<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
 		<% end %>
 		<h6><%= coin.name.downcase %></h6>
-		<p class="market-cap">$<%= number_to_human(coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') %></p>
+		<p class="market-cap">$<%= number_to_human(coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless coin.market_cap.nil? %></p>
 		<p>1d <span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= coin.one_day_price_change %>%</span></p>
 	</div>
 <% end %>

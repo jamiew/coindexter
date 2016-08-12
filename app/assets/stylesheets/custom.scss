@@ -28,20 +28,6 @@ $google: rgb(221,75,57);
 	color: $primary-orange;
 } 
 
-/*
-// Alt color scheme 
-
-$white: rgb(255,255,255);
-$primary-blue: rgb(51,108,158);
-$alt-blue: rgb(51,108,158);
-$secondary-blue: rgb(70,0,180);
-$teal: rgb(0,128,157);
-$light-teal: rgb(0,216,169);
-$pink: rgb(255,0,126);
-$ligth-text: rgb(230,227,234);
-
-*/
-
 html, body {
 	height: 100%;
 }
@@ -309,6 +295,9 @@ ul#info-menu {
 		.social-sign-in {
 			margin-bottom:-12px;
 		}
+		.title-row > h6 {
+
+		}
 		div[class*='col-'] {
 			p {
 				margin: 0;
@@ -454,6 +443,14 @@ ul#info-menu {
 			}
 			p.link-body {
 				margin-bottom:38px;
+			}
+			a.add-missing-field {
+				opacity:0.7;
+				&:hover {
+					opacity: 1;
+					color: $primary-orange;
+					cursor:pointer;
+				}
 			}
 			.bootstrap-switch {
 				margin-top:-2px;
@@ -633,12 +630,15 @@ ul#info-menu {
 	}
 }
 
-.network-header, .coin-header {
+.network-header, .coin-header, .coins-in-categories, .results {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;
 		font-size:24px;
 		color: $text;
+	}
+	h1.list-name {
+		margin-bottom: 1em;
 	}
 }
 

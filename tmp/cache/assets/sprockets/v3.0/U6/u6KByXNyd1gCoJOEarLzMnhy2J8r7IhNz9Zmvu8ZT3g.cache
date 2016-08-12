@@ -1,9 +1,0 @@
-I"‰(function() {
-  $(function() {
-    return $('.coin-option').change(function() {
-      return alert('hey');
-    });
-  });
-
-}).call(this);
-:ET

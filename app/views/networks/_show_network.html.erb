@@ -34,7 +34,7 @@
 						<% end %>
 					</ul>
 				<% else %>
-					<%= link_to "Add a coin to #{coin.name}", coin_edit_path %>
+					<%= link_to "Add a coin to #{@network.name}", new_coin_url, class: "add-missing-field" %>
 				<% end %>
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 <ul>
 	<li class="network-links network-links-block">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-4">
+			<div class="col-md-8 col-md-offset-4 title-row">
 				<h6>people</h6>
 			</div>
 		</div>		
@@ -53,7 +53,7 @@
 			</div>
 			<div class="col-md-8">
 				<% if @network.founders.nil? %>
-					<%= link_to "Add founders to #{coin.name}" %>
+					<%= link_to "Add founders to #{@network.name}", edit_network_url, class: "add-missing-field" %>
 				<% else %>
 					<ul>
 						<% @network.founders.each do |founder| %>
@@ -78,8 +78,8 @@
 <ul>
 	<li class="network-links network-links-block">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-4">
-				<h6>links</h6>
+			<div class="col-md-8 col-md-offset-4 title-row">
+				<h6>go</h6>
 			</div>
 		</div>
 		<div class="row">

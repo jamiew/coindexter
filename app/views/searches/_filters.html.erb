@@ -1,7 +1,10 @@
 <div class="col-md-2 col-md-offset-1 left-nav">
-	<ul id="info-menu">
-		<li class="menu-title">Filter by</li>
-		<li>Category</li>
-		<li>Status</li>
+	<ul id="info-menu" class="search-filter-categories">
+		<li id="show-all" class="active-item"><p>All</p></li>
+		<% @categories.each do |category| %>
+			<% unless category.coins.empty? %>
+				<li id=<%= category.name.downcase %>><p><%= category.name.capitalize %></p></li>
+			<% end %>	
+		<% end %>
 	</ul>
 </div>

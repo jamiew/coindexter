@@ -1,12 +1,12 @@
 <div class="row">
-	<%= render 'filters' %>
+	<%= render 'filters', object: @categories %>
 	<div class="col-md-6 main">
 		<ul>
 			<li class="search-block">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2">
-						<div class="row">
-							<h4 class="list-name">Results for '<%= @query %>'</h4>
+						<div class="row results">
+							<h1 class="list-name">Results for '<%= @query %>'</h1>
 							<% if @results.empty? %>
 								<p>No coins found</p>
 							<% else %>

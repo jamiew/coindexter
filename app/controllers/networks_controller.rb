@@ -41,7 +41,7 @@ class NetworksController < ApplicationController
 
 	def new
 		@use_ajax = false
-		@network = network.new
+		@network = Network.new
 	end
 
 	def edit
