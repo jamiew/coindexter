@@ -84,6 +84,25 @@
 	</li>
 	<li class="coin-info-block">
 		<div class="row">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4 title-row">
+					<h6>technical</h6>
+				</div>
+			</div>	
+			<% @coin.repositories.each do |repository| %>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Repo</h6>
+					</div>
+					<div class="col-md-8 data">
+						<%= link_to repository.name, repository.url %>
+					</div>
+				</div>
+			<% end %>	
+		</div>
+	</li>
+	<li class="coin-info-block">
+		<div class="row">
 			<div class="col-md-4 label">
 				<h6>detail</h6>
 			</div>

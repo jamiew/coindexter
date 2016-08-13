@@ -35,4 +35,38 @@ class Coin < ApplicationRecord
     end
   end
 
+  def repositories
+    read_attribute(:repositories).map {|v| Repository.new(v) }
+  end
+
+  class Repository
+    attr_accessor :name, :url
+
+    def initialize(hash)
+      @name = hash['name']
+      @url = hash['url']
+    end
+
+    def persisted?() false; end
+    def new_record?() false; end
+    def marked_for_destruction?() false; end
+    def _destroy() false; end
+
+  end
+
+  def repositories_attributes=(attributes)
+    repositories = []
+    attributes.each do |index, attrs|
+      next if '1' == attrs.delete("_destroy")
+      repositories << attrs
+    end
+    write_attribute(:repositories, repositories)
+  end
+
+  def build_repository
+    r = self.repositories.dup
+    r << Repository.new({name: '', url: ''})
+    self.repositories = r
+  end
+
 end

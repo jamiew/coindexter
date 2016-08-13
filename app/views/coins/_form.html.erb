@@ -59,45 +59,25 @@
 		<div class="col-md-8">
 			<%= f.select :type, options_for_select([["Proof of work","proof-of-work"],["Proof of stake","proof-of-stake"],["Proof of burn","proof-of-burn"],["X11","x11"],["X13","x13"]], :selected => @coin.proof_algorithm), include_blank: true %>
 		</div>
-	</div>	
-	<% if @coin.repositories.nil? %>
+	</div>
+	<%= f.fields_for :repositories do |r| %>
 		<div class="row">
 			<div class="col-md-4 label">
-				<%= f.label "Repository name", class: "form-label" %>
+				<%= r.label "Repo Name", class: "form-label" %>
 			</div>
 			<div class="col-md-8">
-				<%= text_field_tag repository[0][0], repository[0] %>
+				<%= r.text_field :name %>
 			</div>
 		</div>
-		<div class="row" id="repository-0">
+		<div class="row" id=<%= "repository-#{i}" %>>
 			<div class="col-md-4 label">
-				<%= f.label "Repository url", class: "form-label" %>
+				<%= r.label "Repo URL", class: "form-label" %>
 			</div>
 			<div class="col-md-8">
-				<%= text_field_tag repository[0][1]["url"], repository[1]["url"] %>
+				<%= r.text_field :url %>
 			</div>
-		</div>
-	<% else %>
-		<% @coin.repositories.each_with_index do |repository, i| %>
-			<div class="row">
-				<div class="col-md-4 label">
-					<%= f.label "Repo name", class: "form-label select-label" %>
-				</div>
-				<div class="col-md-8">
-					<%= text_field_tag "repository[#{i}][0]", repository[0] %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 label">
-					<%= f.label "Repo url", class: "form-label select-label" %>
-				</div>
-				<div class="col-md-8" id=<%= "repository-#{i}" %>>
-					<%= text_field_tag "repository[#{i}][1]['url']", repository[1]["url"] %>
-					<a class="add-another" id="add-another-repo">Add another repo</a>
-				</div>
-			</div>
-		<% end %>
-	<% end %>
+		</div>	
+	<% end %>	
 	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Additional info", class: "form-label" %>
