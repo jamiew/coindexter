@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812153611) do
+ActiveRecord::Schema.define(version: 20160815134726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20160812153611) do
     t.bigint   "market_cap"
     t.text     "application_description"
     t.integer  "category_id"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "logo"
     t.string   "slug"
     t.string   "coinmarketcap_url"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160812153611) do
     t.integer  "user_id"
     t.integer  "network_id"
     t.integer  "links_id"
-    t.jsonb    "repositories",            default: "{}", null: false
+    t.jsonb    "repositories",            default: {}, null: false
     t.string   "code_license"
     t.string   "technology"
     t.string   "proof_algorithm"

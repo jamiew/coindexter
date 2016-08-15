@@ -4,6 +4,11 @@ class NetworksController < ApplicationController
 
 	def index
 		@networks = Network.all
+		@categories = []
+		Network.all.each do |net|
+			@categories << net.category
+		end
+		@categories = @categories.uniq
 		page_title = "networks"
 		respond_to do |format|
 		    format.html

@@ -1,0 +1,62 @@
+I"Œ(function() {
+  $(function() {
+    var $img, $switchState, $text, chart;
+    $text = $('.account').text();
+    $img = $('.account').find('img');
+    $('.has-application').bootstrapSwitch('state', true);
+    $switchState = $('.has-application').bootstrapSwitch('state');
+    $('.application-info').prop('disabled', !$switchState);
+    $('.account').mouseover(function() {
+      $(this).text(' Signout');
+      return $(this).prepend($img);
+    });
+    $('.account').mouseout(function() {
+      $(this).text($text);
+      return $(this).prepend($img);
+    });
+    $('.bootstrap-switch-id-coin_has_application').on('switchChange.bootstrapSwitch', function() {
+      return $('.application-info').prop('disabled', $switchState);
+    });
+    $('ul#info-menu > li').click(function() {
+      var selector;
+      selector = 'ul#' + $(this).attr('id');
+      $('.show-all').removeClass('active-item');
+      $('ul.full-category-cnt').hide();
+      return $(selector).show();
+    });
+    $('#show-all').click(function() {
+      return $('ul.full-category-cnt').show();
+    });
+    $("a#add-another-repo").on("click", function() {
+      var $parent_html, $parent_id, $parent_id_length, $repo_number, $repo_plus_one;
+      $parent_id = $(this).parent().attr('id');
+      $parent_id_length = $parent_id.length;
+      $parent_html = '<div class="row grouped-row grouped-row-last">' + $(this).parent().parent().html() + '</div';
+      $repo_number = parseInt($parent_id.substring($parent_id_length - 1, $parent_id_length));
+      $repo_plus_one = $repo_number + 1;
+      $(this).hide();
+      return $(this).parent().parent().after($parent_html);
+    });
+    if ($(".coin-main-info").length > 0) {
+      chart = new cryptowatch.Embed('coinbase', 'btcusd', {
+        height: 300,
+        customColorScheme: {
+          bg: 'fdeee9',
+          text: '545454',
+          textStrong: '545454',
+          textWeak: '999999',
+          short: 'EB3333',
+          shortFill: 'EB3333',
+          long: '23a06d',
+          longFill: '23a06d',
+          cta: '000000',
+          ctaHighlight: '000000',
+          alert: '000000'
+        }
+      });
+      return chart.mount('#chart');
+    }
+  });
+
+}).call(this);
+:ET

@@ -258,7 +258,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_network, .edit_network, .network-links-block {
+.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .category-network-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_network, .edit_network, .network-links-block {
 	margin-bottom:64px;
 	.row {
 		&:last-child {
@@ -562,10 +562,10 @@ ul#info-menu {
 				}
 			}
 		}
-		.coin-widget {
+		.coin-widget, .widget {
 			text-align:center;
 			margin-bottom:1em;
-			.coin-in-categories {
+			.coin-in-categories, .network-in-categories {
 				margin-bottom:2em;
 				background-color: rgba(255,255,255,0.8);
 				border: 1px solid $border-orange;
@@ -575,7 +575,7 @@ ul#info-menu {
 					font-family: 'WhitneyHTF-Bold';
 					text-transform: capitalize;
 				}
-				.coin-logo {
+				img, .coin-logo {
 					margin: 0 auto 18px auto;
 					text-align:center;
 				}
@@ -625,6 +625,35 @@ ul#info-menu {
 			}
 			.concept-status {
 				color: $concept-outer;
+			}
+		}
+	}
+	.grouped-row {
+		margin-bottom:0px;
+		&:last-child {
+			padding-bottom:52px;
+		}
+	}
+	.grouped-row-first {
+		div[class*='col-'] {
+			input {
+				border-radius: 4px 4px 0px 0px;
+			}
+		}
+	}
+	.grouped-row-last, .grouped-row-middle {
+		div[class*='col-'] {
+			input {
+				border-top:none;
+				border-radius: 0px 0px 4px 4px;
+			}
+		}
+	}
+	.grouped-row-last {
+		margin-bottom:12px;
+		div[class*='col-'] {
+			input {
+				border-top:none;
 			}
 		}
 	}

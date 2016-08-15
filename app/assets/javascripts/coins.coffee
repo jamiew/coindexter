@@ -28,8 +28,14 @@ $ ->
 		$parent_id_length = $parent_id.length
 		$repo_number = parseInt($parent_id.substring($parent_id_length - 1,$parent_id_length))
 		$repo_plus_one = $repo_number + 1
+		$parent_html = $(this).parent().parent()
+		$parent_html.first().find("input").attr 'name', 'coin[repositories][' + $repo_plus_one + '][name]'
+		$parent_html_to_insert = '<div class="row grouped-row grouped-row-last">' + $parent_html.html() + '</div>'
+		$prev_parent_html = $(this).parent().parent().prev()
+		$prev_parent_html.first().find("input").attr 'name', 'coin[repositories][' + $repo_plus_one + '][name]'
+		$prev_parent_html_to_insert = '<div class="row grouped-row grouped-row-first">' + $prev_parent_html.html() + '</div>'
 		$(this).hide()
-		$(this).parent().parent().after '<div class="row"><div class="col-md-4 label"><label class="form-label" for="coin_repositories_attributes_1_Repo Name">Repo name</label></div><div class="col-md-8"><input type="text" name="coin[repositories_attributes][' + $repo_plus_one + '][name]" id="coin_repositories_attributes_1_name"></div></div><div class="row"><div class="col-md-4 label"><label class="form-label" for="coin_repositories_attributes_1_Repo URL">Repo url</label></div><div class="col-md-8" id="repository-' + $repo_plus_one + '"><input type="text" name="coin[repositories_attributes][' + $repo_plus_one + '][url]" id="coin_repositories_attributes_1_url"></div></div>'
+		$(this).parent().parent().after $prev_parent_html_to_insert + $parent_html_to_insert
 	if $(".coin-main-info").length > 0
 		chart = new (cryptowatch.Embed)('coinbase', 'btcusd',
 			height: 300

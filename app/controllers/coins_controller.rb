@@ -56,11 +56,13 @@ class CoinsController < ApplicationController
 		@use_ajax = true
 		@coin = Coin.new
 		@coin.build_repository
+		puts "It is #{@coin.repositories}"
 	end
 
 	def edit
 		@use_ajax = false
 		@coin = Coin.friendly.find(params[:id])
+		puts "It is #{@coin.repositories}"
 	end
 
 	def create

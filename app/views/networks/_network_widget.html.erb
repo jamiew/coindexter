@@ -1,0 +1,10 @@
+<%= link_to(network, class: 'network-widget widget') do %>
+	<div class="col-md-3 <%= network.category.name.downcase %> <%= "col-md-offset-1" unless i == 0 || i % 3 == 0 %> network-in-categories">
+		<% if network.logo.nil? %>
+			<%= image_tag "fallback/no-network-image.png", size: '60x60', class: 'network-logo' %>
+		<% else %>
+			<%= image_tag network.logo, size: '60x60', class: 'network-logo' %>
+		<% end %>
+		<h6><%= network.name.downcase %></h6>
+	</div>
+<% end %>

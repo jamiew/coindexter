@@ -1,0 +1,19 @@
+<div class="row grouped-row grouped-row-first">
+	<div class="col-md-4 label">
+		<%= r.label "Repo Name", class: "form-label" %>
+	</div>
+	<div class="col-md-8">
+		<%= r.text_field :name %>
+	</div>
+</div>
+<div class="row grouped-row grouped-row-last">
+	<div class="col-md-4 label">
+		<%= r.label "Repo URL", class: "form-label" %>
+	</div>
+	<div class="col-md-8" id=<%= "repository-#{r.options[:child_index]}" %>>
+		<%= r.text_field :url %>
+		<% if r.options[:child_index] + 1 == @coin.repositories.count %>
+			<a class="add-another" id="add-another-repo">Add another repo</a>
+		<% end %>
+	</div>
+</div>
