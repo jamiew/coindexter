@@ -1,0 +1,20 @@
+I"F(function() {
+  $(function() {
+    $(".optional-toggle").on("click", function() {
+      alert('hey');
+      return $(".optional-field").show();
+    });
+    $('.coin-option').each(function() {
+      var $url;
+      $url = $(this).data('icon');
+      return $(this).css('background-image', "url('http://coindexter.herokuapp.com" + $url + "')");
+    });
+    return $('.network-option').each(function() {
+      var $url;
+      $url = $(this).data('icon');
+      return $(this).css('background-image', "url('http://coindexter.herokuapp.com" + $url + "')");
+    });
+  });
+
+}).call(this);
+:ET

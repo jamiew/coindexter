@@ -1,0 +1,28 @@
+I"!(function() {
+  var $prev_scroll_top;
+
+  $prev_scroll_top = 0;
+
+  $(window).on("scroll", function() {
+    var $body_height, $curr_bottom, $remaining, $scroll_height, $scroll_top, $up_or_down;
+    $scroll_height = $('body').prop('scrollHeight');
+    $scroll_top = $('body').scrollTop();
+    $up_or_down;
+    if ($prev_scroll_top > $scroll_top) {
+      $up_or_down = "up";
+    } else {
+      $up_or_down = "down";
+    }
+    $body_height = $('body').height();
+    $remaining = $scroll_height - ($scroll_top + $body_height);
+    if ($remaining < 40) {
+      $curr_bottom = $('.action-links').css('bottom');
+      $curr_bottom = 40 + (40 - $remaining);
+      return $('.action-links').css('bottom', $curr_bottom);
+    } else {
+      return $('.action-links').css('bottom', 40);
+    }
+  });
+
+}).call(this);
+:ET

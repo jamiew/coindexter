@@ -1,7 +1,0 @@
-I"u(function() {
-  $(function() {
-    return $('#link-option > option').css('color', 'red');
-  });
-
-}).call(this);
-:ET

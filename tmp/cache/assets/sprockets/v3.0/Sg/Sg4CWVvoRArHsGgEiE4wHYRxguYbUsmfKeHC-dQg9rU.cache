@@ -1,9 +1,0 @@
-I"–(function() {
-  $(function() {
-    return $("#add-another-founder").on("click", function() {
-      return alert("hey");
-    });
-  });
-
-}).call(this);
-:ET

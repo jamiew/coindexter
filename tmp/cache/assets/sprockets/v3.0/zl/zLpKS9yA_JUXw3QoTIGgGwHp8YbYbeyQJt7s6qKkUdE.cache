@@ -1,0 +1,32 @@
+I"à(function() {
+  $(function() {
+    var $prev_scroll_top, $whitepaperCount;
+    $("#add-another-founder").on("click", function() {
+      return $(this).before("<input type='text' name='founders[]'' id='founders'>");
+    });
+    $whitepaperCount = 0;
+    $("#add-another-whitepaper").on("click", function() {
+      var $toAppend1, $toAppend2;
+      $whitepaperCount += 1;
+      $("#add-another-whitepaper").first().hide();
+      $toAppend1 = $(".whitepaper1").html();
+      $toAppend2 = $(".whitepaper2").html();
+      return $(".whitepaper2").after("<div class='row whitepaper1'><div class='col-md-4 label'><label class='form-label' for='whitepapers[" + $whitepaperCount + "]title'>Whitepaper Title</label></div><div class='col-md-8'><input type='text' name='whitepapers[" + $whitepaperCount + "][title]' id='whitepaper_0_title' value='' class='form-input'></div></div><div class='row whitepaper2'><div class='col-md-4 label'><label class='form-label' for='whitepapers[" + $whitepaperCount + "]url'>Whitepaper URL</label></div><div class='col-md-8'><input type='text' name='whitepapers[" + $whitepaperCount + "][url]' id='whitepaper_0_url' value='' class='form-input'><a class='add-another' id='add-another-whitepaper'>Add another whitepaper</a></div></div>");
+    });
+    $prev_scroll_top = 0;
+    return $(window).on("scroll", function() {
+      var $scroll_height, $scroll_top, $up_or_down;
+      $scroll_height = $('body').prop('scrollHeight');
+      $scroll_top = $('body').scrollTop();
+      if ($scroll_top > $prev_scroll_top) {
+        $up_or_down = "up";
+      } else {
+        $up_or_down = "down";
+      }
+      $prev_scroll_top = $scroll_top;
+      return $('.action-links').html($prev_scroll_top + ' ' + $scroll_top);
+    });
+  });
+
+}).call(this);
+:ET

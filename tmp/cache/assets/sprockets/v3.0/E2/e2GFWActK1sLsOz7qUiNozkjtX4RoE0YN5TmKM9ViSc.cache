@@ -1,9 +1,0 @@
-I"È(function() {
-  $(function() {
-    return $(".add-another").on("click", function() {
-      return $(this).before("<input type='text' name='founders[]'' id='founders'>");
-    });
-  });
-
-}).call(this);
-:ET

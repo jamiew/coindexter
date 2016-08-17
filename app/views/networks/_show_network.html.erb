@@ -34,7 +34,7 @@
 						<% end %>
 					</ul>
 				<% else %>
-					<%= link_to "Add a coin to #{@network.name}", new_coin_url, class: "add-missing-field" %>
+					<%= link_to "Add a coin to #{@network.name}", edit_network_url, class: "add-missing-field" %>
 				<% end %>
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 				<h6>Founders</h6>
 			</div>
 			<div class="col-md-8">
-				<% if @network.founders.nil? %>
+				<% if @network.founders.empty? %>
 					<%= link_to "Add founders to #{@network.name}", edit_network_url, class: "add-missing-field" %>
 				<% else %>
 					<ul>
@@ -95,7 +95,15 @@
 				<h6>whitepaper</h6>
 			</div>
 			<div class="col-md-8">
-				<%= link_to @network.whitepaper_title, @network.whitepaper_url %>
+				<% if @network.whitepapers.empty? %>
+					<%= link_to "Add a whitepaper to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+				<% else %>
+					<ul>
+						<% @network.whitepapers.each do |whitepaper| %>
+							<li><%= link_to whitepaper.title, whitepaper.url %></li>
+						<% end %>
+					</ul>
+				<% end %>
 			</div>
 		</div>
 	</li>

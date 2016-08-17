@@ -1,4 +1,4 @@
 $('.main').html("<%= j (render 'links') %>");
 $('#details').removeClass("active-item");
-$('#news').addClass("active-item");
-$('.action-links').hide();
+$('#links').addClass("active-item");
+$('.action-links').html('<li><%= link_to "Add new link", new_link_url(network: @network, obj_type: "network"), remote: true, class: "action-link", accesskey: "A" %></li>');

@@ -1,9 +1,0 @@
-I"™(function() {
-  $(function() {
-    return $(".add-another").on("click", function() {
-      return $(this).append($(this));
-    });
-  });
-
-}).call(this);
-:ET

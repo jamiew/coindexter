@@ -1,0 +1,10 @@
+I"Û(function() {
+  $(function() {
+    return $('#info-menu > li').on('click', function() {
+      $('#info-menu > li').removeClass('active-item');
+      return $(this).addClass('active-item');
+    });
+  });
+
+}).call(this);
+:ET

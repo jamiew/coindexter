@@ -71,7 +71,7 @@ class NetworksController < ApplicationController
 
 	def update
 		@network = Network.friendly.find(params[:id])
-		@network.founders = params[:founders]
+		@network.founders = params[:founders] 
 		@network.status = params[:status]
 	  	if @network.update_attributes(network_params)
 	    	redirect_to @network
@@ -87,7 +87,7 @@ class NetworksController < ApplicationController
 	private
 
 	    def network_params
-	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, :whitepaper_title, :whitepaper_url, link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
+	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, :whitepaper_title, :whitepaper_url, link_ids: [], founders: [], whitepapers: [], repositories_attributes: [:title, :url, :destroy], category_ids: [], coin_ids: [], coins: [])
 	    end
 
 end

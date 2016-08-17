@@ -1,0 +1,21 @@
+I"X(function() {
+  $(function() {
+    alert('hey');
+    $(".optional-toggle").on("click", function() {
+      $(this).hide;
+      return $(".optional-field").show();
+    });
+    $('.coin-option').each(function() {
+      var $url;
+      $url = $(this).data('icon');
+      return $(this).css('background-image', "url('http://coindexter.herokuapp.com" + $url + "')");
+    });
+    return $('.network-option').each(function() {
+      var $url;
+      $url = $(this).data('icon');
+      return $(this).css('background-image', "url('http://coindexter.herokuapp.com" + $url + "')");
+    });
+  });
+
+}).call(this);
+:ET

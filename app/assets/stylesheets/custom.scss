@@ -64,6 +64,10 @@ footer {
 			float:right;
 			padding: 1em 0 1em 1em;
 			@include small-case;
+			color: $text;
+			a {
+				color: $primary-orange;
+			}
 		}
 	}
 }
@@ -77,6 +81,7 @@ a {
 	text-decoration:none;
 	&:hover {
 		text-decoration:none;
+		color: $secondary-orange;
 	}
 	&:visited {
 		text-decoration:none;
@@ -193,7 +198,7 @@ nav, .navbar {
 					}		
 				}
 				li#header-link-sales > a {
-					color: $text-light;
+					opacity: 0.4;
 				}
 			}
 		}
@@ -258,8 +263,15 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .category-network-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_network, .edit_network, .network-links-block {
+.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .category-network-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .network-links-block {
 	margin-bottom:64px;
+}
+
+.link-block {
+	margin-bottom:32px;
+}
+
+.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .category-network-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_network, .edit_network, .network-links-block {
 	.row {
 		&:last-child {
 			margin-bottom:0px;
@@ -397,7 +409,7 @@ ul#info-menu {
 					background-image: none;
 				}
 			}
-			.add-another {
+			.add-another, .optional-toggle {
 				margin-top:6px;
 				margin-bottom:2px;
 				font-size:14px;
@@ -407,6 +419,9 @@ ul#info-menu {
 				&:hover {
 					cursor:pointer;
 				}
+			}
+			.optional-field {
+				display:none;
 			}
 			.select-label {
 				margin-top: 10px;
@@ -427,16 +442,30 @@ ul#info-menu {
 				margin-top:-2px;
 				margin-left: 3px;
 			}
-			h3 {
-				line-height:140%;
+			h6.link-title {
+				font-size:16px;
+				line-height:1.5;
+				margin-top:0px;
+				margin-bottom:8px;
+				font-family: "WhitneyHTF-Medium";
 			}
-			h6.when-posted, h6.comment-count {
-				margin-top:4px;
+			h3.link-title {
+				font-size:24px;
+				line-height:1.4;
+				margin-top:0px;
+			}
+			h6.when-posted {
 				margin-bottom: 8px;
+				margin-top:2px;
+				text-align:right;
+				font-size:18px;
+				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
-				color:$text-light;
+			}
+			h6.comment-count {
 				font-size:14px;
-				text-transform: uppercase;
+				font-family: "WhitneyHTF-Medium";
+				text-transform:uppercase;
 			}
 			h6.comment-count > a {
 				color: $secondary-orange;
@@ -550,6 +579,11 @@ ul#info-menu {
 				margin-left:-32px;
 			}
 
+		}
+		#show-single-link {
+			h6.when-posted {
+				text-align:left;
+			}
 		}
 		#chart {
 			display:inline;
@@ -701,14 +735,33 @@ ul.action-links {
 	bottom: 20px;
 	right: 20px;
 	color: $text;
-	opacity: 0.5;
 	li {
+		padding: 0.1em 0.7em 0.2em 0.7em;
+		text-transform:lowercase;
+		font-size: 16px;
+		font-family: "WhitneyHTF-MediumSC";
+		border-radius: 4px;
+		opacity: 0.5;
+		background-color: $primary-orange;
 		float:left;
 		margin-left:1em;
+		a {
+			color: #fff;
+		}
 		&:hover {
-			color:$primary-blue;
 			opacity:1.0;
 		}
+		input {
+			text-transform:lowercase;
+			-webkit-appearance: none;
+			background: none;
+			color:#fff;
+			border:none;
+			padding:0;
+		}
+	}
+	li.submit {
+		opacity:1.0;
 	}
 }
 

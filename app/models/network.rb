@@ -14,4 +14,39 @@ class Network < ApplicationRecord
 
 	friendly_id :name, use: [:slugged, :history]
 
+	def whitepapers
+	    read_attribute(:whitepapers).map {|v| Whitepaper.new(v) }
+	end
+
+	class Whitepaper
+		attr_accessor :title, :url
+
+		def initialize(hash)
+		  @title = hash['title']
+		  @url = hash['url']
+		end
+
+		def persisted?() false; end
+		def new_record?() false; end
+		def marked_for_destruction?() false; end
+		def _destroy() false; end
+
+	end
+
+	def whitepapers_attributes=(attributes)
+		whitepapers = []
+		attributes.each do |index, attrs|
+		  next if '1' == attrs.delete("_destroy")
+		  whitepapers << attrs
+		end
+		
+		write_attribute(:whitepapers, whitepapers)
+	end
+
+	def build_whitepaper
+		w = self.whitepapers.dup
+		w << Whitepaper.new({title: '', url: ''})
+		self.whitepapers = w
+	end
+
 end

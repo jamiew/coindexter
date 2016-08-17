@@ -1,9 +1,0 @@
-I"é(function() {
-  $(function() {
-    return $(".add-another").on("click", function() {
-      return $(this).before("<input class='form-input' type='text' name='project[founders]' id='project_founders'>");
-    });
-  });
-
-}).call(this);
-:ET

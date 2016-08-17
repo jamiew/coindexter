@@ -1,9 +1,0 @@
-I"²(function() {
-  $(function() {
-    return $('a.reply-to-comment').on('click', function() {
-      return $(this).parent().children(":first").show();
-    });
-  });
-
-}).call(this);
-:ET

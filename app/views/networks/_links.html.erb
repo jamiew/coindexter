@@ -1,6 +1,14 @@
 <ul>
 	<li class="network-header network-info-block">
-		<%= render(partial: 'networks/network_main_info_header', object: @network, as: :network) %>
+		<%= render(partial: 'networks/network_main_info_header') %>
 	</li>
-	<%= render(partial: 'links/show_all_links', collection: @links, as: :link) %>
+	<% if @network.links.empty? %>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<p class="add-first">No links yet. <%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
+			</div>
+		</div>
+	<% else %>
+		<%= render(partial: 'links/show_all_links', collection: @links, as: :link) %>
+	<% end %>
 </ul>

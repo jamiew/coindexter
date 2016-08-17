@@ -60,12 +60,8 @@
 			<%= f.select :type, options_for_select([["Proof of work","proof-of-work"],["Proof of stake","proof-of-stake"],["Proof of burn","proof-of-burn"],["X11","x11"],["X13","x13"]], :selected => @coin.proof_algorithm), include_blank: true %>
 		</div>
 	</div>
-	<% if @coin.repositories.empty? %>
-		<%= render "new_repository_fields" %>
-	<% else %>
-		<%= f.fields_for :repositories do |r| %>
-			<%= render "repository_fields", :r => r %>
-		<% end %>
+	<%= f.fields_for :repositories do |r| %>
+		<%= render "repository_fields", :r => r %>
 	<% end %>
 	<div class="row">
 		<div class="col-md-4 label">

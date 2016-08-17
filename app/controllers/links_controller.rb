@@ -23,6 +23,16 @@ class LinksController < ApplicationController
 	def new
 		@use_ajax = true
 		@link = current_user.links.new
+		if params[:obj_type] = "network"
+			@network = Network.friendly.find(params[:network])
+		elsif params[:obj_type] = "coin"
+			@coin = Coin.friendly.find(params[:coin])
+		end
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
 
 	def edit

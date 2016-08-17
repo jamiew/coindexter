@@ -1,7 +1,0 @@
-I"—(function() {
-  $(function() {
-    return $('.coin-option').css('background-image', 'url("' + $(this).data("data-icon") + '")');
-  });
-
-}).call(this);
-:ET

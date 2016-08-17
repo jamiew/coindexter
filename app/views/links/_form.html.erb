@@ -8,7 +8,7 @@
 <%= form_for @link, authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-			<h3>Add a link</h3>
+			<p>Add a link</p>
 		</div>
 	</div>
 	<div class="row">
@@ -21,14 +21,6 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 label">
-			<%= f.label "Body", class: "form-label" %>
-		</div>
-		<div class="col-md-8">
-			<%= f.text_area :body, rows: 6, class: 'filestyle' %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-4 label">
 			<%= f.label "URL", class: "form-input" %>
 		</div>
 		<div class="col-md-8">
@@ -37,10 +29,19 @@
 	</div>
 	<div class="row">
 		<div class="col-md-4 label">
+			<%= f.label "Add your take", class: "form-label optional-field" %>
+		</div>
+		<div class="col-md-8">
+			<a class="optional-toggle">Add your take (optional)</a>
+			<%= f.text_area :body, rows: 6, class: "optional-field" %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 label">
 			<%= f.label "Coins", class: "form-input" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.collection_select :coin_ids, Coin.all.order("market_cap DESC").where("market_cap > ?", 0).map { |c| [c.id, c.name, {'data-icon' => c.logo}, {class: 'coin-option'}]}, :first, :second, {}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
+			<%= f.collection_select :coin_ids, Coin.all.order("market_cap DESC").where("market_cap > ?", 0).map { |c| [c.id, c.name, {'data-icon' => c.logo}, {class: 'coin-option'}]}, :first, :second, {:selected => @coin.id unless @coin.nil}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
 		</div>
 	</div>
 	<div class="row">
@@ -48,7 +49,7 @@
 			<%= f.label "Networks", class: "form-input" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.collection_select :network_ids, Network.all.map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, {}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
+			<%= f.collection_select :network_ids, Network.all.map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, {:selected => @network.id unless @network.nil?}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
 		</div>
 	</div>
 	<div class="row">

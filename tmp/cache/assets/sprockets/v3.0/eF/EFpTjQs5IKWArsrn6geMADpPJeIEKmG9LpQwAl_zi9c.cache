@@ -1,9 +1,0 @@
-I"°(function() {
-  $(function() {
-    return $('a.reply-to-comment').on('click', function() {
-      return $(this).parent().children("form").show();
-    });
-  });
-
-}).call(this);
-:ET

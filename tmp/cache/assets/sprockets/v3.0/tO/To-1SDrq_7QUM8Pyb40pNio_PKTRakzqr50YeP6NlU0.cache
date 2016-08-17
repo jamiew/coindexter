@@ -1,11 +1,0 @@
-I"(function() {
-  $(function() {
-    return $('.search-filter-categories > li').on("click", function() {
-      $('.search-filter-categories > li').removeClass("active-item");
-      $(this).addClass("active-item");
-      return $('div.uncategorized').hide();
-    });
-  });
-
-}).call(this);
-:ET

@@ -1,0 +1,19 @@
+<div class="row grouped-row grouped-row-first whitepapers">
+	<div class="col-md-4 label">
+		<%= w.label "Whitepaper Title", class: "form-label" %>
+	</div>
+	<div class="col-md-8">
+		<%= w.text_field :title %>
+	</div>
+</div>
+<div class="row grouped-row grouped-row-last whitepapers2">
+	<div class="col-md-4 label">
+		<%= w.label "Whitepaper URL", class: "form-label" %>
+	</div>
+	<div class="col-md-8" id=<%= "whitepaper-#{w.options[:child_index]}" %>>
+		<%= w.text_field :url %>
+		<% if w.options[:child_index] + 1 == @network.whitepapers.count %>
+			<a class="add-another" id="add-another-whitepaper">Add another whitepaper</a>
+		<% end %>
+	</div>
+</div>

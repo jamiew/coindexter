@@ -1,9 +1,0 @@
-I"­(function() {
-  $(function() {
-    return $('.search-filter-categories > li').on("click", function() {
-      return alert($(this).attr('id'));
-    });
-  });
-
-}).call(this);
-:ET

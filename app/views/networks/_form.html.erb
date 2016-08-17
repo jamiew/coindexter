@@ -1,10 +1,4 @@
-<% content_for :head do %>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('input:checkbox').bootstrapSwitch();
-		});
-	</script>
-<% end %>
+<%= javascript_include_tag "add_another" %>
 <%= form_for @network, authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
@@ -58,6 +52,7 @@
 		</div>
 		<div class="col-md-8">
 			<%= f.select :coin_ids, options_for_select(Coin.all.order("market_cap DESC").map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}, selected: @network.coins.ids), {}, {multiple: true, size: 8.5, id: "coin-option"} %>
+			<%= link_to "Add a new coin", new_coin_url, class:"add-another", target: "_blank" %>
 		</div>
 	</div>	
 	<div class="row">
@@ -81,7 +76,7 @@
 			<%= f.label "Founders", class: "form-label" %>
 		</div>
 		<div class="col-md-8 founder-list">
-			<% if @network.founders.nil? %>
+			<% if @network.founders.empty? %>
 				<%= text_field_tag 'founders[]' %>
 			<% else %>
 				<% @network.founders.each_with_index do |founder, i| %>
@@ -107,25 +102,12 @@
 			  <%= f.text_field :forum, class: "form-input" %>
 		</div>
 	</div>
-	<div class="row whitepaper1">
-		<div class="col-md-4 label">
-			<%= f.label "Whitepaper Title", class: "form-label" %>
-		</div>
-		<div class="col-md-8">
-			<%= f.text_field :whitepaper_title, class: "form-input" %>
-		</div>
-	</div>
-	<div class="row whitepaper2">
-		<div class="col-md-4 label">
-			<%= f.label "Whitepaper URL", class: "form-label" %>
-		</div>
-		<div class="col-md-8">
-			<%= f.text_field :whitepaper_url, class: "form-input" %>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-4">
+	<%= f.fields_for :whitepapers do |w| %>
+		<%= render "whitepapers_fields", :w => w %>
+	<% end %>
+	<ul class="action-links">
+		<li class="submit">
 			<%= f.submit "Submit changes", class: "form-submit" %> 
-		</div>
-	</div>
+		</li>
+	</ul>
 <% end %>

@@ -80,7 +80,6 @@ class CoinsController < ApplicationController
 	def update
 		@coin = Coin.friendly.find(params[:id])
 	  	if @coin.update_attributes(coin_params)
-	  		puts 'got here'
 	    	redirect_to @coin
 		else
 	    	render 'edit'
@@ -94,7 +93,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, :repositories, repositories_attributes: [:name, :url, :destory])
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, :repositories, repositories_attributes: [:name, :url, :destroy])
 	    end
 
 	    def set_has_application(coin)

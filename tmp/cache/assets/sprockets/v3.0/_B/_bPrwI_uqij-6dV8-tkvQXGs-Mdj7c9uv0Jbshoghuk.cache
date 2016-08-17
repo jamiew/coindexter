@@ -1,9 +1,0 @@
-I"Ž(function() {
-  $(function() {
-    return $(".add-another").on("click", function() {
-      return alert('hey');
-    });
-  });
-
-}).call(this);
-:ET
