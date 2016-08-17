@@ -21,6 +21,9 @@ $ ->
 		$(this).parent().parent().next().find("input").val ''
 		$(this).parent().parent().next().next().find("input").val ''
 
+	$("#add-another-founder").on "click", ->
+		$(this).before "<input type='text' name='founders[]'' id='founders'>"
+
 	$prev_scroll_top = 0
 
 	$(window).on "scroll", ->
