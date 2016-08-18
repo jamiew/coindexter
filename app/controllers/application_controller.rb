@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   prepend_before_action :user_params, if: :devise_controller?
 
+  before_filter :set_paper_trail_whodunnit
+
   private
 
 	def user_params 

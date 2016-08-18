@@ -70,6 +70,10 @@ gem 'jquery-turbolinks'
 #paginate links
 gem 'will_paginate', '~> 3.1.0'
 
+#for the log
+gem 'paper_trail'
+
+
 group :production do 
   gem 'rails_12factor'
 end
