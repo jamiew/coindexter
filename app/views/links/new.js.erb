@@ -4,7 +4,6 @@ $('.add-first').hide();
 $('.coin-header').after("<%= j (render 'form') %>");
 $('#info-menu > li').removeClass('active-item');
 $('#links').addClass("active-item");
-$('.action-links').hide();
 $('.optional-toggle').on('click', function() {
 	$(this).hide();
 	$('.optional-field').show();
@@ -13,5 +12,4 @@ $('.network-option').each(function() {
 	url = $(this).data('icon');
 	$(this).css('background-image', "url('http://coindexter.herokuapp.com" + url + "')");
 });
-
 

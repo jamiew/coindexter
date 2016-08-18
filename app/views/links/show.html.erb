@@ -7,7 +7,7 @@
 	</div>
 	<% if current_user.id == @link.user_id %>
 		<ul class="action-links">
-			<li><%= link_to("Add new link", new_link_path, remote: true, class: "action-link", accesskey: 'A') %></li>
+			<li><%= link_to("Add new link", new_link_path, remote: false, class: "action-link", accesskey: 'A') %></li>
 			<li><%= link_to("Edit this", edit_link_path, remote: true, class: "action-link", accesskey: 'E') %></li>
 		</ul>
 	<% end %>

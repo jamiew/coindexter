@@ -1,0 +1,2 @@
+$(".link-list").append("<%= escape_javascript(render(partial: 'show_all_links', collection: @links, as: :link)) %>");
+$('.pagination').replaceWith("<%= escape_javascript will_paginate(@links) %>");

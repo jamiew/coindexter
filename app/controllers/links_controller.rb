@@ -3,7 +3,7 @@ class LinksController < ApplicationController
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
 	def index
-		@links = Link.all
+		@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -23,9 +23,9 @@ class LinksController < ApplicationController
 	def new
 		@use_ajax = true
 		@link = current_user.links.new
-		if params[:obj_type] = "network"
+		if params[:obj_type] == "network"
 			@network = Network.friendly.find(params[:network])
-		elsif params[:obj_type] = "coin"
+		elsif params[:obj_type] == "coin"
 			@coin = Coin.friendly.find(params[:coin])
 		end
 		respond_to do |format|
@@ -36,7 +36,7 @@ class LinksController < ApplicationController
 	end
 
 	def edit
-		@use_ajax = false
+		@use_ajax = true
 		@link = Link.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html

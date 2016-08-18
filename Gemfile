@@ -67,6 +67,9 @@ gem 'pg_search'
 #fix jquery onload
 gem 'jquery-turbolinks'
 
+#paginate links
+gem 'will_paginate', '~> 3.1.0'
+
 group :production do 
   gem 'rails_12factor'
 end

@@ -1,7 +1,15 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 main">
-		<ul>
+		<ul class="link-list">
 			<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
 		</ul>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<%= will_paginate @links %>
+			</div>
+		</div>
 	</div>
 </div>
+<ul class="action-links">
+	<li><%= link_to("Add new link", new_link_path, remote: false, class: "action-link", accesskey: 'L') %></li>
+</ul>

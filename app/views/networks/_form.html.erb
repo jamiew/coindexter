@@ -29,7 +29,7 @@
 			<%= f.text_area :description, rows: 6, class: "form-input" %>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Status", class: "form-label select-label" %>
 		</div>
@@ -45,7 +45,7 @@
 			  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Select a category' }, class: 'form-input' %>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Coins", class: "form-label select-label" %>
 			<h6 class="label-helper">Select one or more</h6>
@@ -55,7 +55,7 @@
 			<%= link_to "Add a new coin", new_coin_url, class:"add-another", target: "_blank" %>
 		</div>
 	</div>	
-	<div class="row">
+	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "URL", class: "form-label" %>
 		</div>
@@ -71,7 +71,7 @@
 			  <%= f.text_field :team, class: "form-input" %>
 		</div>
 	</div>			
-	<div class="row">
+	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Founders", class: "form-label" %>
 		</div>
@@ -86,7 +86,7 @@
 			<a class="add-another" id="add-another-founder">Add another founder</a>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Slack", class: "form-label" %>
 		</div>

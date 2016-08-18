@@ -20,7 +20,6 @@ $twitter: rgb(29,161,242);
 $facebook: rgb(59,89,152);
 $google: rgb(221,75,57);
 
-
 @mixin small-case {
 	text-transform:lowercase;
 	font-family: "WhitneyHTF-MediumSC";
@@ -623,7 +622,14 @@ ul#info-menu {
 				}
 				color: $text;
 			}
+			.network-in-categories {
+				min-height:177px;
+				img {
+					margin-top: 18px;
+				}
+			}
 		}
+
 		.status {
 			font-family: 'WhitneyHTF-MediumSC';
 			font-size:18px;
@@ -691,18 +697,30 @@ ul#info-menu {
 			}
 		}
 	}
+	.first-in-form-group {
+		margin-top: 64px;
+	}
 }
 
-.network-header, .coin-header, .coins-in-categories, .results {
+.pagination {
+	display: none;
+}
+
+.network-header, .coin-header, .coins-in-categories, .networks-in-categories, .results {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;
 		font-size:24px;
 		color: $text;
+		text-transform: capitalize;
 	}
 	h1.list-name {
 		margin-bottom: 1em;
 	}
+}
+
+.link-list {
+	margin-top:20px;
 }
 
 span.up {

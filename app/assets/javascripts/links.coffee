@@ -5,6 +5,16 @@
 
 $prev_scroll_top = 0
 
+if $('.pagination').length == 0
+	$(window).on "scroll", ->
+		$url = $('.pagination .next_page').attr('href')
+		if $url && $(window).scrollTop() > $(document).height() - $(window).height() - 50
+			$('.pagination').text 'Loading...'
+			return $.getScript($url)
+		return
+	return $(window).scroll()
+return
+
 $(window).on "scroll", ->
 	$scroll_height = $('body').prop 'scrollHeight'
 	$scroll_top = $('body').scrollTop()

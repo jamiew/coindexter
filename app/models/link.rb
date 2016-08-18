@@ -7,9 +7,9 @@ class Link < ApplicationRecord
 	has_and_belongs_to_many :networks
 	attr_accessor :comment_count
 
-	def has_coins 
-    	coins
-	end
+  include PgSearch
+  multisearchable :against => [:title]
+  pg_search_scope :search, :against => :title, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.3 } }
 
 	def should_generate_new_friendly_id?
 		!has_friendly_id_slug? || title_changed?
