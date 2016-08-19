@@ -1,3 +1,18 @@
-<ul>
-	<li><p>Coming soon</p></li>
-</ul>
+<% @logs.each do |log| %>
+	<li class="log-block block">
+		<div class="row">
+			<div class="col-md-4">
+				<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
+			</div>
+			<% log.changeset.each_with_index do |(key,value), i| %>
+					<div class="col-md-8 <%= 'col-md-offset-4' if i > 0 %>">
+						<%= key.capitalize %> changed from "<%= value.first %>" to "<%= value.second %>"
+					</div>
+				</div>
+					<% unless i + 1 == log.changeset.length %>
+						<div class="row">
+					<% end %>
+			<% end %>
+		</div>
+	</li>
+<% end %>

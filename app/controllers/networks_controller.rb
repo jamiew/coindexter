@@ -31,8 +31,19 @@ class NetworksController < ApplicationController
 
 	end
 
-	def log
+	def logs
+		@network = Network.friendly.find(params[:id])
+		all_versions = Network.friendly.find(params[:id]).versions
+		@logs = []
+		all_versions.each_with_index do |version|
+			@logs << version unless version.changeset.empty?
+		end
 
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end		
 
 	def show

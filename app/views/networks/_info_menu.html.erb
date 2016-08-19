@@ -2,5 +2,5 @@
 	<li class="active-item" id="details"><p><%= link_to "Details", @network %><p></li>
 	<li id="links"><p><%= link_to "Links", "#{@network.name.downcase}/links", remote: true %></p></li>
 	<li id="trollbox"><p><%= link_to "Trollbox", "#{@network.name.downcase}/trollbox", remote: true %></p></li>
-	<li id="log"><p><%= link_to "Log", "#{@network.name.downcase}/log", remote: true %></p></li>
+	<li id="log"><p><%= link_to "Log", "#{@network.name.downcase}/logs", remote: true %></p></li>
 </ul>

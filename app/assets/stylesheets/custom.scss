@@ -262,7 +262,7 @@ ul#info-menu {
 	}
 }
 
-.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .category-network-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .network-links-block {
+.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network {
 	margin-bottom:64px;
 }
 
@@ -270,7 +270,7 @@ ul#info-menu {
 	margin-bottom:32px;
 }
 
-.coin-info-block, .network-info-block, .edit_coin, .new_coin, .sign-in-up, .category-coin-block, .category-network-block, .search-block, .new_link, .edit_link, .new_comment, .edit_comment, .link-block, .new_network, .edit_network, .network-links-block {
+.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network {
 	.row {
 		&:last-child {
 			margin-bottom:0px;
