@@ -30,22 +30,37 @@ class CoinsController < ApplicationController
 		all_versions = @coin.versions.reverse
 		@logs = []
 		all_versions.each do |version|
-			if version.changeset[:repositories]
-				if version.changeset[:repositories].first.first.sort == version.changeset[:repositories].second.first.sort
-					version.changeset.delete :repositories
+			version.changeset.each do |key, value|
+				log = {}
+				case key
+				when "repositories"
+					data_type = "Repository"
+					unless value.first.first[:url] == value.second.first[:url] && value.first.first[:name] == value.second.first[:name]
+						if value.first.first[:url] == "" 
+							type = "added"
+						else
+							type = "edited"
+						end
+						log[:data] = {change: version.changeset[:repositories], change_type: type}
+					end
+				when "coin_info"
+					data_type = "Additional info"
+					if value.first == ""
+						type = "added"
+					else
+						type = "edited"
+					end
+					log[:data] = {change: version.changeset[:coin_info], change_type: type}
 				end
-				if version.changeset.first.second.first.first[:url] = ""
-					version.changeset[:type] = "added"
+				log[:data_type] = data_type
+				unless log[:data].nil?
+					log[:user] = version.user
+					log[:created_at] = version.created_at
+					@logs << log
 				end
 			end
-			if version.changeset[:coin_info]
-				if version.changeset[:coin_info].first = ""
-					version.changeset[:type] = "added"
-				end
-			end
-			version.changeset.delete :updated_at
-			@logs << version unless version.changeset.empty?
 		end
+		puts @logs
 	end	
 
 	def show

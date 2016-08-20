@@ -2,26 +2,25 @@
 	<li class="log-block block">
 		<div class="row">
 			<div class="col-md-4">
-				<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
+				<h6 class="when-posted"><%= time_ago_in_words(log[:created_at]) %></h6>
 			</div>
-			<% if log.changeset[:type] == "added" %>
-				<div class="col-md-8">
-					Repository added: <%= link_to log.changeset[:repositories].second.first[:name], log.changeset[:repositories].second.first[:url] %>
-				</div>
-			<% end %>
-				<% log.changeset.each_with_index do |(key,value), i| %>
-						<div class="col-md-8 <%= 'col-md-offset-4' if i > 0 %>">
-							<%= key.capitalize %> changed from 
-								<% if log.user %>
-					    			<%= link_to log.user, class: "who-posted" do %>
-					    				<%= image_tag(log.user.avatar, size: '24x24', class: 'avatar') + current_user = log.user ? "Me" : log.user.first_name + ' ' + log.user.last_name %>
-					    			<% end %>
-						</div>
-					</div>
-						<% unless i + 1 == log.changeset.length %>
-							<div class="row">
-						<% end %>
+			<div class="col-md-8">
+				<%= log[:data_type] %>
+				<% if log[:data][:change_type] == "added" %>
+					<% if log[:data][:change].first.class == Array %>
+						added: <%= link_to log[:data][:change].second.first["name"], log[:data][:change].second.first["url"] %>
+					<% else %>
+						added: "<%= log[:data][:change].second %>"
 					<% end %>
+				<% elsif log[:data][:change_type] == "edited" %>
+					<% if log[:data][:change].first.class == Array %>
+						changed from <%= link_to log[:data][:change].first.first["name"], log[:data][:change].first.first["url"] %> to <%= link_to log[:data][:change].first.second["name"], log[:data][:change].first.second["url"] %>
+					<% else %>
+						changed from "<%= log[:data][:change].first %>" to "<%= log[:data][:change].second %>"
+					<% end %> 
 				<% end %>
+    			<%= link_to log[:user], class: "who-posted" do %>
+    				<%= image_tag(log[:user].avatar, size: '24x24', class: 'avatar') + current_user = log[:user] ? "Me" : log[:user].first_name + ' ' + log[:user].last_name %>
+    			<% end %>
 	</li>
 <% end %>
