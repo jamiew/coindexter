@@ -7,12 +7,16 @@
 			<% log.changeset.each_with_index do |(key,value), i| %>
 					<div class="col-md-8 <%= 'col-md-offset-4' if i > 0 %>">
 						<%= key.capitalize %> changed from "<%= value.first %>" to "<%= value.second %>"
+						<% if log.user %>
+			    			<%= link_to log.user, class: "who-posted" do %>
+			    				<%= image_tag(log.user.avatar, size: '24x24', class: 'avatar') + current_user = log.user ? "Me" : log.user.first_name + ' ' + log.user.last_name %>
+			    			<% end %>
+						<% end %>
 					</div>
 				</div>
-					<% unless i + 1 == log.changeset.length %>
-						<div class="row">
-					<% end %>
+				<% unless i + 1 == log.changeset.length %>
+					<div class="row">
+				<% end %>
 			<% end %>
-		</div>
 	</li>
 <% end %>

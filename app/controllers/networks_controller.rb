@@ -33,9 +33,13 @@ class NetworksController < ApplicationController
 
 	def logs
 		@network = Network.friendly.find(params[:id])
-		all_versions = Network.friendly.find(params[:id]).versions
+		all_versions = @network.versions.reverse
 		@logs = []
-		all_versions.each_with_index do |version|
+		all_versions.each do |version|
+			if version.changeset[:whitepapers].first.first.sort == version.changeset[:whitepapers].second.first.sort
+				version.changeset.delete :whitepapers
+			end
+			version.changeset.delete :updated_at
 			@logs << version unless version.changeset.empty?
 		end
 

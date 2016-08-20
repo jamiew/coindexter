@@ -1,7 +1,3 @@
-module PaperTrail
-  class Version
-    def user
-      User.find(whodunnit) if whodunnit
-    end
-  end
+class Version < PaperTrail::Version
+  belongs_to :user, :foreign_key => 'whodunnit'
 end

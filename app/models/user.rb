@@ -10,5 +10,6 @@ class User < ApplicationRecord
   has_many :links
   has_many :comments
   has_many :networks
+  has_many :logs, :foreign_key => 'whodunnit', :class_name => "Version"
 
 end

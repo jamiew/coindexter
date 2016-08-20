@@ -25,8 +25,27 @@ class CoinsController < ApplicationController
 
 	end
 
-	def log
-
+	def logs
+		@coin = Coin.friendly.find(params[:id])
+		all_versions = @coin.versions.reverse
+		@logs = []
+		all_versions.each do |version|
+			if version.changeset[:repositories]
+				if version.changeset[:repositories].first.first.sort == version.changeset[:repositories].second.first.sort
+					version.changeset.delete :repositories
+				end
+				if version.changeset.first.second.first.first[:url] = ""
+					version.changeset[:type] = "added"
+				end
+			end
+			if version.changeset[:coin_info]
+				if version.changeset[:coin_info].first = ""
+					version.changeset[:type] = "added"
+				end
+			end
+			version.changeset.delete :updated_at
+			@logs << version unless version.changeset.empty?
+		end
 	end	
 
 	def show

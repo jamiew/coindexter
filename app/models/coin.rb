@@ -14,7 +14,7 @@ class Coin < ApplicationRecord
   has_and_belongs_to_many  :links
   has_many :comments, through: :links
 
-  has_paper_trail
+  has_paper_trail :class_name => 'Version'
 
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?

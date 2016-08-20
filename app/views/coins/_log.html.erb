@@ -1,3 +1,27 @@
-<ul>
-	<li><p>Coming soon</p></li>
-</ul>
+<% @logs.each do |log| %>
+	<li class="log-block block">
+		<div class="row">
+			<div class="col-md-4">
+				<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
+			</div>
+			<% if log.changeset[:type] == "added" %>
+				<div class="col-md-8">
+					Repository added: <%= link_to log.changeset[:repositories].second.first[:name], log.changeset[:repositories].second.first[:url] %>
+				</div>
+			<% end %>
+				<% log.changeset.each_with_index do |(key,value), i| %>
+						<div class="col-md-8 <%= 'col-md-offset-4' if i > 0 %>">
+							<%= key.capitalize %> changed from 
+								<% if log.user %>
+					    			<%= link_to log.user, class: "who-posted" do %>
+					    				<%= image_tag(log.user.avatar, size: '24x24', class: 'avatar') + current_user = log.user ? "Me" : log.user.first_name + ' ' + log.user.last_name %>
+					    			<% end %>
+						</div>
+					</div>
+						<% unless i + 1 == log.changeset.length %>
+							<div class="row">
+						<% end %>
+					<% end %>
+				<% end %>
+	</li>
+<% end %>

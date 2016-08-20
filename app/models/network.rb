@@ -15,7 +15,7 @@ class Network < ApplicationRecord
 
 	friendly_id :name, use: [:slugged, :history]
 
-	has_paper_trail
+	has_paper_trail :class_name => 'Version'
 
 	def whitepapers
 	    read_attribute(:whitepapers).map {|v| Whitepaper.new(v) }
