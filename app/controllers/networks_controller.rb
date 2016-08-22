@@ -36,9 +36,6 @@ class NetworksController < ApplicationController
 		all_versions = @network.versions.reverse
 		@logs = []
 		all_versions.each do |version|
-			if version.changeset[:whitepapers].first.first.sort == version.changeset[:whitepapers].second.first.sort
-				version.changeset.delete :whitepapers
-			end
 			version.changeset.delete :updated_at
 			@logs << version unless version.changeset.empty?
 		end
@@ -102,7 +99,7 @@ class NetworksController < ApplicationController
 	private
 
 	    def network_params
-	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, link_ids: [], founders: [], whitepapers: [], whitepapers_attributes: [:title, :url, :destroy], repositories_attributes: [:title, :url, :destroy], category_ids: [], coin_ids: [], coins: [])
+	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, link_ids: [], founders: [], whitepapers: [], whitepapers_attributes: [:title, :url, :_destroy], category_ids: [], coin_ids: [], coins: [])
 	    end
 
 end

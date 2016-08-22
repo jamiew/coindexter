@@ -95,11 +95,11 @@
 			</div>	
 			<div class="row">
 				<% unless @coin.repositories.empty? %>
-					<% @coin.repositories.each do |repository| %>
-						<div class="col-md-4 label">
-							<h6>Repo</h6>
-						</div>
-						<div class="col-md-8 ">
+					<div class="col-md-4 label">
+						<h6>Repo</h6>
+					</div>
+					<% @coin.repositories.each_with_index do |repository, i| %>
+						<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
 							<%= link_to repository.name, repository.url %>
 						</div>
 					<% end %>

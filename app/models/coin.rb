@@ -62,13 +62,29 @@ class Coin < ApplicationRecord
       next if '1' == attrs.delete("_destroy")
       repositories << attrs
     end
-    write_attribute(:repositories, repositories)
+    repository_changed(repositories)
   end
 
   def build_repository
     r = self.repositories.dup
     r << Repository.new({name: '', url: ''})
     self.repositories = r
+  end
+
+  def repository_changed(repos)
+    any_changes = false
+    if self.repositories.length != repos.length
+      any_changes = true
+    else
+      self.repositories.each_with_index do |repository, i|
+        if repository.name != repos[i]["name"] || repository.url != repos[i]["url"]
+          any_changes = true
+        end
+      end
+    end
+    if any_changes
+      write_attribute(:repositories, repos)
+    end
   end
 
 end

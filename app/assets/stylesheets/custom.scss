@@ -408,16 +408,22 @@ ul#info-menu {
 					background-image: none;
 				}
 			}
-			.add-another, .optional-toggle {
+			.add-another, .optional-toggle, .remove-fields {
 				margin-top:6px;
 				margin-bottom:2px;
 				font-size:14px;
 				text-align:right;
 				color: $primary-orange;
-				float:right;
 				&:hover {
 					cursor:pointer;
 				}
+			}
+			.remove-fields {
+				float:left;
+				color: $concept-outer;
+			}
+			.add-another, .optional-toggle {
+				float:right;
 			}
 			.optional-field {
 				display:none;

@@ -34,15 +34,12 @@ class CoinsController < ApplicationController
 				log = {}
 				case key
 				when "repositories"
-					data_type = "Repository"
-					unless value.first.first[:url] == value.second.first[:url] && value.first.first[:name] == value.second.first[:name]
-						if value.first.first[:url] == "" 
-							type = "added"
-						else
-							type = "edited"
-						end
-						log[:data] = {change: version.changeset[:repositories], change_type: type}
+					if value.first.first[:url] == "" 
+						type = "added"
+					else
+						type = "edited"
 					end
+					log[:data] = {change: version.changeset[:repositories], change_type: type}
 				when "coin_info"
 					data_type = "Additional info"
 					if value.first == ""
@@ -90,13 +87,12 @@ class CoinsController < ApplicationController
 		@use_ajax = true
 		@coin = Coin.new
 		@coin.build_repository
-		puts "It is #{@coin.repositories}"
 	end
 
 	def edit
 		@use_ajax = false
 		@coin = Coin.friendly.find(params[:id])
-		puts "It is #{@coin.repositories}"
+		
 	end
 
 	def create
@@ -127,7 +123,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, :repositories, repositories_attributes: [:name, :url, :destroy])
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, repositories: {}, repositories_attributes: [:name, :url, :_destroy])
 	    end
 
 	    def set_has_application(coin)

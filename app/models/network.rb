@@ -42,8 +42,7 @@ class Network < ApplicationRecord
 		  next if '1' == attrs.delete("_destroy")
 		  whitepapers << attrs
 		end
-		
-		write_attribute(:whitepapers, whitepapers)
+		whitepaper_changed(whitepapers)
 	end
 
 	def build_whitepaper
@@ -51,5 +50,21 @@ class Network < ApplicationRecord
 		w << Whitepaper.new({title: '', url: ''})
 		self.whitepapers = w
 	end
+
+	def whitepaper_changed(whitepapers)
+	    any_changes = false
+	    if self.whitepapers.length != whitepapers.length
+	      any_changes = true
+	    else
+	      self.whitepapers.each_with_index do |whitepaper, i|
+	        if whitepaper.name != whitepapers[i]["name"] || whitepaper.url != whitepapers[i]["url"]
+	          any_changes = true
+	        end
+	      end
+	    end
+	    if any_changes
+	      write_attribute(:whitepapers, whitepapers)
+	    end
+  	end
 
 end

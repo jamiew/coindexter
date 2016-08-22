@@ -1,10 +1,4 @@
-<% content_for :head do %>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('input:checkbox').bootstrapSwitch();
-		});
-	</script>
-<% end %>
+<%= javascript_include_tag "add_another" %>
 <%= form_for @coin, authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
@@ -61,7 +55,27 @@
 		</div>
 	</div>
 	<%= f.fields_for :repositories do |r| %>
-		<%= render "repository_fields", :r => r %>
+		<div class="row grouped-row grouped-row-first repo-group">
+			<div class="col-md-4 label">
+				<%= r.label "Repo Name", class: "form-label" %>
+			</div>
+			<div class="col-md-8">
+				<%= r.text_field :name %>
+			</div>
+		</div>
+		<div class="row grouped-row grouped-row-last repo-group">
+			<div class="col-md-4 label">
+				<%= r.label "Repo URL", class: "form-label" %>
+			</div>
+			<div class="col-md-8" id=<%= "repository-#{r.options[:child_index]}" %>>
+				<%= r.text_field :url %>
+				<%= r.hidden_field :_destroy %>
+		  		<a class="remove-fields">Remove</a>
+				<% if r.options[:child_index] + 1 == @coin.repositories.count %>
+					<a class="add-another" id="add-another-repo">Add another repo</a>
+				<% end %>
+			</div>
+		</div>
 	<% end %>
 	<div class="row first-in-form-group">
 		<div class="col-md-4 label">

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:twitter, :facebook, :google_oauth2]
 
+  include CarrierWave::MiniMagick
+
   mount_uploader :avatar, AvatarUploader
 
   has_many :coins
