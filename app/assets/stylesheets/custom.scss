@@ -461,14 +461,14 @@ ul#info-menu {
 			}
 			h6.when-posted {
 				margin-bottom: 5px;
-				margin-top:2px;
+				margin-top:4px;
 				text-align:right;
-				font-size:18px;
+				font-size:16px;
 				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
 			}
 			h6.comment-count {
-				font-size:14px;
+				font-size:12px;
 				font-family: "WhitneyHTF-Medium";
 				text-transform:uppercase;
 			}
@@ -478,9 +478,12 @@ ul#info-menu {
 			a.who-posted {
 				display:block;
 				margin-top:4px;
+				text-align:right;
+				font-size:13px;
 				img {
 					border-radius: 3px;
 					margin-right:6px;
+					margin-top:-2px;
 				}
 			}
 			p.link-body {
@@ -493,6 +496,9 @@ ul#info-menu {
 					color: $primary-orange;
 					cursor:pointer;
 				}
+			}
+			ul.log-list > li {
+				display: inline;
 			}
 			.bootstrap-switch {
 				margin-top:-2px;

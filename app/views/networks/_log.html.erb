@@ -1,22 +1,66 @@
-<% @logs.each do |log| %>
-	<li class="log-block block">
-		<div class="row">
-			<div class="col-md-4">
-				<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
-			</div>
-			<% log.changeset.each_with_index do |(key,value), i| %>
-					<div class="col-md-8 <%= 'col-md-offset-4' if i > 0 %>">
-						<%= key.capitalize %> changed from "<%= value.first %>" to "<%= value.second %>"
-						<% if log.user %>
-			    			<%= link_to log.user, class: "who-posted" do %>
-			    				<%= image_tag(log.user.avatar, size: '24x24', class: 'avatar') + current_user = log.user ? "Me" : log.user.first_name + ' ' + log.user.last_name %>
-			    			<% end %>
-						<% end %>
-					</div>
+<li class="log-block block">
+	<div class="row">
+		<div class="col-md-4">
+			<h6 class="when-posted"><%= time_ago_in_words(log[:created_at]) %></h6>
+			<% if log[:user] %>
+				<%= link_to log[:user], class: "who-posted" do %>
+    				<%= image_tag(log[:user].avatar, size: '20x20', class: 'avatar') + current_user = log[:user] ? "Me" : log[:user].first_name + ' ' + log[:user].last_name %>
+    			<% end %>
+    		<% end %>
+		</div>
+		<div class="col-md-8">
+			<div class="row">
+				<div class="col-md-12">
+					<%= log[:data_type] %>
+					<% case log[:data][:change_attr] %>
+						<% when "whitepapers" %>
+							<ul class="log-list"> 
+								<%= log[:data][:change_attr].capitalize %>
+								<% if log[:data][:change_type] == "added" %>
+									added: 
+									<% log[:data][:change].second.each_with_index do |change, i| %>
+										<li><%= link_to change["title"], change["url"] %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
+									<% end %>
+								<% elsif log[:data][:change_type] == "edited" %>
+									changed from 
+										<% log[:data][:change].first.each_with_index do |change, i| %>
+											<li><%= link_to change["title"], change["url"] %><%= "," unless i + 3 == log[:data][:change].first.length %></li>
+										<% end %>
+									to 
+										<% log[:data][:change].second.each_with_index do |change, i| %>
+											<li><%= link_to change["title"], change["url"] %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
+										<% end %>
+								<% end %>
+							</ul>
+						<% when "founders" %>
+							<ul class="log-list"> 
+								<%= log[:data][:change_attr].capitalize %>
+								<% if log[:data][:change_type] == "added" %>
+									added: 
+									<% log[:data][:change].second.each_with_index do |change, i| %>
+										<li><%= change %>"<%= "," unless i + 1 == log[:data][:change].first.length %>"</li>
+									<% end %>
+								<% elsif log[:data][:change_type] == "edited" %>
+									changed from 
+										<% log[:data][:change].first.each_with_index do |change, i| %>
+											<li>"<%= change %><%= "," unless i + 1 == log[:data][:change].first.length %>"</li>
+										<% end %>
+									to 
+										<% log[:data][:change].second.each_with_index do |change, i| %>
+											<li>"<%= change %><%= "," unless i + 1 == log[:data][:change].first.length %>"</li>
+										<% end %>
+								<% end %>
+							</ul>
+						<% else %>
+							<%= log[:data][:change_attr].capitalize %>
+							<% if log[:data][:change_type] == "added" %>
+								added: "<%= log[:data][:change].second %>"
+							<% elsif log[:data][:change_type] == "edited" %>
+								changed from "<%= log[:data][:change].first %>" to "<%= log[:data][:change].second %>"
+							<% end %>
+					<% end %>
 				</div>
-				<% unless i + 1 == log.changeset.length %>
-					<div class="row">
-				<% end %>
-			<% end %>
-	</li>
-<% end %>
+			</div>
+		</div>
+	</div>
+</li>

@@ -37,7 +37,8 @@ $("#add-another-repo").on("click", function() {
 });
 
 $("a.remove-fields").on("click", function() {
-	$(this).parent().parent().find("input[hidden]").value = true
+	$(this).parent().parent().find("input:hidden").val(true);
+	alert($(this).parent().parent().find("input:hidden").val());
 	$(this).parent().find("input").hide();
 	$(this).parent().parent().find("label").hide();
 	$(this).parent().parent().prev().find("input").hide();

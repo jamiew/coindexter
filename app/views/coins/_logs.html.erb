@@ -1,6 +1,7 @@
-<ul>
-	<li class="network-header network-info-block block">
-		<%= render(partial: 'networks/network_main_info_header') %>
+<%= javascript_include_tag 'paginate_logs' %>
+<ul class="outer-log-list">
+	<li class="coin-header coin-info-block block">
+		<%= render(partial: 'coins/coin_main_info_header') %>
 	</li>
-	<%= render 'log', collection: @logs %>
+	<%= render(partial: 'log', collection: @logs, as: :log) %>
 </ul>

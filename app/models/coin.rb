@@ -14,7 +14,7 @@ class Coin < ApplicationRecord
   has_and_belongs_to_many  :links
   has_many :comments, through: :links
 
-  has_paper_trail :class_name => 'Version'
+  has_paper_trail :class_name => 'Version', :ignore => [:price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug]
 
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?
@@ -59,7 +59,7 @@ class Coin < ApplicationRecord
   def repositories_attributes=(attributes)
     repositories = []
     attributes.each do |index, attrs|
-      next if '1' == attrs.delete("_destroy")
+      next if attrs["_destroy"] == true
       repositories << attrs
     end
     repository_changed(repositories)

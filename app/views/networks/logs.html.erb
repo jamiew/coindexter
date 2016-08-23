@@ -7,7 +7,7 @@
 			<li class="network-header network-info-block block">
 				<%= render(partial: 'networks/network_main_info_header') %>
 			</li>
-			<%= render 'log', collection: @logs %>
+			<%= render(partial: 'log', collection: @logs, as: :log) %>
 		</ul>
 	</div>
 </div>

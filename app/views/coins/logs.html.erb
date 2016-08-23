@@ -1,13 +1,14 @@
+<%= javascript_include_tag 'paginate_logs' %>
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<%= render(partial: 'info_menu', object: @coin) %>
 	</div>
 	<div class="col-md-6 main">
-		<ul>
+		<ul class="outer-log-list">
 			<li class="coin-header coin-info-block block">
 				<%= render(partial: 'coins/coin_main_info_header') %>
 			</li>
-			<%= render 'log', collection: @logs %>
+			<%= render(partial: 'log', collection: @logs, as: :log) %>
 		</ul>
 	</div>
 </div>

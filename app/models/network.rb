@@ -57,7 +57,7 @@ class Network < ApplicationRecord
 	      any_changes = true
 	    else
 	      self.whitepapers.each_with_index do |whitepaper, i|
-	        if whitepaper.name != whitepapers[i]["name"] || whitepaper.url != whitepapers[i]["url"]
+	        if whitepaper.title != whitepapers[i]["title"] || whitepaper.url != whitepapers[i]["url"]
 	          any_changes = true
 	        end
 	      end
