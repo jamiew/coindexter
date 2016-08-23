@@ -13,7 +13,7 @@
 				<div class="col-md-12">
 					<%= log[:data_type] %>
 					<% case log[:data][:change_attr] %>
-						<% when "repositories" %>
+						<% when "repositories", "exchanges" %>
 							<ul class="log-list"> 
 								<%= log[:data][:change_attr].capitalize %>
 								<% if log[:data][:change_type] == "added" %>
@@ -32,6 +32,23 @@
 										<% end %>
 								<% end %>
 							</ul>
+						<% when "Network" %>
+							<%= log[:data][:change_attr].capitalize %>
+							<% if log[:data][:change_type] == "added" %>
+									added:
+									<% log[:data][:change].each_with_index do |change, i| %>
+										<%= link_to change.name, change unless change.nil? %>
+									<% end %>
+								<% elsif log[:data][:change_type] == "edited" %>
+									changed from 
+										<% log[:data][:change].first.each_with_index do |change, i| %>
+											<%= link_to change.name, change unless change.nil? %><%= "," unless i + 1 == log[:data][:change].second.length %>
+										<% end %>
+									to 
+										<% log[:data][:change].second.each_with_index do |change, i| %>
+											<li><<%= link_to change.name, change unless change.nil? %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
+										<% end %>
+								<% end %>
 						<% else %>
 							<%= log[:data][:change_attr].capitalize %>
 							<% if log[:data][:change_type] == "added" %>

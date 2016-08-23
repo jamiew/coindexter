@@ -33,13 +33,23 @@ class CoinsController < ApplicationController
 			log = {}
 			version.changeset.each do |key, value|
 				case key
-				when "repositories"
-					if value.first == {} || value.first == []
+				when "repositories", "exchanges"
+					if value.first == {} || value.first == [] || value.first.nil?
 						type = "added"	
 					else 
 						type = "edited"
 					end
 					log[:data] = {change: value, change_attr: key, change_type: type}
+				when "network_id"
+					if value.first.nil? 
+						type = "added"
+					else
+						type = "edited"
+						value[0] = Network.find(value[0])
+					end
+					value[1] = Network.find(value[1])
+					change_attr = "Network"
+					log[:data] = {change: value, change_attr: change_attr, change_type: type}
 				when "coin_info"
 					change_attr = "Additional info"
 				when "type"
@@ -141,7 +151,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
 	    def set_has_application(coin)

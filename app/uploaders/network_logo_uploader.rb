@@ -16,7 +16,7 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process resize_to_fit: [400, 400]
+  include CarrierWave::MiniMagick
 
   version :small do
     process resize_to_fill: [60,60]

@@ -47,7 +47,7 @@
 				<%= e.hidden_field :_destroy %>
 		  		<a class="remove-fields remove-exchange-fields">Remove</a>
 				<% if e.options[:child_index] + 1 == @coin.exchanges.count %>
-					<a class="add-another" id="add-another-exchange">Add another repo</a>
+					<a class="add-another" id="add-another-exchange">Add another exchange</a>
 				<% end %>
 			</div>
 		</div>
@@ -66,7 +66,7 @@
 			<%= f.label "Type", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.select :type, options_for_select([["Currency","currency"],["Token","token"],["Equity","equity"],["Certificate","certificate"]], :selected => @coin.type), include_blank: true %>
+			<%= f.select :coin_type, options_for_select([["Currency","currency"],["Token","token"],["Equity","equity"],["Certificate","certificate"]], :selected => @coin.coin_type), include_blank: true %>
 		</div>
 	</div>
 	<div class="row">
@@ -74,7 +74,7 @@
 			<%= f.label "Proof algorithm", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.select :type, options_for_select([["Proof of work","proof-of-work"],["Proof of stake","proof-of-stake"],["Proof of burn","proof-of-burn"],["X11","x11"],["X13","x13"]], :selected => @coin.proof_algorithm), include_blank: true %>
+			<%= f.select :proof_algorithm, options_for_select([["Proof of work","proof-of-work"],["Proof of stake","proof-of-stake"],["Proof of burn","proof-of-burn"],["X11","x11"],["X13","x13"]], :selected => @coin.proof_algorithm), include_blank: true %>
 		</div>
 	</div>
 	<%= f.fields_for :repositories do |r| %>
