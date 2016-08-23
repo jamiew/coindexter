@@ -108,6 +108,9 @@ class CoinsController < ApplicationController
 		if @coin.repositories.empty?
 			@coin.build_repository
 		end
+		if @coin.exchanges.empty?
+			@coin.build_exchange
+		end
 	end
 
 	def create
@@ -138,7 +141,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, networks: [], network_ids: [], repositories: {}, repositories_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :type, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
 	    def set_has_application(coin)

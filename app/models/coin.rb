@@ -87,4 +87,54 @@ class Coin < ApplicationRecord
     end
   end
 
+  def exchanges
+    read_attribute(:exchanges).map {|v| Exchange.new(v) }
+  end
+
+  class Exchange
+    attr_accessor :name, :url
+
+    def initialize(hash)
+      @name = hash['name']
+      @url = hash['url']
+    end
+
+    def persisted?() false; end
+    def new_record?() false; end
+    def marked_for_destruction?() false; end
+    def _destroy() false; end
+
+  end
+
+  def exchanges_attributes=(attributes)
+    exchanges = []
+    attributes.each do |index, attrs|
+      next if attrs["_destroy"] == true
+      exchanges << attrs
+    end
+    exchange_changed(exchanges)
+  end
+
+  def build_exchange
+    e = self.exchanges.dup
+    e << Exchange.new({name: '', url: ''})
+    self.exchanges = e
+  end
+
+  def exchange_changed(xchanges)
+    any_changes = false
+    if self.exchanges.length != xchanges.length
+      any_changes = true
+    else
+      self.exchanges.each_with_index do |exchange, i|
+        if exchange.name != xchanges[i]["name"] || exchange.url != xchanges[i]["url"]
+          any_changes = true
+        end
+      end
+    end
+    if any_changes
+      write_attribute(:exchanges, xchanges)
+    end
+  end  
+
 end

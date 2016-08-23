@@ -80,7 +80,10 @@
 				<%= text_field_tag 'founders[]' %>
 			<% else %>
 				<% @network.founders.each_with_index do |founder, i| %>
-					<%= text_field_tag 'founders[]', @network.founders[i] %>
+					<div class="founder-field">
+						<%= text_field_tag 'founders[]', @network.founders[i] %>
+			  			<a class="remove-founder-field remove-fields">Remove</a>
+			  		</div>
 				<% end %>
 			<% end %>
 			<a class="add-another" id="add-another-founder">Add another founder</a>

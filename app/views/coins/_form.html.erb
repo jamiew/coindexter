@@ -29,6 +29,29 @@
 			<%= f.select :coin_status, options_for_select([["Concept","Concept"],["Pre-production","Pre-production"],["Live","Live"]], :selected => @coin.coin_status), include_blank: true %>
 		</div>
 	</div>
+	<%= f.fields_for :exchanges do |e| %>
+		<div class="row grouped-row grouped-row-first exchange-group">
+			<div class="col-md-4 label">
+				<%= e.label "Exchange Name", class: "form-label" %>
+			</div>
+			<div class="col-md-8">
+				<%= e.text_field :name %>
+			</div>
+		</div>
+		<div class="row grouped-row grouped-row-last repo-group">
+			<div class="col-md-4 label">
+				<%= e.label "Exhange URL", class: "form-label" %>
+			</div>
+			<div class="col-md-8" id=<%= "exchange-#{e.options[:child_index]}" %>>
+				<%= e.text_field :url %>
+				<%= e.hidden_field :_destroy %>
+		  		<a class="remove-fields remove-exchange-fields">Remove</a>
+				<% if e.options[:child_index] + 1 == @coin.exchanges.count %>
+					<a class="add-another" id="add-another-exchange">Add another repo</a>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
 	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Networks", class: "form-label select-label" %>
@@ -70,7 +93,7 @@
 			<div class="col-md-8" id=<%= "repository-#{r.options[:child_index]}" %>>
 				<%= r.text_field :url %>
 				<%= r.hidden_field :_destroy %>
-		  		<a class="remove-fields">Remove</a>
+		  		<a class="remove-fields remove-repository-fields">Remove</a>
 				<% if r.options[:child_index] + 1 == @coin.repositories.count %>
 					<a class="add-another" id="add-another-repo">Add another repo</a>
 				<% end %>

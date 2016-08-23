@@ -13,15 +13,23 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-4 label">
-				<h6>where to buy</h6>
-			</div>
-			<div class="col-md-8 data">
-				<ul>
-					<li><a href="http://steemit.com">Steem.com <%= image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
-					<li><a href="http://gdax.com">GDAX <%= image_tag("link-icon.png", size: "14x14", class: "link-icon") %></a></li>
-				</ul>
-			</div>
+			<% unless @coin.exchanges.empty? %>
+				<div class="col-md-4 label">
+					<h6>Exchange</h6>
+				</div>
+				<% @coin.exchanges.each_with_index do |exchange, i| %>
+					<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
+						<%= link_to exchange.name, exchange.url %>
+					</div>
+				<% end %>
+			<% else %>
+				<div class="col-md-4 label">
+					<h6>Exchange</h6>
+				</div>
+				<div class="col-md-8">
+					<%= link_to "Add an exhange", edit_coin_url, class: "add-missing-field" %>
+				</div>
+			<% end %>
 		</div>
 		<div class="row">
 			<div class="col-md-4 label">

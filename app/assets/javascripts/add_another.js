@@ -1,6 +1,10 @@
 $("#add-another-founder").on("click", function() {
 	$(this).before("<input type='text' name='founders[]'' id='founders'>");
 });
+
+$(".remove-founder-field").on("click", function() {
+	$(this).closest('.founder-field').remove();
+});
 	
 $("#add-another-whitepaper").on("click", function() {
 	parent_id = $(this).parent().attr('id');
@@ -36,7 +40,7 @@ $("#add-another-repo").on("click", function() {
 	$(this).parent().parent().after(prev_parent_html_to_insert + parent_html_to_insert);
 });
 
-$("a.remove-fields").on("click", function() {
+$("a.remove-repository-fields").on("click", function() {
 	$(this).parent().parent().find("input:hidden").val(true);
 	alert($(this).parent().parent().find("input:hidden").val());
 	$(this).parent().find("input").hide();
