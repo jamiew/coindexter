@@ -1,6 +1,6 @@
 <ul>
 	<li class="user-header user-info-block block">
-		<%#= render(partial: 'user/user_main_info_header') %>
+		<%= render(partial: 'user_main_info_header') %>
 	</li>
 	<% @logs.each do |log| %>
 		<% if log[:feed_type] == "network_log" %>

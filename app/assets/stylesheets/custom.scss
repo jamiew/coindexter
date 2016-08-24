@@ -48,16 +48,16 @@ p.notice, p.alert {
 	display: block;
 	margin: -30px auto 3em auto;
 	padding: 1em 2em;
+	display:none;
+	color: white;
 }
 
 p.notice {
-	color: $primary-green;
 	background: $secondary-green;
 	border: 2px solid $primary-green;
 }
 
 p.alert {
-	color: $concept-outer;
 	background: $concept-inner;
 	border: 2px solid $concept-outer;
 	border-radius: 0px;
@@ -473,7 +473,7 @@ ul#info-menu {
 			.select-label {
 				margin-top: 10px;
 			}
-			img#coin-logo, img#network-logo {
+			img#coin-logo, img#network-logo, img#user-avatar {
 				border: 1px solid $border-orange;
 				background-color: #fff;
 				padding: 4px;
@@ -769,7 +769,7 @@ ul#info-menu {
 	display: none;
 }
 
-.network-header, .coin-header, .coins-in-categories, .networks-in-categories, .results {
+.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;

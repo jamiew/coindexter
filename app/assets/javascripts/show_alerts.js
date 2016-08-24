@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	
-	if ($('p.alert').text() == '') {
-		$('p.alert').hide();
+	if ($('p.alert').text() != '') {
+		$('p.alert').show();
 	}
-	if ($('p.notice').text() == '') {
-		$('p.notice').hide();
+	if ($('p.notice').text() != '') {
+		$('p.notice').show();
 	}
 	
 	text = $('#header-link-account').find('p').text();
