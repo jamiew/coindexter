@@ -1,8 +1,0 @@
-I"¾(function() {
-  $("#add-another-founder").on("click", function() {
-    alert('hey');
-    return $(this).before("<input type='text' name='founders[]'' id='founders'>");
-  });
-
-}).call(this);
-:ET

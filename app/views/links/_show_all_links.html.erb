@@ -10,6 +10,28 @@
 			<% elsif link.comment_count > 0 %>
 				<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>
 			<% end %>
+			<% if link.coins.any? %>
+				<div class="user-log-classification-alt-links">
+					<p class="user-log-classification-alt-links-p">Coin</p>
+					<% link.coins.each do |coin| %>
+						<div class="user-log-classification-link">
+							<%= image_tag(coin.logo.small.url, size: "20x20") %>
+							<%= link_to coin.name, coin %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+			<% if link.networks.any? %>
+				<div class="user-log-classification-alt-links">
+					<p class="user-log-classification-alt-links-p">Network</p>
+					<% link.networks.each do |network| %>
+						<div class="user-log-classification-link">
+							<%= image_tag(network.logo.small.url, size: "20x20") %>
+							<%= link_to network.name, network %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 </li>

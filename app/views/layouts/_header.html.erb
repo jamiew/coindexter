@@ -12,10 +12,18 @@
 			    <li id="header-link-sales"><a>Upcoming sales</a></li>
 			    <li id="header-link-account">
 			    	<% if user_signed_in? %>
-		    			<%= current_user.avatar? ? image_tag(current_user.avatar, size: '30x30', class: 'avatar') + content_tag(:span, current_user.first_name, class:'username') : "Sign out" %>
+		    			<%= link_to user_path(current_user), class: 'user-activity'  do %>
+			    			<%= current_user.avatar ? image_tag(current_user.avatar, size: '30x30', class: 'avatar') : "" %> 
+			    			<p><%= current_user.username %></p>
+		    			<% end %>
+		    			<%= link_to '/account', class: 'header-link-account-glyphicon' do %>
+		    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+		    			<% end %>
+		    			<%= link_to destroy_user_session_path, method: :delete, class: 'header-link-account-glyphicon logout' do %>
+		    				<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+		    			<% end %>
 			    	<% else %>
 			    		<%= link_to 'login', '/signup' %>
-			    		<!-- <h6>placeholder<h6> -->
 					<% end %>
 			    </li>
 			</ul>

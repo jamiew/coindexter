@@ -5,7 +5,12 @@ $("#add-another-founder").on("click", function() {
 $(".remove-founder-field").on("click", function() {
 	$(this).closest('.founder-field').remove();
 });
-	
+
+$(".optional-toggle").on("click", function() {
+	$(this).hide();
+	$(".optional-field").show();
+}); 
+
 $("#add-another-exchange").on("click", function() {
 	parent_id = $(this).parent().attr('id');
 	parent_id_length = parent_id.length;

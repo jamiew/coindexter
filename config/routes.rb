@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   match '/search', to:"searches#results", via: "get"
 
+  match '/account', to:"users#edit", via: "get"
+
   devise_scope :user do get "/signup" => "devise/registrations#new" end
 
 end

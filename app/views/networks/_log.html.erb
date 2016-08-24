@@ -19,16 +19,16 @@
 								<% if log[:data][:change_type] == "added" %>
 									added: 
 									<% log[:data][:change].second.each_with_index do |change, i| %>
-										<li><%= link_to change["title"], change["url"] %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
+										<li><%= link_to change["title"], change["url"] %></li>
 									<% end %>
 								<% elsif log[:data][:change_type] == "edited" %>
 									changed from 
 										<% log[:data][:change].first.each_with_index do |change, i| %>
-											<li><%= link_to change["title"], change["url"] %><%= "," unless i + 3 == log[:data][:change].first.length %></li>
+											<li><%= link_to change["title"], change["url"] %></li>
 										<% end %>
 									to 
 										<% log[:data][:change].second.each_with_index do |change, i| %>
-											<li><%= link_to change["title"], change["url"] %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
+											<li><%= link_to change["title"], change["url"] %></li>
 										<% end %>
 								<% end %>
 							</ul>
@@ -38,16 +38,16 @@
 								<% if log[:data][:change_type] == "added" %>
 									added: 
 									<% log[:data][:change].second.each_with_index do |change, i| %>
-										<li><%= change %>"<%= "," unless i + 1 == log[:data][:change].first.length %>"</li>
+										<li><%= change %>""</li>
 									<% end %>
 								<% elsif log[:data][:change_type] == "edited" %>
 									changed from 
 										<% log[:data][:change].first.each_with_index do |change, i| %>
-											<li>"<%= change %><%= "," unless i + 1 == log[:data][:change].first.length %>"</li>
+											<li>"<%= change %>"</li>
 										<% end %>
 									to 
 										<% log[:data][:change].second.each_with_index do |change, i| %>
-											<li>"<%= change %><%= "," unless i + 1 == log[:data][:change].first.length %>"</li>
+											<li>"<%= change %>"</li>
 										<% end %>
 								<% end %>
 							</ul>

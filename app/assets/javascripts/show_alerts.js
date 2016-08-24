@@ -7,18 +7,14 @@ $(document).ready(function() {
 		$('p.notice').hide();
 	}
 	
-	text = $('#header-link-account').find('span').text();
-	alert(text);
-	img = $('.account').find('img')
-	$('#header-link-account').mouseover(function() {
-		$(this).find("span").remove();
-		$(this).append('<a href="<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="glyphicon glyphicon-off" aria-hidden="true"></span> ');
-	});
-		
-	$('#header-link-account').mouseout(function() {
-		$(this).find("span").remove();
-		$(this).append('<span class="username">' + text + '</span>');
-	});
-
+	text = $('#header-link-account').find('p').text();
+	$('#header-link-account').hover(
+		function() {
+			$(this).find("a.user-activity > p").hide();
+			$(this).find("a.header-link-account-glyphicon").show();
+		}, function() {
+			$(this).find("a.user-activity > p").show();
+			$(this).find("a.header-link-account-glyphicon").hide();
+		});
 });
 	
