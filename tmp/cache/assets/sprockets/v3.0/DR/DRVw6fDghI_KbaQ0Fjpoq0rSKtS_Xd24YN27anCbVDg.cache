@@ -1,0 +1,9 @@
+I"ƒ(function() {
+  $(function() {
+    if ($('p.alert').text() === '') {
+      return $('p.alert').hide();
+    }
+  });
+
+}).call(this);
+:ET

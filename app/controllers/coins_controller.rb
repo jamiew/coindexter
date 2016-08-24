@@ -12,7 +12,7 @@ class CoinsController < ApplicationController
 	end
 
 	def links
-		@links = Coin.friendly.find(params[:id]).paginate(:page => params[:page], :per_page => 10)
+		@links = Coin.friendly.find(params[:id]).links.paginate(:page => params[:page], :per_page => 10)
 		@coin = Coin.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html

@@ -1,9 +1,0 @@
-I"á(function() {
-  $('body').scroll(function() {
-    var remaining;
-    remaining = $(this).prop('scrollHeight') - ($(this).scrollTop() + $(this).height());
-    $('.action-links').text(remaining);
-  }).scroll();
-
-}).call(this);
-:ET

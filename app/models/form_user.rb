@@ -15,6 +15,9 @@ class FormUser < User
   validates_presence_of     :last_name, if: :name_required?
   validates_confirmation_of :last_name, if: :name_required?
 
+  validates_presence_of     :username
+  validates_confirmation_of :username
+
   def password_required?
     return false if email.blank?
     !persisted? || !password.nil? || !password_confirmation.nil?

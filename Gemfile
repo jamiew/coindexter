@@ -73,6 +73,8 @@ gem 'will_paginate', '~> 3.1.0'
 #for the log
 gem 'paper_trail'
 
+#emailing
+gem 'mailgun_rails'
 
 group :production do 
   gem 'rails_12factor'

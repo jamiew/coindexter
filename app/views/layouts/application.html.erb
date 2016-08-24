@@ -7,11 +7,10 @@
   	<%= render 'layouts/shim' %>
   </head>
   <body>
+    <%= javascript_include_tag "show_alerts" %>
   	<%= render 'layouts/header' %>
     <div id="wrap">
     	<div class="container main-container">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
     	  	<%= yield %>
     	</div>
       <div id="push"></div>

@@ -1,0 +1,12 @@
+I"Ì(function() {
+  $(function() {
+    if ($('p.alert').text() === '') {
+      $('p.alert').hide();
+    }
+    if ($('p.notice').text() === '') {
+      return $('p.notice').hide();
+    }
+  });
+
+}).call(this);
+:ET

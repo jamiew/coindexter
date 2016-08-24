@@ -73,12 +73,8 @@ class LinksController < ApplicationController
 
 	private
 
-		
-
 	    def link_params
 	    	params.require(:link).permit(:link, :title, :body, coin_ids: [], network_ids: [])
 	    end	
-
-	    
 
 end

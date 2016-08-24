@@ -38,9 +38,29 @@ body {
 	font-size: 16px;
 	line-height: 1.5;
 	.main-container {
-		/* padding-bottom:120px; */
+		padding-top:2em;
 	}
 	height: 100%;
+}
+
+p.notice, p.alert {
+	text-align:center;
+	display: block;
+	margin: -30px auto 3em auto;
+	padding: 1em 2em;
+}
+
+p.notice {
+	color: $primary-green;
+	background: $secondary-green;
+	border: 2px solid $primary-green;
+}
+
+p.alert {
+	color: $concept-outer;
+	background: $concept-inner;
+	border: 2px solid $concept-outer;
+	border-radius: 0px;
 }
 
 .main {
@@ -161,7 +181,7 @@ nav, .navbar {
 		#navbar {
 			border: none;
 			ul.nav {
-				margin-top: 14px;
+				margin-top: 10px;
 				li {
 					@include small-case;
 					margin-right: 8px;
@@ -180,25 +200,39 @@ nav, .navbar {
 					}
 					a {
 						color: $primary-orange;
+						margin-top:4px;
 						&:hover {
 							background:none;
 						}
 					}
-
 					a.account {
 						margin-top:-4px;
 					}
 					img.avatar {
 						border-radius: 4px;
 						margin-right: 6px;
+						float:left;
 					}	
 					&:last-child {
 						width: 150px;
-					}		
+					}
 				}
 				li#header-link-sales > a {
 					opacity: 0.4;
 				}
+				li#header-link-account {
+					margin-top:2px;
+					height:30px;
+					span.glyphicon {
+						margin-left:3px;
+						margin-right:6px;
+						margin-top: 3px;
+						padding-top:3px;
+					}
+					&:hover {
+						cursor:pointer;
+					}
+				}	
 			}
 		}
 	}

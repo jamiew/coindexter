@@ -31,7 +31,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @coin = User.friendly.find(params[:id])
+    @user = User.friendly.find(params[:id])
+    UserMailer.welcome_email(@user).deliver_later
   end
 
 end

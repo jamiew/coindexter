@@ -56,54 +56,6 @@
           <button class="signin-facebook">Sign in with Facebook</button>
         </div>
       </div>
-      <script src="https://cdn.auth0.com/w2/auth0-6.7.min.js"></script>
-      <script src="http://code.jquery.com/jquery.js"></script>
-      <script>
-        var auth0 = new Auth0({
-          domain:         'libvoness.auth0.com',
-          clientID:       'OzjRXl3kCGXuWsfg9u9GkdKd2gkJPRjB',
-          callbackURL:    'http://127.0.0.1:3000/auth/auth0/callback'
-        });
-
-        // sign-in with social provider with plain redirect
-        $('.signin-google').on('click', function() {
-          auth0.signin({connection: 'google-oauth2'}); // use connection identifier
-        });
-
-        $('.signin-google-popup').on('click', function() {
-          auth0.signin({popup: true, connection: 'google-oauth2'}, 
-                      function(err, profile, id_token, access_token, state) {
-                          /* 
-                            store the profile and id_token in a cookie or local storage
-                              $.cookie('profile', profile);
-                              $.cookie('id_token', id_token);
-                          */
-                      });
-        });
-
-        $('.signin-facebook').on('click', function() {
-          auth0.signin({connection: 'facebook-oauth2'}); // use connection identifier
-        });        
-
-        $('.signin-twitter').on('click', function() {
-          auth0.signin({connection: 'twitter-oauth2'}); // use connection identifier
-        });              
-
-        $('.signin-db').on('click', function() {
-          auth0.signin({
-            connection: 'foo', 
-            username: 'bar', 
-            password: 'foobar'
-          },
-          function (err, profile, id_token, access_token, state) {
-            /* 
-                store the profile and id_token in a cookie or local storage
-                  $.cookie('profile', profile);
-                  $.cookie('id_token', id_token);
-              */
-          });
-        });
-      </script>
     </form>
   </div>
 </div>

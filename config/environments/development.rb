@@ -54,4 +54,10 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+          api_key: 'key-84e04576e169545ef111d461049b3385',
+          domain: 'mail.coindexter.io'
+  }
+
 end

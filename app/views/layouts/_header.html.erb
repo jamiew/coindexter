@@ -10,11 +10,9 @@
 			    <li id="header-link-coins"><%= link_to 'Coins', coins_url %></a></li>
 			    <li id="header-link-news"><%= link_to 'Links', links_url %></a></li>
 			    <li id="header-link-sales"><a>Upcoming sales</a></li>
-			    <li>
+			    <li id="header-link-account">
 			    	<% if user_signed_in? %>
-			    		<%= link_to destroy_user_session_path, method: :delete, class: 'account' do %>
-			    			<%= current_user.avatar? ? image_tag(current_user.avatar, size: '30x30', class: 'avatar') + current_user.first_name : 'Sign out' %>
-			    		<% end %>
+		    			<%= current_user.avatar? ? image_tag(current_user.avatar, size: '30x30', class: 'avatar') + content_tag(:span, current_user.first_name, class:'username') : "Sign out" %>
 			    	<% else %>
 			    		<%= link_to 'login', '/signup' %>
 			    		<!-- <h6>placeholder<h6> -->
@@ -24,3 +22,5 @@
 		</div>
 	</div>
 </nav>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>

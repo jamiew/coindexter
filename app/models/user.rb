@@ -1,12 +1,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable, 
          :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:twitter, :facebook, :google_oauth2]
 
   include CarrierWave::MiniMagick
 
   mount_uploader :avatar, AvatarUploader
+
+  extend FriendlyId
+  friendly_id :username, use: [:slugged, :history]
 
   has_many :coins
   has_many :links

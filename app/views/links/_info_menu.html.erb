@@ -5,7 +5,7 @@
 			<li>
 				<%= link_to coin do %>
 					<p><%= coin.name %></p>
-					<%= image_tag(coin.logo, class: "coin-logo info-menu-logo") %>
+					<%= image_tag(coin.logo, id: "coin-logo", class: "coin-logo info-menu-logo") %>
 				<% end %>
 			</li>
 		<% end %>
