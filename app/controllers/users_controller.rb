@@ -27,127 +27,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    get_all_logs
   end
 
   def show
     @user = User.friendly.find(params[:id])
-    user_id = @user.id
-    network_versions = []
-    coin_versions = []
-    links = []
-    User.friendly.find(params[:id]).links.each do |link| 
-      log = {}
-      log[:data] = link
-      log[:feed_type] = "link"
-      log[:created_at] = link.created_at
-      if link.coins.any?  
-        log[:coins] = link.coins
-      end
-      if link.networks.any?
-        log[:networks] = link.networks
-      end
-      links << log
-    end
-    Network.all.each do |network|
-      network.versions.where(:whodunnit => user_id).each do |version|
-        unless version.changeset == {}
-          log = {}
-          version.changeset.each do |key, value|
-            case key
-            when "whitepapers"
-              if value.first == {} || value.first == []
-                type = "added"  
-              else 
-                type = "edited"
-              end
-              log[:data] = {change: value, change_attr: key, change_type: type}
-            when "founders"
-              if value.first == {} || value.first == []
-                type = "added"  
-              else 
-                type = "edited"
-              end
-              log[:data] = {change: value, change_attr: key, change_type: type}
-            when "description"
-              change_attr = "Description"
-            when "link"
-              change_attr = "Link"
-            when "status"
-              change_attr = "Status"
-            else
-              change_attr = key
-            end
-            if log == {}
-              if value.first == ""
-                type = "added"
-              else
-                type = "edited"
-              end
-              log[:data] = {change: value, change_attr: change_attr, change_type: type}
-            end
-            log[:created_at] = version.created_at
-            log[:feed_type] = "network_log"
-            log[:networks] = network
-            network_versions << log
-          end
-        end
-      end
-    end
-    Coin.all.each do |coin|
-      coin.versions.where(:whodunnit => user_id).each do |version|
-        unless version.changeset == {}
-          log = {}
-          version.changeset.each do |key, value|
-            case key
-            when "repositories", "exchanges"
-              if value.first == {} || value.first == [] || value.first.nil?
-                type = "added"  
-              else 
-                type = "edited"
-              end
-              log[:data] = {change: value, change_attr: key, change_type: type}
-            when "network_id"
-              if value.first.nil? 
-                type = "added"
-              else
-                type = "edited"
-                value[0] = Network.find(value[0])
-              end
-              value[1] = Network.find(value[1])
-              change_attr = "Network"
-              log[:data] = {change: value, change_attr: change_attr, change_type: type}
-            when "coin_info"
-              change_attr = "Additional info"
-            when "type"
-              change_attr = "Asset type"
-            when "coin_status"
-              change_attr = "Status"
-            when "code_license"
-              change_attr = "Code license"
-            when "proof algorithm"
-              change_attr = "Proof algorithm"
-            else
-              change_attr = key
-            end
-            if log == {}
-              if value.first == ""
-                type = "added"
-              else
-                type = "edited"
-              end
-              log[:data] = {change: value, change_attr: change_attr, change_type: type}
-            end
-            log[:created_at] = version.created_at
-            log[:feed_type] = "coin_log"
-            log[:coins] = coin
-            coin_versions << log
-          end
-        end
-      end
-    end   
-    logs = network_versions + coin_versions + links
-    @logs = logs.sort_by{|log| log[:created_at]}.reverse
+    get_logs(@user.id)
+    
     respond_to do |format|
         format.html
         format.js
@@ -159,6 +45,261 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username)
+    end
+
+    def get_logs(user_id)
+      network_versions = []
+      coin_versions = []
+      links = []
+      
+      link_query = Link.where(:user_id => user_id)
+      
+      link_query.each do |link| 
+        log = {}
+        log[:data] = link
+        log[:feed_type] = "link"
+        log[:created_at] = link.created_at
+        if link.coins.any?  
+          log[:coins] = link.coins
+        end
+        if link.networks.any?
+          log[:networks] = link.networks
+        end
+        links << log
+      end
+
+      Network.all.each do |network| 
+        network.versions.where(:whodunnit => user_id).each do |version|
+          unless version.changeset == {}
+            log = {}
+            version.changeset.each do |key, value|
+              case key
+              when "whitepapers"
+                if value.first == {} || value.first == []
+                  type = "added"  
+                else 
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: key, change_type: type}
+              when "founders"
+                if value.first == {} || value.first == []
+                  type = "added"  
+                else 
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: key, change_type: type}
+              when "description"
+                change_attr = "Description"
+              when "link"
+                change_attr = "Link"
+              when "status"
+                change_attr = "Status"
+              else
+                change_attr = key
+              end
+              if log == {}
+                if value.first == ""
+                  type = "added"
+                else
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: change_attr, change_type: type}
+              end
+              if version.user? 
+                log[:version][:user] = version.user
+              end
+              log[:created_at] = version.created_at
+              log[:feed_type] = "network_log"
+              log[:networks] = network
+              network_versions << log
+            end
+          end
+        end
+      end
+
+      Coin.all.each do |coin| 
+        coin.versions.where(:whodunnit => user_id).each do |version|
+          unless version.changeset == {}
+            log = {}
+            version.changeset.each do |key, value|
+              case key
+              when "repositories", "exchanges"
+                if value.first == {} || value.first == [] || value.first.nil?
+                  type = "added"  
+                else 
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: key, change_type: type}
+              when "network_id"
+                if value.first.nil? 
+                  type = "added"
+                else
+                  type = "edited"
+                  value[0] = Network.find(value[0])
+                end
+                value[1] = Network.find(value[1])
+                change_attr = "Network"
+                log[:data] = {change: value, change_attr: change_attr, change_type: type}
+              when "coin_info"
+                change_attr = "Additional info"
+              when "type"
+                change_attr = "Asset type"
+              when "coin_status"
+                change_attr = "Status"
+              when "code_license"
+                change_attr = "Code license"
+              when "proof algorithm"
+                change_attr = "Proof algorithm"
+              else
+                change_attr = key
+              end
+              if log == {}
+                if value.first == ""
+                  type = "added"
+                else
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: change_attr, change_type: type}
+              end
+              if version.user? 
+                log[:version][:user] = version.user
+              end
+              log[:created_at] = version.created_at
+              log[:feed_type] = "coin_log"
+              log[:coins] = coin
+              coin_versions << log
+            end
+          end
+        end
+      end 
+      logs = network_versions + coin_versions + links
+      @logs = logs.sort_by{|log| log[:created_at]}.reverse
+    end
+
+    def get_all_logs
+      network_versions = []
+      coin_versions = []
+      links = []
+      
+      link_query = Link.all.limit(20)
+      
+      link_query.each do |link| 
+        log = {}
+        log[:user] = link.user
+        log[:data] = link
+        log[:feed_type] = "link"
+        log[:created_at] = link.created_at
+        if link.coins.any?  
+          log[:coins] = link.coins
+        end
+        if link.networks.any?
+          log[:networks] = link.networks
+        end
+        links << log
+      end
+
+      Network.all.each do|network| 
+        network.versions.all.limit(5).each do |version|
+          unless version.changeset == {}
+            log = {}
+            version.changeset.each do |key, value|
+              case key
+              when "whitepapers"
+                if value.first == {} || value.first == []
+                  type = "added"  
+                else 
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: key, change_type: type}
+              when "founders"
+                if value.first == {} || value.first == []
+                  type = "added"  
+                else 
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: key, change_type: type}
+              when "description"
+                change_attr = "Description"
+              when "link"
+                change_attr = "Link"
+              when "status"
+                change_attr = "Status"
+              else
+                change_attr = key
+              end
+              if log == {}
+                if value.first == ""
+                  type = "added"
+                else
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: change_attr, change_type: type}
+              end
+              log[:user] = version.user
+              log[:created_at] = version.created_at
+              log[:feed_type] = "network_log"
+              log[:networks] = network
+              network_versions << log
+            end
+          end
+        end
+      end
+
+      Coin.all.each do |coin| 
+        coin.versions.all.limit(5).each do |version|
+          unless version.changeset == {}
+            log = {}
+            version.changeset.each do |key, value|
+              case key
+              when "repositories", "exchanges"
+                if value.first == {} || value.first == [] || value.first.nil?
+                  type = "added"  
+                else 
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: key, change_type: type}
+              when "network_id"
+                if value.first.nil? 
+                  type = "added"
+                else
+                  type = "edited"
+                  value[0] = Network.find(value[0])
+                end
+                value[1] = Network.find(value[1])
+                change_attr = "Network"
+                log[:data] = {change: value, change_attr: change_attr, change_type: type}
+              when "coin_info"
+                change_attr = "Additional info"
+              when "type"
+                change_attr = "Asset type"
+              when "coin_status"
+                change_attr = "Status"
+              when "code_license"
+                change_attr = "Code license"
+              when "proof algorithm"
+                change_attr = "Proof algorithm"
+              else
+                change_attr = key
+              end
+              if log == {}
+                if value.first == ""
+                  type = "added"
+                else
+                  type = "edited"
+                end
+                log[:data] = {change: value, change_attr: change_attr, change_type: type}
+              end
+              log[:user] = version.user
+              log[:created_at] = version.created_at
+              log[:feed_type] = "coin_log"
+              log[:coins] = coin
+              coin_versions << log
+            end
+          end
+        end
+      end 
+      logs = network_versions + coin_versions + links
+      @logs = logs.sort_by{|log| log[:created_at]}.reverse
     end
 
 end

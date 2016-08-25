@@ -1,4 +1,6 @@
 <ul id="info-menu">
-	<li class="active-item" id="account"><p><%= link_to "Account", '/account' %><p></li>
+	<% if !@user.nil? %>
+		<li class="active-item" id="account"><p><%= link_to "Account", '/account' %><p></li>
+	<% end %>
 	<li id="activity"><p><%= link_to "Activity", @user, remote: true %></p></li>
 </ul>

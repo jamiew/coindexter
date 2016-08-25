@@ -7,10 +7,6 @@ class CoinsController < ApplicationController
 		@categories = Category.all
 	end
 
-	def sorted_by_market_cap
-		@coins = Coin.all.order(market_cap: 'desc')
-	end
-
 	def links
 		@links = Coin.friendly.find(params[:id]).links.paginate(:page => params[:page], :per_page => 10)
 		@coin = Coin.friendly.find(params[:id])
@@ -19,10 +15,6 @@ class CoinsController < ApplicationController
 		    format.js
 		    format.json
 		end
-	end
-
-	def trollbox
-
 	end
 
 	def logs

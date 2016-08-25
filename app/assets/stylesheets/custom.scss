@@ -782,12 +782,6 @@ ul#info-menu {
 	}
 }
 
-
-
-.link-list {
-	margin-top:20px;
-}
-
 span.up {
 	color: $primary-green;
 	&:before {
@@ -813,22 +807,24 @@ form.edit_coin, form.new_coin, .sign-in-up {
 	}
 }
 
-.user-log-classification {
-	margin-top:-64px;
+.log-block {
+	margin-top:36px;
 }
+
 
 .user-log-classification-alt {
 	margin-top:-24px;
 }
 
 .user-log-classification-alt-links {
-	margin-top: 12px;
+	margin-top: 72px;
 }
 
 .user-log-classification, .user-log-classification-alt, .user-log-classification-alt-links {
 	margin-left:0;
 	padding-left:0;
-	margin-bottom:72px;
+	margin-bottom:54px;
+	margin-top: -80px;
 	p, p.user-log-classification-alt-links-p {
 		margin-top:5px !important;
 		font-family:"WhitneyHTF-MediumSC";
@@ -861,6 +857,13 @@ form.edit_coin, form.new_coin, .sign-in-up {
 			border-color: $primary-orange;
 		}
 	}
+	&:hover {
+		cursor:pointer;
+	}
+}
+
+.user-log-classification-alt-links {
+	margin-top:12px;
 }
 
 ul.action-links {
