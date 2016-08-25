@@ -3,5 +3,15 @@
 	<li class="coin-header coin-info-block block">
 		<%= render(partial: 'coins/coin_main_info_header') %>
 	</li>
-	<%= render(partial: 'log', collection: @logs, as: :log) %>
+	<% if @logs.any? %>
+		<%= render(partial: 'log', collection: @logs, as: :log) %>
+	<% else %>
+	<li>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<p>No logs yet. Logs will show up when someone makes changes to this coin.</p>
+			</div>
+		</div>
+	</li>
+	<% end %>
 </ul>

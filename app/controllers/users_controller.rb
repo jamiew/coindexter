@@ -105,9 +105,6 @@ class UsersController < ApplicationController
                 end
                 log[:data] = {change: value, change_attr: change_attr, change_type: type}
               end
-              if version.user? 
-                log[:version][:user] = version.user
-              end
               log[:created_at] = version.created_at
               log[:feed_type] = "network_log"
               log[:networks] = network
@@ -160,9 +157,6 @@ class UsersController < ApplicationController
                   type = "edited"
                 end
                 log[:data] = {change: value, change_attr: change_attr, change_type: type}
-              end
-              if version.user? 
-                log[:version][:user] = version.user
               end
               log[:created_at] = version.created_at
               log[:feed_type] = "coin_log"
@@ -235,7 +229,9 @@ class UsersController < ApplicationController
                 end
                 log[:data] = {change: value, change_attr: change_attr, change_type: type}
               end
-              log[:user] = version.user
+              if defined?(version.user) && !version.user.nil?
+                log[:user] = version.user
+              end
               log[:created_at] = version.created_at
               log[:feed_type] = "network_log"
               log[:networks] = network
@@ -289,7 +285,9 @@ class UsersController < ApplicationController
                 end
                 log[:data] = {change: value, change_attr: change_attr, change_type: type}
               end
-              log[:user] = version.user
+              if defined?(version.user) && !version.user.nil?
+                log[:user] = version.user
+              end
               log[:created_at] = version.created_at
               log[:feed_type] = "coin_log"
               log[:coins] = coin

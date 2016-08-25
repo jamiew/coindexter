@@ -1,7 +1,39 @@
 <li class="link-block block">
 	<div class="row">
 		<div class="col-md-4">
+			<% if defined?(coins) 	&& !coins.nil? %>
+				<% puts "Ryan #{coins}" %>
+	    		<div class="user-log-classification">
+					<% coins.each do |coin| %>
+						<div class="user-log-classification-coin">
+							<%= image_tag(coin.logo.small.url, size: "20x20") %>
+							<%= link_to coin.name, coin %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
+			<% if defined?(networks) && !networks.nil? %>
+	    		<div class="user-log-classification">
+					<% networks.each do |network| %>
+						<div class="user-log-classification-network">
+							<%= image_tag(network.logo.small.url, size: "20x20") %>
+							<%= link_to network.name, network %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 			<h6 class="when-posted"><%= time_ago_in_words(link.created_at) %> ago</h6>
+			<% if defined?(user) && !user.nil? %>
+				<%= link_to user, class: "who-posted" do %>
+    				<%= image_tag(user.avatar, size: '20x20', class: 'avatar') if defined?(user.avatar) %>
+    				<%= current_user = user ? "Me" : user.username%>
+    			<% end %>
+    		<% else %>
+    			<%= link_to link.user, class: "who-posted" do %>
+    				<%= image_tag(link.user.avatar, size: '20x20', class: 'avatar') if defined?(link.user.avatar) %>
+    				<%= current_user = link.user ? "Me" : link.user.username%>
+    			<% end %>
+    		<% end %>
 		</div>
 		<div class="col-md-8">
 			<h6 class="link-title"><%= link_to link.title, link.link %></h6>
@@ -9,32 +41,6 @@
 				<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
 			<% elsif link.comment_count > 0 %>
 				<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>
-			<% end %>
-			<% if link.coins.any? %>
-				<div class="user-log-classification-alt-links">
-					<p class="user-log-classification-alt-links-p">Coin</p>
-					<% link.coins.each do |coin| %>
-						<div class="user-log-classification-link">
-							<% if coin.logo? %>
-								<%= image_tag(coin.logo.small.url, size: "20x20") %>
-							<% end %>
-							<%= link_to coin.name, coin %>
-						</div>
-					<% end %>
-				</div>
-			<% end %>
-			<% if link.networks.any? %>
-				<div class="user-log-classification-alt-links">
-					<p class="user-log-classification-alt-links-p">Network</p>
-					<% link.networks.each do |network| %>
-						<div class="user-log-classification-link">
-							<% if network.logo? %>
-								<%= image_tag(network.logo.small.url, size: "20x20") %>
-							<% end %>
-							<%= link_to network.name, network %>
-						</div>
-					<% end %>
-				</div>
 			<% end %>
 		</div>
 	</div>

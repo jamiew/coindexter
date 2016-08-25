@@ -1,64 +1,69 @@
 <li class="log-block block">
 	<div class="row">
 		<div class="col-md-4">
+			<% if defined?(log[:coins]) && !log[:coins].nil? %>
+	    		<div class="user-log-classification">
+					<div class="user-log-classification-network">
+						<%= image_tag(log[:coins].logo.small.url, size: "20x20") %>
+						<%= link_to log[:coins].name, log[:coins] %>
+					</div>
+				</div>
+			<% end %>
 			<h6 class="when-posted"><%= time_ago_in_words(log[:created_at]) %></h6>
-			<% if log[:user] %>
+			<% if defined?(log[:user]) && !log[:user].nil? %>
 				<%= link_to log[:user], class: "who-posted" do %>
-    				<%= image_tag(log[:user].avatar, size: '20x20', class: 'avatar') + current_user = log[:user] ? "Me" : log[:user].first_name + ' ' + log[:user].last_name %>
+    				<%= image_tag(log[:user].avatar, size: '20x20', class: 'avatar') if defined?(log[:user].avatar) %>
+    				<%= current_user = log[:user] ? "Me" : log[:user].first_name + ' ' + log[:user].last_name %>
     			<% end %>
     		<% end %>
 		</div>
 		<div class="col-md-8">
-			<div class="row">
-				<div class="col-md-12">
-					<%= log[:data_type] %>
-					<% case log[:data][:change_attr] %>
-						<% when "repositories", "exchanges" %>
-							<ul class="log-list"> 
-								<%= log[:data][:change_attr].capitalize %>
-								<% if log[:data][:change_type] == "added" %>
-									added: 
+			<ul class="log-list"> 
+				<%= log[:data_type] %>
+				<% case log[:data][:change_attr] %>
+					<% when "repositories", "exchanges" %>
+							<%= log[:data][:change_attr].capitalize %>
+							<% if log[:data][:change_type] == "added" %>
+								added: 
+								<% log[:data][:change].second.each_with_index do |change, i| %>
+									<li><%= link_to change["name"], change["url"] %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
+								<% end %>
+							<% elsif log[:data][:change_type] == "edited" %>
+								changed from 
+									<% log[:data][:change].first.each_with_index do |change, i| %>
+										<li><%= link_to change["name"], change["url"] %><%= "," unless i + 1 == log[:data][:change].first.length %></li>
+									<% end %>
+								to 
 									<% log[:data][:change].second.each_with_index do |change, i| %>
 										<li><%= link_to change["name"], change["url"] %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
 									<% end %>
-								<% elsif log[:data][:change_type] == "edited" %>
-									changed from 
-										<% log[:data][:change].first.each_with_index do |change, i| %>
-											<li><%= link_to change["name"], change["url"] %><%= "," unless i + 1 == log[:data][:change].first.length %></li>
-										<% end %>
-									to 
-										<% log[:data][:change].second.each_with_index do |change, i| %>
-											<li><%= link_to change["name"], change["url"] %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
-										<% end %>
-								<% end %>
-							</ul>
-						<% when "Network" %>
-							<%= log[:data][:change_attr].capitalize %>
-							<% if log[:data][:change_type] == "added" %>
-									added:
-									<% log[:data][:change].each_with_index do |change, i| %>
-										<%= link_to change.name, change unless change.nil? %>
-									<% end %>
-								<% elsif log[:data][:change_type] == "edited" %>
-									changed from 
-										<% log[:data][:change].first.each_with_index do |change, i| %>
-											<%= link_to change.name, change unless change.nil? %><%= "," unless i + 1 == log[:data][:change].second.length %>
-										<% end %>
-									to 
-										<% log[:data][:change].second.each_with_index do |change, i| %>
-											<li><<%= link_to change.name, change unless change.nil? %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
-										<% end %>
-								<% end %>
-						<% else %>
-							<%= log[:data][:change_attr].capitalize %>
-							<% if log[:data][:change_type] == "added" %>
-								added: "<%= log[:data][:change].second %>"
-							<% elsif log[:data][:change_type] == "edited" %>
-								changed from "<%= log[:data][:change].first %>" to "<%= log[:data][:change].second %>"
 							<% end %>
-					<% end %>
-				</div>
-			</div>
+					<% when "Network" %>
+						<%= log[:data][:change_attr].capitalize %>
+						<% if log[:data][:change_type] == "added" %>
+								added:
+								<% log[:data][:change].each_with_index do |change, i| %>
+									<%= link_to change.name, change unless change.nil? %>
+								<% end %>
+							<% elsif log[:data][:change_type] == "edited" %>
+								changed from 
+									<% log[:data][:change].first.each_with_index do |change, i| %>
+										<%= link_to change.name, change unless change.nil? %><%= "," unless i + 1 == log[:data][:change].second.length %>
+									<% end %>
+								to 
+									<% log[:data][:change].second.each_with_index do |change, i| %>
+										<li><<%= link_to change.name, change unless change.nil? %><%= "," unless i + 1 == log[:data][:change].second.length %></li>
+									<% end %>
+							<% end %>
+					<% else %>
+						<%= log[:data][:change_attr].capitalize %>
+						<% if log[:data][:change_type] == "added" %>
+							added: "<%= log[:data][:change].second %>"
+						<% elsif log[:data][:change_type] == "edited" %>
+							changed from "<%= log[:data][:change].first %>" to "<%= log[:data][:change].second %>"
+						<% end %>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 </li>

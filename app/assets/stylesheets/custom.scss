@@ -38,7 +38,7 @@ body {
 	font-size: 16px;
 	line-height: 1.5;
 	.main-container {
-		padding-top:2em;
+		padding: 2em 0 6em 0;
 	}
 	height: 100%;
 }
@@ -309,7 +309,12 @@ ul#info-menu {
 }
 
 .link-block {
-	margin-bottom:32px;
+	margin-bottom:24px;
+	padding-bottom:24px;
+	border-bottom: 1px $border-orange solid;
+	&:last-child {
+		border-bottom:none;
+	}
 }
 
 .block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user {
@@ -503,11 +508,12 @@ ul#info-menu {
 			}
 			h6.when-posted {
 				margin-bottom: 5px;
-				margin-top:4px;
+				padding-top:6px;
 				text-align:right;
 				font-size:16px;
 				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
+				clear:both;
 			}
 			h6.comment-count {
 				font-size:12px;
@@ -582,7 +588,7 @@ ul#info-menu {
 					.user-block {
 						display: block;
 						float:left;
-						margin-bottom:32px;
+						margin-bottom:36px;
 					}
 					p {
 						margin-bottom:8px;
@@ -644,6 +650,14 @@ ul#info-menu {
 		#show-single-link {
 			h6.when-posted {
 				text-align:left;
+			}
+			.who-posted-cnt {
+				.who-posted {
+					float:left;
+				}
+				img {
+					border-radius: 4px;
+				}
 			}
 		}
 		#chart {
@@ -807,32 +821,22 @@ form.edit_coin, form.new_coin, .sign-in-up {
 	}
 }
 
-.log-block {
-	margin-top:36px;
+.log-block, .link-block {
+	padding-bottom:24px;
+	margin-bottom:24px;
+	border-bottom: 1px solid $border-orange;
+	&:last-child {
+		border-bottom: none;
+	}
 }
 
-
-.user-log-classification-alt {
-	margin-top:-24px;
-}
-
-.user-log-classification-alt-links {
-	margin-top: 72px;
-}
-
-.user-log-classification, .user-log-classification-alt, .user-log-classification-alt-links {
+.user-log-classification {
 	margin-left:0;
 	padding-left:0;
-	margin-bottom:54px;
-	margin-top: -80px;
-	p, p.user-log-classification-alt-links-p {
-		margin-top:5px !important;
+	p  {
 		font-family:"WhitneyHTF-MediumSC";
 		text-transform:lowercase;
-		margin-right:12px !important;
-	}
-	p, .user-log-classification-coin, .user-log-classification-network, .user-log-classification-link {
-		float:left;
+		text-align:right;
 	}
 	a {
 		&:hover {
@@ -843,9 +847,9 @@ form.edit_coin, form.new_coin, .sign-in-up {
 		background-color:rgba(255,255,255,0.8);
 		border: 1px solid $border-orange;
 		border-radius: 4px;
-		float:left; 
-		margin-right: 4px;
+		float:right; 
 		padding: 4px 12px;
+		margin-bottom:8px;
 		img {
 			margin-top:2px;
 			margin-right:2px;
@@ -860,10 +864,6 @@ form.edit_coin, form.new_coin, .sign-in-up {
 	&:hover {
 		cursor:pointer;
 	}
-}
-
-.user-log-classification-alt-links {
-	margin-top:12px;
 }
 
 ul.action-links {
