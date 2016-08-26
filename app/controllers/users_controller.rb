@@ -60,7 +60,16 @@ class UsersController < ApplicationController
         log[:feed_type] = "link"
         log[:created_at] = link.created_at
         if link.coins.any?  
-          log[:coins] = link.coins
+          network_names = [] 
+          link.networks do |network|
+            network_names << network.name
+            link.coins.each do |coin|
+              if network_names.index coin.name
+                coin_to_delete = coin
+                link.coins.reject {|coin| coin = coin_to_delete}
+              end
+            end
+          end
         end
         if link.networks.any?
           log[:networks] = link.networks
@@ -183,11 +192,20 @@ class UsersController < ApplicationController
         log[:data] = link
         log[:feed_type] = "link"
         log[:created_at] = link.created_at
-        if link.coins.any?  
-          log[:coins] = link.coins
-        end
         if link.networks.any?
           log[:networks] = link.networks
+        end
+        if link.coins.any?  
+          network_names = [] 
+          link.networks do |network|
+            network_names << network.name
+            link.coins.each do |coin|
+              if network_names.index coin.name
+                coin_to_delete = coin
+                link.coins.reject {|coin| coin = coin_to_delete}
+              end
+            end
+          end
         end
         links << log
       end
