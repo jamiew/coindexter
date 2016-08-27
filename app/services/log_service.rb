@@ -1,12 +1,22 @@
-class LogService
-  attr_accessor :data, :user, :created_at, :feed_type, :networks, :coins
+class LogService 
 
-  def set_data(change: nil, change_attr: nil, change_type:nil) 
-    self.data = {
-      change: change,
-      change_type: change_type,
-      change_attr: change_attr
-    }
-    return self
-  end  
+	attr_accessor :created_at, :feed_type, :change, :change_attr, :change_type, :data, :networks, :coins, :user
+
+	def set_metadata(user: nil, created_at: nil, feed_type: nil) 
+		self.user = user
+		self.created_at = created_at
+		self.feed_type = feed_type
+		return self
+	end 
+
+
+	def set_data(change: nil, change_attr: nil, change_type:nil) 
+		self.data = {
+		  change: change,
+		  change_type: change_type,
+		  change_attr: change_attr
+		}
+		return self
+	end 
+
 end

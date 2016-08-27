@@ -10,7 +10,7 @@
 			</li>
 			<% puts "Miami #{@logs.inspect}" %>
 			<% @logs.each do |log| %>
-				<% cache log do %>
+				<%# cache log do %>
 					<% if log.feed_type == "network_log" %>
 						<%= render(partial: 'networks/log', locals: {log: log}) %>
 					<% elsif log.feed_type == "coin_log" %>
@@ -19,7 +19,7 @@
 						<% puts "Miami #{log.inspect}" %>
 						<%= render(partial: 'links/show_all_links', locals: {link: log.data, coins: log.coins, networks: log.networks, user: log.user}) %>
 					<% end %>
-				<% end %>
+				<%# end %>
 			<% end %>
 		</ul>
 	</div>

@@ -47,11 +47,14 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username)
     end
 
-    def get_all_logs(*user_id)
+    def get_all_logs(user_id:nil)
+      
+      puts "userid is #{user_id}"
+
       links = []
       logs = []
       
-      unless user_id.nil?
+      if defined?(user_id)
         link_query = Link.all.limit(20)
       else
         link_query = User.find(user_id).links
@@ -60,62 +63,43 @@ class UsersController < ApplicationController
       link_query.each do |link| 
         log = LogService.new
         log.data = link
-        log.created_at = link.created_at
-        log.feed_type = "link"
+        log.set_metadata(user: link.user, created_at: link.created_at, feed_type: "link")
         add_networks_and_coins(log, link.networks, link.coins)
         links << log
       end
 
-      Network.all.each do|network| 
-        unless user_id.nil?
-          versions = network.versions.all.order("created_at DESC").limit(5)
+      Network.all.each do |network| 
+        network_logs = NetworkService.new
+        if defined?(user_id)
+          net_logs = network_logs.get_logs(network, "network_log")
         else
-          versions = network.versions.where(:whodunnit => user_id).all.order("created_at DESC").limit(5)
+          net_logs = network_logs.get_logs(network, user_id, "network_log")
         end
-        versions.each do |version|
-          unless version.changeset == {}
-            log = build_log(nil, "network_log",version.created_at)
-            log.networks = network
-            log = convert_changeset(log, version)
-            unless !log 
-              logs << log
-            end
-          end
+        net_logs.each do |log|
+          logs << log
         end
       end
 
       Coin.all.each do |coin| 
-        unless user_id.nil?
-          versions = coin.versions.all.order("created_at DESC").limit(5)
-        else 
-          versions = coin.versions.where(:whodunnit => user_id).all.order("created_at DESC").limit(5)
+        coin_logs = NetworkService.new
+        if defined?(user_id)
+          c_logs = coin_logs.get_logs(coin, "coin_log")
+        else
+          c_logs = coin_logs.get_logs(coin, user_id, "coin_log")
         end
-        versions.each do |version| 
-          unless version.changeset == {}
-            log = build_log(nil, "coin_log",version.created_at)
-            log.coins = coin
-            log = convert_changeset(log, version)
-            unless !log 
-              logs << log
-            end
-          end
+        c_logs.each do |log|
+          logs << log
         end
-      end 
+      end
+
+      logs.each do |log|
+        puts "full log is #{log.inspect}"
+      end
 
       logs += links
       @logs = logs.sort_by{|log| log.created_at}.reverse
+    end
     
-    end
-
-    def build_log(user, feed_type, created_at)
-      log = LogService.new
-      unless user.nil?
-        log.user = user
-      end
-      log.feed_type = feed_type
-      log.created_at = created_at
-      return log
-    end
 
     def add_networks_and_coins(log, networks, coins)
       if networks.any?
@@ -134,81 +118,6 @@ class UsersController < ApplicationController
         end
       end
       return log
-    end
-
-    def convert_changeset(log, version)
-      if defined?(version.user) && !version.user.nil?
-        log.user = version.user
-      end
-      version.changeset.each do |key, value|
-        unless key == "updated_at"
-          type = nil
-          case key
-          when "repositories", "exchanges"
-            if value.first == {} || value.first == [] || value.first.nil? || value.first == [""]
-              type = "added"  
-              unless value.first == [""] && value.second.second.nil?
-                abort_log = true
-              end 
-            else 
-              type = "edited"
-            end
-            key = "repositories" ? change_attr = "Repositories" : change_attr = "Exchanges"
-          when "network_id"
-            if value.first.nil? 
-              type = "added"
-            else
-              type = "edited"
-              value[0] = Network.find(value[0])
-            end
-            value[1] = Network.find(value[1])
-            change_attr = "Network"
-          when "type"
-            change_attr = "Asset type"
-          when "coin_status"
-            change_attr = "Status"
-          when "code_license"
-            change_attr = "Code license"
-          when "proof algorithm"
-            change_attr = "Proof algorithm"
-          when "coin_info"
-            change_attr = "Additional info"                
-          when "whitepapers", "founders"
-            if value.first == {} || value.first == [] || value.first == [""]
-              type = "added"
-              unless value.first == [""] && value.second.second.nil?
-                abort_log = true
-              end  
-            else 
-              type = "edited"
-            end
-          when "description"
-            change_attr = "Description"
-          when "link"
-            change_attr = "Link"
-          when "status"
-            change_attr = "Status"
-          else
-            change_attr = key
-          end
-          if type.nil?
-            if value.first == "" || value.nil?
-              type = "added"
-            else
-              type = "edited"
-            end
-          end
-          if change_attr.nil?
-            change_attr = key
-          end
-          if abort_log
-            return false
-          else
-            log.set_data(change: value, change_attr: change_attr, change_type: type)
-            return log
-          end
-        end
-      end
     end
 
 end
