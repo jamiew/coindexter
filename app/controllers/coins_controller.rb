@@ -31,7 +31,7 @@ class CoinsController < ApplicationController
 					else 
 						type = "edited"
 					end
-					log[:data] = {change: value, change_attr: key, change_type: type}
+					log.data = {change: value, change_attr: key, change_type: type}
 				when "network_id"
 					if value.first.nil? 
 						type = "added"
@@ -41,7 +41,7 @@ class CoinsController < ApplicationController
 					end
 					value[1] = Network.find(value[1])
 					change_attr = "Network"
-					log[:data] = {change: value, change_attr: change_attr, change_type: type}
+					log.data = {change: value, change_attr: change_attr, change_type: type}
 				when "coin_info"
 					change_attr = "Additional info"
 				when "type"
@@ -61,11 +61,11 @@ class CoinsController < ApplicationController
 					else
 						type = "edited"
 					end
-					log[:data] = {change: value, change_attr: change_attr, change_type: type}
+					log.data = {change: value, change_attr: change_attr, change_type: type}
 				end
 			end
-			log[:user] = version.user
-			log[:created_at] = version.created_at
+			log.user = version.user
+			log.created_at = version.created_at
 			@logs << log
 		end
 		respond_to do |format|

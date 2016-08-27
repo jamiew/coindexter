@@ -8,34 +8,34 @@
 				<%= render(partial: 'user_main_info_header') %>
 			</li>
 			<% @logs.each do |log| %>
-				<% if log[:feed_type] == "network_log" %>
+				<% if log.feed_type == "network_log" %>
 					<%= render(partial: 'networks/log', locals: {log: log}) %>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-4">
 							<div class="user-log-classification">
 								<p>Coin</p>
 								<div class="user-log-classification-network">
-									<%= image_tag(log[:networks].logo.small.url, size: "20x20") %>
-									<%= link_to log[:networks].name, log[:networks] %>
+									<%= image_tag(log.networks.logo.small.url, size: "20x20") %>
+									<%= link_to log.networks.name, log.networks %>
 								</div>
 							</div>
 						</div>
 					</div>
-				<% elsif log[:feed_type] == "coin_log" %>
+				<% elsif log.feed_type == "coin_log" %>
 					<%= render(partial: 'coins/log', locals: {log: log}) %>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-4">
 							<div class="user-log-classification">
 								<p>Network</p>
 								<div class="user-log-classification-coin">
-									<%= image_tag(log[:coins].logo.small.url, size: "20x20") %>
-									<%= link_to log[:coins].name, log[:coins] %>
+									<%= image_tag(log.coins.logo.small.url, size: "20x20") %>
+									<%= link_to log.coins.name, log.coins %>
 								</div>
 							</div>
 						</div>
 					</div>
-				<% elsif log[:feed_type] == "link" %>
-					<%= render(partial: 'links/show_all_links', locals: {link: log[:data]}) %>
+				<% elsif log.feed_type == "link" %>
+					<%= render(partial: 'links/show_all_links', locals: {link: log.data}) %>
 				<% end %>
 			<% end %>
 		</ul>

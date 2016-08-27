@@ -1,66 +1,65 @@
 <li class="log-block block">
 	<div class="row">
 		<div class="col-md-4">
-    		<% unless log[:networks].nil? %>
+    		<% unless log.networks.nil? %>
 	    		<div class="user-log-classification">
 					<div class="user-log-classification-network">
-						<%= image_tag(log[:networks].logo.small.url, size: "20x20") %>
-						<%= link_to log[:networks].name, log[:networks] %>
+						<%= image_tag(log.networks.logo.small.url, size: "20x20") %>
+						<%= link_to log.networks.name, log.networks %>
 					</div>
 				</div>
 			<% end %>
-			<h6 class="when-posted"><%= time_ago_in_words(log[:created_at]) %></h6>
-			<% if defined?(log[:user])  && !log[:user].nil? %>
-				<%= link_to log[:user], class: "who-posted" do %>
-    				<%= image_tag(log[:user].avatar, size: '16x16', class: 'avatar') %>
-    				<%= current_user = log[:user] ? "Me" : log[:user].username %>
+			<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
+			<% if defined?(log.user)  && !log.user.nil? %>
+				<%= link_to log.user, class: "who-posted" do %>
+    				<%= image_tag(log.user.avatar, size: '16x16', class: 'avatar') %>
+    				<%= current_user = log.user ? "Me" : log.user.username %>
     			<% end %>
     		<% end %>
 		</div>
 		<div class="col-md-8">
 			<ul class="log-list"> 
-				<%= log[:data_type] %>
-				<% case log[:data][:change_attr] %>
+				<% case log.data[:change_attr] %>
 					<% when "whitepapers" %>
-						<%= log[:data][:change_attr].capitalize %>
-						<% if log[:data][:change_type] == "added" %>
+						<%= log.data[:change_attr].capitalize %>
+						<% if log.data[:change_type] == "added" %>
 							added: 
-							<% log[:data][:change].second.each_with_index do |change, i| %>
+							<% log.data[:change].second.each_with_index do |change, i| %>
 								<li><%= link_to change["title"], change["url"] %></li>
 							<% end %>
-						<% elsif log[:data][:change_type] == "edited" %>
+						<% elsif log.data[:change_type] == "edited" %>
 							changed from 
-								<% log[:data][:change].first.each_with_index do |change, i| %>
+								<% log.data[:change].first.each_with_index do |change, i| %>
 									<li><%= link_to change["title"], change["url"] %></li>
 								<% end %>
 							to 
-								<% log[:data][:change].second.each_with_index do |change, i| %>
+								<% log.data[:change].second.each_with_index do |change, i| %>
 									<li><%= link_to change["title"], change["url"] %></li>
 								<% end %>
 						<% end %>
 					<% when "founders" %>
-						<%= log[:data][:change_attr].capitalize %>
-						<% if log[:data][:change_type] == "added" %>
+						<%= log.data[:change_attr].capitalize %>
+						<% if log.data[:change_type] == "added" %>
 							added: 
-							<% log[:data][:change].second.each_with_index do |change, i| %>
-								<li><%= change %>""</li>
+							<% log.data[:change].second.each_with_index do |change, i| %>
+								<li>"<%= change %>"</li>
 							<% end %>
-						<% elsif log[:data][:change_type] == "edited" %>
+						<% elsif log.data[:change_type] == "edited" %>
 							changed from 
-								<% log[:data][:change].first.each_with_index do |change, i| %>
+								<% log.data[:change].first.each_with_index do |change, i| %>
 									<li>"<%= change %>"</li>
 								<% end %>
 							to 
-								<% log[:data][:change].second.each_with_index do |change, i| %>
+								<% log.data[:change].second.each_with_index do |change, i| %>
 									<li>"<%= change %>"</li>
 								<% end %>
 						<% end %>
 					<% else %>
-						<%= log[:data][:change_attr].capitalize %>
-						<% if log[:data][:change_type] == "added" %>
-							added: "<%= log[:data][:change].second %>"
-						<% elsif log[:data][:change_type] == "edited" %>
-							changed from "<%= log[:data][:change].first %>" to "<%= log[:data][:change].second %>"
+						<%= log.data[:change_attr].capitalize %>
+						<% if log.data[:change_type] == "added" %>
+							added: "<%= log.data[:change].second %>"
+						<% elsif log.data[:change_type] == "edited" %>
+							changed from "<%= log.data[:change].first %>" to "<%= log.data[:change].second %>"
 						<% end %>
 				<% end %>
 			</ul>

@@ -45,16 +45,16 @@ class NetworksController < ApplicationController
 					else 
 						type = "edited"
 					end
-					log[:data] = {change: value, change_attr: key, change_type: type}
-					puts "whitepapers is #{log[:data]}"
+					log.data = {change: value, change_attr: key, change_type: type}
+					puts "whitepapers is #{log.data}"
 				when "founders"
 					if value.first == {} || value.first == []
 						type = "added"	
 					else 
 						type = "edited"
 					end
-					log[:data] = {change: value, change_attr: key, change_type: type}
-					puts "founders is #{log[:data]}"
+					log.data = {change: value, change_attr: key, change_type: type}
+					puts "founders is #{log.data}"
 				when "description"
 					change_attr = "Description"
 				when "link"
@@ -70,10 +70,10 @@ class NetworksController < ApplicationController
 					else
 						type = "edited"
 					end
-					log[:data] = {change: value, change_attr: change_attr, change_type: type}
+					log.data = {change: value, change_attr: change_attr, change_type: type}
 				end
-				log[:user] = version.user
-				log[:created_at] = version.created_at
+				log.user = version.user
+				log.created_at = version.created_at
 				@logs << log
 			end
 		end

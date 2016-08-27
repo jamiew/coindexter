@@ -1,0 +1,13 @@
+I"((function() {
+  $(function() {
+    $('a.reply-to-comment').on('click', function() {
+      $(this).hide();
+      return $(this).parent().children("form").toggle();
+    });
+    return $('a.cancel-form').on('click', function() {
+      return $(this).parent().toggle();
+    });
+  });
+
+}).call(this);
+:ET
