@@ -47,10 +47,8 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username)
     end
 
-    def get_all_logs(user_id:nil)
-      
-      puts "userid is #{user_id}"
-
+    def get_all_logs(user_id=nil)
+    
       links = []
       logs = []
       
@@ -71,9 +69,9 @@ class UsersController < ApplicationController
       Network.all.each do |network| 
         network_logs = NetworkService.new
         if defined?(user_id)
-          net_logs = network_logs.get_logs(network, "network_log")
+          net_logs = network_logs.get_logs(network, "network_log", 5)
         else
-          net_logs = network_logs.get_logs(network, user_id, "network_log")
+          net_logs = network_logs.get_logs(network, user_id, "network_log", 5)
         end
         net_logs.each do |log|
           logs << log
@@ -83,17 +81,13 @@ class UsersController < ApplicationController
       Coin.all.each do |coin| 
         coin_logs = NetworkService.new
         if defined?(user_id)
-          c_logs = coin_logs.get_logs(coin, "coin_log")
+          c_logs = coin_logs.get_logs(coin, "coin_log", 5)
         else
-          c_logs = coin_logs.get_logs(coin, user_id, "coin_log")
+          c_logs = coin_logs.get_logs(coin, user_id, "coin_log", 5)
         end
         c_logs.each do |log|
           logs << log
         end
-      end
-
-      logs.each do |log|
-        puts "full log is #{log.inspect}"
       end
 
       logs += links

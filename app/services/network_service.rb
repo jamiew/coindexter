@@ -2,14 +2,16 @@ class NetworkService < LogService
 
 	attr_accessor :network, :coin, :user
 	
-	def get_logs(object, feed_type)
+	def get_logs(object, feed_type, limit=nil, user_id=nil)
 
-		puts "feed_type is #{feed_type}"
-
-		if defined?(user_id)
+		if !user_id.nil?
           versions = object.versions.where(:whodunnit => user_id).all.order("created_at DESC").limit(5)
         else
-          versions = object.versions.all.order("created_at DESC").limit(5)
+        	if limit.nil?
+          		versions = object.versions.all.order("created_at DESC")
+          	else
+          		versions = object.versions.all.order("created_at DESC").limit(5)
+          	end
         end
 		
 		log_set = []
@@ -25,8 +27,7 @@ class NetworkService < LogService
 				else 
 					self.networks = object
 				end
-				self.convert_changeset(version)
-				puts "self is #{self.inspect}"
+				convert_changeset(version)
 				log_set << self			
 			end
 	    end
