@@ -21,11 +21,12 @@ class NetworkService < LogService
 	    			self.user = version.user
 	  			end
 				if feed_type == "coin_log"
-					self.coin = coin
+					self.coins = object
 				else 
-					self.network = network
+					self.networks = object
 				end
 				self.convert_changeset(version)
+				puts "self is #{self.inspect}"
 				log_set << self			
 			end
 	    end

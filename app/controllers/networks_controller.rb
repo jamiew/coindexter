@@ -32,51 +32,13 @@ class NetworksController < ApplicationController
 	end
 
 	def logs
-		@network = Network.friendly.find(params[:id])
-		all_versions = @network.versions.reverse
 		@logs = []
-		all_versions.each do |version|
-			log = {}
-			version.changeset.each do |key, value|
-				case key
-				when "whitepapers"
-					if value.first == {} || value.first == []
-						type = "added"	
-					else 
-						type = "edited"
-					end
-					log.data = {change: value, change_attr: key, change_type: type}
-					puts "whitepapers is #{log.data}"
-				when "founders"
-					if value.first == {} || value.first == []
-						type = "added"	
-					else 
-						type = "edited"
-					end
-					log.data = {change: value, change_attr: key, change_type: type}
-					puts "founders is #{log.data}"
-				when "description"
-					change_attr = "Description"
-				when "link"
-					change_attr = "Link"
-				when "status"
-					change_attr = "Status"
-				else
-					change_attr = key
-				end
-				if log == {}
-					if value.first == ""
-						type = "added"
-					else
-						type = "edited"
-					end
-					log.data = {change: value, change_attr: change_attr, change_type: type}
-				end
-				log.user = version.user
-				log.created_at = version.created_at
-				@logs << log
-			end
-		end
+        network_logs = NetworkService.new
+        @network = Network.friendly.find(params[:id]) 
+        net_logs = network_logs.get_logs(@network, "network_log")
+        net_logs.each do |log|
+        	@logs << log
+        end
 		respond_to do |format|
 		    format.html
 		    format.js

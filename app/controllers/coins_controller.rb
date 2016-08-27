@@ -18,56 +18,13 @@ class CoinsController < ApplicationController
 	end
 
 	def logs
-		@coin = Coin.friendly.find(params[:id])
-		all_versions = @coin.versions.reverse
 		@logs = []
-		all_versions.each do |version|
-			log = {}
-			version.changeset.each do |key, value|
-				case key
-				when "repositories", "exchanges"
-					if value.first == {} || value.first == [] || value.first.nil?
-						type = "added"	
-					else 
-						type = "edited"
-					end
-					log.data = {change: value, change_attr: key, change_type: type}
-				when "network_id"
-					if value.first.nil? 
-						type = "added"
-					else
-						type = "edited"
-						value[0] = Network.find(value[0])
-					end
-					value[1] = Network.find(value[1])
-					change_attr = "Network"
-					log.data = {change: value, change_attr: change_attr, change_type: type}
-				when "coin_info"
-					change_attr = "Additional info"
-				when "type"
-					change_attr = "Asset type"
-				when "coin_status"
-					change_attr = "Status"
-				when "code_license"
-					change_attr = "Code license"
-				when "proof algorithm"
-					change_attr = "Proof algorithm"
-				else
-					change_attr = key
-				end
-				if log == {}
-					if value.first == ""
-						type = "added"
-					else
-						type = "edited"
-					end
-					log.data = {change: value, change_attr: change_attr, change_type: type}
-				end
-			end
-			log.user = version.user
-			log.created_at = version.created_at
-			@logs << log
-		end
+        coin_logs = NetworkService.new
+        @coin = Coin.friendly.find(params[:id]) 
+        coin_logs = coin_logs.get_logs(@coin, "coin_log")
+        coin_logs.each do |log|
+        	@logs << log
+        end
 		respond_to do |format|
 		    format.html
 		    format.js
