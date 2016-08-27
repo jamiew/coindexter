@@ -18,17 +18,14 @@ class NetworkService < LogService
 
 		versions.each do |version|
 			unless version.changeset == {}
-		      	self.set_metadata(created_at: version.created_at, feed_type: feed_type)
-		      	if defined?(version.user) && !version.user.nil?
-	    			self.user = version.user
-	  			end
-				if feed_type == "coin_log"
-					self.coins = object
-				else 
-					self.networks = object
+				unless !convert_changeset(version)
+			      	set_metadata(created_at: version.created_at, feed_type: feed_type)
+			      	if defined?(version.user) && !version.user.nil?
+		    			self.user = version.user
+		  			end
+					set_coins_and_networks(object)
+					log_set << self.dup
 				end
-				convert_changeset(version)
-				log_set << self			
 			end
 	    end
 
@@ -36,10 +33,20 @@ class NetworkService < LogService
 	
 	end
 
+	def set_coins_and_networks(object)
+		if feed_type == "coin_log"
+			self.coins = object
+		else 
+			self.networks = object
+		end
+		return self
+	end
+
 	def convert_changeset(version)
 	  version.changeset.each do |key, value|
 	    unless key == "updated_at"
 	      type = nil
+	      abort_log = false
 	      case key
 	      when "repositories", "exchanges"
 	        if value.first == {} || value.first == [] || value.first.nil? || value.first == [""]
@@ -102,6 +109,7 @@ class NetworkService < LogService
 	        return false
 	      else
 	        self.set_data(change: value, change_attr: change_attr, change_type: type)
+	        return self
 	      end
 	    end
 	  end

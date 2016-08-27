@@ -32,13 +32,9 @@ class NetworksController < ApplicationController
 	end
 
 	def logs
-		@logs = []
         network_logs = NetworkService.new
         @network = Network.friendly.find(params[:id]) 
-        net_logs = network_logs.get_logs(@network, "network_log")
-        net_logs.each do |log|
-        	@logs << log
-        end
+        @logs = network_logs.get_logs(@network, "network_log")
 		respond_to do |format|
 		    format.html
 		    format.js
