@@ -42,7 +42,7 @@
 						<% if log.data[:change_type] == "added" %>
 							added: 
 							<% log.data[:change].second.each_with_index do |change, i| %>
-								<li><%= change.first %></li>
+								<li><%= change %></li>
 							<% end %>
 						<% elsif log.data[:change_type] == "edited" %>
 							changed from 
