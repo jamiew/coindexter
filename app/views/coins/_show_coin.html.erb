@@ -62,7 +62,7 @@
 				<h6>price (usd)</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p><%= number_to_currency(@coin.price, :unit => '$') %></p>
+				<p><%= number_to_currency(@coin.price, :unit => '$') unless @coin.price.nil? %></p>
 			</div>
 		</div>
 		<div class="row">
@@ -70,7 +70,7 @@
 				<h6>1d</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p><span class=<%= @one_day_up %>><%= @coin.one_day_price_change %>%</span></p>
+				<p><span class=<%= @one_day_up %>><%= @coin.one_day_price_change unless @coin.one_day_price_change.nil? %>%</span></p>
 			</div>
 		</div>
 		<div class="row">
@@ -78,7 +78,7 @@
 				<h6>1h</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p><span class=<%= @one_hour_up %>><%= @coin.one_hour_price_change %>%</span></p>
+				<p><span class=<%= @one_hour_up %>><%= @coin.one_hour_price_change unless @coin.one_hour_price_change.nil? %>%</span></p>
 			</div>
 		</div>
 		<div class="row">
@@ -86,7 +86,7 @@
 				<h6>Market cap</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') %></p>
+				<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.market_cap.nil? %></p>
 			</div>
 		</div>
 		<div class="row">
@@ -94,7 +94,7 @@
 				<h6>Available supply</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') %></p>
+				<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
 			</div>
 		</div>
 		<div class="row">
@@ -102,7 +102,7 @@
 				<h6>Total supply</h6>
 			</div>
 			<div class="col-md-8 data">
-				<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') %></p>
+				<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
 			</div>
 		</div>
 	</li>
