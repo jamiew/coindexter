@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   root 'users#index'
   resources :categories
   resources :coins
-  resources :users
+  resources :users do
+    member do
+      get :confirm_email
+    end
+  end
+
   resources :searches
   resources :networks
   resources :links do

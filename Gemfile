@@ -75,6 +75,7 @@ gem 'paper_trail'
 
 #emailing
 gem 'mailgun_rails'
+gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 
 group :production do 
   gem 'rails_12factor'
