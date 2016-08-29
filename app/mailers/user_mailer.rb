@@ -13,8 +13,7 @@ class UserMailer < ApplicationMailer
        	}
    		mg_client.send_message ENV['MAILGUN_DOMAIN'], message_params
 	end
-	
-	
-end
+
 	
 end
+	
