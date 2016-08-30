@@ -551,9 +551,6 @@ ul#info-menu {
 			ul.log-list > li {
 				display: inline;
 			}
-			ul.log-list, .link-title {
-				padding-top:6px;
-			}
 			.bootstrap-switch {
 				margin-top:-2px;
 				border-color: $border-orange;
@@ -829,7 +826,7 @@ form.edit_coin, form.new_coin, .sign-in-up {
 
 .log-block, .link-block {
 	padding-bottom:24px;
-	margin-bottom:24px;
+	margin-bottom:30px;
 	border-bottom: 1px solid $border-orange;
 	&:last-child {
 		border-bottom: none;
@@ -839,6 +836,7 @@ form.edit_coin, form.new_coin, .sign-in-up {
 .user-log-classification {
 	margin-left:0;
 	padding-left:0;
+	margin-top:-6px;
 	p  {
 		font-family:"WhitneyHTF-MediumSC";
 		text-transform:lowercase;
