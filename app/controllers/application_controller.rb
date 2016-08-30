@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_paper_trail_whodunnit
 
+  def about
+    render 'layouts/about'
+  end
+
   private
 
 	def user_params 

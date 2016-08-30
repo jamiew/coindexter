@@ -4,7 +4,7 @@
 			<% if defined?(log.coins) && !log.coins.nil? %>
 	    		<div class="user-log-classification">
 					<div class="user-log-classification-network">
-						<%= image_tag(log.coins.logo.small.url, size: "20x20") %>
+						<%= image_tag(log.coins.logo.small.url, size: "20x20") if log.coins.logo? %>
 						<%= link_to log.coins.name, log.coins %>
 					</div>
 				</div>
@@ -53,6 +53,9 @@
 									<li><<%= link_to change["name"], change unless change.nil? %></li>
 								<% end %>
 						<% end %>
+					<% when "Created" %>
+						Created 
+						<li><%= link_to log.coins.name, log.coins %></li>
 					<% else %>
 						<%= log.data[:change_attr].capitalize %>
 						<% if log.data[:change_type] == "added" %>

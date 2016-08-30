@@ -15,7 +15,7 @@ class Network < ApplicationRecord
 
 	friendly_id :name, use: [:slugged, :history]
 
-	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :id]
+	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :category_id]
 
 	def whitepapers
 	    read_attribute(:whitepapers).map {|v| Whitepaper.new(v) }

@@ -240,6 +240,9 @@ nav, .navbar {
 						float:left;
 						margin-top:2px;
 					}
+					a.login-link {
+						margin-top:6px
+					}
 				}	
 			}
 		}
@@ -548,6 +551,9 @@ ul#info-menu {
 			ul.log-list > li {
 				display: inline;
 			}
+			ul.log-list, .link-title {
+				padding-top:6px;
+			}
 			.bootstrap-switch {
 				margin-top:-2px;
 				border-color: $border-orange;
@@ -783,7 +789,7 @@ ul#info-menu {
 	display: none;
 }
 
-.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results {
+.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results, .about {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;
@@ -839,6 +845,8 @@ form.edit_coin, form.new_coin, .sign-in-up {
 		text-align:right;
 	}
 	a {
+		font-family:"WhitneyHTF-MediumSC";
+		text-transform:lowercase;
 		&:hover {
 			color: $primary-orange;
 		}

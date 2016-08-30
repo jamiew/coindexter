@@ -92,6 +92,8 @@ class NetworkService < LogService
 	        change_attr = "Link"
 	      when "status"
 	        change_attr = "Status"
+	      when "id"
+	      	change_attr = "Created"
 	      else
 	        change_attr = key
 	      end
