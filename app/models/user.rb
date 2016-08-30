@@ -20,4 +20,12 @@ class User < ApplicationRecord
   has_many :networks
   has_many :logs, :foreign_key => 'whodunnit', :class_name => "Version"
 
+  def email_required?
+    super && provider.blank?
+  end
+
+  def password_required?
+    super && provider.blank?
+  end
+
 end

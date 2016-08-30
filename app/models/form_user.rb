@@ -18,7 +18,6 @@ class FormUser < User
   validates_presence_of     :username
   validates_confirmation_of :username
 
-
   validates_presence_of     :avatar
   validates_confirmation_of :avatar
 

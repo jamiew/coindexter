@@ -25,7 +25,7 @@ class Coin < ApplicationRecord
   end
 
   def update_prices
-    response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + name.downcase)
+    response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + name.delete(" ").downcase)
     unless response[0].nil?
       price = response[0]["price_usd"]
       one_hour_price_change = response[0]["percent_change_1h"]
