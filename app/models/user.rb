@@ -20,27 +20,4 @@ class User < ApplicationRecord
   has_many :networks
   has_many :logs, :foreign_key => 'whodunnit', :class_name => "Version"
 
-  private
-
-    def confirmation_token
-      if self.confirm_token.blank?
-          self.confirm_token = SecureRandom.urlsafe_base64.to_s
-      end
-    end
-    
-    def email_activate
-      self.email_confirmed = true
-      self.confirm_token = nil
-      save!(:validate => false)
-    end
-
-    def only_if_unconfirmed
-      pending_any_confirmation {yield}
-    end
-
-    protected
-      def confirmation_required?
-        true
-      end   
-
 end
