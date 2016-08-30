@@ -28,4 +28,9 @@ class User < ApplicationRecord
     super && provider.blank?
   end
 
+  protected
+    def confirmation_required?
+      false
+    end
+
 end
