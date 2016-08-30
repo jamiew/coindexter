@@ -2,7 +2,7 @@
 	<ul id="info-menu">
 		<li id="show-all" class="active-item"><p>All</p></li>
 		<% @categories.each do |category| %>
-			<% unless category.networks.empty? %>
+			<% unless category.networks.nil? %>
 				<li id=<%= category.name %>><p><%= category.name.capitalize %></p></li>
 			<% end %>	
 		<% end %>
