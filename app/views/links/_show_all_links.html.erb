@@ -6,7 +6,9 @@
 	    		<div class="user-log-classification">
 					<% coins.each do |coin| %>
 						<div class="user-log-classification-coin">
-							<%= image_tag(coin.logo.small.url, size: "20x20") unless coin.logo.nil? %>
+							<% unless coin.logo.nil? %>	
+								<%= image_tag(coin.logo.small.url, size: "20x20") %>
+							<% end %>
 							<%= link_to coin.name, coin %>
 						</div>
 					<% end %>
@@ -16,7 +18,9 @@
 	    		<div class="user-log-classification">
 					<% networks.each do |network| %>
 						<div class="user-log-classification-network">
-							<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.nil? %>
+							<% unless network.logo.nil? %>
+								<%= image_tag(network.logo.small.url, size: "20x20") %>
+							<% end %>
 							<%= link_to network.name, network %>
 						</div>
 					<% end %>
