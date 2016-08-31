@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   match '/search', to:"searches#results", via: "get"
 
+  match '/account/', to:"users#edit", via: "get"
+
   match '/account/:id', to:"users#edit", via: "get"
 
   match '/about', to:'application#about', via: 'get'
