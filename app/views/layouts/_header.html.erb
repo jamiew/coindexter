@@ -24,6 +24,7 @@
 			    			<%= link_to '/account/' + current_user.username, class: 'header-link-account-glyphicon' do %>
 			    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 			    			<% end %>
+			    		<% end %>
 		    			<%= link_to destroy_user_session_path, method: :delete, class: 'header-link-account-glyphicon logout' do %>
 		    				<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 		    			<% end %>
