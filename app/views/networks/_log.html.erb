@@ -57,6 +57,8 @@
 					<% when "Created" %>
 						Created 
 							<li><%= link_to log.networks.name, log.networks %></li>
+					<% when "Logo" %>
+						New logo							
 					<% else %>
 						<%= log.data[:change_attr].capitalize %>
 						<% if log.data[:change_type] == "added" %>
