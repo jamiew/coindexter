@@ -3873,3 +3873,738 @@ puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
   Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
   Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (138.0ms)
+Started GET "/coins" for ::1 at 2016-08-31 11:07:55 -0400
+Processing by CoinsController#index as HTML
+  Rendering coins/index.html.erb within layouts/application
+  [1m[36mCategory Load (3.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mCoin Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 2], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 3], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 4], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 5], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 6], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 7], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 8], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 9], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 10], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 11], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 12], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 13], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 14], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 15], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 16], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 17], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 18], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 19], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 20], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 21], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 22], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 23], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 24], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 25], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 26], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 27], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 28], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 29], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 30], ["LIMIT", 1]]
+  Rendered coins/_category_menu.html.erb (75.6ms)
+  [1m[36mCoin Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Load (1.5ms)[0m  [1m[34mSELECT "coins".* FROM "coins" WHERE "coins"."category_id" = $1 ORDER BY market_cap DESC[0m  [["category_id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (6.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (73.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (4.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (3.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (1.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered coins/_coin_widget.html.erb (2.0ms)
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 2], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 3], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 4], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 5], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 6], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 7], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 8], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 9], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 10], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 11], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 12], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 13], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 14], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 15], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 16], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 17], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 18], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 19], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 20], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 21], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 22], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 23], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 24], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 25], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 26], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 27], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 28], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 29], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" WHERE "coins"."category_id" = $1 LIMIT $2[0m  [["category_id", 30], ["LIMIT", 1]]
+  Rendered coins/_all_categories.html.erb (262.0ms)
+  Rendered coins/index.html.erb within layouts/application (342.9ms)
+  Rendered layouts/_rails_default.html.erb (51.3ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/header/_search.html.erb (1.4ms)
+  Rendered layouts/_header.html.erb (7.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 443ms (Views: 388.9ms | ActiveRecord: 41.7ms)
+
+
+Started GET "/uploads/coin/logo/123/small_steem.png" for ::1 at 2016-08-31 11:07:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/coin/logo/123/small_steem.png"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/uploads/network/logo/1/small_steem.png" for ::1 at 2016-08-31 11:07:56 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/network/logo/1/small_steem.png"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [110 times] (27.9ms)
+  Rendered collection of /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [110 times] (27.0ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.6ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (240.9ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (207.6ms)
+Started GET "/coins/bytecoin" for ::1 at 2016-08-31 11:07:57 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (2.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_info_menu.html.erb (1.1ms)
+  Rendered coins/_coin_main_info_header.html.erb (2.3ms)
+  Rendered coins/_show_coin.html.erb (13.5ms)
+  Rendered coins/show.html.erb within layouts/application (21.9ms)
+  Rendered layouts/_rails_default.html.erb (108.5ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/header/_search.html.erb (1.5ms)
+  Rendered layouts/_header.html.erb (8.0ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 173ms (Views: 164.5ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:08:01 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (268.1ms)
+  Rendered coins/_logs.html.erb (274.2ms)
+  Rendered coins/logs.js.erb (276.5ms)
+Completed 500 Internal Server Error in 292ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `coin' for #<#<Class:0x007fe6b48d8158>:0x007fe6b3d62260>
+Did you mean?  @coin):
+    1: <div class="row">
+    2: 	<div class="col-md-8 data col-md-offset-4">
+    3: 		<% if coin.logo.nil? || coin.logo.blank? %>
+    4: 			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+    5: 		<% else %>
+    6: 			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+  
+app/views/coins/_coin_main_info_header.html.erb:3:in `_app_views_coins__coin_main_info_header_html_erb__1961581396964673147_70314405889580'
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314418051840'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314418192820'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (37.3ms)
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:08:01 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (1.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.2ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (369.3ms)
+  Rendered coins/_logs.html.erb (376.1ms)
+  Rendered coins/logs.js.erb (378.7ms)
+Completed 500 Internal Server Error in 396ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `coin' for #<#<Class:0x007fe6b48d8158>:0x007fe6ac0fc4f0>
+Did you mean?  @coin):
+    1: <div class="row">
+    2: 	<div class="col-md-8 data col-md-offset-4">
+    3: 		<% if coin.logo.nil? || coin.logo.blank? %>
+    4: 			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+    5: 		<% else %>
+    6: 			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+  
+app/views/coins/_coin_main_info_header.html.erb:3:in `_app_views_coins__coin_main_info_header_html_erb__1961581396964673147_70314347066340'
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314344517180'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314348781140'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (35.8ms)
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:08:02 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.7ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (248.4ms)
+  Rendered coins/_logs.html.erb (252.9ms)
+  Rendered coins/logs.js.erb (255.0ms)
+Completed 500 Internal Server Error in 270ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `coin' for #<#<Class:0x007fe6b48d8158>:0x007fe6b26a8c18>
+Did you mean?  @coin):
+    1: <div class="row">
+    2: 	<div class="col-md-8 data col-md-offset-4">
+    3: 		<% if coin.logo.nil? || coin.logo.blank? %>
+    4: 			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+    5: 		<% else %>
+    6: 			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+  
+app/views/coins/_coin_main_info_header.html.erb:3:in `_app_views_coins__coin_main_info_header_html_erb__1961581396964673147_70314418832800'
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314419115900'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314406271060'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.7ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (37.3ms)
+Started GET "/coins/bytecoin" for ::1 at 2016-08-31 11:12:10 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (1.7ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_info_menu.html.erb (1.0ms)
+  Rendered coins/_coin_main_info_header.html.erb (1.1ms)
+  Rendered coins/_show_coin.html.erb (5.4ms)
+  Rendered coins/show.html.erb within layouts/application (12.3ms)
+  Rendered layouts/_rails_default.html.erb (81.4ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/header/_search.html.erb (0.8ms)
+  Rendered layouts/_header.html.erb (5.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 131ms (Views: 125.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:12:13 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.9ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_logs.html.erb (8.9ms)
+  Rendered coins/logs.js.erb (10.8ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `coin' for []:Array):
+    1: <%= javascript_include_tag 'paginate_logs' %>
+    2: <ul class="outer-log-list">
+    3: 	<li class="coin-header coin-info-block block">
+    4: 		<%= render(partial: 'coins/coin_main_info_header', object: @logs.coin) %>
+    5: 	</li>
+    6: 	<% if @logs.any? %>
+    7: 		<%= render(partial: 'log', collection: @logs, as: :log) %>
+  
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314437237700'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314342229240'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.1ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (43.3ms)
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:12:14 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_logs.html.erb (7.9ms)
+  Rendered coins/logs.js.erb (10.5ms)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `coin' for []:Array):
+    1: <%= javascript_include_tag 'paginate_logs' %>
+    2: <ul class="outer-log-list">
+    3: 	<li class="coin-header coin-info-block block">
+    4: 		<%= render(partial: 'coins/coin_main_info_header', object: @logs.coin) %>
+    5: 	</li>
+    6: 	<% if @logs.any? %>
+    7: 		<%= render(partial: 'log', collection: @logs, as: :log) %>
+  
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314354935200'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314371911200'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.3ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (37.9ms)
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:12:14 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_logs.html.erb (6.3ms)
+  Rendered coins/logs.js.erb (8.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `coin' for []:Array):
+    1: <%= javascript_include_tag 'paginate_logs' %>
+    2: <ul class="outer-log-list">
+    3: 	<li class="coin-header coin-info-block block">
+    4: 		<%= render(partial: 'coins/coin_main_info_header', object: @logs.coin) %>
+    5: 	</li>
+    6: 	<% if @logs.any? %>
+    7: 		<%= render(partial: 'log', collection: @logs, as: :log) %>
+  
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314350473180'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314415964240'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (37.0ms)
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:12:15 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (1.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.7ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_logs.html.erb (8.6ms)
+  Rendered coins/logs.js.erb (11.4ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 3.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `coin' for []:Array):
+    1: <%= javascript_include_tag 'paginate_logs' %>
+    2: <ul class="outer-log-list">
+    3: 	<li class="coin-header coin-info-block block">
+    4: 		<%= render(partial: 'coins/coin_main_info_header', object: @logs.coin) %>
+    5: 	</li>
+    6: 	<% if @logs.any? %>
+    7: 		<%= render(partial: 'log', collection: @logs, as: :log) %>
+  
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314343953660'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314385111160'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (38.3ms)
+Started GET "/coins/bytecoin" for ::1 at 2016-08-31 11:12:27 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.9ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_info_menu.html.erb (0.9ms)
+  Rendered coins/_coin_main_info_header.html.erb (1.0ms)
+  Rendered coins/_show_coin.html.erb (4.9ms)
+  Rendered coins/show.html.erb within layouts/application (9.5ms)
+  Rendered layouts/_rails_default.html.erb (95.0ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/header/_search.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (7.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 145ms (Views: 132.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:12:28 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.7ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_logs.html.erb (10.8ms)
+  Rendered coins/logs.js.erb (12.7ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `coins' for []:Array):
+    1: <%= javascript_include_tag 'paginate_logs' %>
+    2: <ul class="outer-log-list">
+    3: 	<li class="coin-header coin-info-block block">
+    4: 		<%= render(partial: 'coins/coin_main_info_header', object: @logs.coins) %>
+    5: 	</li>
+    6: 	<% if @logs.any? %>
+    7: 		<%= render(partial: 'log', collection: @logs, as: :log) %>
+  
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314384951320'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314351635300'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (38.9ms)
+Started GET "/coins/bytecoin" for ::1 at 2016-08-31 11:12:46 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (1.7ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_info_menu.html.erb (0.8ms)
+  Rendered coins/_coin_main_info_header.html.erb (1.2ms)
+  Rendered coins/_show_coin.html.erb (5.5ms)
+  Rendered coins/show.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_rails_default.html.erb (70.4ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/header/_search.html.erb (1.3ms)
+  Rendered layouts/_header.html.erb (7.2ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 114ms (Views: 106.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:12:48 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (260.9ms)
+  Rendered coins/_logs.html.erb (266.8ms)
+  Rendered coins/logs.js.erb (269.7ms)
+Completed 500 Internal Server Error in 304ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `coin' for #<#<Class:0x007fe6b48d8158>:0x007fe6b23d8dd0>
+Did you mean?  @coin):
+    1: <div class="row">
+    2: 	<div class="col-md-8 data col-md-offset-4">
+    3: 		<% if coin.logo.nil? || coin.logo.blank? %>
+    4: 			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+    5: 		<% else %>
+    6: 			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+  
+app/views/coins/_coin_main_info_header.html.erb:3:in `_app_views_coins__coin_main_info_header_html_erb__1961581396964673147_70314402892620'
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314351715920'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314404793820'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.7ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (39.7ms)
+Started GET "/coins/bytecoin" for ::1 at 2016-08-31 11:13:14 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_info_menu.html.erb (0.9ms)
+  Rendered coins/_coin_main_info_header.html.erb (1.1ms)
+  Rendered coins/_show_coin.html.erb (5.1ms)
+  Rendered coins/show.html.erb within layouts/application (10.2ms)
+  Rendered layouts/_rails_default.html.erb (82.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/header/_search.html.erb (1.3ms)
+  Rendered layouts/_header.html.erb (7.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 128ms (Views: 122.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:13:16 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.7ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (278.6ms)
+  Rendered coins/_logs.html.erb (285.8ms)
+  Rendered coins/logs.js.erb (288.4ms)
+Completed 500 Internal Server Error in 331ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `coin' for #<#<Class:0x007fe6b48d8158>:0x007fe6abf061c8>
+Did you mean?  @coin):
+    1: <div class="row">
+    2: 	<div class="col-md-8 data col-md-offset-4">
+    3: 		<% if coin.logo.nil? || coin.logo.blank? %>
+    4: 			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+    5: 		<% else %>
+    6: 			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+  
+app/views/coins/_coin_main_info_header.html.erb:3:in `_app_views_coins__coin_main_info_header_html_erb__1961581396964673147_70314352274060'
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314404531580'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314351933580'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.0ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (37.1ms)
+Started GET "/coins/bytecoin" for ::1 at 2016-08-31 11:13:49 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (1.2ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_info_menu.html.erb (1.0ms)
+  Rendered coins/_coin_main_info_header.html.erb (1.0ms)
+  Rendered coins/_show_coin.html.erb (4.4ms)
+  Rendered coins/show.html.erb within layouts/application (9.2ms)
+  Rendered layouts/_rails_default.html.erb (50.1ms)
+  Rendered layouts/_shim.html.erb (0.4ms)
+  Rendered layouts/header/_search.html.erb (1.4ms)
+  Rendered layouts/_header.html.erb (7.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 90ms (Views: 83.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:13:54 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.8ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (214.2ms)
+  Rendered coins/_logs.html.erb (219.1ms)
+  Rendered coins/logs.js.erb (220.7ms)
+Completed 500 Internal Server Error in 236ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `coin' for #<#<Class:0x007fe6b48d8158>:0x007fe6aba775d0>
+Did you mean?  @coin):
+    1: <div class="row">
+    2: 	<div class="col-md-8 data col-md-offset-4">
+    3: 		<% if coin.logo.nil? || coin.logo.blank? %>
+    4: 			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+    5: 		<% else %>
+    6: 			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+  
+app/views/coins/_coin_main_info_header.html.erb:3:in `_app_views_coins__coin_main_info_header_html_erb__1961581396964673147_70314373308280'
+app/views/coins/_logs.html.erb:4:in `_app_views_coins__logs_html_erb___1824309493007458901_70314373370280'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314349555440'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.6ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (53.2ms)
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:14:10 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.9ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (222.3ms)
+  Rendered coins/_logs.html.erb (227.3ms)
+  Rendered coins/logs.js.erb (229.4ms)
+Completed 500 Internal Server Error in 244ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `coin' for #<#<Class:0x007fe6b48d8158>:0x007fe6b48c9ea0>
+Did you mean?  @coin):
+    1: <div class="row">
+    2: 	<div class="col-md-8 data col-md-offset-4">
+    3: 		<% if coin.logo.nil? || coin.logo.blank? %>
+    4: 			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+    5: 		<% else %>
+    6: 			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+  
+app/views/coins/_coin_main_info_header.html.erb:3:in `_app_views_coins__coin_main_info_header_html_erb__1961581396964673147_70314405501600'
+app/views/coins/_logs.html.erb:5:in `_app_views_coins__logs_html_erb___1824309493007458901_70314405727680'
+app/views/coins/logs.js.erb:1:in `_app_views_coins_logs_js_erb___2688623202383765237_70314424173400'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (35.4ms)
+Started GET "/coins/bytecoin" for ::1 at 2016-08-31 11:14:26 -0400
+Processing by CoinsController#show as HTML
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.7ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  Rendering coins/show.html.erb within layouts/application
+  Rendered coins/_info_menu.html.erb (1.2ms)
+  Rendered coins/_coin_main_info_header.html.erb (1.5ms)
+  Rendered coins/_show_coin.html.erb (6.3ms)
+  Rendered coins/show.html.erb within layouts/application (11.9ms)
+  Rendered layouts/_rails_default.html.erb (110.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/header/_search.html.erb (1.4ms)
+  Rendered layouts/_header.html.erb (8.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 167ms (Views: 154.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/coins/bytecoin/logs" for ::1 at 2016-08-31 11:14:28 -0400
+Processing by CoinsController#logs as JS
+  Parameters: {"id"=>"bytecoin"}
+  [1m[36mCoin Load (0.7ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."slug" = $1 ORDER BY "coins"."id" ASC LIMIT $2[0m  [["slug", "bytecoin"], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC[0m  [["item_id", 91], ["item_type", "Coin"]]
+  Rendering coins/logs.js.erb
+  Rendered coins/_coin_main_info_header.html.erb (1.1ms)
+  Rendered coins/_logs.html.erb (6.5ms)
+  Rendered coins/logs.js.erb (8.6ms)
+Completed 200 OK in 24ms (Views: 16.0ms | ActiveRecord: 1.2ms)
+
+
