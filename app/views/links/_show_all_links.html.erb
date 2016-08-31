@@ -26,7 +26,7 @@
 				</div>
 			<% end %>
 			<h6 class="when-posted"><%= time_ago_in_words(link.created_at) %></h6>
-			<% if defined?(user) && !user.nil? %>
+			<% if defined?(user) && !user.nil? && !current_user.nil? %>
 				<%= link_to user, class: "who-posted" do %>
     				<%= image_tag(user.avatar, size: '20x20', class: 'avatar') if defined?(user.avatar) %>
     				<%= current_user == user ? "Me" : user.username%>
