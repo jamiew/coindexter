@@ -17,7 +17,7 @@
 			    			<p><%= current_user.username unless current_user.username.nil? %></p>
 		    			<% end %>
 		    			<% if current_user.username.nil? %>
-		    				<%= link_to '/account/' + current_user.id, class: 'header-link-account-glyphicon' do %>
+		    				<%= link_to '/account/' + current_user.id.to_s, class: 'header-link-account-glyphicon' do %>
 			    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 			    			<% end %>
 		    			<% else %>
