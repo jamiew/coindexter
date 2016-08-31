@@ -1,6 +1,6 @@
 class Identity < ApplicationRecord
   
-  before_create :generate_confirmation_token
+#  before_create :generate_confirmation_token
 
   belongs_to :user
 
