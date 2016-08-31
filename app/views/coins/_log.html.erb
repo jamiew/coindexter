@@ -5,7 +5,7 @@
 	    		<div class="user-log-classification">
 					<div class="user-log-classification-network">
 						<%= image_tag(log.coins.logo.small.url, size: "20x20") if log.coins.logo? %>
-						<%= link_to log.coins.name, log.coins %>
+						<%= link_to truncate(log.coins.name, length: 16	), log.coins %>
 					</div>
 				</div>
 			<% end %>

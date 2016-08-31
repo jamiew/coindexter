@@ -9,6 +9,10 @@ class ApplicationController < ActionController::Base
     render 'layouts/about'
   end
 
+  def after_sign_in_path_for(resource)
+    finish_path(current_user.id)
+  end
+
   private
 
 	def user_params 

@@ -27,7 +27,7 @@ class User < ApplicationRecord
   def password_required?
     super && provider.blank?
   end
-
+  
   protected
     def confirmation_required?
       false

@@ -3,6 +3,16 @@
 		<%= render(partial: 'networks/network_main_info_header') %>
 	</li>
 	<li class="network-main-info network-info-block block">
+		<% if @network.logo.to_s == "/assets/fallback/default.png" %>
+			<div class="row">
+				<div class="col-md-4 label">
+					<h6>logo</h6>
+				</div>
+				<div class="col-md-8">
+					<%= link_to "Add a logo to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+				</div>
+			</div>
+		<% end %>
 		<div class="row">
 			<div class="col-md-4 label">
 				<h6>status</h6>
@@ -17,7 +27,11 @@
 				<h6>description</h6>
 			</div>
 			<div class="col-md-8">
-				<p><%= @network.description %></p>
+				<% if @network.description.blank? %>
+					<%= link_to "Add a description to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+				<% else %>
+					<p><%= @network.description %></p>
+				<% end %>
 			</div>
 		</div>
 		<div class="row">

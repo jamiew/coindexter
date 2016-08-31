@@ -41,7 +41,7 @@ $ ->
 			$curr_bottom = 40 + (40 - $remaining)
 			$('.action-links').css 'bottom', $curr_bottom
 		else 
-			$('.action-links').css 'bottom', 30
+			$('.action-links').css 'bottom', 10
 
 
 

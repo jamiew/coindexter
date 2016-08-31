@@ -16,7 +16,7 @@
 			    			<%= current_user.avatar ? image_tag(current_user.avatar, size: '30x30', class: 'avatar') : "" %> 
 			    			<p><%= current_user.username %></p>
 		    			<% end %>
-		    			<%= link_to '/account', class: 'header-link-account-glyphicon' do %>
+		    			<%= link_to '/account/' + current_user.username, class: 'header-link-account-glyphicon' do %>
 		    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 		    			<% end %>
 		    			<%= link_to destroy_user_session_path, method: :delete, class: 'header-link-account-glyphicon logout' do %>

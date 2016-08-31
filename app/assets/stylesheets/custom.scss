@@ -54,12 +54,14 @@ p.notice, p.alert {
 
 p.notice {
 	background: $secondary-green;
-	border: 2px solid $primary-green;
+	border-top: 2px solid $primary-green;
+	border-bottom: 2px solid $primary-green;
 }
 
 p.alert {
 	background: $concept-inner;
-	border: 2px solid $concept-outer;
+	border-top: 2px solid $concept-outer;
+	border-bottom: 2px solid $concept-outer;
 	border-radius: 0px;
 }
 
@@ -874,7 +876,7 @@ form.edit_coin, form.new_coin, .sign-in-up {
 
 ul.action-links {
 	position:fixed;
-	bottom: 30px;
+	bottom: 10px;
 	right: 20px;
 	color: $text;
 	li {

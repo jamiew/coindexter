@@ -1,7 +1,9 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<ul class="action-links">
-			<li><%= link_to("Add new link", new_link_path, remote: false, class: "action-link", accesskey: 'L') %></li>
+			<li><%= link_to("New link", new_link_path, remote: false, class: "action-link", accesskey: 'L') %></li>
+			<li><%= link_to("New network", new_network_path, remote: false, class: "action-link", accesskey: 'N') %></li>
+			<li><%= link_to("New coin", new_coin_path, remote: false, class: "action-link", accesskey: 'C') %></li>
 		</ul>
 		<ul>
 			<li class="user-header user-info-block block">
@@ -11,7 +13,6 @@
 					</div>
 				</div>
 			</li>
-			<% puts "Miami #{@logs.inspect}" %>
 			<% @logs.each do |log| %>
 				<% cache log do %>
 					<% if log.feed_type == "network_log" %>

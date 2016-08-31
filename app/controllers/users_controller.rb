@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.friendly.find(params[:id])
   end
 
   def create
@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
       flash[:success] = "Please confirm your email address to continue"
-      redirect_to root_url
     else
       render 'new'
     end
@@ -22,7 +21,11 @@ class UsersController < ApplicationController
   def update
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
-        redirect_to @user
+        if get_all_logs(@user.id).empty?
+          redirect_to root_url
+        else
+          redirect_to @user
+        end
     else
         render 'edit'
     end
@@ -32,11 +35,19 @@ class UsersController < ApplicationController
     get_all_logs
   end
 
+  def finish
+    @user = User.find(params[:id])
+    if @user.username.nil? || @user.username.blank?
+      @user = User.find(params[:id])
+    else  
+      redirect_to root_url
+    end
+  end
+
   def show
     @user = User.friendly.find(params[:id])
     get_all_logs(@user.id)
-    UserMailer.welcome_email(@user).deliver
-    respond_to do |format|
+      respond_to do |format|
         format.html
         format.js
         format.json
@@ -67,7 +78,9 @@ class UsersController < ApplicationController
       links = []
       logs = []
       
-      if defined?(user_id)
+      puts "user id is #{user_id}"
+
+      if user_id.nil?
         link_query = Link.all.limit(20)
       else
         link_query = User.find(user_id).links
@@ -83,7 +96,7 @@ class UsersController < ApplicationController
 
       Network.all.each do |network| 
         network_logs = NetworkService.new
-        if defined?(user_id)
+        if user_id.nil?  
           net_logs = network_logs.get_logs(network, "network_log", 5)
         else
           net_logs = network_logs.get_logs(network, user_id, "network_log", 5)
@@ -95,7 +108,7 @@ class UsersController < ApplicationController
 
       Coin.all.each do |coin| 
         coin_logs = NetworkService.new
-        if defined?(user_id)
+        if user_id.nil? 
           c_logs = coin_logs.get_logs(coin, "coin_log", 5)
         else
           c_logs = coin_logs.get_logs(coin, user_id, "coin_log", 5)
