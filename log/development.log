@@ -3338,3 +3338,538 @@ puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
   Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
   Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
   Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (123.3ms)
+Started GET "/" for ::1 at 2016-08-31 11:06:15 -0400
+Processing by UsersController#index as HTML
+  [1m[36mLink Load (0.8ms)[0m  [1m[34mSELECT  "links".* FROM "links" LIMIT $1[0m  [["LIMIT", 20]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 1], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" INNER JOIN "coins_links" ON "coins"."id" = "coins_links"."coin_id" WHERE "coins_links"."link_id" = $1 LIMIT $2[0m  [["link_id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Load (1.3ms)[0m  [1m[34mSELECT "networks".* FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1[0m  [["link_id", 1]]
+  [1m[36mCoin Load (1.4ms)[0m  [1m[34mSELECT "coins".* FROM "coins" INNER JOIN "coins_links" ON "coins"."id" = "coins_links"."coin_id" WHERE "coins_links"."link_id" = $1[0m  [["link_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 4], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (2.5ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 10], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 11], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mNetwork Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1 LIMIT $2[0m  [["link_id", 13], ["LIMIT", 1]]
+  [1m[36mCoin Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "coins" INNER JOIN "coins_links" ON "coins"."id" = "coins_links"."coin_id" WHERE "coins_links"."link_id" = $1 LIMIT $2[0m  [["link_id", 13], ["LIMIT", 1]]
+  [1m[36mNetwork Load (1.0ms)[0m  [1m[34mSELECT "networks".* FROM "networks" INNER JOIN "links_networks" ON "networks"."id" = "links_networks"."network_id" WHERE "links_networks"."link_id" = $1[0m  [["link_id", 13]]
+  [1m[36mCoin Load (0.9ms)[0m  [1m[34mSELECT "coins".* FROM "coins" INNER JOIN "coins_links" ON "coins"."id" = "coins_links"."coin_id" WHERE "coins_links"."link_id" = $1[0m  [["link_id", 13]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT "networks".* FROM "networks"[0m
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 7], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 8], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.4ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 9], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 10], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 11], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 12], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 13], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.9ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 14], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 15], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.4ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 16], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 17], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 18], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 2], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 1], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 3], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.4ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 4], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.4ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 5], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 19], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 20], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.8ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 21], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 22], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 23], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 24], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.8ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 25], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 26], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 27], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 27], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 28], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 28], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 29], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.8ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 30], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.8ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 31], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 32], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.3ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 33], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (2.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 34], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (3.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  [1m[36mVersion Load (2.2ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 35], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (1.3ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 35], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 36], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (1.2ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 36], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 38], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 39], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 40], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 40], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 41], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 41], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 42], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 42], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.1ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 43], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 43], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 44], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 44], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 45], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 46], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 47], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 48], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 48], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 49], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 50], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 50], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 51], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 52], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 53], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 53], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 54], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 54], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 55], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 55], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 56], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 56], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 57], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 57], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 58], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 58], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 59], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (1.1ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 59], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 60], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 60], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.1ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 61], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 61], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.9ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 62], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 62], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 63], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 63], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 64], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 64], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 65], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 65], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 66], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 66], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 67], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 67], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.9ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 68], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 68], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 69], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 69], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 70], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 70], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 71], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 71], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 72], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 72], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 73], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 73], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 74], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 74], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 75], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 75], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 76], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 76], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 77], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 77], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 78], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 78], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 79], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 79], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 80], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 80], ["LIMIT", 1]]
+  [1m[36mVersion Load (1.3ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 81], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (1.1ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 81], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 82], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.9ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 82], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 83], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 83], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 84], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 84], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 85], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 85], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 86], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.5ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 86], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 6], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.7ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 37], ["item_type", "Network"], ["LIMIT", 5]]
+  [1m[36mNetwork Load (0.6ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 37], ["LIMIT", 1]]
+  [1m[36mCoin Load (1.0ms)[0m  [1m[34mSELECT "coins".* FROM "coins"[0m
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 84], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 85], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 86], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 87], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 88], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 89], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 90], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 92], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 93], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 94], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 95], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 96], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 98], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 97], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 100], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 99], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 103], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 101], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 102], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 104], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 107], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 105], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 106], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 109], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 110], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 117], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 111], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 112], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 113], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 114], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 115], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 116], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 118], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.7ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 91], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 119], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 120], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.6ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 121], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 122], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.4ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 81], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 108], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 83], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 123], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 123], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "networks".* FROM "networks" WHERE "networks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 123], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 123], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 123], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mVersion Load (0.5ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 82], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mVersion Load (0.8ms)[0m  [1m[34mSELECT  "versions".* FROM "versions" WHERE "versions"."item_id" = $1 AND "versions"."item_type" = $2 ORDER BY "versions"."created_at" ASC, "versions"."id" ASC, created_at DESC LIMIT $3[0m  [["item_id", 124], ["item_type", "Coin"], ["LIMIT", 5]]
+  [1m[36mCoin Load (0.6ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "coins".* FROM "coins" WHERE "coins"."id" = $1 LIMIT $2[0m  [["id", 124], ["LIMIT", 1]]
+  Rendering users/index.html.erb within layouts/application
+  Rendered networks/_log.html.erb (3.1ms)
+  Rendered networks/_log.html.erb (1.0ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.5ms)
+  Rendered networks/_log.html.erb (0.5ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (1.0ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (1.2ms)
+  Rendered networks/_log.html.erb (1.1ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.5ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.5ms)
+  Rendered networks/_log.html.erb (1.6ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.5ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (1.3ms)
+  Rendered networks/_log.html.erb (1.2ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (1.1ms)
+  Rendered networks/_log.html.erb (0.9ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.6ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (1.4ms)
+  Rendered networks/_log.html.erb (1.0ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (0.7ms)
+  Rendered networks/_log.html.erb (1.7ms)
+  Rendered networks/_log.html.erb (1.0ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (1.8ms)
+  Rendered coins/_log.html.erb (5.6ms)
+  Rendered coins/_log.html.erb (2.2ms)
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 13], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 13], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 13], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 13], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (8.9ms)
+  Rendered networks/_log.html.erb (1.9ms)
+  Rendered coins/_log.html.erb (2.0ms)
+  Rendered coins/_log.html.erb (1.5ms)
+  Rendered networks/_log.html.erb (0.8ms)
+  Rendered networks/_log.html.erb (1.3ms)
+  Rendered coins/_log.html.erb (1.5ms)
+  Rendered networks/_log.html.erb (1.1ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 12], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 12], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 12], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 12], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (5.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 11], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 11], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 11], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 11], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (5.4ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 10], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (6.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 9], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 9], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 9], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 9], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (6.4ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 8], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 8], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 8], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 8], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (6.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 7], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 7], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 7], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 7], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (6.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 6], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (6.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 5], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 5], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 5], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 5], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (6.8ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (4.8ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "Link"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 3], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 4], ["commentable_type", "Comment"]]
+  Rendered links/_show_all_links.html.erb (11.5ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Link"]]
+  Rendered links/_show_all_links.html.erb (4.9ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Link"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Link"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Link"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 1], ["commentable_type", "Comment"]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."commentable_id" = $1 AND "comments"."commentable_type" = $2[0m  [["commentable_id", 2], ["commentable_type", "Comment"]]
+  Rendered links/_show_all_links.html.erb (10.3ms)
+  Rendered users/index.html.erb within layouts/application (336.2ms)
+  Rendered layouts/_rails_default.html.erb (91.8ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/header/_search.html.erb (1.0ms)
+  Rendered layouts/_header.html.erb (6.8ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1336ms (Views: 443.1ms | ActiveRecord: 177.7ms)
+
+
+Started GET "/uploads/coin/logo/123/small_steem.png" for ::1 at 2016-08-31 11:06:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/coin/logo/123/small_steem.png"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [110 times] (27.6ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (113.5ms)
+Started GET "/uploads/network/logo/1/small_steem.png" for ::1 at 2016-08-31 11:06:17 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/uploads/network/logo/1/small_steem.png"):
+  
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.3.1) lib/web_console/middleware.rb:131:in `call_app'
+web-console (3.3.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.3.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.1.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+request_store (1.3.1) lib/request_store/middleware.rb:9:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered collection of /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [110 times] (44.0ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendering /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/jonathanlibov/.rvm/gems/ruby-2.3.1/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (138.0ms)
