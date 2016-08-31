@@ -34,7 +34,7 @@
     		<% else %>
     			<%= link_to link.user, class: "who-posted" do %>
     				<%= image_tag(link.user.avatar, size: '20x20', class: 'avatar') if defined?(link.user.avatar) %>
-    				<%= current_user == link.user ? "Me" : link.user.username %>
+    				<%= link.user.username %>
     			<% end %>
     		<% end %>
 		</div>
