@@ -10,7 +10,7 @@
 				</div>
 			<% end %>
 			<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
-			<% if !current_user.nil? %>
+			<% if defined?(current_user) %>
 				<%= link_to log.user, class: "who-posted" do %>
     				<%= image_tag(log.user.avatar, size: '20x20', class: 'avatar') if defined?(log.user.avatar) %>
     				<%= current_user == log.user ? "Me" : log.user.first_name + ' ' + log.user.last_name %>
