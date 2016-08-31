@@ -2,7 +2,6 @@
 	<div class="row">
 		<div class="col-md-4">
 			<% if defined?(coins) && !coins.nil? %>
-				<% puts "Ryan #{coins}" %>
 	    		<div class="user-log-classification">
 					<% coins.each do |coin| %>
 						<div class="user-log-classification-coin">
@@ -41,7 +40,7 @@
 		</div>
 		<div class="col-md-8">
 			<h6 class="link-title"><%= link_to link.title, link.link %></h6>
-			<% if link.comment_count > 1 || link.comment_count == 0 %>
+			<% if link.comment_count > 1 %>
 				<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
 			<% elsif link.comment_count > 0 %>
 				<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>

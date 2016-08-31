@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.friendly.find(params[:id])
+    puts "params are #{params.inspect}"
   end
 
   def create
@@ -101,6 +102,7 @@ class UsersController < ApplicationController
         else
           net_logs = network_logs.get_logs(network, user_id, "network_log", 5)
         end
+
         net_logs.each do |log|
           logs << log
         end
@@ -113,6 +115,7 @@ class UsersController < ApplicationController
         else
           c_logs = coin_logs.get_logs(coin, user_id, "coin_log", 5)
         end
+        puts "user coin logs are #{coin_logs.inspect}"
         c_logs.each do |log|
           logs << log
         end

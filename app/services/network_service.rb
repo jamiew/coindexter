@@ -5,6 +5,7 @@ class NetworkService < LogService
 	def get_logs(object, feed_type, limit=nil, user_id=nil)
 
 		if !user_id.nil?
+			puts "hey"
           versions = object.versions.where(:whodunnit => user_id).all.order("created_at DESC").limit(5)
         else
         	if limit.nil?
@@ -13,6 +14,8 @@ class NetworkService < LogService
           		versions = object.versions.all.order("created_at DESC").limit(5)
           	end
         end
+
+        puts "versions are #{versions.inspect}"
 		
 		log_set = []
 

@@ -12,16 +12,16 @@
 			    <li id="header-link-sales"><a>Upcoming sales</a></li>
 			    <li id="header-link-account">
 			    	<% if user_signed_in? %>
-		    			<%= link_to user_path(current_user), class: 'user-activity'  do %>
+		    			<%= link_to user_path(current_user), class: 'user-activity' do   %>
 			    			<%= current_user.avatar.nil? ? "" : image_tag(current_user.avatar, size: '30x30', class: 'avatar') %> 
 			    			<p><%= current_user.username unless current_user.username.nil? %></p>
 		    			<% end %>
 		    			<% if current_user.username.nil? %>
-		    				<%= link_to '/account/' + current_user.id.to_s, class: 'header-link-account-glyphicon' do %>
+		    				<%= link_to current_user.id.to_s, class: 'header-link-account-glyphicon' do %>
 			    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 			    			<% end %>
 		    			<% else %>
-			    			<%= link_to '/account/' + current_user.username, class: 'header-link-account-glyphicon' do %>
+			    			<%= link_to current_user.username, class: 'header-link-account-glyphicon' do %>
 			    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 			    			<% end %>
 			    		<% end %>
