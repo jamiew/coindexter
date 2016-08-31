@@ -54,11 +54,11 @@
 						<% elsif log.data[:change_type] == "edited" %>
 							changed from 
 								<% log.data[:change].first.each_with_index do |change, i| %>
-									<li><%= change %>"</li>
+									<li><%= " and " if i + 1 == log.data[:change].first.length %><%= change %><%= ",	" unless i + 1 == log.data[:change].first.length || i + 2 == log.data[:change].first.length  %></li>
 								<% end %>
 							to 
 								<% log.data[:change].second.each_with_index do |change, i| %>
-									<li><%= change %></li>
+									<li><%= " and " if i + 1 == log.data[:change].second.length %><%= change %><%= ",	" unless i + 1 == log.data[:change].second.length || i + 2 == log.data[:change].second.length %></li>
 								<% end %>
 						<% end %>
 					<% when "Created" %>

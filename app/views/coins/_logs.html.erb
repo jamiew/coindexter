@@ -1,9 +1,5 @@
 <%= javascript_include_tag 'paginate_logs' %>
 <ul class="outer-log-list">
-	<li class="coin-header coin-info-block block">
-		<% puts @coin %>
-		<%= render(partial: 'coins/coin_main_info_header', locals: {coin: @coin}) %>
-	</li>
 	<% if @logs.any? %>
 		<%= render(partial: 'log', collection: @logs, as: :log) %>
 	<% else %>

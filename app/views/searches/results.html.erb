@@ -6,12 +6,22 @@
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2">
 						<div class="row results">
-							<h1 class="list-name">Results for '<%= @query %>'</h1>
-							<% if @results.empty? %>
+							<h1 class="list-name">Coins matching '<%= @query %>'</h1>
+							<% if @coin_results.empty? %>
 								<p>No coins found</p>
 							<% else %>
-								<% @results.each_with_index do |result, i| %>
+								<% @coin_results.each_with_index do |result, i| %>
 									<%= render '/coins/coin_widget', :coin => result, :i => i %>
+								<% end %>
+							<% end %>
+						</div>
+						<div class="row results">
+							<h1 class="list-name">Networks matching '<%= @query %>'</h1>
+							<% if @network_results.empty? %>
+								<p>No coins found</p>
+							<% else %>
+								<% @network_results.each_with_index do |result, i| %>
+									<%= render '/networks/network_widget', :network => result, :i => i %>
 								<% end %>
 							<% end %>
 						</div>

@@ -21,7 +21,7 @@ class CoinsController < ApplicationController
 		@logs = []
         coin_logs = NetworkService.new
         @coin = Coin.friendly.find(params[:id]) 
-        coin_logs = coin_logs.get_logs(@coin, "coin_log")
+        coin_logs = coin_logs.get_logs(@coin, "coin_log").reverse
         coin_logs.each do |log|
         	@logs << log
         end

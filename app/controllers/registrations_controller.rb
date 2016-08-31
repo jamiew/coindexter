@@ -6,7 +6,6 @@ class RegistrationsController < Devise::RegistrationsController
       resource.first_name = params[:first_name] if params[:first_name]
       resource.last_name = params[:last_name] if params[:last_name]
       if !params[:password].blank? && params[:password] == params[:password_confirmation] && !params[:email].blank? && !params[:first_name].blank? && !params[:last_name].blank?
-        logger.info "Updating password"
         resource.password = params[:password]
         resource.last_name = params[:last_name]
         resource.first_name = params[:first_name]

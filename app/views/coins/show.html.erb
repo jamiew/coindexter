@@ -5,10 +5,19 @@
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<%= render 'info_menu' %>
 	</div>
-	<div class="col-md-6 main">
-		<%= render 'show_coin' %>
+	<div class="col-md-6 main ">
+		<div class="info-header">
+			<%= render 'coin_main_info_header', coin: @coin %>
+		</div>
+		<div class="content">
+			<%= render 'show_coin' %>
+		</div>
 	</div>
 	<ul class="action-links">
-		<li><%= link_to("Edit #{@coin.name}", edit_coin_path, remote: true, class: "action-link", accesskey: 'E') %></li>
+		<% if current_user %>
+			<li><%= link_to("Edit #{@coin.name}", edit_coin_path, remote: true, class: "action-link", accesskey: 'E') %></li>
+		<% else %>
+			<li><%= link_to("Edit #{@coin.name}", '/login', remote: true, class: "action-link", accesskey: 'E') %></li>
+		<% end %>
 	</ul>
 </div>

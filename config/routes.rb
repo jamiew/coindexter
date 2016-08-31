@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+  devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations', confirmations: 'confirmations', sessions: 'users/sessions' }, sign_up: 'signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'users#index'
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 
   match 'finish/:id/', to: 'users#finish', :as => :finish, via: "get"
 
-  devise_scope :user do get "/signup" => "devise/registrations#new" end
-
+  devise_scope :user do
+    get 'signup', to: 'devise/sessions#new'
+  end
 end

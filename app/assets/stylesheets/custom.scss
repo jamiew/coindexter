@@ -373,36 +373,35 @@ ul#info-menu {
 				span {
 					color: $text-light;
 				}
-				/* text-transform:downcase; */
-				.oauth-signin {
-					padding: 8px 16px 9px 44px;
-					border-radius: 4px;
-					background-repeat: no-repeat;
-					background-position: left 8px top 6px;
-					background-size: 26px 26px;
-					color:white;
-					margin-top: -12px;
-				}
-				.twitter {
-					border: 2px solid $twitter;
-					background-color: $twitter;
-					background-image: image-url("twitter.png");
-				}
-				.facebook {
-					border: 2px solid $facebook;
-					background-color: $facebook;
-					background-image: image-url("facebook.png");
-				}
-				.google {
-					border: 2px solid $google;
-					background-color: $google;
-					background-image: image-url("google.png");
-				}
-				.coindexter-signin {
-					border: 2px solid $primary-orange;
-					background-color: $primary-orange;
-					background-image: image-url("logo-button-white.png");
-				}
+			}
+			.oauth-signin {
+				padding: 8px 16px 9px 44px;
+				border-radius: 4px;
+				background-repeat: no-repeat;
+				background-position: left 8px top 6px;
+				background-size: 26px 26px;
+				color:white;
+				margin-top: -12px;
+			}
+			.twitter {
+				border: 2px solid $twitter;
+				background-color: $twitter;
+				background-image: image-url("twitter.png");
+			}
+			.facebook {
+				border: 2px solid $facebook;
+				background-color: $facebook;
+				background-image: image-url("facebook.png");
+			}
+			.google {
+				border: 2px solid $google;
+				background-color: $google;
+				background-image: image-url("google.png");
+			}
+			.coindexter-signin {
+				border: 2px solid $primary-orange;
+				background-color: $primary-orange;
+				background-image: image-url("logo-button-white.png");
 			}
 			.sign-in-alternative {
 				margin-bottom:-27px;
@@ -482,11 +481,6 @@ ul#info-menu {
 			}
 			.select-label {
 				margin-top: 10px;
-			}
-			img#coin-logo, img#network-logo, img#user-avatar {
-				border: 1px solid $border-orange;
-				background-color: #fff;
-				padding: 4px;
 			}
 			div.live-icon {
 				margin-top:7px;
@@ -788,7 +782,11 @@ ul#info-menu {
 	display: none;
 }
 
-.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results, .about {
+.info-header {
+	margin-left:38px;
+}
+
+.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results, .about, .info-header {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;
@@ -798,6 +796,11 @@ ul#info-menu {
 	}
 	h1.list-name {
 		margin-bottom: 1em;
+	}
+	img {
+		border: 1px solid $border-orange;
+		background-color: #fff;
+		padding: 4px;
 	}
 }
 

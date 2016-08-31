@@ -6,7 +6,7 @@
 			<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
 		<% end %>
 		<h6><%= coin.name.downcase[0..15] %></h6>
-		<p class="market-cap">$<%= number_to_human(coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless coin.market_cap.nil? %></p>
-		<p>1d <span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= coin.one_day_price_change %>%</span></p>
+		<p class="market-cap"><%= '$' + number_to_human(coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless coin.market_cap.nil? %></p>
+		<p><span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= '1d ' + coin.one_day_price_change.to_s + '%' unless coin.one_day_price_change.nil? %></span></p>
 	</div>
 <% end %>

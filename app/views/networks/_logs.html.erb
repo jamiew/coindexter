@@ -1,7 +1,4 @@
 <ul>
-	<li class="network-header network-info-block block">
-		<%= render(partial: 'networks/network_main_info_header', locals: {network: @network}) %>
-	</li>
 	<% if @logs.any? %>
 		<%= render(partial: 'log', collection: @logs, as: :log) %>
 	<% else %>

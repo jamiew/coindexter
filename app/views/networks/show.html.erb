@@ -3,10 +3,20 @@
 		<%= render(partial: 'info_menu', object: @network) %>
 	</div>
 	<div class="col-md-6 main">
-		<%= render 'show_network' %>
+		<div class="info-header">
+			<%= render(partial: 'networks/network_main_info_header') %>
+		</div>
+		<div class="content">
+			<%= render 'show_network' %>
+		</div>
 	</div>
 	<ul class="action-links">
-		<li><%= link_to("Add new network", new_network_path, remote: true, class: "action-link", accesskey: 'A') %></li>
-		<li><%= link_to("Edit #{@network.name}", edit_network_path, remote: true, class: "action-link", accesskey: 'E') %></li>
+		<% if current_user %>
+			<li><%= link_to("Add new network", new_network_path, remote: true, class: "action-link", accesskey: 'A') %></li>
+			<li><%= link_to("Edit #{@network.name}", edit_network_path, remote: true, class: "action-link", accesskey: 'E') %></li>
+		<% else %>
+			<li><%= link_to("Add new network", '/login', remote: true, class: "action-link", accesskey: 'A') %></li>
+			<li><%= link_to("Edit #{@network.name}", '/login', remote: true, class: "action-link", accesskey: 'E') %></li>
+		<% end %>
 	</ul>
 </div>

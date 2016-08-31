@@ -47,24 +47,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
+    # UserMailer.confirmation_instructions(@user).deliver
     get_all_logs(@user.id)
       respond_to do |format|
         format.html
         format.js
         format.json
-    end
-  end
-
-  def confirm_email
-    user = User.find_by_confirm_token(params[:id])
-    if user
-      user.email_activate
-      flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
-      Please sign in to continue."
-      redirect_to signin_url
-    else
-      flash[:error] = "Sorry. User does not exist"
-      redirect_to root_url
     end
   end
 
@@ -79,8 +67,6 @@ class UsersController < ApplicationController
       links = []
       logs = []
       
-      puts "user id is #{user_id}"
-
       if user_id.nil?
         link_query = Link.all.limit(20)
       else
@@ -102,7 +88,6 @@ class UsersController < ApplicationController
         else
           net_logs = network_logs.get_logs(network, user_id, "network_log", 5)
         end
-
         net_logs.each do |log|
           logs << log
         end
@@ -115,7 +100,6 @@ class UsersController < ApplicationController
         else
           c_logs = coin_logs.get_logs(coin, user_id, "coin_log", 5)
         end
-        puts "user coin logs are #{coin_logs.inspect}"
         c_logs.each do |log|
           logs << log
         end

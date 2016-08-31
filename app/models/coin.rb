@@ -5,7 +5,7 @@ class Coin < ApplicationRecord
   extend FriendlyId
   include PgSearch
   multisearchable :against => [:name]
-  pg_search_scope :search, :against => :name, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.1 } }
+  pg_search_scope :search, :against => :name, :using => { :tsearch => { :prefix => true } }
 
   validates_uniqueness_of :name
 

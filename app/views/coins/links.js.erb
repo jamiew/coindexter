@@ -1,4 +1,4 @@
-$('.main').html("<%= j (render 'links') %>");
+$('.content').html("<%= j (render 'links') %>");
 $('#info-menu > li').removeClass("active-item");
 $('#links').addClass("active-item");
 $('.action-links').html('<li><%= link_to "Add new link", new_link_url(coin: @coin, obj_type: "coin"), remote: true, class: "action-link", accesskey: "A" %></li>');

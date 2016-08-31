@@ -26,6 +26,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.action_mailer.perform_deliveries = true
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -56,8 +58,8 @@ Rails.application.configure do
   
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-          api_key: 'key-84e04576e169545ef111d461049b3385',
-          domain: 'mail.coindexter.io'
+    api_key: 'key-84e04576e169545ef111d461049b3385',
+    domain: 'mail.coindexter.io'
   }
 
 end
