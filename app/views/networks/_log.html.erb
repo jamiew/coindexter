@@ -13,7 +13,7 @@
 			<% if defined?(current_user) %>
 				<%= link_to log.user, class: "who-posted" do %>
     				<%= image_tag(log.user.avatar, size: '16x16', class: 'avatar') if defined?(log.user.avatar) %>
-    				<% if !log.user.username.nil? %>
+    				<% if defined?(log.user.username) %>
     					<%= current_user == log.user ? "Me" : log.user.username %>
     				<% end %>
     			<% end %>
