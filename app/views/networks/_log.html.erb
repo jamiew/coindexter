@@ -12,8 +12,8 @@
 			<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
 			<% if !current_user.nil? %>
 				<%= link_to log.user, class: "who-posted" do %>
-    				<%= image_tag(log.user.avatar, size: '16x16', class: 'avatar') %>
-    				<%= current_user == log.user ? "Me" : log.user.username %>
+    				<%= image_tag(log.user.avatar, size: '16x16', class: 'avatar') if defined?(log.user.avatar) %>
+    				<%= current_user == log.user ? "Me" : log.user.username if defined?(log.user.username) %>
     			<% end %>
     		<% elsif defined?(log.user) && !log.user.nil? && %>
     			<%= link_to log.user, class: "who-posted" do %>
