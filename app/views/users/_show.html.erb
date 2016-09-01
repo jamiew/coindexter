@@ -9,7 +9,6 @@
 			<% elsif log.feed_type == "coin_log" %>
 				<%= render(partial: 'coins/log', locals: {log: log}) %>	
 			<% elsif log.feed_type == "link" %>
-				<% puts "Miami #{log.inspect}" %>
 				<%= render(partial: 'links/show_all_links', locals: {link: log.data, coins: log.coins, networks: log.networks, user: log.user}) %>
 			<% end %>
 		<% end %>

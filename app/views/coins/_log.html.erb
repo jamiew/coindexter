@@ -26,52 +26,54 @@
 		</div>
 		<div class="col-md-8">
 			<ul class="log-list"> 
-				<% case log.data[:change_attr] %>
-					<% when "Repositories", "Exchanges" %>
-							<%= log.data[:change_attr].capitalize %>
-							<% if log.data[:change_type] == "added" %>
-								<li>added: 
-									<% puts "log is #{log.data[:change].second}" %>
-									<%= link_to log.data[:change].second.first["name"], log.data[:change].second.first["url"] %>
-								</li>
-							<% elsif log.data[:change_type] == "edited" %>
-								<li>changed from 
-									<% log.data[:change].first.each_with_index do |change, i| %>
-										<%= link_to change["name"], change["url"] %><</li>
+				<% log.changes.each do |change| %>
+					<li>
+						<% case change[:change_attr] %>
+							<% when "Repositories", "Exchanges" %>
+									<%= change[:change_attr].capitalize %>
+									<% if change[:change_type] == "added" %>
+										added: 
+											<% puts "log is #{change[:change].second}" %>
+											<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
+									<% elsif change[:change_type] == "edited" %>
+										changed from 
+											<% change[:change].first.each_with_index do |change, i| %>
+												<%= link_to change["name"], change["url"] %>
+											<% end %>
+										to 
+											<% change[:change].second.each_with_index do |change, i| %>
+												<%= link_to change["name"], change["url"] %>
+											<% end %>
 									<% end %>
-								to 
-									<% log.data[:change].second.each_with_index do |change, i| %>
-										<%= link_to change["name"], change["url"] %>
-									<% end %>
-								</li>
-							<% end %>
-					<% when "Network" %>
-						<%= log.data[:change_attr].capitalize %>
-						<% if log.data[:change_type] == "added" %>
-							added:
-							<%= link_to log.data[:change].second.name, log.data[:change].second unless log.data[:change].nil? %>
-						<% elsif log.data[:change_type] == "edited" %>
-							changed from 
-								<% log.data[:change].first.each_with_index do |change, i| %>
-									<%= link_to change["name"], change unless change.nil? %><%= "," unless i + 1 == log.data[:change].second.length %>
+							<% when "Network", "Description" %>
+								<%= change[:change_attr].capitalize %>
+								<% if change[:change_type] == "added" %>
+									added:
+									<%= link_to change[:change].second.name, change[:change].second unless change[:change].nil? %>
+								<% elsif change[:change_type] == "edited" %>
+									changed from 
+										<% change[:change].first.each_with_index do |change, i| %>
+											<%= link_to change["name"], change unless change.nil? %><%= "," unless i + 1 == change[:change].second.length %>
+										<% end %>
+									to 
+										<% change[:change].second.each_with_index do |change, i| %>
+											<%= link_to change["name"], change unless change.nil? %>
+										<% end %>
 								<% end %>
-							to 
-								<% log.data[:change].second.each_with_index do |change, i| %>
-									<li><<%= link_to change["name"], change unless change.nil? %></li>
+							<% when "Created" %>
+								Created 
+								<%= link_to log.coins.name, log.coins %>
+							<% when "logo" %>
+								New logo
+							<% else %>
+								<%= change[:change_attr].capitalize %>
+								<% if change[:change_type] == "added" %>
+									added: "<%= change[:change].second %>"
+								<% elsif change[:change_type] == "edited" %>
+									changed from "<%= change[:change].first %>" to "<%= change[:change].second %>"
 								<% end %>
 						<% end %>
-					<% when "Created" %>
-						Created 
-						<li><%= link_to log.coins.name, log.coins %></li>
-					<% when "logo" %>
-						New logo
-					<% else %>
-						<%= log.data[:change_attr].capitalize %>
-						<% if log.data[:change_type] == "added" %>
-							added: "<%= log.data[:change].second %>"
-						<% elsif log.data[:change_type] == "edited" %>
-							changed from "<%= log.data[:change].first %>" to "<%= log.data[:change].second %>"
-						<% end %>
+					</li>
 				<% end %>
 			</ul>
 		</div>

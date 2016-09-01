@@ -545,7 +545,8 @@ ul#info-menu {
 				}
 			}
 			ul.log-list > li {
-				display: inline;
+				display: block;
+				margin-bottom:14px;
 			}
 			.bootstrap-switch {
 				margin-top:-2px;
