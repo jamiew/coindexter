@@ -72,6 +72,6 @@ $(document).ready(function() {
 		$(this).parent().parent().prev().find("label").hide();
 		$(this).hide();
 	});
-			
+				
 });
 	

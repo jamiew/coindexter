@@ -17,4 +17,3 @@ $(document).ready(function() {
 			$(this).find("a.header-link-account-glyphicon").hide();
 		});
 });
-	

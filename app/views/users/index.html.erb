@@ -1,3 +1,4 @@
+<%= javascript_include_tag "paginate_logs" %>
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<ul class="action-links">
@@ -5,7 +6,7 @@
 			<li><%= link_to("New network", new_network_path, remote: false, class: "action-link", accesskey: 'N') %></li>
 			<li><%= link_to("New coin", new_coin_path, remote: false, class: "action-link", accesskey: 'C') %></li>
 		</ul>
-		<ul>
+		<ul class="feed">
 			<li class="user-header user-info-block block">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-4">
@@ -13,17 +14,13 @@
 					</div>
 				</div>
 			</li>
-			<% @logs.each do |log| %>
-				<% cache log do %>
-					<% if log.feed_type == "network_log" %>
-						<%= render(partial: 'networks/log', locals: {log: log}) %>
-					<% elsif log.feed_type == "coin_log" %>
-						<%= render(partial: 'coins/log', locals: {log: log}) %>	
-					<% elsif log.feed_type == "link" %>
-						<%= render(partial: 'links/show_all_links', locals: {link: log.data, coins: log.coins, networks: log.networks, user: log.user}) %>
-					<% end %>
-				<% end %>
-			<% end %>
+			<%= render 'logs', locals: {logs: @logs} %>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<p class="loading-more">Loading more...</p>
+				</div>
+			</div>
+			<%= will_paginate @logs %>
 		</ul>
 	</div>
 </div>

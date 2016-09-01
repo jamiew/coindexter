@@ -32,7 +32,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    get_all_logs
+    @logs = get_all_logs.paginate(:page => params[:page], :per_page => 10)
+      respond_to do |format|
+        format.html
+        format.js
+    end
   end
 
   def finish
