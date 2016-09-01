@@ -4,6 +4,14 @@
 
 
 $ ->  
+	$('ul#info-menu > li').click ->
+		selector = 'ul#' + $(this).attr 'id'
+		$('.show-all').removeClass 'active-item'
+		$('ul.full-category-cnt').hide()
+		$(selector).show()
+	$('#show-all').click ->
+		$('ul.full-category-cnt').show()
+
 	$whitepaperCount = 0
 	$("#add-another-whitepaper").on "click", ->
 		$parent_id = $(this).parent().attr 'id'
