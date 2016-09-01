@@ -122,7 +122,6 @@ class NetworkService < LogService
 
 	def set_changes(dataset) 
 		self.changes = dataset
-		puts "the dataset is #{self.changes}"
 		return self
 	end
 
