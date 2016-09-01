@@ -17,7 +17,7 @@
 		<% if current_user %>
 			<li><%= link_to("Edit #{@coin.name}", edit_coin_path, remote: true, class: "action-link", accesskey: 'E') %></li>
 		<% else %>
-			<li><%= link_to("Edit #{@coin.name}", '/login', remote: true, class: "action-link", accesskey: 'E') %></li>
+			<li><%= link_to("Edit #{@coin.name}", '/signin', remote: true, class: "action-link", accesskey: 'E') %></li>
 		<% end %>
 	</ul>
 </div>
