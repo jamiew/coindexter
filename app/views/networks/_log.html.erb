@@ -55,12 +55,12 @@
 									<% end %>
 								<% elsif change[:change_type] == "edited" %>
 									changed from 
-										<% change[:change].first.each_with_index do |change, i| %>
-											<%= " and " if i + 1 == change[:change].first.length %><%= change %><%= ",	" unless i + 1 == change[:change].first.length || i + 2 == change[:change].first.length  %>
+										<% change[:change].first.each_with_index do |c, i| %>
+											<%= " and " if i + 1 == change[:change].first.length && change[:change].first.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].first.length || i + 2 == change[:change].first.length  %>
 										<% end %>
 									to 
-										<% change[:change].second.each_with_index do |change, i| %>
-											<%= " and " if i + 1 == change[:change].second.length %><%= change %><%= ",	" unless i + 1 == change[:change].second.length || i + 2 == change[:change].second.length %>
+										<% change[:change].second.each_with_index do |c, i| %>
+											<%= " and " if i + 1 == change[:change].second.length && change[:change].second.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].second.length || i + 2 == change[:change].second.length || change[:change].first.length == 1 %>
 										<% end %>
 								<% end %>
 							<% when "Created" %>
