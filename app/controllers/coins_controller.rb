@@ -4,7 +4,7 @@ class CoinsController < ApplicationController
 
 	def index
 		page_title = "Coins"
-		@categories = Category.all
+		@categories = Category.all.order("name DESC")
 	end
 
 	def links
@@ -18,13 +18,10 @@ class CoinsController < ApplicationController
 	end
 
 	def logs
-		@logs = []
         coin_logs = NetworkService.new
         @coin = Coin.friendly.find(params[:id]) 
-        coin_logs = coin_logs.get_logs(@coin, "coin_log").reverse
-        coin_logs.each do |log|
-        	@logs << log
-        end
+        logs = coin_logs.get_logs(@coin, "coin_log").reverse
+        @logs = logs.paginate(:page => params[:page], :per_page => 10)
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -35,18 +32,10 @@ class CoinsController < ApplicationController
 	def show
 		@coin = Coin.friendly.find(params[:id])
 		unless @coin.one_day_price_change.nil?
-			if @coin.one_day_price_change > 0
-				@one_day_up = "up"
-			else
-				@one_day_up = "down"
-			end
+			@one_day_up = up_or_down(@coin.one_day_price_change)
 		end
-		unless @coin.one_hour_price_change.nil? 
-			if @coin.one_hour_price_change > 0
-				@one_hour_up = "up"
-			else
-				@one_hour_up = "down"
-			end
+		unless @coin.one_hour_price_change.nil?
+			@one_day_up = up_or_down(@coin.one_hour_price_change)
 		end
 		respond_to do |format|
 		    format.html
@@ -100,12 +89,14 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
-	    def set_has_application(coin)
-	    	unless @coin.application_url.nil? && @coin.application.name.nil? && application_description.nil?
-				@coin.has_application = true
+		def up_or_down(value)
+			if value > 0
+				return "up"
+			else
+				return "down"
 			end
 		end
 end

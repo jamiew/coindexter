@@ -50,8 +50,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    # UserMailer.confirmation_instructions(@user).deliver
-    get_all_logs(@user.id)
+    @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
       respond_to do |format|
         format.html
         format.js

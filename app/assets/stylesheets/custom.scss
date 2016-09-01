@@ -742,6 +742,9 @@ ul#info-menu {
 			.concept-status {
 				color: $concept-outer;
 			}
+		} 
+		.error_explanation {
+			color: $concept-outer;
 		}
 
 	}
@@ -787,7 +790,7 @@ ul#info-menu {
 	margin-left:38px;
 }
 
-.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results, .about, .info-header {
+.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results, .about, .info-header, form {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;
@@ -825,6 +828,9 @@ form.edit_coin, form.new_coin, .sign-in-up {
 		div[class*='col-'] {
 			h6, h1 {
 				margin-top:36px;
+				a {
+					text-transform:lowercase;
+				}
 			}
 		}
 	}

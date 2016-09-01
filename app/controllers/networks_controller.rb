@@ -4,7 +4,7 @@ class NetworksController < ApplicationController
 
 	def index
 		@networks = Network.all
-		@categories = Category.all
+		@categories = Category.all.order("name ASC")
 		page_title = "networks"
 		respond_to do |format|
 		    format.html
@@ -30,7 +30,8 @@ class NetworksController < ApplicationController
 	def logs
         network_logs = NetworkService.new
         @network = Network.friendly.find(params[:id]) 
-        @logs = network_logs.get_logs(@network, "network_log").reverse
+        logs = network_logs.get_logs(@network, "network_log").reverse
+        @logs = logs.paginate(:page => params[:page], :per_page => 10)
 		respond_to do |format|
 		    format.html
 		    format.js

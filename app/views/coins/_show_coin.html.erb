@@ -19,13 +19,12 @@
 					<h6>Exchange</h6>
 				</div>
 				<div class="col-md-8 data">
-					<% if @coin.exchanges.nil? || @coin.exchanges == "" || @coin.exchanges.first.name == "" %>
+					<% if @coin.exchanges.nil? || @coin.exchanges == "" %>
 						<%= link_to "Add an exchange", edit_coin_url, class: "add-missing-field" %>
 					<% else %>
+						<ul>
 						<% @coin.exchanges.each_with_index do |exchange, i| %>
-							<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
-								<%= link_to exchange.name, exchange.url %>
-							</div>
+							<li><%= link_to exchange.name, exchange.url %></li>
 						<% end %>
 					<% end %>
 				</div>
@@ -52,6 +51,18 @@
 					<%= link_to @coin.network.name, @coin.network %>
 				<% else %>
 					<%= link_to "Add a network to #{@coin.name}", edit_coin_url, class: "add-missing-field" %>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Symbol</h6>
+			</div>
+			<div class="col-md-8 symbol">
+				<% unless @coin.symbol.nil? %>
+					<%= @coin.symbol %>
+				<% else %>
+					<%= link_to "Add a symbol to #{@coin.name}", edit_coin_url, class: "add-missing-field" %>
 				<% end %>
 			</div>
 		</div>

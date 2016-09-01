@@ -4,7 +4,7 @@
 			<li class="category-coin-block block">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2">
-						<div class="row coins-in-categories" > 
+						<div class="row coins-in-categories <%= category.name %>" > 
 							<h1 class="list-name"><%= category.name %></h1>
 							<% category.coins.each_with_index do |coin, i| %>		
 								<%= render 'coin_widget', :coin => coin, :i => i %>
