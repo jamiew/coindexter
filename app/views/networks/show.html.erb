@@ -12,11 +12,9 @@
 	</div>
 	<ul class="action-links">
 		<% if current_user %>
-			<li><%= link_to("Add new network", new_network_path, remote: true, class: "action-link", accesskey: 'A') %></li>
-			<li><%= link_to("Edit #{@network.name}", edit_network_path, remote: true, class: "action-link", accesskey: 'E') %></li>
+			<li><%= link_to("Edit #{@network.name}", edit_network_path, class: "action-link", accesskey: 'E') %></li>
 		<% else %>
-			<li><%= link_to("Add new network", '/signin', remote: true, class: "action-link", accesskey: 'A') %></li>
-			<li><%= link_to("Edit #{@network.name}", '/signin', remote: true, class: "action-link", accesskey: 'E') %></li>
+			<li><%= link_to("Edit #{@network.name}", '/signin', class: "action-link", accesskey: 'E') %></li>
 		<% end %>
 	</ul>
 </div>
