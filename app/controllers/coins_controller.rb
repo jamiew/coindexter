@@ -4,7 +4,7 @@ class CoinsController < ApplicationController
 
 	def index
 		page_title = "Coins"
-		coins = Coin.all
+		coins = Coin.all.order("market_cap DESC")
 		@coins_live = coins.reject {|c| c.coin_status != "live"}
 		@coins_preproduction = coins.reject {|c| c.coin_status != "preproduction"}
 		@coins_concept = coins.reject {|c| c.coin_status != "concept"}
