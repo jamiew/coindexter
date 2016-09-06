@@ -34,7 +34,7 @@
 			<%= f.label "Status", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.select(:status, options_for_select(["Concept","Pre-production","Live"], selected: @network.status), {}, {include_blank: true, class: 'form-input'}) %>
+			<%= f.select :status, Network.network_status_options.keys.to_a %>
 		</div>
 	</div>
 	<div class="row">

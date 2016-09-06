@@ -17,6 +17,8 @@ class Network < ApplicationRecord
 
 	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :category_id]
 
+	enum network_status_options: [:concept, :preproduction, :live, :dead]
+
 	def whitepapers
 	    read_attribute(:whitepapers).map {|v| Whitepaper.new(v) }
 	end
