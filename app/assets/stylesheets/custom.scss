@@ -46,7 +46,6 @@ body {
 p.notice, p.alert {
 	text-align:center;
 	display: block;
-	margin: -30px auto 3em auto;
 	padding: 1em 2em;
 	display:none;
 	color: white;
@@ -676,6 +675,7 @@ ul#info-menu {
 			margin-bottom:1em;
 			.coin-in-categories, .network-in-categories {
 				margin-bottom:2em;
+				min-height: 177px;
 				background-color: rgba(255,255,255,0.8);
 				border: 1px solid $border-orange;
 				padding: 1em 0;
@@ -724,13 +724,17 @@ ul#info-menu {
 				box-shadow: inset 0 0 0 3px $primary-green;
 			}
 
-			div.pre-production-icon {
+			div.preproduction-icon {
 				background-color:$pre-production-inner;
 				box-shadow: inset 0 0 0 3px $pre-production-outer;
 			}
+			div.dead-icon {
+				background-color:#787878;
+				box-shadow: inset 0 0 0 3px #555;
+			}
 
 			div.concept-icon {
-				background-color:$concept-inner;
+				background-color:$text;
 				box-shadow: inset 0 0 0 3px $concept-outer;
 			}
 			.live-status {
@@ -790,7 +794,7 @@ ul#info-menu {
 	margin-left:38px;
 }
 
-.network-header, .coin-header, .coins-in-categories, .user-header, .networks-in-categories, .results, .about, .info-header, form {
+.network-header, .coin-header, .coins-in-statuses, .user-header, .networks-in-categories, .results, .about, .info-header, form {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;

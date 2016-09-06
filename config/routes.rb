@@ -39,6 +39,8 @@ Rails.application.routes.draw do
 
   match 'finish/:id/', to: 'users#finish', :as => :finish, via: "get"
 
+  match ':id/', to: 'users#show', via: "get"
+
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
     get 'signin', to: 'devise/sessions#new'

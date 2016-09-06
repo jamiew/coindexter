@@ -5,7 +5,7 @@ class Coin < ApplicationRecord
   extend FriendlyId
   include PgSearch
   multisearchable :against => [:name]
-  pg_search_scope :search, :against => :name, :using => { :tsearch => { :prefix => true } }
+  pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
 
   validates_uniqueness_of :name
 
@@ -15,6 +15,8 @@ class Coin < ApplicationRecord
   has_many :comments, through: :links
 
   has_paper_trail :class_name => 'Version', :ignore => [:price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug, :updated_at, :category_id]
+
+  enum coin_status_options: [:concept, :preproduction, :live, :dead]
 
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?
@@ -26,7 +28,10 @@ class Coin < ApplicationRecord
 
   def update_prices
     response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + name.delete(" ").downcase)
-    unless response[0].nil?
+    if response[0].nil?
+      puts name
+      update_attributes(:coin_status => 'concept')
+    else
       price = response[0]["price_usd"]
       one_hour_price_change = response[0]["percent_change_1h"]
       one_day_price_change = response[0]["percent_change_24h"]

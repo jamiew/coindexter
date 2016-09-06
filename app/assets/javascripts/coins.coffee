@@ -6,10 +6,10 @@ $ ->
 	$('ul#info-menu > li').click ->
 		selector = 'ul#' + $(this).attr 'id'
 		$('.show-all').removeClass 'active-item'
-		$('ul.full-category-cnt').hide()
+		$('ul.status-group').hide()
 		$(selector).show()
 	$('#show-all').click ->
-		$('ul.full-category-cnt').show()
+		$('ul.status-group').show()
 
 		###
 		if $(".coin-main-info").length > 0
@@ -33,6 +33,10 @@ $ ->
 
 	$prev_scroll_top = 0
 
+	$('.network-option').each ->
+		url = $(this).data 'icon'
+		$(this).css 'background-image', "url('http://coindexter.io" + url + "')"
+
 	$(window).on "scroll", ->
 		$scroll_height = $('body').prop 'scrollHeight'
 		$scroll_top = $('body').scrollTop()
@@ -49,6 +53,7 @@ $ ->
 			$('.action-links').css 'bottom', $curr_bottom
 		else 
 			$('.action-links').css 'bottom', 30
+
 
 
 

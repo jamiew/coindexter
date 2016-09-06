@@ -5,6 +5,7 @@
 				<h6>status</h6>
 			</div>
 			<div class="col-md-8 data <%= 'status' unless @coin.coin_status.nil? || @coin.coin_status == '' %>">
+				<% puts "pouncey #{@coin.coin_status}" %>
 				<% if @coin.coin_status.nil? || @coin.coin_status == "" %>
 					<%= link_to "Add its status", edit_coin_url, class: "add-missing-field" %>
 				<% else %>

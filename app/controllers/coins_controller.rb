@@ -4,7 +4,11 @@ class CoinsController < ApplicationController
 
 	def index
 		page_title = "Coins"
-		@categories = Category.all.order("name DESC")
+		coins = Coin.all
+		@coins_live = coins.reject {|c| c.coin_status != "live"}
+		@coins_preproduction = coins.reject {|c| c.coin_status != "preproduction"}
+		@coins_concept = coins.reject {|c| c.coin_status != "concept"}
+		@coins_dead = coins.reject {|c| c.coin_status != "dead"}
 	end
 
 	def links

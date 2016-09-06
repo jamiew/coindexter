@@ -3,6 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ -> 
-	$('#info-menu > li').on 'click', ->
-		$('#info-menu > li').removeClass 'active-item'
-		$(this).addClass 'active-item'
+	$('ul#info-menu > li').click ->
+		selector = 'ul#' + $(this).attr 'id'
+		$('.show-all').removeClass 'active-item'
+		$('ul.networks-in-categories').hide()
+		$(selector).show()
+	$('#show-all').click ->
+		$('ul.networks-in-categories').show()

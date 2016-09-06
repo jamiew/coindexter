@@ -21,3 +21,18 @@ $(window).on "scroll", ->
 		$('.action-links').css 'bottom', $curr_bottom
 	else 
 		$('.action-links').css 'bottom', 30
+
+$ -> 
+	$('a.reply-to-comment').on 'click', ->
+		$(this).hide()
+		$(this).parent().children("form").toggle()
+	$('a.cancel-form').on 'click', ->
+		$(this).parent().toggle()	
+
+	$('.network-option').each ->
+		url = $(this).data 'icon'
+		$(this).css 'background-image', "url('http://coindexter.io" + url + "')"
+
+	$('.coin-option').each ->
+		url = $(this).data 'icon'
+		$(this).css 'background-image', "url('http://coindexter.io" + url + "')"

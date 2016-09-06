@@ -1,0 +1,16 @@
+<% unless status_group.empty? %>
+	<ul id="<%= status.downcase %>" class="status-group">
+		<li class="status-coin-block block">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-2">
+					<div class="row coins-in-statuses <%= status.first %>" > 
+						<h1 class="list-name"><%= status %></h1>
+						<% status_group.each_with_index do |coin, i| %>		
+							<%= render 'coin_widget', :coin => coin, :i => i %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+<% end %>

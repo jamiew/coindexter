@@ -16,9 +16,9 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new comment_params
       @comment.user = current_user
       if @comment.save
-        redirect_to :back, notice: 'Your comment was successfully posted!'
+        redirect_to :back
       else
-        redirect_to :back, notice: "Your comment wasn't posted!"
+        redirect_to :back, notice: "There was an error posting your comment"
       end
     end
 

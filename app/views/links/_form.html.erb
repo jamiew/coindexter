@@ -43,7 +43,7 @@
 			<%= f.label "Networks", class: "form-input" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.collection_select :network_ids, Network.all.map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, @network.nil? ? {} : {selected: @network.id}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
+			<%= f.collection_select :network_ids, Network.all.order("name ASC").map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, @network.nil? ? {} : {selected: @network.id}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
 		</div>
 	</div>
 	<div class="row">
