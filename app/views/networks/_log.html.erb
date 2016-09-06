@@ -63,6 +63,23 @@
 											<%= " and " if i + 1 == change[:change].second.length && change[:change].second.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].second.length || i + 2 == change[:change].second.length || change[:change].first.length == 1 %>
 										<% end %>
 								<% end %>
+							<% when "status" %>
+								<%= change[:change_attr].capitalize %>
+								<% if change[:change_type] == "added" %>
+									added: 
+									<% change[:change].second.each_with_index do |c, i| %>
+										<%= c.first %>
+									<% end %>
+								<% elsif change[:change_type] == "edited" %>
+									changed from 
+										<% change[:change].first.each_with_index do |c, i| %>
+											<%= c.first %>
+										<% end %>
+									to 
+										<% change[:change].second.each_with_index do |c, i| %>
+											<%= c.first %>
+										<% end %>
+								<% end %>
 							<% when "Created" %>
 								Created 
 									<%= link_to log.networks.name, log.networks %>

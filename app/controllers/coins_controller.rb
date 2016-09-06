@@ -39,7 +39,7 @@ class CoinsController < ApplicationController
 			@one_day_up = up_or_down(@coin.one_day_price_change)
 		end
 		unless @coin.one_hour_price_change.nil?
-			@one_day_up = up_or_down(@coin.one_hour_price_change)
+			@one_hour_up = up_or_down(@coin.one_hour_price_change)
 		end
 		respond_to do |format|
 		    format.html

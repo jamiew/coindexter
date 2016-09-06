@@ -100,7 +100,7 @@ class NetworkService < LogService
 			        change_attr = key
 			      end
 			      if type.nil?
-			        if value.first == "" || value.first.	nil?
+			        if value.first == "" || value.first.nil?
 			          type = "added"
 			        else
 			          type = "edited"
