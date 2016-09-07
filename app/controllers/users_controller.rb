@@ -83,11 +83,18 @@ class UsersController < ApplicationController
         links << log
       end
 
+      network_logs = NetworkService.new
+      net_logs = network_logs.get_all_the_logs
+      net_logs.each do |log|
+        logs << log
+      end
+
+=begin
       Network.all.each do |network| 
         network_logs = NetworkService.new
-        if user_id.nil?  
+        unless user_id.nil?  
           net_logs = network_logs.get_logs(network, "network_log", 5)
-        else
+        end
           net_logs = network_logs.get_logs(network, user_id, "network_log", 5)
         end
         net_logs.each do |log|
@@ -106,6 +113,7 @@ class UsersController < ApplicationController
           logs << log
         end
       end
+=end 
 
       logs += links
       @logs = logs.sort_by{|log| log.created_at}.reverse

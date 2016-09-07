@@ -32,11 +32,34 @@ class NetworkService < LogService
 	
 	end
 
-	def set_coins_and_networks(object)
-		if feed_type == "coin_log"
-			self.coins = object
+	def get_all_the_logs
+		versions = PaperTrail::Version.all.limit(5).order("created_at DESC")
+		
+		log_set = []
+
+		versions.each do |version|
+			unless version.changeset == {}
+		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
+		      	convert_changeset(version)
+		      	self.user = User.find(version.whodunnit)
+				set_coins_and_networks(version.item_type, version.item_id)
+				log_set << self.dup
+			end
+	    end
+
+		return log_set
+	
+	end
+
+	def set_coins_and_networks(item_type, item_id)
+		if item_type == "Network"
+			network = Network.find(item_id)
+			self.feed_type = "network_log"
+			self.networks = network
 		else 
-			self.networks = object
+			coins = Coin.find(item_id)
+			self.feed_type = "coin_log"
+			self.coins = coins
 		end
 		return self
 	end

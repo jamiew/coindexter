@@ -794,7 +794,7 @@ ul#info-menu {
 	margin-left:38px;
 }
 
-.network-header, .coin-header, .coins-in-statuses, .user-header, .networks-in-categories, .results, .about, .info-header, form {
+.network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .results, .about, .info-header, form {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;
@@ -809,6 +809,16 @@ ul#info-menu {
 		border: 1px solid $border-orange;
 		background-color: #fff;
 		padding: 4px;
+	}
+	.row {
+		.intro-block {
+			margin-bottom: 2em;
+			padding: 2em;
+			border-bottom: 1px solid $border-orange;
+			p {
+				margin-bottom:1em !important;
+			}
+		}
 	}
 }
 

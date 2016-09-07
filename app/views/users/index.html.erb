@@ -7,10 +7,12 @@
 			<li><%= link_to("New coin", new_coin_path, remote: false, class: "action-link", accesskey: 'C') %></li>
 		</ul>
 		<ul class="feed">
-			<li class="user-header user-info-block block">
+			<li class="intro-header user-info-block block">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-4">
-						<h1>News &amp; updates</h1>
+					<div class="col-md-12 intro-block">
+						<h1>Welcome to the Coindexter beta</h1>
+						<p>Coindexter is a way to track blockchain networks and app coins. You can edit the records for each network or coin, like a wiki, and share links.</p> 
+						<p>Here's some recent activity on Coindexter.</p>
 					</div>
 				</div>
 			</li>
@@ -20,7 +22,7 @@
 					<p class="loading-more">Loading more...</p>
 				</div>
 			</div>
-			<%= will_paginate @logs %>
+			<%#= will_paginate @logs %>
 		</ul>
 	</div>
 </div>
