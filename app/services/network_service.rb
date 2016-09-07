@@ -41,7 +41,9 @@ class NetworkService < LogService
 			unless version.changeset == {}
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
 		      	convert_changeset(version)
-		      	self.user = User.find(version.whodunnit)
+		      	unless version.whodunnit.nil?
+		      		self.user = User.find(version.whodunnit)
+		      	end
 				set_coins_and_networks(version.item_type, version.item_id)
 				log_set << self.dup
 			end
