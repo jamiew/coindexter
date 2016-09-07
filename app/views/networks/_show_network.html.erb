@@ -111,7 +111,7 @@
 				<% else %>
 					<ul>
 						<% @network.whitepapers.each do |whitepaper| %>
-							<li><%= link_to whitepaper.title, whitepaper.url %></li>
+							<li><%= link_to whitepaper.file.filename, whitepaper.url %></li>
 						<% end %>
 					</ul>
 				<% end %>

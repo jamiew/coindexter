@@ -34,7 +34,7 @@ gem 'bootstrap-sass', '3.3.6'
 gem 'bootstrap-switch-rails', '~> 3.0.0'
 
 # Image uploads
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831145758) do
+ActiveRecord::Schema.define(version: 20160907202648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 20160831145758) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "coin_id"
-    t.jsonb    "whitepapers", default: {}, null: false
+    t.json     "whitepapers", default: {}, null: false
     t.index ["category_id"], name: "index_networks_on_category_id", using: :btree
     t.index ["coin_id"], name: "index_networks_on_coin_id", using: :btree
     t.index ["slug"], name: "index_networks_on_slug", unique: true, using: :btree

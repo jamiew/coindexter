@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: a94b68cf848d6bd6ea5fbc2ce7d772456e4a5914
+  specs:
+    carrierwave (0.11.0)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,12 +60,6 @@ GEM
     buftok (0.2.0)
     builder (3.2.2)
     byebug (9.0.5)
-    carrierwave (0.11.2)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
-      mimemagic (>= 0.3.0)
     chronic (0.10.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
@@ -265,7 +268,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     method_source (0.8.2)
     mime-types (2.99.2)
-    mimemagic (0.3.2)
     mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
@@ -434,7 +436,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.6)
   bootstrap-switch-rails (~> 3.0.0)
   byebug
-  carrierwave
+  carrierwave!
   coffee-rails (~> 4.2)
   devise
   dotenv-rails

@@ -51,7 +51,7 @@
 			<h6 class="label-helper">Select one or more</h6>
 		</div>
 		<div class="col-md-8">
-			<%= f.select :coin_ids, options_for_select(Coin.all.order("market_cap DESC").map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}, selected: @network.coins.ids), {}, {multiple: true, size: 8.5, id: "coin-option"} %>
+			<%= f.select :coin_ids, options_for_select(Coin.all.order("name ASC").map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}, selected: @network.coins.ids), {}, {multiple: true, size: 8.5, id: "coin-option"} %>
 			<%= link_to "Don't see the coin? Add it", new_coin_url, class:"add-another", target: "_blank" %>
 		</div>
 	</div>	
@@ -89,6 +89,21 @@
 			<a class="add-another" id="add-another-founder">Add another founder</a>
 		</div>
 	</div>
+	<div class="row whitepapers">
+		<div class="col-md-4 label">
+			<%= f.label "Whitepaper PDF", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<% unless @network.whitepapers.empty? %>
+				<ul>	
+					<% @network.whitepapers.each do |whitepaper| %>
+						<li><%= link_to whitepaper.file.filename, whitepaper.url %></li>
+					<% end %> 
+				</ul>
+			<% end %>
+			<%= f.file_field :whitepapers, multiple: true %>
+		</div>
+	</div>
 	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Slack", class: "form-label" %>
@@ -105,29 +120,6 @@
 			  <%= f.text_field :forum, class: "form-input" %>
 		</div>
 	</div>
-	<%= f.fields_for :whitepapers do |w| %>
-		<div class="row grouped-row grouped-row-first whitepapers first-in-form-group">
-			<div class="col-md-4 label">
-				<%= w.label "Whitepaper Title", class: "form-label" %>
-			</div>
-			<div class="col-md-8">
-				<%= w.text_field :title %>
-			</div>
-		</div>
-		<div class="row grouped-row grouped-row-last whitepapers2">
-			<div class="col-md-4 label">
-				<%= w.label "Whitepaper URL", class: "form-label" %>
-			</div>
-			<div class="col-md-8" id=<%= "whitepaper-#{w.options[:child_index]}" %>>
-				<%= w.text_field :url %>
-				<%= w.hidden_field :_destroy %>
-		  		<a class="remove-fields">Remove</a>
-				<% if w.options[:child_index] + 1 == @network.whitepapers.count %>
-					<a class="add-another" id="add-another-whitepaper">Add another whitepaper</a>
-				<% end %>
-			</div>
-		</div>
-	<% end %>
 	<ul class="action-links">
 		<li class="submit">
 			<%= f.submit "Submit changes", class: "form-submit" %> 
