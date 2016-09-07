@@ -46,4 +46,6 @@ Rails.application.routes.draw do
     get 'signin', to: 'devise/sessions#new'
   end
 
+
+
 end
