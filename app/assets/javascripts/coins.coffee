@@ -6,6 +6,7 @@ $ ->
 	$('ul#info-menu > li').click ->
 		selector = 'ul#' + $(this).attr 'id'
 		$('.show-all').removeClass 'active-item'
+		alert selector
 		$('ul.status-group').hide()
 		$(selector).show()
 	$('#show-all').click ->
