@@ -88,9 +88,9 @@
 							<% else %>
 								<%= change[:change_attr].capitalize %>
 								<% if change[:change_type] == "added" %>
-									added: "<%= change[:change].second %>"
+									added: "<%= change[:change].second.capitalize %>"
 								<% elsif change[:change_type] == "edited" %>
-									changed from "<%= change[:change].first %>" to "<%= change[:change].second %>"
+									changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
 								<% end %>
 						<% end %>
 					</li>
