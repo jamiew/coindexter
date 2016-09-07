@@ -1,0 +1,33 @@
+<%= form_for(@whitepaper) do |f| %>
+  <% if whitepaper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(whitepaper.errors.count, "error") %> prohibited this whitepaper from being saved:</h2>
+      <ul>
+      <% whitepaper.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label "Network" %>
+    </div>
+    <div class="col-md-8">
+      <%= f.select :network_id, options_for_select(Network.all.order("name ASC").map {|n| [n.name, n.id, {'data-icon' => n.logo}, {class: 'network-option'}]}, { selected: @coin.network }.delete_if {|k,v| v.nil?}), {}, {multiple: true, size: 8.5, id: "network-option"} %>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-4">
+        <%= f.label "Title" %>
+      </div>
+      <div class="col-md-8">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+  <ul class="action-links">
+    <li class="submit">
+      <%= f.submit "Submit changes", class: "form-submit" %> 
+    </li>
+  </ul>
+<% end %>

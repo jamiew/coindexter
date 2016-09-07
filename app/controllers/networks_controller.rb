@@ -41,6 +41,7 @@ class NetworksController < ApplicationController
 
 	def show
 		@network = Network.friendly.find(params[:id])
+		@whitepapers = @network.whitepapers.all
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -51,11 +52,13 @@ class NetworksController < ApplicationController
 	def new
 		@use_ajax = false
 		@network = Network.new
+		@network.whitepapers.build
 	end
 
 	def edit
 		@use_ajax = true
 		@network = Network.friendly.find(params[:id])
+		@network.whitepapers.build
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -67,6 +70,8 @@ class NetworksController < ApplicationController
 		@network = Network.new(network_params)
 		@network.user = current_user
 	    if @network.save
+	    	@whitepaper = @network.whitepapers.create!(whitepaper: params[:whitepapers][:whitepaper], title: params[:whitepapers][:title], network_id: @network.id)
+	    	puts "wp is @whitepaper"
 			redirect_to @network
 		else
 	        render 'new'
@@ -76,7 +81,6 @@ class NetworksController < ApplicationController
 	def update
 		@network = Network.friendly.find(params[:id])
 		@network.founders = params[:founders] 
-		puts "network_params are #{network_params.inspect}"
 	  	if @network.update_attributes(network_params)
 	    	redirect_to @network
 		else
@@ -91,7 +95,7 @@ class NetworksController < ApplicationController
 	private
 
 	    def network_params
-	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, whitepapers: [], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
+	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, whitepapers_attributes: [:id, :network_id, :whitepaper_title, :whitepaper], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
 	    end
 
 end

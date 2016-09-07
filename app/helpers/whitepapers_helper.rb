@@ -1,0 +1,2 @@
+module WhitepapersHelper
+end

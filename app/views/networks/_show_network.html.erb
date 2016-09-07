@@ -49,6 +49,21 @@
 				<% end %>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Whitepapers</h6>
+			</div>
+			<div class="col-md-8">
+				<% if @network.whitepapers.any? %>
+					<% @whitepapers.each do |w| %>
+					  <%= link_to w.title, w %>
+					  <%= link_to "Edit whitepaper", edit_whitepaper_path(w) %>
+					<% end %>
+				<% else %>
+					<%= link_to "Add a whitepaper to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+				<% end %>
+			</div>
+		</div>
 	</li>
 </ul>
 <ul>
@@ -99,22 +114,6 @@
 			</div>
 			<div class="col-md-8">
 				<%= link_to @network.name, @network.link %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>whitepaper</h6>
-			</div>
-			<div class="col-md-8">
-				<% if @network.whitepapers.empty? %>
-					<%= link_to "Add a whitepaper to #{@network.name}", edit_network_url, class: "add-missing-field" %>
-				<% else %>
-					<ul>
-						<% @network.whitepapers.each do |whitepaper| %>
-							<li><%= link_to whitepaper.file.filename, whitepaper.url %></li>
-						<% end %>
-					</ul>
-				<% end %>
 			</div>
 		</div>
 	</li>

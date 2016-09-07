@@ -3,10 +3,11 @@ class Network < ApplicationRecord
 	has_many :coins
 	has_and_belongs_to_many :links
 	has_many :comments, through: :links
+	has_many :whitepapers
+	accepts_nested_attributes_for :whitepapers
 	belongs_to :category, optional: true
 	belongs_to :user, optional: true
 	mount_uploader :logo, NetworkLogoUploader
-	mount_uploaders :whitepapers, NetworkWhitepapersUploader
 	extend FriendlyId
 	include PgSearch
 	multisearchable :against => [:name, :description]

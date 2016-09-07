@@ -29,6 +29,24 @@
 			<%= f.text_area :description, rows: 6, class: "form-input" %>
 		</div>
 	</div>
+	<%= f.fields_for :whitepapers do |w| %>
+    	<div class="row grouped-row grouped-row-first">
+    		<div class="col-md-4 label">
+	    		<%= w.label "Title" %>
+	    	</div>
+	    	<div class="col-md-8">
+	    		<%= w.text_field :whitepaper_title, name: "whitepapers[whitepaper_title]" %>
+	    	</div>
+	    </div>
+	   	<div class="row grouped-row">
+	    	<div class="col-md-4 label">
+	    		<%= w.label "PDF" %>
+	    	</div>
+	    	<div class="col-md-8">
+	    		<%= w.file_field :whitepaper, name: "whitepapers[whitepaper][]" %>
+	    	</div>
+	    </div>
+   	<% end %>
 	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Status", class: "form-label select-label" %>
@@ -87,21 +105,6 @@
 				<% end %>
 			<% end %>
 			<a class="add-another" id="add-another-founder">Add another founder</a>
-		</div>
-	</div>
-	<div class="row whitepapers">
-		<div class="col-md-4 label">
-			<%= f.label "Whitepaper PDF", class: "form-label" %>
-		</div>
-		<div class="col-md-8">
-			<% unless @network.whitepapers.empty? %>
-				<ul>	
-					<% @network.whitepapers.each do |whitepaper| %>
-						<li><%= link_to whitepaper.file.filename, whitepaper.url %></li>
-					<% end %> 
-				</ul>
-			<% end %>
-			<%= f.file_field :whitepapers, multiple: true %>
 		</div>
 	</div>
 	<div class="row first-in-form-group">
