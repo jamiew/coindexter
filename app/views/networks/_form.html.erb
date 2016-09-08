@@ -30,20 +30,18 @@
 		</div>
 	</div>
 	<%= f.fields_for :whitepapers do |w| %>
-    	<div class="row grouped-row grouped-row-first">
+    	<div class="row">
     		<div class="col-md-4 label">
 	    		<%= w.label "Title" %>
 	    	</div>
 	    	<div class="col-md-8">
-	    		<%= w.text_field :whitepaper_title, name: "whitepapers[whitepaper_title]" %>
+	    		<%= w.text_field :whitepaper_title %>
 	    	</div>
-	    </div>
-	   	<div class="row grouped-row">
 	    	<div class="col-md-4 label">
 	    		<%= w.label "PDF" %>
 	    	</div>
 	    	<div class="col-md-8">
-	    		<%= w.file_field :whitepaper, name: "whitepapers[whitepaper][]" %>
+	    		<%= w.file_field :whitepaper %>
 	    	</div>
 	    </div>
    	<% end %>

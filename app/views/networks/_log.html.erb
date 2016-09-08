@@ -30,21 +30,9 @@
 					<li>
 						<% case change[:change_attr] %>
 							<% when "whitepapers" %>
+								<% if change[:change_type] == "added" || change[:change_type] == "edited" %>
 								<%= change[:change_attr].capitalize %>
-								<% if change[:change_type] == "added" %>
-									added: 
-									<% change[:change].second.each_with_index do |change, i| %>
-										<%= link_to change["title"], change["url"] %>
-									<% end %>
-								<% elsif change[:change_type] == "edited" %>
-									changed from 
-										<% change[:change].first.each_with_index do |change, i| %>
-											<%= link_to change["title"], change["url"] %>
-										<% end %>
-									to 
-										<% change[:change].second.each_with_index do |change, i| %>
-											<%= link_to change["title"], change["url"] %>
-										<% end %>
+									added
 								<% end %>
 							<% when "founders" %>
 								<%= change[:change_attr].capitalize %>

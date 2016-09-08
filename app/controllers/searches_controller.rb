@@ -5,6 +5,7 @@ class SearchesController < ApplicationController
 		@categories = Category.all
 		@coin_results = Coin.search(params[:query]) 
 		@network_results = Network.search(params[:query]) 
+		@whitepaper_results = Whitepaper.search(params[:query])
 		puts "Network results are #{@network_results.inspect}"
 	end
 

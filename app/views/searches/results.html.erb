@@ -18,10 +18,24 @@
 						<div class="row results">
 							<h1 class="list-name">Networks matching '<%= @query %>'</h1>
 							<% if @network_results.empty? %>
-								<p>No coins found</p>
+								<p>No networks found</p>
 							<% else %>
 								<% @network_results.each_with_index do |result, i| %>
 									<%= render '/networks/network_widget', :network => result, :i => i %>
+								<% end %>
+							<% end %>
+						</div>
+						<div class="row results">
+							<h1 class="list-name">Whitepapers matching '<%= @query %>'</h1>
+							<% if @whitepaper_results.empty? %>
+								<p>No whitepapers found</p>
+							<% else %>
+								<% @whitepaper_results.each_with_index do |wp, i| %>
+									<%= wp.network.name %>
+									<p><%= wp.whitepaper_title %></p>
+									<%= link_to wp do %>
+										<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+									<% end %>
 								<% end %>
 							<% end %>
 						</div>

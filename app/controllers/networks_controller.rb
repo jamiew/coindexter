@@ -37,6 +37,15 @@ class NetworksController < ApplicationController
 		    format.js
 		    format.json
 		end
+	end	
+
+	def whitepapers
+        @whitepapers = Network.friendly.find(params[:id]).whitepapers
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end		
 
 	def show
@@ -70,8 +79,6 @@ class NetworksController < ApplicationController
 		@network = Network.new(network_params)
 		@network.user = current_user
 	    if @network.save
-	    	@whitepaper = @network.whitepapers.create!(whitepaper: params[:whitepapers][:whitepaper], title: params[:whitepapers][:title], network_id: @network.id)
-	    	puts "wp is @whitepaper"
 			redirect_to @network
 		else
 	        render 'new'
@@ -95,7 +102,7 @@ class NetworksController < ApplicationController
 	private
 
 	    def network_params
-	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, whitepapers_attributes: [:id, :network_id, :whitepaper_title, :whitepaper], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
+	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :coin_id, :logo, :founders, :coin, whitepapers_attributes: [:id, :network_id, :whitepaper_title, :whitepaper, :slug], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
 	    end
 
 end

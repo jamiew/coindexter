@@ -33,6 +33,14 @@ class UsersController < ApplicationController
 
   def index
     @logs = get_all_logs.paginate(:page => params[:page], :per_page => 10)
+    @logs.each do |log|
+      puts log.inspect
+      if log.change_type == "edited"
+        puts log.change[:change].first
+      end
+      puts ""
+      puts ""
+    end
       respond_to do |format|
         format.html
         format.js

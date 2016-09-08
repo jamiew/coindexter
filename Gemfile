@@ -77,6 +77,9 @@ gem 'paper_trail'
 gem 'mailgun_rails'
 gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 
+#readpdfs
+gem 'pdf-reader'
+
 group :production do 
   gem 'rails_12factor'
 end

@@ -836,6 +836,17 @@ span.down {
 	margin-bottom:30px;
 }
 
+.whitepaper-thumbnail {
+	background-color:white;
+	text-align:right;
+	border: 1px solid $border-orange;
+	margin-top:8px;
+	margin-bottom:24px;
+	&:hover {
+		border: 1px solid $primary-orange;
+	}
+}
+
 form.edit_coin, form.new_coin, .sign-in-up {
 	padding-left:40px;
 	.row {
