@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
 
   resources :searches
-  resources :networks
+  resources :networks do
+    resources :whitepapers, :coins
+  end
   resources :links do
     resources :comments
   end

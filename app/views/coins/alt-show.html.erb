@@ -1,0 +1,23 @@
+<% content_for :head do %>
+	<script type="text/javascript" src="https://cdn.cryptowat.ch/assets/build/scripts/dist/embed.js"></script>
+<% end %>
+<div class="row">
+	<div class="col-md-2 col-md-offset-1 left-nav">
+		<%= render 'info_menu' %>
+	</div>
+	<div class="col-md-6 main ">
+		<div class="info-header">
+			<%= render 'coin_main_info_header', coin: @coin %>
+		</div>
+		<div class="content">
+			<%= render 'show_coin' %>
+		</div>
+	</div>
+	<ul class="action-links">
+		<% if current_user %>
+			<li><%= link_to("Edit #{@coin.name}", edit_coin_path, class: "action-link", accesskey: 'E') %></li>
+		<% else %>
+			<li><%= link_to("Edit #{@coin.name}", '/signin', class: "action-link", accesskey: 'E') %></li>
+		<% end %>
+	</ul>
+</div>

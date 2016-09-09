@@ -1,5 +1,6 @@
 <ul id="info-menu">
 	<li class="active-item" id="details"><p><%= link_to "Details", @network %><p></li>
+	<li id="coins"><p><%= link_to "Coin", "/networks/#{@network.name.downcase}/coins/" + @network.coins.first.name.downcase, remote: true %></p></li>
 	<li id="whitepapers"><p><%= link_to "Whitepapers", "/networks/#{@network.name.downcase}/whitepapers", remote: true %></p></li>
 	<li id="links"><p><%= link_to "Links", "/networks/#{@network.name.downcase}/links", remote: true %></p></li>
 	<li id="log"><p><%= link_to "Log", "/networks/#{@network.name.downcase}/logs", remote: true %></p></li>
