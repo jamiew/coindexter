@@ -1,4 +1,15 @@
-$('.content').html("<%= j (render 'show') %>");
+$('.content').append("<%= j (render 'show') %>");
 $('#details').removeClass("active-item");
 $('#whitepapers').addClass("active-item");
 $('.action-links').html('<li><%= link_to "Add new whitepaper", new_network_whitepaper_url(network: @network), remote: true, class: "action-link", accesskey: "A" %></li>');
+$(window).click(function() {
+	$('.whitepaper-cnt').hide();
+});
+$(document).keyup(function(e) {
+     if (e.keyCode == 27) { 
+        $('.whitepaper-cnt').hide();
+    }
+});
+$('.whitepaper-cnt').click(function(event){
+    event.stopPropagation();
+});
