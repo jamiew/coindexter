@@ -40,7 +40,7 @@
 					<ul>
 						<% @network.coins.each_with_index do |coin, i| %>
 							<li>
-								<%= link_to coin.name, coin %>
+								<%= link_to coin.name, network_coin_path(@network, coin), remote:true %>
 							</li>
 						<% end %>
 					</ul>

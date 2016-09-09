@@ -1,0 +1,14 @@
+<ul>
+	<li class="network-info-block block">
+		<% @whitepapers.each do |wp| %>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<%= link_to network_whitepaper_path(wp.network, wp), remote:true do %>
+						<p><%= wp.whitepaper_title %></p>
+						<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</li>
+</ul>

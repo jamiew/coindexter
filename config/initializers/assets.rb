@@ -13,3 +13,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( add_another.js )
 Rails.application.config.assets.precompile += %w( paginate_logs.js )
 Rails.application.config.assets.precompile += %w( show_alerts.js )
+Rails.application.config.assets.precompile += %w( pdf.js )

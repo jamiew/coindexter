@@ -1,4 +1,4 @@
 $('.content').html("<%= j (render 'show_coin') %>");
 $('#details').removeClass("active-item");
 $('#coins').addClass("active-item");
-$('.action-links').html('<li><%= link_to "Add new coin", new_coin_url(network: @network, obj_type: "network"), remote: true, class: "action-link", accesskey: "A" %></li>');
+$('.action-links').html('<li><%= link_to "Add new coin", new_network_coin_url(network: @network, obj_type: "network"), remote: true, class: "action-link", accesskey: "A" %></li>');

@@ -1,3 +1,4 @@
+$('.content').html("<%= j (render 'index') %>");
 $('#details').removeClass("active-item");
 $('#whitepapers').addClass("active-item");
-$('.action-links').html('<li><%= link_to "Add new coin", new_coin_url(network: @network, obj_type: "network"), remote: true, class: "action-link", accesskey: "A" %></li>');
+$('.action-links').html('<li><%= link_to "Add new whitepaper", new_network_whitepaper_url(network: @network), remote: true, class: "action-link", accesskey: "A" %></li>');

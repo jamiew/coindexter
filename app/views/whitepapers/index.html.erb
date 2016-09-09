@@ -1,5 +1,14 @@
 <ul>
-	<% @whitepapers.each do |wp| %>
-		<li><%= link_to wp.whitepaper_title, wp %></li>
-	<% end %>
+	<li class="network-info-block block">
+		<% @whitepapers.each do |wp| %>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<%= link_to wp do %>
+						<p><%= wp.whitepaper_title %></p>
+						<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</li>
 </ul>

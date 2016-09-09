@@ -1,5 +1,7 @@
-<ul>
-	<% @whitepapers.each do |wp| %>
-		<li><%= link_to wp.whitepaper_title, wp %></li>
-	<% end %>
-</ul>
+<%= javascript_include_tag "pdf.js" %>
+<script>PDFObject.embed(@whitepaper, ".whitepaper-cnt");</script>
+<div class="row">
+	<div class="whitepaper-cnt">
+		<embed src=<%= @whitepaper.url %> width="500" height="375" type='application/pdf'>
+	</div>
+</div>

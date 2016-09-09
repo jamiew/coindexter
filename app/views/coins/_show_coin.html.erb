@@ -6,7 +6,7 @@
 			</div>
 			<div class="col-md-8 data <%= 'status' unless @coin.coin_status.nil? || @coin.coin_status == '' %>">
 				<% if @coin.coin_status.nil? || @coin.coin_status == "" %>
-					<%= link_to "Add its status", edit_coin_url, class: "add-missing-field" %>
+					<%= link_to "Add its status", edit_network_coin_url, class: "add-missing-field" %>
 				<% else %>
 					<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
 					<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
@@ -20,7 +20,7 @@
 				</div>
 				<div class="col-md-8 data">
 					<% if @coin.exchanges.nil? || @coin.exchanges == "" %>
-						<%= link_to "Add an exchange", edit_coin_url, class: "add-missing-field" %>
+						<%= link_to "Add an exchange", edit_network_coin_url, class: "add-missing-field" %>
 					<% else %>
 						<ul>
 						<% @coin.exchanges.each_with_index do |exchange, i| %>
@@ -36,7 +36,7 @@
 			</div>
 			<div class="col-md-8 data">
 				<% if @coin.application_description.nil? || @coin.application_description == "" %>
-					<%= link_to "Add additional information", edit_coin_url, class: "add-missing-field" %>
+					<%= link_to "Add additional information", edit_network_coin_url, class: "add-missing-field" %>
 				<% else %>
 					<p><%= @coin.coin_info %></p>
 				<% end %>
@@ -50,7 +50,7 @@
 				<% unless @coin.network.nil? %>
 					<%= link_to @coin.network.name, @coin.network %>
 				<% else %>
-					<%= link_to "Add a network to #{@coin.name}", edit_coin_url, class: "add-missing-field" %>
+					<%= link_to "Add a network to #{@coin.name}", edit_network_coin_url, class: "add-missing-field" %>
 				<% end %>
 			</div>
 		</div>
@@ -62,7 +62,7 @@
 				<% unless @coin.symbol.nil? %>
 					<%= @coin.symbol %>
 				<% else %>
-					<%= link_to "Add a symbol to #{@coin.name}", edit_coin_url, class: "add-missing-field" %>
+					<%= link_to "Add a symbol to #{@coin.name}", edit_network_coin_url, class: "add-missing-field" %>
 				<% end %>
 			</div>
 		</div>
@@ -132,7 +132,7 @@
 				</div>
 				<div class="col-md-8">
 					<% if @coin.repositories.empty? || @coin.repositories.first.name == ""  %>
-						<%= link_to "Add a repository", edit_coin_url, class: "add-missing-field" %>
+						<%= link_to "Add a repository", edit_network_coin_url, class: "add-missing-field" %>
 					<% else %>
 						<% @coin.repositories.each_with_index do |repository, i| %>
 							<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
@@ -148,7 +148,7 @@
 				</div>
 				<div class="col-md-8">
 					<% if @coin.coin_type.nil? || @coin.coin_type == "" %>
-						<%= link_to "Add a type", edit_coin_url, class: "add-missing-field" %>
+						<%= link_to "Add a type", edit_network_coin_url, class: "add-missing-field" %>
 					<% else %>
 						<p><%= @coin.coin_type.capitalize %></p>
 					<% end %>

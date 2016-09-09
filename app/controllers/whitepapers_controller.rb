@@ -6,6 +6,7 @@ class WhitepapersController < ApplicationController
   end
 
   def show
+    @whitepaper = Whitepaper.friendly.find(params[:id]).whitepaper
   end
 
   def new
@@ -52,7 +53,7 @@ class WhitepapersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_whitepaper
-      @whitepaper = Whitepaper.find(params[:id])
+      @whitepaper = Whitepaper.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
