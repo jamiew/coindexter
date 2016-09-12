@@ -26,6 +26,22 @@ class Coin < ApplicationRecord
     slugs.where(slug: slug).exists?
   end
 
+  def one_day_up 
+    if one_day_price_change > 0 
+      self.one_day_up = "up"
+    else
+      self.one_day_up = "down"
+    end
+  end
+
+  def one_hour_up 
+    if one_hour_price_change > 0 
+      self.one_hour_up = "up"
+    else
+      self.one_hour_up = "down"
+    end
+  end
+
   def update_prices
     response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + name.delete(" ").downcase)
     if response[0].nil?

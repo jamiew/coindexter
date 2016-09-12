@@ -1,4 +1,12 @@
-$('.content').html("<%= j (render 'show_coin') %>");
-$('#details').removeClass("active-item");
+$('.content').html("<%= j (render 'show_coins') %>");
+$('li.active-item').removeClass("active-item");
 $('#coins').addClass("active-item");
 $('.action-links').html('<li><%= link_to "Add new coin", new_network_coin_url(network: @network, obj_type: "network"), remote: true, class: "action-link", accesskey: "A" %></li>');
+$('ul.coin-tabs > li > a').on("click", function() {
+	$('ul.coin-tabs').removeClass("active");
+	$(this).parent().addClass("active");
+	selector = $(this).attr('class');
+	$('.show-coin').hide();
+	$(selector).show();
+});
+		

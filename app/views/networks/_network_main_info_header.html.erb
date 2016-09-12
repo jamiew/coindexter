@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-md-8 data col-md-offset-4">
-		<% if @network.logo.nil? || @network.logo.blank? %>
+		<% if network.logo.nil? || network.logo.blank? %>
 			<%= image_tag "fallback/default.png", size: '60x60', id: 'network-logo' %>
 		<% else %>
-			<%= image_tag @network.logo, size: '60x60', id: 'network-logo' %>
+			<%= image_tag network.logo, size: '60x60', id: 'network-logo' %>
 		<% end %>
-		<h1 id="network-name"><%= @network.name %></h1>
+		<h1 id="network-name"><%= network.name %></h1>
 	</div>
 </div>

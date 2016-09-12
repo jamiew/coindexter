@@ -34,13 +34,7 @@ class CoinsController < ApplicationController
 	end	
 
 	def show
-		@coin = Coin.friendly.find(params[:id])
-		unless @coin.one_day_price_change.nil?
-			@one_day_up = up_or_down(@coin.one_day_price_change)
-		end
-		unless @coin.one_hour_price_change.nil?
-			@one_hour_up = up_or_down(@coin.one_hour_price_change)
-		end
+		@network = Network.friendly.find(params[:network_id])
 		respond_to do |format|
 		    format.html
 		    format.js

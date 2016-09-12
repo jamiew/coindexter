@@ -321,7 +321,7 @@ ul#info-menu {
 	}
 }
 
-.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user {
+.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content {
 	.row {
 		&:last-child {
 			margin-bottom:0px;
@@ -644,7 +644,6 @@ ul#info-menu {
 			ul.comments-cnt {
 				margin-left:-32px;
 			}
-
 		}
 		#show-single-link {
 			h6.when-posted {
@@ -783,6 +782,24 @@ ul#info-menu {
 	}
 	.first-in-form-group {
 		margin-top: 64px;
+	}
+	ul.coin-tabs {
+		border-color: $border-orange;
+		margin-left: 114px;
+		margin-bottom: 36px;
+		font-family: "WhitneyHTF-MediumSC";
+		li {
+			a {
+				background-color: $navbar-orange;
+				border-color: $border-orange;
+			}
+		}
+		li.active {
+			a {
+				background-color: $background-orange;
+				border-bottom:1px solid $background-orange;
+			}
+		}	
 	}
 }
 

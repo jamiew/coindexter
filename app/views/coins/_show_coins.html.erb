@@ -1,0 +1,21 @@
+<% if @network.coins.count == 0 %>
+	<p>This network doesn't have any coins yet. Add one?</p>
+	<%= link_to "Add a coin to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+<% else %>
+	<% if @network.coins.count > 0 %>
+		<ul class="nav nav-tabs coin-tabs">
+			<% @network.coins.each do |coin| %>
+				<li role="presentation" class="active <%= coin.name.downcase %>">
+					<%= link_to coin.name, network_coin_path, remote:true %>
+				</li>
+			<% end %>
+			<% @network.coins.each do |coin| %>
+				<li role="presentation" class="<%= 'hey' %>">
+					<%= link_to coin.name, network_coin_path, remote:true %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+	<%= render(partial: "show_coin", locals: {coin: @network.coins.first}) %>
+<% end %>
+<%= render(partial: "networks/network_frame_bottom") %>

@@ -1,9 +1,10 @@
+<%= render(partial: "networks/network_frame", locals: {network: @whitepapers.first.network, active_item: "whitepapers"}) %>
 <ul>
 	<li class="network-info-block block">
 		<% @whitepapers.each do |wp| %>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
-					<%= link_to wp do %>
+					<%= link_to network_whitepapers_path(wp) do %>
 						<p><%= wp.whitepaper_title %></p>
 						<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
 					<% end %>
@@ -12,3 +13,4 @@
 		<% end %>
 	</li>
 </ul>
+<%= render(partial: "networks/network_frame_bottom") %>
