@@ -1,6 +1,14 @@
 <ul id="info-menu">
-	<li class="active-item" id="details"><p><%= link_to "Details", @coin %><p></li>
-	<li id="links"><p><%= link_to "Links", "/coins/#{@coin.name.downcase}/links", remote: true %></p></li>
-	<li id="discussion"><p><%= link_to "Trollbox", "/coins/#{@coin.name.downcase}/trollbox", remote: true %></p></li>
-	<li id="log"><p><%= link_to "Logs", "/coins/#{@coin.name.downcase}/logs", remote: true %></p></li>
+	<li <%= "class=active-item" if active_item == "details" %> class="active-item" id="details"><%= link_to "Details", network_coin_path %></li>
+	<li <%= "class=active-item" if active_item == "log" %> id="log"><%= link_to "Logs", "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase}/logs", remote: true %></li>
+	<li id="coins">networks
+		<%= link_to network_path(coin.network) do %>
+			<div class="user-log-classification">
+				<div class="user-log-classification-coin">
+					<%= image_tag(coin.network.logo.small.url, size: "20x20") if coin.logo? %>
+					<%= truncate(coin.network.name, length: 16) %>
+				</div>
+			</div>
+		<% end %>
+	</li>
 </ul>

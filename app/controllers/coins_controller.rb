@@ -34,7 +34,7 @@ class CoinsController < ApplicationController
 	end	
 
 	def show
-		@network = Network.friendly.find(params[:network_id])
+		@coin = Coin.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html
 		    format.js

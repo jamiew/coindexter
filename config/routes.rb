@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :searches
   resources :networks do
-    resources :whitepapers, :coins, :logs, :links
+    resources :whitepapers, :links, :coins
   end
   resources :links do
     resources :comments
@@ -22,17 +22,12 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  match '/networks/:id/links', to:'networks#links', via: 'get'
-  match '/networks/:id/trollbox', to:'networks#trollbox', via: 'get'
-  match '/networks/:id/whitepapers', to:'networks#whitepapers', via: 'get'
-
-  match '/coins/:id/links', to:'coins#links', via: 'get'
-  match '/coins/:id/trollbox', to:'coins#trollbox', via: 'get'
+  match 'networks/:network_id/coins/:id/logs', to:'coins#logs', via: 'get'
+  match 'networks/:id/logs', to:'networks#logs', via: 'get'
 
   match '/search', to:"searches#results", via: "get"
 
   match '/account/', to:"users#edit", via: "get"
-
   match '/account/:id', to:"users#edit", via: "get"
 
   match '/about', to:'application#about', via: 'get'

@@ -261,44 +261,70 @@ ul#info-menu {
 	margin-right:20px;
 	padding-left: 0px;
 	li {
+		
 		margin-bottom:14px;
-		opacity:0.4;
 		clear:both;
 		height:24px;
 		a {
+			opacity:0.4;
 			color: $primary-orange;
 			font-family: "WhitneyHTF-Medium";
 			margin:0;
 			padding:0;
+			&:hover {
+				border-bottom: 1px solid $primary-orange;
+				color: $primary-orange;
+				padding-bottom:1px;
+				display:inline;
+				cursor:pointer;
+				opacity:1;
+			}
 		}
-		p {
-			float:right;
-			margin-left:8px;
+		.user-log-classification {
+			clear:both;
+			margin-top:4px;
+			margin-right:-12px;
+			opacity: 0.6;
+			&:hover {
+				opacity: 1;
+			}
 		}
-		p:hover {
-			border-bottom: 1px solid $primary-orange;
-			color: $primary-orange;
-			padding-bottom:1px;
-			display:inline;
-			cursor:pointer;
+		.user-log-classification-coin {
+			font-family:"WhitneyHTF-MediumSC";
+			margin-bottom:0;
+			text-transform:lowercase;
+			&:hover {
+				text-decoration:none;
+				border:1px solid $primary-orange;
+			}
 		}
-		&:hover {
-			opacity:1;
-		}
-		img {
-			float:right;
-			height: 20px;
-			width: 20px;
-			margin-top:2px;
+		.user-log-classification:last-child {
+			.user-log-classification-coin {
+				margin-bottom:24px;
+			}
 		}
 	}
 	li.active-item {
-		opacity:1;
-		color: $primary-orange;
-		p {
-			border-bottom: 1px solid $primary-orange;
+		a {
+			opacity: 1;
+			border-bottom: 2px solid $primary-orange;
 			padding-bottom:1px;
 			display:inline;
+		}
+		.user-log-classification {
+			opacity: 1;
+			.user-log-classification-coin {
+				border: 1px solid $primary-orange;
+				opacity: 1;
+				color: $primary-orange;
+			}
+		}
+	}
+	li#coins {
+		margin-top:48px;
+		font-family:"WhitneyHTF-MediumSC";
+		a {
+			border-bottom: none;
 		}
 	}
 	li.menu-title {
@@ -644,6 +670,11 @@ ul#info-menu {
 			ul.comments-cnt {
 				margin-left:-32px;
 			}
+			.user-log-classification {
+				margin-left:0;
+				padding-left:0;
+				margin-top:-6px;
+			}
 		}
 		#show-single-link {
 			h6.when-posted {
@@ -783,24 +814,6 @@ ul#info-menu {
 	.first-in-form-group {
 		margin-top: 64px;
 	}
-	ul.coin-tabs {
-		border-color: $border-orange;
-		margin-left: 114px;
-		margin-bottom: 36px;
-		font-family: "WhitneyHTF-MediumSC";
-		li {
-			a {
-				background-color: $navbar-orange;
-				border-color: $border-orange;
-			}
-		}
-		li.active {
-			a {
-				background-color: $background-orange;
-				border-bottom:1px solid $background-orange;
-			}
-		}	
-	}
 }
 
 .pagination {
@@ -903,9 +916,6 @@ form.edit_coin, form.new_coin, .sign-in-up {
 }
 
 .user-log-classification {
-	margin-left:0;
-	padding-left:0;
-	margin-top:-6px;
 	p  {
 		font-family:"WhitneyHTF-MediumSC";
 		text-transform:lowercase;
@@ -923,11 +933,11 @@ form.edit_coin, form.new_coin, .sign-in-up {
 		border: 1px solid $border-orange;
 		border-radius: 4px;
 		float:right; 
-		padding: 4px 12px;
+		padding: 4px 10px;
 		margin-bottom:8px;
 		img {
 			margin-top:2px;
-			margin-right:2px;
+			margin-right:4px;
 		}
 		img, a {
 			float:left;

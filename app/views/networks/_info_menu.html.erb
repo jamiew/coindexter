@@ -1,7 +1,22 @@
 <ul id="info-menu">
-	<li <%= "class=active-item" if active_item == "details" %> id="details"><p><%= link_to "Details", network, remote: true %><p></li>
-	<li <%= "class=active-item"  if active_item == "coins" %> id="coins"><p><%= link_to "Coin", network_coin_path(network), remote: true %></p></li>
-	<li <%= "class=active-item"  if active_item == "whitepapers" %> id="whitepapers"><p><%= link_to "Whitepapers", network_whitepapers_path(network), remote: true %></p></li>
-	<li <%= "class=active-item"  if active_item == "links" %> id="links"><p><%= link_to "Links", network_links_path(network), remote: true %></p></li>
-	<li <%= "class=active-item"  if active_item == "log" %> id="log"><p><%= link_to "Log", network_logs_path(network), remote: true %></p></li>
+	<li <%= "class=active-item" if active_item == "details" %> id="details"><%= link_to "Details", network, remote: true %></li>
+	<li <%= "class=active-item"  if active_item == "whitepapers" %> id="whitepapers">
+		<%= link_to "Whitepapers", network_whitepapers_path(network), remote: true %>
+	</li>
+	<li <%= "class=active-item"  if active_item == "links" %> id="links"><%= link_to "Links", network_links_path(network), remote: true %></li>
+	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Log", "/networks/#{@network.name.downcase}/logs", remote: true %></li>
+	<li id="coins">coins
+		<% unless network.coins.nil? %>
+			<% network.coins.each do |coin| %>
+				<%= link_to network_coin_path(network,coin) do %>
+					<div class="user-log-classification">
+						<div class="user-log-classification-coin">
+							<%= image_tag(coin.logo.small.url, size: "20x20") if coin.logo? %>
+							<%= truncate(coin.name, length: 16) %>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		<% end %>
+	</li>
 </ul>

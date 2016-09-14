@@ -96,33 +96,6 @@ class UsersController < ApplicationController
       net_logs.each do |log|
         logs << log
       end
-
-=begin
-      Network.all.each do |network| 
-        network_logs = NetworkService.new
-        unless user_id.nil?  
-          net_logs = network_logs.get_logs(network, "network_log", 5)
-        end
-          net_logs = network_logs.get_logs(network, user_id, "network_log", 5)
-        end
-        net_logs.each do |log|
-          logs << log
-        end
-      end
-
-      Coin.all.each do |coin| 
-        coin_logs = NetworkService.new
-        if user_id.nil? 
-          c_logs = coin_logs.get_logs(coin, "coin_log", 5)
-        else
-          c_logs = coin_logs.get_logs(coin, user_id, "coin_log", 5)
-        end
-        c_logs.each do |log|
-          logs << log
-        end
-      end
-=end 
-
       logs += links
       @logs = logs.sort_by{|log| log.created_at}.reverse
     end

@@ -1,7 +1,7 @@
 class NetworkService < LogService
 
 	attr_accessor :network, :coin, :user
-	
+
 	def get_logs(object, feed_type, limit=nil, user_id=nil)
 
 		if !user_id.nil?
@@ -23,7 +23,7 @@ class NetworkService < LogService
 		      	if defined?(version.user) && !version.user.nil?
 	    			self.user = version.user
 	  			end
-				set_coins_and_networks(object)
+				set_coins_and_networks(feed_type, object)
 				log_set << self.dup
 			end
 	    end
@@ -54,7 +54,7 @@ class NetworkService < LogService
 	end
 
 	def set_coins_and_networks(item_type, item_id)
-		if item_type == "Network"
+		if item_type == "network_log"
 			network = Network.find(item_id)
 			self.feed_type = "network_log"
 			self.networks = network
@@ -149,5 +149,11 @@ class NetworkService < LogService
 		self.changes = dataset
 		return self
 	end
+
+	private
+
+        def record_not_found
+            render text: "404 Not Found", status: 404
+        end
 
 end
