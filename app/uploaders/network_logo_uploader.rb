@@ -22,6 +22,9 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
+  process resize_to_fill: [400,400]
+  process crop: '400x400+0+0'
+
   version :small do
     process resize_to_fill: [60,60]
   end
@@ -65,5 +68,25 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  private
+
+  def crop(geometry)
+    manipulate! do |img|      
+      img.crop(geometry)
+      img
+    end    
+  end
+
+  def resize_and_crop(size)  
+    manipulate! do |image|                 
+      if image[:width] < image[:height]
+        image.resize("#{image[:height]}x#{image[:height]}") 
+      elsif image[:width] > image[:height] 
+        image.resize("#{image[:width]}x#{image[:width]}") 
+      end
+      image
+    end
+  end
 
 end

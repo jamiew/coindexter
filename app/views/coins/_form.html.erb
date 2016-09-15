@@ -1,5 +1,5 @@
 <%= javascript_include_tag "add_another" %>
-<%= form_for @coin, authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
+<%= form_for [@network, @coin], authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<%= image_tag @coin.logo, size: "60x60", id: "coin-logo" if @coin.logo? %>
@@ -66,7 +66,7 @@
 			<h6 class="label-helper">Select one or more</h6>
 		</div>
 		<div class="col-md-8">
-			<%= f.select :network_id, options_for_select(Network.all.order("name ASC").map {|n| [n.name, n.id, {'data-icon' => n.logo}, {class: 'network-option'}]}, { selected: @coin.network }.delete_if {|k,v| v.nil?}), {}, {multiple: true, size: 8.5, id: "network-option"} %>
+			<%= f.collection_select :network_id, Network.all.order("name ASC").map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, @network.nil? ? {} : {selected: @network.id}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
 		</div>
 	</div>
 	<div class="row first-in-form-group">

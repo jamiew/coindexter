@@ -261,7 +261,6 @@ ul#info-menu {
 	margin-right:20px;
 	padding-left: 0px;
 	li {
-		
 		margin-bottom:14px;
 		clear:both;
 		height:24px;
@@ -289,7 +288,7 @@ ul#info-menu {
 				opacity: 1;
 			}
 		}
-		.user-log-classification-coin {
+		.user-log-classification-coin, .user-log-classification-coin{
 			font-family:"WhitneyHTF-MediumSC";
 			margin-bottom:0;
 			text-transform:lowercase;
@@ -299,8 +298,8 @@ ul#info-menu {
 			}
 		}
 		.user-log-classification:last-child {
-			.user-log-classification-coin {
-				margin-bottom:24px;
+			.user-log-classification-coin, .user-log-classification-network {
+				margin-bottom:12px;
 			}
 		}
 	}
@@ -320,11 +319,19 @@ ul#info-menu {
 			}
 		}
 	}
-	li#coins {
+	li#coins, li#network {
+		opacity:1;
 		margin-top:48px;
 		font-family:"WhitneyHTF-MediumSC";
 		a {
+			opacity:1;
 			border-bottom: none;
+			clear:both;
+			display:block;
+			margin-top:10px;
+			.user-log-classification {
+				opacity:1;
+			}
 		}
 	}
 	li.menu-title {
@@ -737,9 +744,11 @@ ul#info-menu {
 		}
 
 		.status {
-			font-family: 'WhitneyHTF-MediumSC';
-			font-size:18px;
-			line-height:23px;
+			p.status {
+				font-family: 'WhitneyHTF-MediumSC';
+				font-size:18px;
+				line-height:23px;
+			}
 			div.status-icon {
 				width:12px;
 				height: 12px;
@@ -754,7 +763,7 @@ ul#info-menu {
 				box-shadow: inset 0 0 0 3px $primary-green;
 			}
 
-			div.preproduction-icon {
+			div.pre-production-icon {
 				background-color:$pre-production-inner;
 				box-shadow: inset 0 0 0 3px $pre-production-outer;
 			}

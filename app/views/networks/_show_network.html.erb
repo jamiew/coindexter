@@ -15,8 +15,12 @@
 				<h6>status</h6>
 			</div>
 			<div class="col-md-8 status">
-				<div class="status-icon <%= @network.status.downcase %>-icon"></div>
-				<p class="status <%= @network.status.downcase %>-status"><%= @network.status.downcase %></p>
+				<% unless @network.status.blank? %>
+					<div class="status-icon <%= @network.status.downcase %>-icon"></div>
+					<p class="status <%= @network.status.downcase %>-status"><%= @network.status.downcase %></p>
+				<% else %>
+					<%= link_to "Is #{@network.name} a concept, in pre-production, or is it live?", edit_network_url, class: "add-missing-field" %>
+				<% end %>
 			</div>
 		</div>
 		<div class="row">
@@ -64,7 +68,7 @@
 			</div>
 			<div class="col-md-8">
 				<% if @network.founders.empty? %>
-					<%= link_to "Add founders to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+					<%= link_to "Who founded #{@network.name}?", edit_network_url, class: "add-missing-field" %>
 				<% else %>
 					<ul>
 						<% @network.founders.each do |founder| %>
@@ -81,7 +85,11 @@
 				<h6>Owner</h6>
 			</div>
 			<div class="col-md-8">
-				<p><%= @network.team %></p>
+				<% if @network.founders.empty? %>
+					<%= link_to "Who's running #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+				<% else %>
+					<p><%= @network.team %></p>
+				<% end %>
 			</div>
 		</div>						
 	</li>
@@ -98,7 +106,11 @@
 				<h6>url</h6>
 			</div>
 			<div class="col-md-8">
-				<%= link_to @network.name, @network.link %>
+				<% if @network.link.empty? %>
+					<%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+				<% else %>
+					<%= link_to @network.name, @network.link %>
+				<% end %>
 			</div>
 		</div>
 	</li>

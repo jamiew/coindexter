@@ -68,7 +68,7 @@
 		</div>
 		<div class="col-md-8">
 			<%= f.select :coin_ids, options_for_select(Coin.all.order("name ASC").map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}, selected: @network.coins.ids), {}, {multiple: true, size: 8.5, id: "coin-option"} %>
-			<%= link_to "Don't see the coin? Add it", new_coin_url, class:"add-another", target: "_blank" %>
+			<%= link_to "Don't see the coin? Add it", new_network_coin_url, class:"add-another", target: "_blank" %>
 		</div>
 	</div>	
 	<div class="row first-in-form-group">
