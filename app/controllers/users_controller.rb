@@ -38,8 +38,6 @@ class UsersController < ApplicationController
       if log.change_type == "edited"
         puts log.change[:change].first
       end
-      puts ""
-      puts ""
     end
       respond_to do |format|
         format.html
