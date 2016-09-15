@@ -35,24 +35,6 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>Coins</h6>
-			</div>
-			<div class="col-md-8">
-				<% if @network.coins.any? %>
-					<ul>
-						<% @network.coins.each_with_index do |coin, i| %>
-							<li>
-								<%= link_to coin.name, network_coin_path(@network, coin), remote:true %>
-							</li>
-						<% end %>
-					</ul>
-				<% else %>
-					<%= link_to "Add a coin to #{@network.name}", edit_network_url, class: "add-missing-field" %>
-				<% end %>
-			</div>
-		</div>
 	</li>
 </ul>
 <ul>
