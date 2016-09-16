@@ -1,18 +1,6 @@
 <li class="link-block block">
 	<div class="row">
 		<div class="col-md-4">
-			<% if defined?(coins) && !coins.nil? %>
-	    		<div class="user-log-classification">
-					<% coins.each do |coin| %>
-						<div class="user-log-classification-coin">
-							<% if !coin.logo.nil? %>	
-								<%= image_tag(coin.logo.small.url, size: "20x20") unless coin.logo.blank?  %>
-							<% end %>
-							<%= link_to coin.name, coin %>
-						</div>
-					<% end %>
-				</div>
-			<% end %>
 			<% if defined?(networks) && !networks.nil? %>
 	    		<div class="user-log-classification">
 					<% networks.each do |network| %>

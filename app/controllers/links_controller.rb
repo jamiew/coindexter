@@ -3,7 +3,11 @@ class LinksController < ApplicationController
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
 	def index
-		@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		if defined?(params[:network_id])
+			@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		else
+			@links = Network.find(network_id).links.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		end
 		respond_to do |format|
 		    format.html
 		    format.js

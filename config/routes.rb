@@ -11,15 +11,20 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :links do 
+    resources :comments do
+      resources :comments
+    end
+  end
+
   resources :searches
   resources :networks do
-    resources :whitepapers, :links, :coins
-  end
-  resources :links do
-    resources :comments
-  end
-  resources :comments do
-    resources :comments
+    resources :whitepapers, :coins
+    resources :links do 
+      resources :comments do
+        resources :comments
+      end
+    end
   end
 
   match 'networks/:network_id/coins/:id/logs', to:'coins#logs', via: 'get'

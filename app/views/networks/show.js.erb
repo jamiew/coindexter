@@ -2,4 +2,5 @@ $('.content').html("<%= j (render 'show_network') %>");
 $('#info-menu > li').removeClass("active-item");
 $('#details').addClass("active-item");
 $('.action-links').show();
+$('.action-links').html('<li><%= link_to "Edit #{@network.name}", edit_network_url, remote: true, class: "action-link", accesskey: "E" %></li>');
 
