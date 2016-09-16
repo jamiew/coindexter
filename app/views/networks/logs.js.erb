@@ -2,3 +2,7 @@ $('.content').html("<%= j (render 'logs') %>");
 $('#info-menu > li').removeClass("active-item");
 $('#log').addClass("active-item");
 $('.action-links').hide();
+
+$('.pagination').replaceWith('<%= escape_javascript(render "shared/logs", locals: {logs: @logs}) %>');
+$('.feed').append('<%= escape_javascript will_paginate(@logs) %>');	
+$('.loading-more').hide();

@@ -1,0 +1,12 @@
+<% provide(:title, 'Add new whitepaper') %> 
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<h3>Add a new whitepaper to <% @network.name %></h3>
+			</div>
+		</div>
+		<%= render (partial:'form', locals(network: @network, whitepaper: @whitepaper) %>
+	</div>
+</div>
+

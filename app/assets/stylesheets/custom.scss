@@ -288,7 +288,7 @@ ul#info-menu {
 				opacity: 1;
 			}
 		}
-		.user-log-classification-coin, .user-log-classification-coin{
+		.user-log-classification-coin, .user-log-classification-network {
 			font-family:"WhitneyHTF-MediumSC";
 			margin-bottom:0;
 			text-transform:lowercase;
@@ -341,7 +341,7 @@ ul#info-menu {
 	}
 }
 
-.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user {
+.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
 	margin-bottom:64px;
 }
 
@@ -354,7 +354,7 @@ ul#info-menu {
 	}
 }
 
-.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content {
+.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content, .new_whitepaper, .edit_whitepaper {
 	.row {
 		&:last-child {
 			margin-bottom:0px;

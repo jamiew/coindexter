@@ -1,4 +1,5 @@
 $('.content').html("<%= j (render 'whitepapers') %>");
 $('#details').removeClass("active-item");
 $('#whitepapers').addClass("active-item");
+$('.action-links').show();
 $('.action-links').html('<li><%= link_to "Add new whitepaper", new_whitepaper_url(network: @network, obj_type: "network"), remote: true, class: "action-link", accesskey: "A" %></li>');

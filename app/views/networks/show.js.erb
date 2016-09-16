@@ -1,8 +1,5 @@
-$('.content').html("<%= j (render 'show_coin') %>");
+$('.content').html("<%= j (render 'show_network') %>");
 $('#info-menu > li').removeClass("active-item");
 $('#details').addClass("active-item");
 $('.action-links').show();
 
-$('.pagination').replaceWith('<%= escape_javascript(render "shared/logs", locals: {logs: @logs}) %>');
-$('.feed').append('<%= escape_javascript will_paginate(@logs) %>');	
-$('.loading-more').hide();
