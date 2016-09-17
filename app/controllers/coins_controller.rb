@@ -11,16 +11,6 @@ class CoinsController < ApplicationController
 		@coins_dead = coins.reject {|c| c.coin_status != "dead"}
 	end
 
-	def links
-		@links = Coin.friendly.find(params[:id]).links.paginate(:page => params[:page], :per_page => 10)
-		@coin = Coin.friendly.find(params[:id])
-		respond_to do |format|
-		    format.html
-		    format.js
-		    format.json
-		end
-	end
-
 	def logs
         coin_logs = NetworkService.new
         @coin = Coin.friendly.find(params[:id]) 

@@ -5,8 +5,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.friendly.find(params[:id])
-    puts "params are #{params.inspect}"
+    @user = User.find(current_user.id)
   end
 
   def create

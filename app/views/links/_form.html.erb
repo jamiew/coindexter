@@ -1,10 +1,5 @@
 <%= javascript_include_tag "add_another" %>
-<%= form_for @link, authenticity_token: true, html: { multipart: true } do |f| %>
-	<div class="row">
-		<div class="col-md-8 col-md-offset-4">
-			<h3>Add a link</h3>
-		</div>
-	</div>
+<%= form_for [@network, @link], authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Title", class: "form-label" %>
@@ -30,6 +25,7 @@
 			<%= f.text_area :body, rows: 6, class: "optional-field" %>
 		</div>
 	</div>
+<!--	
 	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Coins", class: "form-input" %>
@@ -38,6 +34,7 @@
 			<%= f.collection_select :coin_ids, Coin.all.order("market_cap DESC").where("market_cap > ?", 0).map { |c| [c.id, c.name, {'data-icon' => c.logo}, {class: 'coin-option'}]}, :first, :second, @coin.nil? ? {} : {selected: @coin.id}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
 		</div>
 	</div>
+-->
 	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Networks", class: "form-input" %>

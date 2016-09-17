@@ -4,9 +4,10 @@ class LinksController < ApplicationController
 
 	def index
 		if defined?(params[:network_id])
-			@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+			@network = Network.friendly.find(params[:network_id])
+			@links = @network.links.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 		else
-			@links = Network.find(network_id).links.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+			@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 		end
 		respond_to do |format|
 		    format.html
@@ -26,11 +27,11 @@ class LinksController < ApplicationController
 
 	def new
 		@use_ajax = true
-		@link = current_user.links.new
-		if params[:obj_type] == "network"
-			@network = Network.friendly.find(params[:network])
-		elsif params[:obj_type] == "coin"
-			@coin = Coin.friendly.find(params[:coin])
+		if defined?(params[:network_id])
+			@network = Network.friendly.find(params[:network_id])
+			@link = @network.links.new
+		else
+			@link = @network.links.new
 		end
 		respond_to do |format|
 		    format.html

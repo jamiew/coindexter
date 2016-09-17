@@ -1,7 +1,5 @@
-$('.coin-info-block').hide();
-$('.coin-header').show();
 $('.add-first').hide();
-$('.coin-header').after("<%= j (render 'form') %>");
+$('.content').html("<%= j (render('form')) %>");
 $('#info-menu > li').removeClass('active-item');
 $('#links').addClass("active-item");
 $('.optional-toggle').on('click', function() {
