@@ -1,4 +1,4 @@
-<%= link_to(coin, class: 'coin-widget widget') do %>
+<%= link_to coin, class: 'coin-widget widget' do %>
 	<div class="col-md-3 <%= coin.category.name.downcase %> <%= "col-md-offset-1" unless i == 0 || i % 3 == 0 %> coin-in-categories">
 		<% if coin.logo.nil? || coin.logo.blank? %>
 			<%= image_tag "fallback/default.png", size: '60x60', class: 'coin-logo' %>

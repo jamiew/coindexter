@@ -33,7 +33,7 @@
 								<% @whitepaper_results.each_with_index do |wp, i| %>
 									<%= wp.network.name %>
 									<p><%= wp.whitepaper_title %></p>
-									<%= link_to wp do %>
+									<%= link_to network_whitepaper_path(wp.network, wp) do %>
 										<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
 									<% end %>
 								<% end %>

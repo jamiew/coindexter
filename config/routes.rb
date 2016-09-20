@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :coins
+
   resources :links do 
     resources :comments do
       resources :comments
