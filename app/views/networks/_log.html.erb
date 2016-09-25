@@ -10,19 +10,6 @@
 				</div>
 			<% end %>
 			<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
-			<% if defined?(current_user) %>
-				<%= link_to log.user, class: "who-posted" do %>
-    				<%= image_tag(log.user.avatar, size: '16x16', class: 'avatar') if defined?(log.user.avatar) %>
-    				<% if defined?(log.user.username) %>
-    					<%= current_user == log.user ? "Me" : log.user.username %>
-    				<% end %>
-    			<% end %>
-    		<% elsif defined?(log.user) && !log.user.nil? %>
-    			<%= link_to log.user, class: "who-posted" do %>
-    				<%= image_tag(log.user.avatar, size: '16x16', class: 'avatar') %>
-    				<%= log.user.username %>
-    			<% end %>
-    		<% end %>
 		</div>
 		<div class="col-md-8">
 			<ul class="log-list"> 
@@ -31,18 +18,19 @@
 						<% case change[:change_attr] %>
 							<% when "whitepapers" %>
 								<% if change[:change_type] == "added" || change[:change_type] == "edited" %>
-								<%= change[:change_attr].capitalize %>
-									added
+									<%= render partial: '/shared/who_posted', locals: {user: log.user} %> 
+									added a <%= change[:change_attr] %>
 								<% end %>
 							<% when "founders" %>
-								<%= change[:change_attr].capitalize %>
 								<% if change[:change_type] == "added" %>
-									added: 
+									<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+									added <%= change[:change_attr] %>: 
 									<% change[:change].second.each_with_index do |change, i| %>
 										<%= change %>
 									<% end %>
 								<% elsif change[:change_type] == "edited" %>
-									changed from 
+									<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+									changed <%= change[:change_attr] %> from 
 										<% change[:change].first.each_with_index do |c, i| %>
 											<%= " and " if i + 1 == change[:change].first.length && change[:change].first.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].first.length || i + 2 == change[:change].first.length  %>
 										<% end %>
@@ -52,14 +40,15 @@
 										<% end %>
 								<% end %>
 							<% when "status" %>
-								<%= change[:change_attr].capitalize %>
 								<% if change[:change_type] == "added" %>
-									added: 
+									<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+									added <%= change[:change_attr] %>: 
 									<% change[:change].second.each_with_index do |c, i| %>
 										<%= c.first %>
 									<% end %>
 								<% elsif change[:change_type] == "edited" %>
-									changed from 
+									<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+									changed <%= change[:change_attr] %> from 
 										<% change[:change].first.each_with_index do |c, i| %>
 											<%= c.first %>
 										<% end %>
@@ -69,16 +58,18 @@
 										<% end %>
 								<% end %>
 							<% when "Created" %>
-								Created 
+								<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+								created 
 									<%= link_to log.networks.name, log.networks %>
 							<% when "logo" %>
 								New logo							
 							<% else %>
-								<%= change[:change_attr].capitalize %>
 								<% if change[:change_type] == "added" %>
-									added: "<%= change[:change].second.capitalize %>"
+									<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+									added <%= change[:change_attr] %>: "<%= change[:change].second.capitalize %>"
 								<% elsif change[:change_type] == "edited" %>
-									changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
+									<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+									changed <%= change[:change_attr] %> from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
 								<% end %>
 						<% end %>
 					</li>

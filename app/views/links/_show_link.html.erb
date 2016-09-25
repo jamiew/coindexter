@@ -4,7 +4,7 @@
 			<div class="col-md-10 col-md-offset-1" id="show-single-link">
 				<h3 class="link-title"><%= link_to @link.title, @link.link %></h3>
 				<h6 class="when-posted">posted <%= time_ago_in_words(@link.created_at) %></h6>
-				<div class="who-posted-cnt"?
+				<div class="who-posted-cnt">
 					<%= link_to @link.user, class: "who-posted" do %>
 						<%= image_tag(@link.user.avatar, size: '20x20', class: 'avatar') if defined?(@link.user.avatar) %>
 						<%= current_user == @link.user ? "Me" : @link.user.username%>

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   devise :database_authenticatable, :registerable, 
-         :recoverable, :rememberable, :trackable, :omniauthable, :omniauth_providers => [:twitter, :facebook, :google_oauth2]
+         :recoverable, :rememberable, :trackable, :omniauthable, :confirmable, :omniauth_providers => [:twitter, :facebook, :google_oauth2]
 
   include CarrierWave::MiniMagick
 
@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   protected
     def confirmation_required?
-      false
+      true
     end
 
 end

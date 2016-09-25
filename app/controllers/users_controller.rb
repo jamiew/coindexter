@@ -10,7 +10,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    puts "got here"
     if @user.save
+      puts "user is @user"
+      puts "token is @user.confirmation_token"
+      UserMailer.confirmation_instructions(@user, @user.confirmation_token).deliver_now
       flash[:success] = "Please check your email to confirm your email address"
     else
       render 'new'
@@ -31,7 +35,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @logs = get_all_logs.paginate(:page => params[:page], :per_page => 10)
+    @logs = get_all_logs.paginate(:page => params[:page], :per_page => 10)  
+
     @logs.each do |log|
       puts log.inspect
       if log.change_type == "edited"

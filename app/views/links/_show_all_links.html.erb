@@ -21,19 +21,9 @@
 					</div>
 				<% end %>
 				<h6 class="when-posted"><%= time_ago_in_words(link.created_at) %></h6>
-				<% if defined?(user) && !user.nil? && !current_user.nil? %>
-					<%= link_to user, class: "who-posted" do %>
-	    				<%= image_tag(user.avatar, size: '20x20', class: 'avatar') if defined?(user.avatar) %>
-	    				<%= current_user == user ? "Me" : user.username%>
-	    			<% end %>
-	    		<% else %>
-	    			<%= link_to link.user, class: "who-posted" do %>
-	    				<%= image_tag(link.user.avatar, size: '20x20', class: 'avatar') if defined?(link.user.avatar) %>
-	    				<%= link.user.username %>
-	    			<% end %>
-	    		<% end %>
 			</div>
 			<div class="col-md-8">
+				<%= render partial: '/shared/who_posted', locals: {user: link.user} %>
 				<h6 class="link-title"><%= link_to link.title, link.link %></h6>
 				<% if link.comment_count > 1 || link.comment_count == 0 %>
 					<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>

@@ -12,7 +12,6 @@ class WhitepapersController < ApplicationController
   def new
     @whitepaper = Whitepaper.new
     @network = Network.friendly.find(params[:network_id])
-    puts "the network is #{@network.inspect}"
   end
 
   def edit

@@ -3,7 +3,7 @@ class LinksController < ApplicationController
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
 	def index
-		if defined?(params[:network_id])
+		if params.has_key?(:network_id)
 			@network = Network.friendly.find(params[:network_id])
 			@links = @network.links.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 		else
