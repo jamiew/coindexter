@@ -8,7 +8,7 @@
 						<div class="row results">
 							<h1 class="list-name">Coins matching '<%= @query %>'</h1>
 							<% if @coin_results.empty? %>
-								<p>No coins found</p>
+								<p>No coins found. <%= link_to "Add one?", new_coin_path %></p>
 							<% else %>
 								<% @coin_results.each_with_index do |result, i| %>
 									<%= render '/coins/coin_widget', :coin => result, :i => i %>
@@ -18,7 +18,7 @@
 						<div class="row results">
 							<h1 class="list-name">Networks matching '<%= @query %>'</h1>
 							<% if @network_results.empty? %>
-								<p>No networks found</p>
+								<p>No networks found. <%= link_to "Add one?", new_network_path %></p>
 							<% else %>
 								<% @network_results.each_with_index do |result, i| %>
 									<%= render '/networks/network_widget', :network => result, :i => i %>
@@ -28,7 +28,7 @@
 						<div class="row results">
 							<h1 class="list-name">Whitepapers matching '<%= @query %>'</h1>
 							<% if @whitepaper_results.empty? %>
-								<p>No whitepapers found</p>
+								<p>No whitepapers found. Navigate to the network you think the whitepaper belongs to and add it there.</p>
 							<% else %>
 								<% @whitepaper_results.each_with_index do |wp, i| %>
 									<%= wp.network.name %>
