@@ -1,5 +1,1 @@
-<ul>
-	<% @whitepapers.each do |wp| %>
-		<li><%= link_to wp.whitepaper_title, wp %></li>
-	<% end %>
-</ul>
+<%= render '/whitepapers/whitepaper_list' %>

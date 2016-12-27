@@ -29,12 +29,17 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :whitepapers
+
   match 'networks/:network_id/coins/:id/logs', to:'coins#logs', via: 'get'
+  
   match 'networks/:id/logs', to:'networks#logs', via: 'get'
+
 
   match '/search', to:"searches#results", via: "get"
 
   match '/account/', to:"users#edit", via: "get"
+  
   match '/account/:id', to:"users#edit", via: "get"
 
   match '/about', to:'application#about', via: 'get'
@@ -47,7 +52,5 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
     get 'signin', to: 'devise/sessions#new'
   end
-
-
 
 end

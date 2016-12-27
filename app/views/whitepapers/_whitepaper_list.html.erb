@@ -1,0 +1,25 @@
+<% @whitepapers.each do |wp| %>
+	<div class="row whitepaper-list-cnt">
+		<div class="col-md-3 whitepaper-thumb-cnt">
+			<%= link_to network_whitepapers_path(wp) do %>
+				<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+			<% end %>
+		</div>
+		<div class="col-md-9 whitepaper-metadata">
+			<% if defined?(wp.network) && !wp.network.nil? %>
+	    		<div class="user-log-classification">
+	    			<%= link_to network_whitepapers_path(wp) do %>
+	    				<p class="whitepaper-title"><%= wp.whitepaper_title %></p>
+	    			<% end %>
+					<div class="user-log-classification-whitepaper">
+						<% if !wp.network.logo.nil? %>
+							<%= image_tag(wp.network.logo.small.url, size: "20x20") unless wp.network.logo.blank? %>
+						<% end %>
+						<%= link_to wp.network.name, wp.network %>
+					</div>
+				</div>
+			<% end %>
+			<h6 class="when-posted"><%= time_ago_in_words(wp.created_at) %></h6>
+		</div>
+	</div>
+<% end %>

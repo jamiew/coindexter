@@ -1,16 +1,14 @@
-<%= render(partial: "networks/network_frame", locals: {network: @whitepapers.first.network, active_item: "whitepapers"}) %>
-<ul>
-	<li class="network-info-block block">
-		<% @whitepapers.each do |wp| %>
+<div class="col-md-6 col-md-offset-3 main">
+	<ul>
+		<li class="whitepapers block">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-					<%= link_to network_whitepapers_path(wp) do %>
-						<p><%= wp.whitepaper_title %></p>
-						<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
-					<% end %>
+				<div class="col-md-10 col-md-offset-2">
+					<div class="row">
+						<h1>Latest whitepapers</h1>
+						<%= render 'whitepaper_list' %>
+					</div>
 				</div>
 			</div>
-		<% end %>
-	</li>
-</ul>
-<%= render(partial: "networks/network_frame_bottom") %>
+		</li>
+	</ul>
+</div>

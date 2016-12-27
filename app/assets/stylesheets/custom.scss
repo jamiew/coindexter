@@ -843,7 +843,7 @@ form.new_comment {
 	margin-left:38px;
 }
 
-.network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .results, .about, .info-header, form {
+.network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .whitepapers, .results, .about, .info-header, form {
 	margin-bottom:24px;
 	h1 {
 		font-family: WhitneyHTF-Bold;
@@ -868,6 +868,18 @@ form.new_comment {
 				margin-bottom:1em !important;
 			}
 		}
+	}
+}
+
+.results {
+	margin-bottom:48px !important;
+	a.network-widget {
+		.network-in-categories {
+			margin-bottom: 0 !important;
+		}
+	}
+	h1 {
+		text-transform: none !important;
 	}
 }
 
@@ -947,7 +959,7 @@ form.edit_coin, form.new_coin, .sign-in-up {
 			color: $primary-orange;
 		}
 	}
-	.user-log-classification-coin, .user-log-classification-network, .user-log-classification-link {
+	.user-log-classification-coin, .user-log-classification-network, .user-log-classification-link, .user-log-classification-whitepaper {
 		background-color:rgba(255,255,255,0.8);
 		border: 1px solid $border-orange;
 		border-radius: 4px;
@@ -964,6 +976,9 @@ form.edit_coin, form.new_coin, .sign-in-up {
 		&:hover {
 			border-color: $primary-orange;
 		}
+	}
+	.user-log-classification-whitepaper {
+		float:left;
 	}
 	&:hover {
 		cursor:pointer;
@@ -1005,5 +1020,39 @@ ul.action-links {
 	}
 }
 
+.whitepaper-list-cnt {
+	position:relative;
+	min-height:139px;
+	.whitepaper-thumb-cnt {
+		.whitepaper-thumbnail {
+			height:139px;
+			margin:0;
+		}
+	}
+	.whitepaper-metadata {
+		position:absolute;
+		bottom:0;
+		left: 130px;
+		text-align:left;
+		p.whitepaper-title {
+			text-align:left;
+			line-height: 18px;
+			padding-bottom:10px;
+		}
+		h6.when-posted {
+			text-align:left !important;
+			margin-bottom:0 !important;
+		}
+	}
+	margin-top:2em;
+	.user-log-classification {
+		.user-log-classification-whitepaper {
+			img {
+				padding: 0;
+			}
+		}
+	}
+}
+	
 
 

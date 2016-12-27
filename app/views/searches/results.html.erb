@@ -6,7 +6,7 @@
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2">
 						<div class="row results">
-							<h1 class="list-name">Coins matching '<%= @query %>'</h1>
+							<h1 class="list-name">Coins matching '<%= @query.downcase %>'</h1>
 							<% if @coin_results.empty? %>
 								<p>No coins found. <%= link_to "Add one?", new_coin_path %></p>
 							<% else %>
