@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908161050) do
+ActiveRecord::Schema.define(version: 20161228194906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160908161050) do
     t.string   "proof_algorithm"
     t.string   "coin_type"
     t.jsonb    "exchanges",               default: {}, null: false
+    t.datetime "saledate"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
     t.index ["links_id"], name: "index_coins_on_links_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree

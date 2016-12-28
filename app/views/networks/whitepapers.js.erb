@@ -1,4 +1,4 @@
-$('.content').html("<%= j (render 'whitepapers') %>");
+$('.content').html("<div class='row'><div class='col-md-8 col-md-offset-4'><%= j (render 'whitepapers') %></div></div>");
 $('#details').removeClass("active-item");
 $('#whitepapers').addClass("active-item");
 $('.action-links').show();

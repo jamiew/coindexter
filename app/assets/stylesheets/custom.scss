@@ -27,6 +27,19 @@ $google: rgb(221,75,57);
 	color: $primary-orange;
 } 
 
+@mixin info-menu-item {
+	opacity:0.4;
+	color: $primary-orange;	
+	display:inline;		
+	&:hover {
+		border-bottom: 2px solid $primary-orange;
+		color: $primary-orange;
+		padding-bottom:1px;
+		cursor:pointer;
+		opacity:1;
+	}
+} 
+
 html, body {
 	height: 100%;
 }
@@ -269,6 +282,22 @@ ul#info-menu {
 	text-align:right;
 	margin-top: 173px;
 	padding-left: 0px;
+	li.category-link {
+		p {
+			@include info-menu-item;
+		}
+	}
+	li.active-item {
+		p {
+			opacity:1.0 !important;
+		}
+	}
+	li#show-all {
+		p {
+			font-family: "WhitneyHTF-BoldSC";
+			@include info-menu-item;
+		}
+	}
 	li {
 		margin-bottom:12px;
 		line-height:24px;
@@ -365,6 +394,32 @@ ul#info-menu {
 	margin-bottom:38px;
 }
 
+.rememberable {
+	margin-top: 3px;
+	margin-bottom:5px;
+	label {
+		margin: 0 !important;
+	}
+	input[type="checkbox"] {
+		width: auto !important;
+		margin: 1px 3px 0 0 !important;
+		padding: 8px;
+	}
+}
+
+.registration-additional {
+	h6 {
+		margin: 3px 0 2px 0 !important;
+		a {
+			color: $text-light;
+			&:hover {
+				color: $primary-orange;
+			}
+		}
+	}
+}
+
+
 .link-block {
 	margin-bottom:24px;
 	padding-bottom:24px;
@@ -382,8 +437,12 @@ form.new_comment {
 	margin-left: 0;
 }
 
-.block, .main, .content {
+.main, .content {
 	margin-bottom:10px;
+}
+
+.block {
+	margin-bottom: 10px;
 }
 
 .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
@@ -399,7 +458,7 @@ form.new_comment {
 		margin-bottom:10px;
 		.title-row > h6 {
 			margin-bottom:5px !important;
-			margin-top:26px !important;
+			margin-top:28px !important;
 		}
 	}
 }
@@ -912,6 +971,14 @@ form.new_comment {
 
 .info-header {
 	margin-left:38px;
+	div {
+		div {
+			h1#network-name {
+				margin-top:11px;
+				margin-bottom:10px;
+			}
+		}
+	}	
 }
 h1.list-name {
 	font-family: WhitneyHTF-SemiBoldSC;

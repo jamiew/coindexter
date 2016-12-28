@@ -1,9 +1,9 @@
 <div class="col-md-2 col-md-offset-1 left-nav">
 	<ul id="info-menu">
-		<li id="show-all" class="active-item">All</li>
+		<li id="show-all" class="active-item"><p>All</p></li>
 		<% @categories.each do |category| %>
 			<% unless category.networks.nil? %>
-				<li id=<%= category.name %>><%= link_to category.name.capitalize %></li>
+				<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %>><p><%= category.name.capitalize %></p></li>
 			<% end %>	
 		<% end %>
 	</ul>

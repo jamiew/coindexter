@@ -1,5 +1,5 @@
 <% @categories.each do |category| %>
-	<ul class="full-category-cnt" id=<%= category.name %>>
+	<ul class="full-category-cnt" id=<%= category.name.gsub(/\s+/, "").downcase %>>
 		<% unless category.networks.empty? %>
 			<li class="category-network-block block">
 				<div class="row">
