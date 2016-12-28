@@ -1,13 +1,15 @@
-<% if defined?(current_user) %>
-	<%= link_to user, class: "who-posted" do %>
-		<%= image_tag(user.avatar, size: '16x16', class: 'avatar') if defined?(user.avatar) %>
-		<% if defined?(user.username) %>
-			<%= current_user == user ? "Me" : user.username %>
+<div class="who-posted-cnt">
+	<% if defined?(current_user) %>
+		<%= link_to user, class: "who-posted" do %>
+			<%= image_tag(user.avatar, size: '16x16', class: 'avatar') if defined?(user.avatar) %>
+			<% if defined?(user.username) %>
+				<%= current_user == user ? "Me" : user.username %>
+			<% end %>
+		<% end %>
+	<% elsif defined?(user) && !user.nil? %>
+		<%= link_to user, class: "who-posted" do %>
+			<%= image_tag(user.avatar, size: '16x16', class: 'avatar') %>
+			<%= user.username %>
 		<% end %>
 	<% end %>
-<% elsif defined?(user) && !user.nil? %>
-	<%= link_to user, class: "who-posted" do %>
-		<%= image_tag(user.avatar, size: '16x16', class: 'avatar') %>
-		<%= user.username %>
-	<% end %>
-<% end %>
+</div>

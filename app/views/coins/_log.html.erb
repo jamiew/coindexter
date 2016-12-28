@@ -21,24 +21,22 @@
 					<li>
 						<% case change[:change_attr] %>
 							<% when "Repositories", "Exchanges" %>
-									<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
-									<%= change[:change_attr].capitalize %>
-									<% if change[:change_type] == "added" %>
-										added: 
-											<% puts "log is #{change[:change].second}" %>
-											<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
-									<% elsif change[:change_type] == "edited" %>
-										changed from 
-											<% change[:change].first.each_with_index do |change, i| %>
-												<%= link_to change["name"], change["url"] %>
-											<% end %>
-										to 
-											<% change[:change].second.each_with_index do |change, i| %>
-												<%= link_to change["name"], change["url"] %>
-											<% end %>
-									<% end %>
+								<%= change[:change_attr].capitalize %>
+								<% if change[:change_type] == "added" %>
+									added: 
+										<% puts "log is #{change[:change].second}" %>
+										<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
+								<% elsif change[:change_type] == "edited" %>
+									changed from 
+										<% change[:change].first.each_with_index do |change, i| %>
+											<%= link_to change["name"], change["url"] %>
+										<% end %>
+									to 
+										<% change[:change].second.each_with_index do |change, i| %>
+											<%= link_to change["name"], change["url"] %>
+										<% end %>
+								<% end %>
 							<% when "Network", "Description" %>
-								<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 								<%= change[:change_attr].capitalize %>
 								<% if change[:change_type] == "added" %>
 									added:
@@ -54,14 +52,11 @@
 										<% end %>
 								<% end %>
 							<% when "Created" %>
-								<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 								Created 
 								<%= link_to log.coins.name, log.coins %>
 							<% when "logo" %>
-								<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 								New logo
 							<% else %>
-								<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 								<%= change[:change_attr].capitalize %>
 								<% if change[:change_type] == "added" %>
 									added: "<%= change[:change].second.capitalize %>"
@@ -69,6 +64,7 @@
 									changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
 								<% end %>
 						<% end %>
+						<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 					</li>
 				<% end %>
 			</ul>

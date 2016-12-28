@@ -6,7 +6,7 @@
 $ ->  
 	$('ul#info-menu > li').click ->
 		selector = 'ul#' + $(this).attr 'id'
-		$('.show-all').removeClass 'active-item'
+		$('#info-menu > li').removeClass 'active-item'
 		$('ul.full-category-cnt').hide()
 		$(selector).show()
 	$('#show-all').click ->

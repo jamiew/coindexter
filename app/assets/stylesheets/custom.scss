@@ -38,7 +38,7 @@ body {
 	font-size: 16px;
 	line-height: 1.5;
 	.main-container {
-		padding: 2em 0 6em 0;
+		padding: 48px 0 6em 0;
 	}
 	height: 100%;
 }
@@ -65,7 +65,6 @@ p.alert {
 }
 
 .main {
-	border-left: 1px solid $border-orange;
 	min-height:500px;
 	margin-bottom:120px;
 }
@@ -105,9 +104,15 @@ a {
 	}
 	&:visited {
 		text-decoration:none;
+		outline:none;
 	}
 	&:active {
 		text-decoration:none;
+		outline:none;
+	}
+	&:focus {
+		text-decoration:none;
+		outline:none;
 	}
 }
 
@@ -126,12 +131,12 @@ label {
 }
 
 nav, .navbar {
-	border-top: 8px solid $primary-orange;
+	border-top: 6px solid $primary-orange;
 	border-bottom: 1px solid $border-orange;
 	background-color: $navbar-orange;
-	margin-bottom: 30px;
-	height: 80px;
-	padding-top: 8px;
+	margin-bottom: 36px;
+	height: 84px;
+	padding-top: 10px;
 	border-radius: 0;
 	border-left: 0;
 	border-right: 0;
@@ -143,10 +148,9 @@ nav, .navbar {
 				color: $primary-orange;
 				font-size:28px;
 				text-transform:uppercase;
-				margin-top:7px;
 				float:left;
 				padding:0;
-				margin:4px -4px 0 0;
+				margin:3px -4px 0 0;
 			}
 			form {
 				float:left;
@@ -166,7 +170,7 @@ nav, .navbar {
 						padding: 22px 12px;
 						font-size:16px;
 						width:320px;
-						margin-top:4px;
+						margin-top:3px;
 						&:active {
 							color:$text;
 						}
@@ -196,13 +200,13 @@ nav, .navbar {
 					h6 {
 						color: $text;
 						font-size:16px;
-						margin-top:2px;
+						margin-top:6px;
 						padding-top:0;
 						padding-right:12px;
 					}
 					a {
 						color: $primary-orange;
-						margin-top:4px;
+						margin-top:6px;
 						&:hover {
 							background:none;
 						}
@@ -214,6 +218,7 @@ nav, .navbar {
 						border-radius: 4px;
 						margin-right: 6px;
 						float:left;
+						margin-top:-1px;
 					}	
 					&:last-child {
 						width: 150px;
@@ -243,7 +248,7 @@ nav, .navbar {
 						margin-top:2px;
 					}
 					a.login-link {
-						margin-top:6px
+						margin-top:8px
 					}
 				}	
 			}
@@ -254,25 +259,31 @@ nav, .navbar {
 .left-nav {
 	/* background-color: $navbar-orange;
 	padding-bottom:163px; */
+	padding-right:40px;
+	margin-right:8px;
+	border-right: 1px solid $border-orange;
+
 }
 
 ul#info-menu {
 	text-align:right;
-	margin-top: 163px;
-	margin-right:20px;
+	margin-top: 173px;
 	padding-left: 0px;
 	li {
-		margin-bottom:14px;
+		margin-bottom:12px;
+		line-height:24px;
 		clear:both;
-		height:24px;
+		letter-spacing:0.01em;
+		font-family: "WhitneyHTF-MediumSC";
+		text-transform:lowercase;
+		font-size:20px;
 		a {
 			opacity:0.4;
-			color: $primary-orange;
-			font-family: "WhitneyHTF-Medium";
+			color: $primary-orange;			
 			margin:0;
 			padding:0;
 			&:hover {
-				border-bottom: 1px solid $primary-orange;
+				border-bottom: 2px solid $primary-orange;
 				color: $primary-orange;
 				padding-bottom:1px;
 				display:inline;
@@ -329,10 +340,18 @@ ul#info-menu {
 			border-bottom: none;
 			clear:both;
 			display:block;
-			margin-top:10px;
+			font-size:16px;
 			.user-log-classification {
 				opacity:1;
 			}
+		}
+		a:first-child {
+			margin-top:6px !important;
+			margin-bottom:6px !important;
+		}
+		a:last-child {
+			padding-top:6px !important;
+			margin-right:-12px;
 		}
 	}
 	li.menu-title {
@@ -343,7 +362,7 @@ ul#info-menu {
 }
 
 .block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
-	margin-bottom:64px;
+	margin-bottom:38px;
 }
 
 .link-block {
@@ -356,19 +375,43 @@ ul#info-menu {
 }
 
 form {
-	margin-left: 36px;
+	margin-left: 0px;
 }
 
 form.new_comment {
 	margin-left: 0;
 }
 
-.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content, .new_whitepaper, .edit_whitepaper {
+.block, .main, .content {
+	margin-bottom:10px;
+}
+
+.edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
+	padding-top: 8px;
+	.row {
+		margin-bottom: 12px;
+
+	}
+}
+
+.block {
+	.row { 
+		margin-bottom:10px;
+		.title-row > h6 {
+			margin-bottom:5px !important;
+			margin-top:26px !important;
+		}
+	}
+}
+
+.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content, .new_whitepaper, .edit_whitepaper, .whitepapers {
+	ul.link-list, ul.whitepaper-list, ul.full-category-cnt {
+		padding-top:7px;
+	}
 	.row {
 		&:last-child {
 			margin-bottom:0px;
 		}
-		margin-bottom:12px;
 		.label {
 			text-align:right;
 			text-transform:lowercase;
@@ -392,14 +435,8 @@ form.new_comment {
 			margin-top:24px;
 			h6 {
 				margin-top:12px;
+				padding-bottom:12px;
 			}
-
-		}
-
-		.social-sign-in {
-			margin-bottom:-12px;
-		}
-		.title-row > h6 {
 
 		}
 		div[class*='col-'] {
@@ -409,6 +446,7 @@ form.new_comment {
 			h6, label {
 				margin: -2px 0 0 0;
 				font-family: 'WhitneyHTF-MediumSC';
+				letter-spacing: 0.01em;
 				color: $text;
 				font-size: 18px;
 				span {
@@ -416,10 +454,10 @@ form.new_comment {
 				}
 			}
 			.oauth-signin {
-				padding: 8px 16px 9px 44px;
+				padding: 11px 16px 12px 44px;
 				border-radius: 4px;
 				background-repeat: no-repeat;
-				background-position: left 8px top 6px;
+				background-position: left 8px top 4px;
 				background-size: 26px 26px;
 				color:white;
 				margin-top: -12px;
@@ -428,30 +466,34 @@ form.new_comment {
 				border: 2px solid $twitter;
 				background-color: $twitter;
 				background-image: image-url("twitter.png");
+				background-position: left 8px top 9px;
 			}
 			.facebook {
 				border: 2px solid $facebook;
 				background-color: $facebook;
 				background-image: image-url("facebook.png");
+				background-position: left 8px top 9px;
 			}
 			.google {
 				border: 2px solid $google;
 				background-color: $google;
 				background-image: image-url("google.png");
+				background-position: left 8px top 9px;
 			}
 			.coindexter-signin {
 				border: 2px solid $primary-orange;
 				background-color: $primary-orange;
 				background-image: image-url("logo-button-white.png");
+				background-position: left 8px top 9px;
 			}
 			.sign-in-alternative {
 				margin-bottom:-27px;
 			}
 			.sign-in-change {
-				margin-bottom:-15px;
+				margin-bottom:-17px;
 			}
 			label {
-				margin-top: 13px;
+				margin-top: 17px;
 			}
 			input, textarea, select {
 				width:100%;
@@ -461,20 +503,33 @@ form.new_comment {
 				}
 				box-shadow:none;
 				border: 1px solid $border-orange;
-				padding: 0.8em;
+				padding: 18px 18px 18px;
 				border-radius:4px;
 				background-color: #fff;
+				&:disabled {
+					opacity:0.6;
+				}
+			}
+			input {
 				&[type=submit] {
 					background: $primary-orange;		
 					color:white;
 				}
+				&[type=text], &[type=email], &[type=password] {
+					padding: 17px 18px 17px;
+				}
 				&[type=file] {
-					padding: 12px;
-					font-family: 'WhitneyHTF-Medium'
+					font-family: 'WhitneyHTF-Medium';
+					padding: 17px 18px 17px;
 				}
-				&:disabled {
-					opacity:0.6;
-				}
+				&[type=submit] {
+					margin-top:-1px;
+					margin-bottom:4px;
+				} 
+			}
+			textarea {
+				padding: 17px 18px 11px;
+
 			}
 			select {
 				text-transform:capitalize;
@@ -538,7 +593,7 @@ form.new_comment {
 				font-size:16px;
 				line-height:1.5;
 				margin-top:0px;
-				margin-bottom:8px;
+				margin-bottom:12px;
 				font-family: "WhitneyHTF-Medium";
 			}
 			h3.link-title {
@@ -548,7 +603,7 @@ form.new_comment {
 			}
 			h6.when-posted {
 				margin-bottom: 5px;
-				padding-top:7px;
+				padding-top:11px;
 				text-align:right;
 				font-size:16px;
 				text-transform: lowercase;
@@ -559,21 +614,31 @@ form.new_comment {
 				font-size:12px;
 				font-family: "WhitneyHTF-Medium";
 				text-transform:uppercase;
+				margin-top:7px;
 			}
 			h6.comment-count > a {
-				color: $secondary-orange;
+				color: $text;
+				&:hover {
+					color: $primary-orange;
+				}
 			}
 			a.who-posted {
 				display:inline;
-				margin-top:4px;
 				text-align:left;
-				text-transform: lowercase	;
+				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
+				color: $text;
+				&:hover {
+					color: $primary-orange;
+				}
 				img {
 					border-radius: 3px;
 					margin-right:2px;
 					margin-top:-2px;
 				}
+			}
+			.who-posted-cnt {
+				margin-top:12px;
 			}
 			p.link-body {
 				margin-bottom:38px;
@@ -643,7 +708,7 @@ form.new_comment {
 					h6.comment-name {
 						margin: 3px 0 0 8px;
 						font-size:14px;
-						font-family: "WhitneyHTF-BoldSC";
+						font-family: "WhitneyHTF-SemiBoldSC";
 					}
 					h6.comment-name, a.reply-to-comment {
 						font-size:16px;
@@ -721,19 +786,22 @@ form.new_comment {
 			text-align:center;
 			margin-bottom:1em;
 			.coin-in-categories, .network-in-categories {
-				margin-bottom:2em;
-				min-height: 177px;
+				margin-top:-1px;
+				margin-bottom:25px;
+				min-height: 181px;
 				background-color: rgba(255,255,255,0.8);
-				border: 1px solid $border-orange;
+				border: 2px solid $border-orange;
 				padding: 1em 0;
 				h6 {
 					font-size:16px;
-					font-family: 'WhitneyHTF-Bold';
+					font-family: 'WhitneyHTF-SemiBold';
 					text-transform: capitalize;
+					letter-spacing: 0.01em;
 				}
 				img, .coin-logo {
-					margin: 0 auto 18px auto;
+					margin: 0 auto 24px auto;
 					text-align:center;
+					border-radius: 2px;
 				}
 				border-radius: 4px;
 				p {
@@ -746,9 +814,13 @@ form.new_comment {
 				color: $text;
 			}
 			.network-in-categories {
-				min-height:177px;
+				min-height:181px;
 				img {
-					margin-top: 18px;
+					margin-top: 19px;
+					border-width: 2px;
+				}
+				&:hover {
+					border: 2px solid $primary-orange;
 				}
 			}
 		}
@@ -799,39 +871,38 @@ form.new_comment {
 		.error_explanation {
 			color: $concept-outer;
 		}
-
-	}
-	.grouped-row {
-		margin-bottom:0px;
-		&:last-child {
-			padding-bottom:52px;
-		}
-	}
-	.grouped-row-first {
-		div[class*='col-'] {
-			input {
-				border-radius: 4px 4px 0px 0px;
+		.grouped-row {
+			margin-bottom:0px;
+			&:last-child {
+				padding-bottom:52px;
 			}
 		}
-	}
-	.grouped-row-last, .grouped-row-middle {
-		div[class*='col-'] {
+		.grouped-row-first {
 			input {
-				border-top:none;
-				border-radius: 0px 0px 4px 4px;
+				border-radius: 4px 4px 0px 0px !important;
 			}
 		}
-	}
-	.grouped-row-last {
-		margin-bottom:12px;
-		div[class*='col-'] {
+		.grouped-row-last, .grouped-row-middle {
+			margin-top:-1px;
 			input {
 				border-top:none;
+			}
+		}
+		.grouped-row-middle {
+			border-radius: 0px !important;
+			padding: 18px 18px 19px !important;
+		}
+		.grouped-row-last {
+			margin-bottom:12px;
+			input {
+				border-top:none;
+				border-radius: 0px 0px 4px 4px !important;
+				padding: 17px 18px 18px !important;
 			}
 		}
 	}
 	.first-in-form-group {
-		margin-top: 64px;
+		margin-top: 48px;
 	}
 }
 
@@ -842,17 +913,25 @@ form.new_comment {
 .info-header {
 	margin-left:38px;
 }
-
+h1.list-name {
+	font-family: WhitneyHTF-SemiBoldSC;
+	font-size:28px;
+	margin-top:5px;
+	letter-spacing: 0.02em;
+	color: $text;
+	text-transform: lowercase;
+}
 .network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .whitepapers, .results, .about, .info-header, form {
-	margin-bottom:24px;
+	margin-bottom:27px;
 	h1 {
-		font-family: WhitneyHTF-Bold;
-		font-size:24px;
+		font-family: WhitneyHTF-SemiBoldSC;
+		font-size:28px;
+		letter-spacing: 0.02em;
 		color: $text;
-		text-transform: capitalize;
+		text-transform: lowercase;
 	}
 	h1.list-name {
-		margin-bottom: 1em;
+		margin-bottom: 19px;
 	}
 	img {
 		border: 1px solid $border-orange;
@@ -861,11 +940,12 @@ form.new_comment {
 	}
 	.row {
 		.intro-block {
-			margin-bottom: 2em;
-			padding: 2em;
+			margin-bottom: 21px;
+			padding-bottom:30px;
 			border-bottom: 1px solid $border-orange;
 			p {
-				margin-bottom:1em !important;
+				margin-top:13px !important;
+				margin-bottom:24px !important;
 			}
 		}
 	}
@@ -912,19 +992,28 @@ form.edit_coin, form.new_coin, .sign-in-up {
 	padding-left:40px;
 	.row {
 		div[class*='col-'] {
-			h6, h1 {
-				margin-top:36px;
+			h1 {
+				margin-top:3px;
+				margin-bottom:8px;
 				a {
 					text-transform:lowercase;
 				}
+			}
+			h6 {
+				margin-top:25px;
+				margin-bottom:4px;
+			}
+			h6.sign-in-alternative {
+				margin-bottom:-15px;
 			}
 		}
 	}
 }
 
 .log-block, .link-block {
-	padding-bottom:24px;
-	margin-bottom:30px;
+	padding-bottom:36px;
+	padding-top:26px;
+	margin-bottom:37px;
 	border-bottom: 1px solid $border-orange;
 	&:last-child {
 		border-bottom: none;
@@ -964,8 +1053,9 @@ form.edit_coin, form.new_coin, .sign-in-up {
 		border: 1px solid $border-orange;
 		border-radius: 4px;
 		float:right; 
-		padding: 4px 10px;
-		margin-bottom:1px;
+		padding: 5px 10px;
+		margin-bottom:-2px;
+		height:37px;
 		img {
 			margin-top:2px;
 			margin-right:4px;
@@ -991,7 +1081,7 @@ ul.action-links {
 	right: 20px;
 	color: $text;
 	li {
-		padding: 0.1em 0.7em 0.2em 0.7em;
+		padding: 5px 12px 7px;
 		text-transform:lowercase;
 		font-size: 16px;
 		font-family: "WhitneyHTF-MediumSC";
@@ -1022,35 +1112,48 @@ ul.action-links {
 
 .whitepaper-list-cnt {
 	position:relative;
-	min-height:139px;
+	min-height:144px;
 	.whitepaper-thumb-cnt {
 		.whitepaper-thumbnail {
-			height:139px;
+			height:144px;
 			margin:0;
 		}
 	}
 	.whitepaper-metadata {
 		position:absolute;
-		bottom:0;
-		left: 130px;
+		bottom:9px;
+		left: 188px;
 		text-align:left;
-		p.whitepaper-title {
-			text-align:left;
-			line-height: 18px;
-			padding-bottom:10px;
+		a {
+			p.whitepaper-title {
+				text-align:left;
+				line-height: 24px;
+				padding-bottom:12px;
+			}
 		}
 		h6.when-posted {
 			text-align:left !important;
 			margin-bottom:0 !important;
+			padding-top:11px !important;
 		}
 	}
-	margin-top:2em;
+	margin-top:20px;
+	margin-bottom: 48px !important;
 	.user-log-classification {
 		.user-log-classification-whitepaper {
 			img {
 				padding: 0;
 			}
 		}
+	}
+	.whitepaper-thumb-cnt {
+		text-align:right;
+	}
+}
+
+.whitepaper-list-cnt {
+	&:first {
+		display:none;
 	}
 }
 	

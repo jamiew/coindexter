@@ -6,31 +6,50 @@
 	</div>
 <% else %>
 	<li class="link-block block">
-		<div class="row">
-			<div class="col-md-4">
-				<% if defined?(networks) && !networks.nil? %>
-		    		<div class="user-log-classification">
-						<% networks.each do |network| %>
-							<div class="user-log-classification-network">
-								<% if !network.logo.nil? %>
-									<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
-								<% end %>
-								<%= link_to network.name, network %>
-							</div>
+		<% if defined?(@network) && !@network.nil? %>
+			<% @network.links.each do |link| %>
+				<div class="row">
+					<div class="col-md-4">
+						
+					</div>
+					<div class="col-md-8">
+						<h6 class="link-title"><%= link_to link.title, link.link %></h6>
+						<%= render partial: '/shared/who_posted', locals: {user: link.user} %>
+						<% if link.comment_count > 1 || link.comment_count == 0 %>
+							<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
+						<% elsif link.comment_count > 0 %>
+							<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>
 						<% end %>
 					</div>
-				<% end %>
-				<h6 class="when-posted"><%= time_ago_in_words(link.created_at) %></h6>
+				</div>
+			<% end %>
+		<% else %>
+			<div class="row">
+				<div class="col-md-4">
+					<% if defined?(link.networks) %>
+						<% link.networks.each do |network| %>
+							<div class="user-log-classification">
+								<div class="user-log-classification-link">
+									<% if network.logo.nil? %>
+										<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
+									<% end %>
+									<%= link_to network.name, network %>
+								</div>
+								<h6 class="when-posted"><%= time_ago_in_words(link.created_at) %></h6>
+							</div>
+						<% end %>
+					<% end %>
+				</div>
+				<div class="col-md-8">
+					<h6 class="link-title"><%= link_to link.title, link.link %></h6>
+					<%= render partial: '/shared/who_posted', locals: {user: link.user} %>
+					<% if link.comment_count > 1 || link.comment_count == 0 %>
+						<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
+					<% elsif link.comment_count > 0 %>
+						<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>
+					<% end %>
+				</div>
 			</div>
-			<div class="col-md-8">
-				<%= render partial: '/shared/who_posted', locals: {user: link.user} %>
-				<h6 class="link-title"><%= link_to link.title, link.link %></h6>
-				<% if link.comment_count > 1 || link.comment_count == 0 %>
-					<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
-				<% elsif link.comment_count > 0 %>
-					<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>
-				<% end %>
-			</div>
-		</div>
+		<% end %>
 	</li>
 <% end %>

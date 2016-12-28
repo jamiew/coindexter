@@ -19,7 +19,10 @@
 					</div>
 				<% end %>
 			<% end %>
-			<%= link_to "Add another coin", new_network_coin_path(network) %>
+			<%= link_to new_network_coin_path(network) do %>
+				Add another coin 
+				<%= image_tag("add-icon") %>
+			<% end %>
 		<% end %>
 	</li>
 </ul>

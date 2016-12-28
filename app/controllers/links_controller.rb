@@ -27,11 +27,11 @@ class LinksController < ApplicationController
 
 	def new
 		@use_ajax = true
-		if defined?(params[:network_id])
+		if params.has_key?(:network_id)
 			@network = Network.friendly.find(params[:network_id])
 			@link = @network.links.new
 		else
-			@link = @network.links.new
+			@link = Link.new
 		end
 		respond_to do |format|
 		    format.html

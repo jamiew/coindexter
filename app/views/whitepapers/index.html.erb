@@ -1,14 +1,19 @@
-<div class="col-md-6 col-md-offset-3 main">
-	<ul>
-		<li class="whitepapers block">
+<div class="row">
+	<div class="col-md-6 col-md-offset-3 main">
+		<ul class="whitepaper-list">
 			<div class="row">
-				<div class="col-md-10 col-md-offset-2">
-					<div class="row">
-						<h1>Latest whitepapers</h1>
-						<%= render 'whitepaper_list' %>
-					</div>
+				<div class="col-md-8 col-md-offset-4">
+					<h1 class="list-name">Latest whitepapers</h1>
 				</div>
 			</div>
-		</li>
-	</ul>
+			<%= render 'whitepaper_list' %>
+		</ul>
+		<ul class="action-links">
+			<li><%= link_to(new_whitepaper_path, class: "action-link", accesskey: 'A') do %>
+				Add new whitepaper
+				<%= image_tag("add-icon-white") %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
 </div>

@@ -1,6 +1,11 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 main">
 		<ul class="link-list">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<h1 class="list-name">Latest links</h1>
+				</div>
+			</div>
 			<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
 		</ul>
 		<div class="row">
@@ -11,5 +16,9 @@
 	</div>
 </div>
 <ul class="action-links">
-	<li><%= link_to("Add new link", new_link_path, remote: false, class: "action-link", accesskey: 'L') %></li>
+	<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %>
+		Add new link
+		<%= image_tag("add-icon-white") %>
+		<% end %>
+	</li>
 </ul>
