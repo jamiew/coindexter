@@ -66,6 +66,18 @@
 				<% end %>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-4 label">
+				<h6>Saledate</h6>
+			</div>
+			<div class="col-md-8 saledate">
+				<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
+					<%= @coin.saledate.strftime('%b %d, %Y') %>
+				<% else %>
+					<%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %>
+				<% end %>
+			</div>
+		</div>
 	</li>
 	<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
 		<li class="coin-price-info @coin-info-block block">

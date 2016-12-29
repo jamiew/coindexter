@@ -135,6 +135,8 @@ ul, li {
 	text-indent:none;
 }
 
+
+
 label {
 	font-weight:normal;
 }
@@ -232,9 +234,6 @@ nav, .navbar {
 					&:last-child {
 						width: 150px;
 					}
-				}
-				li#header-link-sales > a {
-					opacity: 0.4;
 				}
 				li#header-link-account {
 					margin-top:-10px;
@@ -569,7 +568,7 @@ form.new_comment {
 				-webkit-appearance: none;
 			    -moz-appearance: none;
 			    appearance: none;
-			    background: no-repeat right 16px top 20px #fff;
+			    background: no-repeat right 16px top 26px #fff;
 				background-image: asset_url('down-carat');
 				option {
 					padding: 0.8em;
@@ -608,9 +607,7 @@ form.new_comment {
 			.optional-field {
 				display:none;
 			}
-			.select-label {
-				margin-top: 10px;
-			}
+
 			div.live-icon {
 				margin-top:7px;
 				margin-right:4px;
@@ -939,6 +936,7 @@ form.new_comment {
 	}
 	.first-in-form-group {
 		margin-top: 48px;
+		margin-bottom: 11px;
 	}
 }
 
@@ -1033,8 +1031,11 @@ span.down {
 	color: $concept-outer;
 }
 
-form.edit_coin, form.new_coin, .sign-in-up {
+.sign-in-up {
 	padding-left:40px;
+}
+
+form.edit_coin, form.new_coin, .sign-in-up {
 	.row {
 		div[class*='col-'] {
 			h1 {

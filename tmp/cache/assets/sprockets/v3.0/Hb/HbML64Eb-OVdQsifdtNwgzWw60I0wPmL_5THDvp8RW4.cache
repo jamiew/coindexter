@@ -1,0 +1,19 @@
+I"(function() {
+  $(function() {
+    $('ul#info-menu > li').click(function() {
+      var selector;
+      selector = 'a.' + $(this).attr('id');
+      $('#info-menu > li').removeClass('active-item');
+      $('div.results > a').hide();
+      $('div.results > a > div').removeClass('col-md-offset-1');
+      $(this).addClass('active-item');
+      return $(selector).show();
+    });
+    return $('#show-all').click(function() {
+      $('ul.full-category-cnt').show();
+      return $(this).addClass('active-item');
+    });
+  });
+
+}).call(this);
+:ET

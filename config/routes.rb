@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   
   match 'networks/:id/logs', to:'networks#logs', via: 'get'
 
-
   match '/search', to:"searches#results", via: "get"
 
   match '/account/', to:"users#edit", via: "get"
@@ -49,6 +48,8 @@ Rails.application.routes.draw do
   match 'finish/:id/', to: 'users#finish', :as => :finish, via: "get"
 
   match 'about', to: 'users#index', :as => :about, via: "get"
+
+  match 'sales', to: 'coins#sales', :as => :sales, via: "get"
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'

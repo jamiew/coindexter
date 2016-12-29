@@ -1,0 +1,47 @@
+<div class="col-md-6 col-md-offset-3 main">
+	<ul>
+		<li class="sale-block block">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<h1 class="list-name">Upcoming Sales</h1>
+				</div>
+				<% @upcoming_sales.each do |group| %>
+					<ul>
+						<li class="sale-group">
+							<div class="row">
+								<div class="col-md-12">
+									<h3><%= group[0] %></h3>
+									<% group[1].each_with_index do |sale, i| %>
+										<%= render '/coins/coin_widget', :coin => sale, :i => i %>
+									<% end %>
+								</div>
+							</div>
+						</li>
+					</ul>
+				<% end %>
+			</div>
+		</li>
+		<li class="sale-block block">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<h1 class="list-name">Previous Sales</h1>
+				</div>
+				<% @previous_sales.each do |group| %>
+					<ul>
+						<li class="sale-group">
+							<div class="row">
+								<div class="col-md-12">
+									<h3><%= group[0] %></h3>
+									<% group[1].each_with_index do |sale, i| %>
+										<%= render '/coins/coin_widget', :coin => sale, :i => i %>
+									<% end %>
+								</div>
+							</div>
+						</li>
+					</ul>
+				<% end %>
+			</div>
+		</li>
+	</ul>
+</div>
+

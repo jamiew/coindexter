@@ -70,7 +70,7 @@ class CoinsController < ApplicationController
 	def update
 		@coin = Coin.friendly.find(params[:id])
 	  	if @coin.update_attributes(coin_params)
-	    	redirect_to redirect_to network_coin_path(network, @coin)
+	    	redirect_to network_coin_path(params[:network_id], @coin)
 		else
 	    	render 'edit'
 	  	end
@@ -80,10 +80,15 @@ class CoinsController < ApplicationController
 		@coin.destroy
 	end
 
+	def sales
+		@previous_sales = Coin.where('saledate <= ?', Time.now).order(saledate: :desc).group_by { |sale| sale.send(:saledate).strftime('%B %Y') }
+		@upcoming_sales = Coin.where('saledate > ?', Time.now).order(saledate: :desc).group_by { |sale| sale.send(:saledate).strftime('%B %Y') }
+	end
+
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
 		def up_or_down(value)

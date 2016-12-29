@@ -1,6 +1,13 @@
-<% provide(:title, 'Edit #{coin.name}') %> 
-<div class="row">
-	<div class="col-md-6 col-md-offset-3 main">
-		<%= render 'form' %>
+<% provide(:title, 'Edit coin') %> 
+<div class="info-header">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<h1 class="edit-coin-name" id="network-name">Edit <%= @coin.name %></h1>
+				</div>
+			</div>
+			<%= render 'form' %>
+		</div>
 	</div>
 </div>

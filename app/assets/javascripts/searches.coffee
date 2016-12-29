@@ -4,9 +4,9 @@
 
 $ -> 
 	$('ul#info-menu > li').click ->
-		selector = 'ul#' + $(this).attr 'id'
+		selector = 'a.' + $(this).attr 'id'
 		$('#info-menu > li').removeClass 'active-item'
-		$('ul.full-category-cnt').hide()
+		$('div.results > a').hide()
 		$(this).addClass('active-item')
 		$(selector).show()
 	$('#show-all').click ->

@@ -80,6 +80,11 @@ gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
 #readpdfs
 gem 'pdf-reader'
 
+#calendar
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'jquery-ui-rails'
+
 group :production do 
   gem 'rails_12factor'
 end

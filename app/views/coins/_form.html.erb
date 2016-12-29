@@ -1,5 +1,5 @@
 <%= javascript_include_tag "add_another" %>
-<%= form_for [@network, @coin], authenticity_token: true, remote: @use_ajax, html: { multipart: true } do |f| %>
+<%= form_for [@network, @coin], authenticity_token: true,  html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<%= image_tag @coin.logo, size: "60x60", id: "coin-logo" if @coin.logo? %>
@@ -28,11 +28,13 @@
 		<div class="col-md-8">
 			<%= f.select :coin_status, Coin.coin_status_options.keys.to_a %>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Sale date", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :saledate, class: "form-input" %>
+			<%= f.date_field :saledate, class: "form-input" %>
 		</div>
 	</div>
 	<div class="row	">
@@ -44,7 +46,7 @@
 		</div>
 	</div>
 	<%= f.fields_for :exchanges do |e| %>
-		<div class="row grouped-row grouped-row-first exchange-group">
+		<div class="row first-in-form-group grouped-row grouped-row-first exchange-group">
 			<div class="col-md-4 label">
 				<%= e.label "Exchange Name", class: "form-label" %>
 			</div>

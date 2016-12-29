@@ -8,7 +8,8 @@
 						<div class="row results">
 							<h1 class="list-name">Coins matching '<%= @query.downcase %>'</h1>
 							<% if @coin_results.empty? %>
-								<p>No coins found. <%= link_to "Add one?", new_coin_path %></p>
+								<p>No coins found. Navigate to the <%= link_to "network", networks_url %> you think the coin belongs to and add it there.</p>
+								<p>If that network doesn't exist, <%= link_to "add it", new_network_path %>.</p>
 							<% else %>
 								<% @coin_results.each_with_index do |result, i| %>
 									<%= render '/coins/coin_widget', :coin => result, :i => i %>
@@ -28,7 +29,8 @@
 						<div class="row results">
 							<h1 class="list-name">Whitepapers matching '<%= @query %>'</h1>
 							<% if @whitepaper_results.empty? %>
-								<p>No whitepapers found. Navigate to the network you think the whitepaper belongs to and add it there.</p>
+								<p>No whitepapers found. Navigate to the <%= link_to "network", networks_url %> you think the whitepaper belongs to and add it there.</p>
+								<p>If that network doesn't exist, <%= link_to "add it", new_network_path %>.</p>
 							<% else %>
 								<% @whitepaper_results.each do |wp| %>
 									<%= render 'whitepapers/single_whitepaper', :wp => wp %>
