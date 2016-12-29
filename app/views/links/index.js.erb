@@ -1,4 +1,4 @@
 $('.content').html("<ul class='link-list'><%= j (render(partial:'show_all_links')) %></ul>");
 $('.pagination').replaceWith("<%= escape_javascript will_paginate(@links) %>");
 $('#links').addClass("active-item");
-$('.action-links').html('<li><%= link_to new_network_link_url, remote: true, class: "action-link", accesskey: "A" do %>Add new link <%= image_tag("add-icon-white") %> <% end %></li>');
+$('.action-links').html('<li><%= link_to new_network_link_url, remote: true, class: "action-link", accesskey: "A" do %>Post a link<% end %></li>');

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}, sign_up: 'signup'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root 'users#index'
+  root 'networks#index'
   resources :categories
   resources :users do
     member do
@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :comments do
       resources :comments
     end
+  end
+
+  resources :comments do
+    resources :comments
   end
 
   resources :searches
@@ -42,9 +46,9 @@ Rails.application.routes.draw do
   
   match '/account/:id', to:"users#edit", via: "get"
 
-  match '/about', to:'application#about', via: 'get'
-
   match 'finish/:id/', to: 'users#finish', :as => :finish, via: "get"
+
+  match 'about', to: 'users#index', :as => :about, via: "get"
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'

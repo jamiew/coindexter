@@ -6,15 +6,9 @@
 		<%= render 'show_link', locals: {link: @link} %>
 	</div>
 	<ul class="action-links">
-		<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'A') do %>
-			Add new link
-			<%= image_tag("add-icon-white") %>
-			<% end %>
-		</li>
 		<% if current_user && current_user.id == @link.user_id %>
 			<li><%= link_to(edit_link_path, remote: true, class: "action-link", accesskey: 'E') do %>
 				Edit this
-				<%= image_tag("add-icon-white") %>
 				<% end %>
 			</li>
 		<% end %>

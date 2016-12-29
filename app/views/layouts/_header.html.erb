@@ -6,11 +6,10 @@
 	  	</div>
 	  	<div id="navbar">
 		  	<ul class="nav navbar-nav navbar-right">
-			    <li id="header-link-feed"><%= link_to 'Home', root_url %></a></li>
-			    <li id="header-link-networks"><%= link_to 'Networks', networks_url %></a></li>
-			    <li id="header-link-networks"><%= link_to 'Whitepapers', whitepapers_url %></a></li>
-			    <li id="header-link-news"><%= link_to 'Links', links_url %></a></li>
+			    <li id="header-link-networks"><%= link_to 'Networks', root_url %></a></li>
+			    <li id="header-link-links"><%= link_to 'Links', links_url %></a></li>
 			    <li id="header-link-sales"><a>Upcoming sales</a></li>
+			    <li id="header-link-feed"><%= link_to 'About', about_url  %></a></li>
 			    <li id="header-link-account">
 			    	<% if user_signed_in? %>
 		    			<%= link_to user_path(current_user), class: 'user-activity' do   %>

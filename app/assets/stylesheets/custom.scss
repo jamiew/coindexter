@@ -319,7 +319,8 @@ ul#info-menu {
 			clear:both;
 			margin-top:4px;
 			margin-bottom:0;
-			opacity: 0.6;
+			font-family:"WhitneyCondensed-Semibold";
+			font-size:16px;
 		}
 		.user-log-classification:last-child {
 			.user-log-classification-coin, .user-log-classification-network {
@@ -378,6 +379,10 @@ ul#info-menu {
 			}
 		}
 	}
+}
+
+.new_comment {
+	margin-top:37px !important;
 }
 
 .rememberable {
@@ -622,13 +627,15 @@ form.new_comment {
 				letter-spacing:0.05em;
 				margin-top:0px;
 				margin-bottom:8px;
-				font-family: "WhitneyCondensed-Semibold";
 			}
 			h3.link-title {
-				font-size:24px;
-				line-height:1.4;
-				margin-top:0px;
-				margin-bottom:4px;
+				font-size:36px;
+				line-height:48px;
+				margin-top:-9px;
+				margin-bottom:7px;
+			}
+			h6.link-title, h3.link-title {
+				font-family: "WhitneyCondensed-Semibold";
 			}
 			h6.when-posted {
 				text-align:right;
@@ -636,6 +643,7 @@ form.new_comment {
 				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
 				clear:both;
+				margin-bottom:3px;
 			}
 			h6.comment-count {
 				font-size:12px;
@@ -666,7 +674,7 @@ form.new_comment {
 				}
 			}
 			p.link-body {
-				margin-bottom:38px;
+				margin-bottom:7px;
 			}
 			a.add-missing-field {
 				opacity:0.7;
@@ -715,6 +723,9 @@ form.new_comment {
 					background-color: $primary-green;
 				}
 			}
+			ul.comments-cnt {
+				margin-top:36px;
+			}
 			ul {
 				li {
 					margin-bottom:4px;
@@ -727,7 +738,7 @@ form.new_comment {
 						margin-bottom:36px;
 					}
 					p {
-						margin-bottom:8px;
+						margin-bottom:12px;
 					}
 					img.comment-avatar {
 						height: 24px;
@@ -735,7 +746,7 @@ form.new_comment {
 						border-radius: 4px;
 					}
 					h6.comment-name {
-						margin: 3px 0 0 8px;
+						margin: 4px 0 0 8px;
 						font-size:14px;
 						font-family: "WhitneyHTF-SemiBoldSC";
 					}
@@ -750,7 +761,7 @@ form.new_comment {
 						float:left;
 					}
 					a.reply-to-comment {
-						float:right
+						float:right;
 					}
 					form {
 						padding-left:32px;
@@ -774,6 +785,7 @@ form.new_comment {
 					}
 					.comment-block-singleton {
 						clear:both;
+						padding-bottom: 5px;
 					}
 				}
 			}
@@ -791,12 +803,10 @@ form.new_comment {
 				text-align:left;
 			}
 			.who-posted-cnt {
-				.who-posted {
-					float:left;
-				}
 				img {
 					border-radius: 4px;
 				}
+				margin-bottom: 24px;
 			}
 		}
 		#chart {
@@ -812,10 +822,12 @@ form.new_comment {
 		}
 		.coin-widget, .widget {
 			text-align:center;
+			.network-in-categories {
+				min-height: 145px;
+			}
 			.coin-in-categories, .network-in-categories {
 				margin-top:-1px;
 				margin-bottom:26px;
-				min-height: 145px;
 				background-color: rgba(255,255,255,0.8);
 				border: 3px solid $border-orange;
 				padding: 20px 0 2px 0;
@@ -823,7 +835,7 @@ form.new_comment {
 					font-size:16px;
 					font-family: 'WhitneyCondensed-SemiBold';
 					letter-spacing: 0.01em;
-
+					margin-bottom:5px;
 				}
 				img, .coin-logo {
 					margin: 2px auto 10px auto;
@@ -837,12 +849,15 @@ form.new_comment {
 					margin-top:3px;
 				}
 				p.market-cap {
-					margin-top:5px;
+					margin-bottom: 4px;
 				}
 				color: $text;
 				&:hover {
 					border: 3px solid $primary-orange;
 				}
+			}
+			.coin-in-categories {
+				min-height: 181px;
 			}
 		}
 		.status {
@@ -964,7 +979,7 @@ h1.list-name {
 		margin-top:4px;
 	}
 	img {
-		border: 1px solid $border-orange;
+		border: 3px solid $border-orange;
 		background-color: #fff;
 		padding: 4px;
 	}
@@ -993,14 +1008,17 @@ ul.link-list {
 }
 
 .results {
-	margin-bottom:48px !important;
-	a.network-widget {
-		.network-in-categories {
-			margin-bottom: 0 !important;
+	margin-bottom:42px !important;
+	a.network-widget, a.coin-widget {
+		.network-in-categories, .coin-in-categories {
+			margin-bottom: 17px !important;
+			margin-top:6px !important;
 		}
 	}
 	h1 {
 		text-transform: none !important;
+		margin-top: 11px;
+		margin-bottom: 13px;
 	}
 }
 
