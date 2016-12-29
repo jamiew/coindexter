@@ -3,10 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ -> 
-	$('.search-filter-categories > li').on "click", ->
-		ids = $(this).attr 'id'
-		$('.search-filter-categories > li').removeClass "active-item"
-		$(this).addClass "active-item"
-		$(".coins-in-categories").hide()
-		$("div." + ids).show()
-
+	$('ul#info-menu > li').click ->
+		selector = 'ul#' + $(this).attr 'id'
+		$('#info-menu > li').removeClass 'active-item'
+		$('ul.full-category-cnt').hide()
+		$(this).addClass('active-item')
+		$(selector).show()
+	$('#show-all').click ->
+		$('ul.full-category-cnt').show()
+		$(this).addClass('active-item')

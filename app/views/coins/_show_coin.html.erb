@@ -70,6 +70,11 @@
 	<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
 		<li class="coin-price-info @coin-info-block block">
 			<div class="row">
+				<div class="col-md-8 col-md-offset-4 title-row">
+					<h6>financials</h6>
+				</div>
+			</div>	
+			<div class="row">
 				<div class="col-md-4 label">
 					<h6>price (usd)</h6>
 				</div>

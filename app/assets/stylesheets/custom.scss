@@ -265,6 +265,10 @@ nav, .navbar {
 	}
 }	
 
+h1.edit-network-name, h1.edit-coin-name {
+	margin-left:25px;
+}
+
 .left-nav {
 	padding-bottom:163px;
 	padding-right:40px;
@@ -358,9 +362,6 @@ ul#info-menu {
 		a:first-child {
 			margin-top:7px !important;
 			margin-bottom:6px !important;
-		}
-		a:last-child {
-			padding-top:5px !important;
 		}
 	}
 	li.menu-title {
@@ -967,7 +968,7 @@ h1.list-name {
 	margin-left:38px;
 	div {
 		div {
-			h1#network-name {
+			h1#network-name, h1#coin-name {
 				margin-top:16px;
 				margin-bottom:11px;
 			}

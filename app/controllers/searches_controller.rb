@@ -2,17 +2,24 @@ class SearchesController < ApplicationController
 
 	def results
 		@query = params[:query]
-		@categories = Category.all
 		@coin_results = Coin.search(params[:query]) 
 		@network_results = Network.search(params[:query]) 
 		@whitepaper_results = Whitepaper.search(params[:query])
-		puts "Network results are #{@network_results.inspect}"
+		result_categories = []
+		@coin_results.each do |result|
+			result_categories << result.category
+		end
+		@network_results.each do |result|
+			result_categories << result.category
+		end
+		@whitepaper_results.each do |result|
+			result_categories << result.category
+		end
+		@result_categories = result_categories.uniq
+		puts "result categories are "
+		@result_categories.each do |cat|
+			puts cat.name
+		end
 	end
-
-	def results_filtered
-		@query = params[:query]
-		@categories = Category.all
-		@results = Coin.search(params[:query])
-	end
-
+	
 end
