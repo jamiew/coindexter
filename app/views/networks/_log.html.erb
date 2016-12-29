@@ -56,7 +56,7 @@
 								<p>Created 
 									<%= link_to log.networks.name, log.networks %></p>
 							<% when "logo" %>
-								<p>New logo							
+								<p>New logo</p>						
 							<% else %>
 								<% if change[:change_type] == "Added" %>
 									<p>added <%= change[:change_attr] %>: "<%= change[:change].second.capitalize %>"</p>
