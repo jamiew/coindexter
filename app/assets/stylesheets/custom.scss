@@ -28,11 +28,9 @@ $google: rgb(221,75,57);
 } 
 
 @mixin info-menu-item {
-	opacity:0.4;
-	color: $primary-orange;	
+	color: $secondary-orange;	
 	display:inline;		
 	&:hover {
-		border-bottom: 2px solid $primary-orange;
 		color: $primary-orange;
 		padding-bottom:1px;
 		cursor:pointer;
@@ -75,6 +73,9 @@ p.alert {
 	border-top: 2px solid $concept-outer;
 	border-bottom: 2px solid $concept-outer;
 	border-radius: 0px;
+}
+p, li, a {
+	letter-spacing: 0.02em;
 }
 
 .main {
@@ -134,18 +135,13 @@ ul, li {
 	text-indent:none;
 }
 
-.navbar {
-
-}
-
-
 label {
 	font-weight:normal;
 }
 
 nav, .navbar {
 	border-top: 6px solid $primary-orange;
-	border-bottom: 1px solid $border-orange;
+	border-bottom: 3px solid $border-orange;
 	background-color: $navbar-orange;
 	margin-bottom: 36px;
 	height: 84px;
@@ -156,7 +152,6 @@ nav, .navbar {
 	.container {
 		.navbar-header {
 			a.navbar-brand {
-				font-family:Phosphate-solid;
 				letter-spacing: 0.05em;
 				color: $primary-orange;
 				font-size:28px;
@@ -177,10 +172,11 @@ nav, .navbar {
 					input {
 						border-radius: 0 4px 4px 0;
 						box-shadow:none;
-						border: 2px solid $primary-orange;
+						border: 3px solid $primary-orange;
 						color: $text;
-						font-family: "WhitneyHTF-Medium";
-						padding: 22px 12px;
+						font-family: "WhitneyHTF-Book";
+						letter-spacing: 0.01em;
+						padding: 21px 12px;
 						font-size:16px;
 						width:320px;
 						margin-top:3px;
@@ -270,17 +266,16 @@ nav, .navbar {
 }	
 
 .left-nav {
-	/* background-color: $navbar-orange;
-	padding-bottom:163px; */
+	padding-bottom:163px;
 	padding-right:40px;
 	margin-right:8px;
-	border-right: 1px solid $border-orange;
+	border-right: 3px solid $border-orange;
 
 }
 
 ul#info-menu {
 	text-align:right;
-	margin-top: 173px;
+	margin-top: 149px;
 	padding-left: 0px;
 	li.category-link {
 		p {
@@ -288,13 +283,14 @@ ul#info-menu {
 		}
 	}
 	li.active-item {
-		p {
+		a, p {
 			opacity:1.0 !important;
+			color: $primary-orange;
+			font-family: "WhitneyHTF-SemiBoldSC";
 		}
 	}
 	li#show-all {
 		p {
-			font-family: "WhitneyHTF-BoldSC";
 			@include info-menu-item;
 		}
 	}
@@ -303,7 +299,7 @@ ul#info-menu {
 		line-height:24px;
 		clear:both;
 		letter-spacing:0.01em;
-		font-family: "WhitneyHTF-MediumSC";
+		font-family: "WhitneyHTF-BookSC";
 		text-transform:lowercase;
 		font-size:20px;
 		a {
@@ -312,7 +308,6 @@ ul#info-menu {
 			margin:0;
 			padding:0;
 			&:hover {
-				border-bottom: 2px solid $primary-orange;
 				color: $primary-orange;
 				padding-bottom:1px;
 				display:inline;
@@ -323,20 +318,8 @@ ul#info-menu {
 		.user-log-classification {
 			clear:both;
 			margin-top:4px;
-			margin-right:-12px;
-			opacity: 0.6;
-			&:hover {
-				opacity: 1;
-			}
-		}
-		.user-log-classification-coin, .user-log-classification-network {
-			font-family:"WhitneyHTF-MediumSC";
 			margin-bottom:0;
-			text-transform:lowercase;
-			&:hover {
-				text-decoration:none;
-				border:1px solid $primary-orange;
-			}
+			opacity: 0.6;
 		}
 		.user-log-classification:last-child {
 			.user-log-classification-coin, .user-log-classification-network {
@@ -345,16 +328,10 @@ ul#info-menu {
 		}
 	}
 	li.active-item {
-		a {
-			opacity: 1;
-			border-bottom: 2px solid $primary-orange;
-			padding-bottom:1px;
-			display:inline;
-		}
 		.user-log-classification {
 			opacity: 1;
 			.user-log-classification-coin {
-				border: 1px solid $primary-orange;
+				border: 3px solid $primary-orange;
 				opacity: 1;
 				color: $primary-orange;
 			}
@@ -373,25 +350,34 @@ ul#info-menu {
 			.user-log-classification {
 				opacity:1;
 			}
+			&:hover {
+				border: none;
+			}
 		}
 		a:first-child {
-			margin-top:6px !important;
+			margin-top:7px !important;
 			margin-bottom:6px !important;
 		}
 		a:last-child {
-			padding-top:6px !important;
-			margin-right:-12px;
+			padding-top:5px !important;
 		}
 	}
 	li.menu-title {
 		font-family:'WhitneyHTF-MediumSC';
 		font-size:18px;
 		margin-top: 48px;
+		margin-bottom:1px;
 	}
 }
 
 .block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
-	margin-bottom:38px;
+	div {
+		div {
+			h6 {
+				margin-top:0;
+			}
+		}
+	}
 }
 
 .rememberable {
@@ -419,16 +405,6 @@ ul#info-menu {
 	}
 }
 
-
-.link-block {
-	margin-bottom:24px;
-	padding-bottom:24px;
-	border-bottom: 1px $border-orange solid;
-	&:last-child {
-		border-bottom:none;
-	}
-}
-
 form {
 	margin-left: 0px;
 }
@@ -442,11 +418,11 @@ form.new_comment {
 }
 
 .block {
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
-	padding-top: 8px;
+	padding-top: 6px;
 	.row {
 		margin-bottom: 12px;
 
@@ -455,39 +431,32 @@ form.new_comment {
 
 .block {
 	.row { 
-		margin-bottom:10px;
+		margin-bottom:5px;
 		.title-row > h6 {
-			margin-bottom:5px !important;
+			margin-bottom:10px !important;
 			margin-top:28px !important;
 		}
 	}
 }
 
 .block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content, .new_whitepaper, .edit_whitepaper, .whitepapers {
-	ul.link-list, ul.whitepaper-list, ul.full-category-cnt {
-		padding-top:7px;
-	}
 	.row {
-		&:last-child {
-			margin-bottom:0px;
-		}
 		.label {
 			text-align:right;
 			text-transform:lowercase;
 			font-family: 'WhitneyHTF-MediumSC';
 			font-size: 18px;
-			em {
-				font-size:13px;
-				font-family: 'WhitneyHTF-Medium';
-				color: $text-light;
-				font-style:normal;
-			}
+			padding: 0;
+			margin-top:2px;
 			h6.label-helper {
 				color: $text-light;
 				margin-top:4px;
 				font-family: "WhitneyHTF-Medium";
 				font-size:14px;
 				text-transform:none;
+			}
+			h6 {
+				font-family: "WhitneyHTF-Bold";
 			}
 		}
 		.already-have-account {
@@ -500,10 +469,9 @@ form.new_comment {
 		}
 		div[class*='col-'] {
 			p {
-				margin: 0;
+				margin: 0 0 7px 0;
 			}
 			h6, label {
-				margin: -2px 0 0 0;
 				font-family: 'WhitneyHTF-MediumSC';
 				letter-spacing: 0.01em;
 				color: $text;
@@ -552,7 +520,7 @@ form.new_comment {
 				margin-bottom:-17px;
 			}
 			label {
-				margin-top: 17px;
+				margin-top: 19px;
 			}
 			input, textarea, select {
 				width:100%;
@@ -649,20 +617,20 @@ form.new_comment {
 				margin-left: 3px;
 			}
 			h6.link-title {
-				font-size:16px;
+				font-size:24px;
 				line-height:1.5;
+				letter-spacing:0.05em;
 				margin-top:0px;
-				margin-bottom:12px;
-				font-family: "WhitneyHTF-Medium";
+				margin-bottom:8px;
+				font-family: "WhitneyCondensed-Semibold";
 			}
 			h3.link-title {
 				font-size:24px;
 				line-height:1.4;
 				margin-top:0px;
+				margin-bottom:4px;
 			}
 			h6.when-posted {
-				margin-bottom: 5px;
-				padding-top:11px;
 				text-align:right;
 				font-size:16px;
 				text-transform: lowercase;
@@ -687,6 +655,7 @@ form.new_comment {
 				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
 				color: $text;
+				font-size:16px;
 				&:hover {
 					color: $primary-orange;
 				}
@@ -695,9 +664,6 @@ form.new_comment {
 					margin-right:2px;
 					margin-top:-2px;
 				}
-			}
-			.who-posted-cnt {
-				margin-top:12px;
 			}
 			p.link-body {
 				margin-bottom:38px;
@@ -710,9 +676,13 @@ form.new_comment {
 					cursor:pointer;
 				}
 			}
-			ul.log-list > li {
+			ul.log-list > li, ul.link-list > li {
 				display: block;
-				margin-bottom:14px;
+				p {
+					font-family: "WhitneyCondensed-Semibold";
+					font-size:24px;
+					margin-bottom:8px;
+				}
 			}
 			.bootstrap-switch {
 				margin-top:-2px;
@@ -783,13 +753,12 @@ form.new_comment {
 						float:right
 					}
 					form {
-						margin-top:3em;
 						padding-left:32px;
 						a.cancel-form {
 							width:100%;
 							background: $text-light;
 							display:block;
-							margin-top:6px;
+							margin-top:4px;
 							border-radius: 4px;
 							height: 52px;
 							color: white;
@@ -814,7 +783,7 @@ form.new_comment {
 			.user-log-classification {
 				margin-left:0;
 				padding-left:0;
-				margin-top:-6px;
+
 			}
 		}
 		#show-single-link {
@@ -843,24 +812,24 @@ form.new_comment {
 		}
 		.coin-widget, .widget {
 			text-align:center;
-			margin-bottom:1em;
 			.coin-in-categories, .network-in-categories {
 				margin-top:-1px;
-				margin-bottom:25px;
-				min-height: 181px;
+				margin-bottom:26px;
+				min-height: 145px;
 				background-color: rgba(255,255,255,0.8);
-				border: 2px solid $border-orange;
-				padding: 1em 0;
+				border: 3px solid $border-orange;
+				padding: 20px 0 2px 0;
 				h6 {
 					font-size:16px;
-					font-family: 'WhitneyHTF-SemiBold';
-					text-transform: capitalize;
+					font-family: 'WhitneyCondensed-SemiBold';
 					letter-spacing: 0.01em;
+
 				}
 				img, .coin-logo {
-					margin: 0 auto 24px auto;
+					margin: 2px auto 10px auto;
 					text-align:center;
 					border-radius: 2px;
+					border-width: 3px;
 				}
 				border-radius: 4px;
 				p {
@@ -871,19 +840,11 @@ form.new_comment {
 					margin-top:5px;
 				}
 				color: $text;
-			}
-			.network-in-categories {
-				min-height:181px;
-				img {
-					margin-top: 19px;
-					border-width: 2px;
-				}
 				&:hover {
-					border: 2px solid $primary-orange;
+					border: 3px solid $primary-orange;
 				}
 			}
 		}
-
 		.status {
 			p.status {
 				font-family: 'WhitneyHTF-MediumSC';
@@ -969,36 +930,38 @@ form.new_comment {
 	display: none;
 }
 
-.info-header {
+h1 {
+	font-family: WhitneyCondensed-SemiBold;
+	text-transform:uppercase;
+}
+h1.list-name {
+	font-size:28px;
+	margin-top:11px;
+	letter-spacing: 0.02em;
+	color: $text;
+	text-transform: uppercase;
+	font-family: "WhitneyCondensed-Semibold";
+	margin-bottom: 19px;
+}
+.networks-in-categories {
+	padding-top:7px;
+	padding-bottom: 2px;
+}
+.network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .whitepapers, .results, .about, .info-header, form {
+	margin-bottom:24px;
 	margin-left:38px;
 	div {
 		div {
 			h1#network-name {
-				margin-top:11px;
-				margin-bottom:10px;
+				margin-top:16px;
+				margin-bottom:11px;
 			}
 		}
-	}	
-}
-h1.list-name {
-	font-family: WhitneyHTF-SemiBoldSC;
-	font-size:28px;
-	margin-top:5px;
-	letter-spacing: 0.02em;
-	color: $text;
-	text-transform: lowercase;
-}
-.network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .whitepapers, .results, .about, .info-header, form {
-	margin-bottom:27px;
+	}
 	h1 {
-		font-family: WhitneyHTF-SemiBoldSC;
-		font-size:28px;
 		letter-spacing: 0.02em;
 		color: $text;
-		text-transform: lowercase;
-	}
-	h1.list-name {
-		margin-bottom: 19px;
+		margin-top:4px;
 	}
 	img {
 		border: 1px solid $border-orange;
@@ -1007,12 +970,23 @@ h1.list-name {
 	}
 	.row {
 		.intro-block {
-			margin-bottom: 21px;
-			padding-bottom:30px;
-			border-bottom: 1px solid $border-orange;
 			p {
-				margin-top:13px !important;
-				margin-bottom:24px !important;
+				margin-top:11px !important;
+				margin-bottom:12px !important;
+			}
+			padding-bottom:8px;
+		}
+		h1 {
+			text-transform:none;
+		}
+	}
+}
+
+ul.link-list {
+	div {
+		div {
+			h1.list-name {
+				padding-bottom: 2px !important;
 			}
 		}
 	}
@@ -1040,21 +1014,6 @@ span.down {
 	color: $concept-outer;
 }
 
-.category-coin-block {
-	margin-bottom:30px;
-}
-
-.whitepaper-thumbnail {
-	background-color:white;
-	text-align:right;
-	border: 1px solid $border-orange;
-	margin-top:8px;
-	margin-bottom:24px;
-	&:hover {
-		border: 1px solid $primary-orange;
-	}
-}
-
 form.edit_coin, form.new_coin, .sign-in-up {
 	padding-left:40px;
 	.row {
@@ -1078,13 +1037,23 @@ form.edit_coin, form.new_coin, .sign-in-up {
 }
 
 .log-block, .link-block {
-	padding-bottom:36px;
-	padding-top:26px;
-	margin-bottom:37px;
-	border-bottom: 1px solid $border-orange;
+	padding-bottom:18px;
+	padding-top:8px;
+	margin-bottom:24px;
+	border-bottom: 3px solid $border-orange;
 	&:last-child {
 		border-bottom: none;
 	}
+	div {
+		div {
+			.user-log-classification {
+				margin-top:2px;
+			}
+			h6.when-posted {
+				padding-top:9px;
+			}
+		}
+	}		
 }
 
 .loading-more {
@@ -1105,23 +1074,21 @@ form.edit_coin, form.new_coin, .sign-in-up {
 .user-log-classification {
 	p  {
 		font-family:"WhitneyHTF-MediumSC";
-		text-transform:lowercase;
 		text-align:right;
 	}
 	a {
-		font-family:"WhitneyHTF-MediumSC";
-		text-transform:lowercase;
+		font-family:"WhitneyCondensed-Semibold";
+		letter-spacing:0.05em;
 		&:hover {
 			color: $primary-orange;
 		}
 	}
 	.user-log-classification-coin, .user-log-classification-network, .user-log-classification-link, .user-log-classification-whitepaper {
 		background-color:rgba(255,255,255,0.8);
-		border: 1px solid $border-orange;
+		border: 3px solid $border-orange;
 		border-radius: 4px;
 		float:right; 
-		padding: 5px 10px;
-		margin-bottom:-2px;
+		padding: 3px 10px 2px 10px;
 		height:37px;
 		img {
 			margin-top:2px;
@@ -1179,29 +1146,48 @@ ul.action-links {
 
 .whitepaper-list-cnt {
 	position:relative;
-	min-height:144px;
+	min-height:141px;
 	.whitepaper-thumb-cnt {
+		text-align:center;
 		.whitepaper-thumbnail {
-			height:144px;
+			height:145px;
 			margin:0;
+		}
+		&:first {
+			display:none;
+		}
+		img {
+			border-width:3px;
 		}
 	}
 	.whitepaper-metadata {
 		position:absolute;
 		bottom:9px;
-		left: 188px;
+		left: 150px;
 		text-align:left;
 		a {
 			p.whitepaper-title {
 				text-align:left;
 				line-height: 24px;
 				padding-bottom:12px;
+				font-family: 'WhitneyCondensed-Semibold';
+				font-size:20px;
+			}
+			.whitepaper-thumbnail {
+				background-color:white;
+				text-align:right;
+				border: 3px solid $border-orange;
+				margin-top:8px;
+				margin-bottom:24px;
+				&:hover {
+					border: 3px solid $primary-orange;
+				}
 			}
 		}
 		h6.when-posted {
 			text-align:left !important;
 			margin-bottom:0 !important;
-			padding-top:11px !important;
+			padding-top:9px !important;
 		}
 	}
 	margin-top:20px;
@@ -1213,16 +1199,7 @@ ul.action-links {
 			}
 		}
 	}
-	.whitepaper-thumb-cnt {
-		text-align:right;
-	}
 }
 
-.whitepaper-list-cnt {
-	&:first {
-		display:none;
-	}
-}
-	
 
 

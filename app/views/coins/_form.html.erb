@@ -28,6 +28,12 @@
 		<div class="col-md-8">
 			<%= f.select :coin_status, Coin.coin_status_options.keys.to_a %>
 		</div>
+		<div class="col-md-4 label">
+			<%= f.label "Sale date", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :saledate, class: "form-input" %>
+		</div>
 	</div>
 	<div class="row	">
 		<div class="col-md-4 label">

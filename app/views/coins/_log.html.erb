@@ -21,48 +21,58 @@
 					<li>
 						<% case change[:change_attr] %>
 							<% when "Repositories", "Exchanges" %>
-								<%= change[:change_attr].capitalize %>
-								<% if change[:change_type] == "added" %>
-									added: 
-										<% puts "log is #{change[:change].second}" %>
-										<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
-								<% elsif change[:change_type] == "edited" %>
-									changed from 
-										<% change[:change].first.each_with_index do |change, i| %>
-											<%= link_to change["name"], change["url"] %>
-										<% end %>
-									to 
-										<% change[:change].second.each_with_index do |change, i| %>
-											<%= link_to change["name"], change["url"] %>
-										<% end %>
-								<% end %>
+								<p>
+									<%= change[:change_attr].capitalize %>
+									<% if change[:change_type] == "added" %>
+										added: 
+											<% puts "log is #{change[:change].second}" %>
+											<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
+									<% elsif change[:change_type] == "edited" %>
+										changed from 
+											<% change[:change].first.each_with_index do |change, i| %>
+												<%= link_to change["name"], change["url"] %>
+											<% end %>
+										to 
+											<% change[:change].second.each_with_index do |change, i| %>
+												<%= link_to change["name"], change["url"] %>
+											<% end %>
+									<% end %>
+								</p>
 							<% when "Network", "Description" %>
-								<%= change[:change_attr].capitalize %>
-								<% if change[:change_type] == "added" %>
-									added:
-									<%= link_to change[:change].second.name, change[:change].second unless change[:change].nil? %>
-								<% elsif change[:change_type] == "edited" %>
-									changed from 
-										<% change[:change].first.each_with_index do |change, i| %>
-											<%= link_to change["name"], change unless change.nil? %><%= "," unless i + 1 == change[:change].second.length %>
-										<% end %>
-									to 
-										<% change[:change].second.each_with_index do |change, i| %>
-											<%= link_to change["name"], change unless change.nil? %>
-										<% end %>
-								<% end %>
+								<p>
+									<%= change[:change_attr].capitalize %>
+									<% if change[:change_type] == "added" %>
+										added:
+										<%= link_to change[:change].second.name, change[:change].second unless change[:change].nil? %>
+									<% elsif change[:change_type] == "edited" %>
+										changed from 
+											<% change[:change].first.each_with_index do |change, i| %>
+												<%= link_to change["name"], change unless change.nil? %><%= "," unless i + 1 == change[:change].second.length %>
+											<% end %>
+										to 
+											<% change[:change].second.each_with_index do |change, i| %>
+												<%= link_to change["name"], change unless change.nil? %>
+											<% end %>
+									<% end %>
+								</p>
 							<% when "Created" %>
-								Created 
-								<%= link_to log.coins.name, log.coins %>
+								<p>
+									Created 
+									<%= link_to log.coins.name, log.coins %>
+								</p>
 							<% when "logo" %>
-								New logo
+								<p>
+									New logo
+								</p>
 							<% else %>
-								<%= change[:change_attr].capitalize %>
-								<% if change[:change_type] == "added" %>
-									added: "<%= change[:change].second.capitalize %>"
-								<% elsif change[:change_type] == "edited" %>
-									changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
-								<% end %>
+								<p>
+									<%= change[:change_attr].capitalize %>
+									<% if change[:change_type] == "added" %>
+										added: "<%= change[:change].second.capitalize %>"
+									<% elsif change[:change_type] == "edited" %>
+										changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
+									<% end %>
+								</p>
 						<% end %>
 						<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 					</li>

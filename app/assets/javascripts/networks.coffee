@@ -12,6 +12,7 @@ $ ->
 		$(selector).show()
 	$('#show-all').click ->
 		$('ul.full-category-cnt').show()
+		$(this).addClass('active-item')
 
 	$whitepaperCount = 0
 	$("#add-another-whitepaper").on "click", ->
