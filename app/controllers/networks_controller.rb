@@ -23,7 +23,7 @@ class NetworksController < ApplicationController
 		end
 	end
 
-	def trollbox
+	def whitepaper
 
 	end
 

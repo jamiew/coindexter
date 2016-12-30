@@ -55,7 +55,7 @@ class NetworkService < LogService
 
 	def set_coins_and_networks(item_type, item_id)
 		puts "item type is #{item_type}"
-		if item_type == "Network"
+		if item_type == "Network" || item_type == "Whitepaper"
 			network = Network.find(item_id)
 			self.feed_type = "network_log"
 			self.networks = network

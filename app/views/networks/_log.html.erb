@@ -18,50 +18,50 @@
 						<% case change[:change_attr] %>
 							<% when "whitepapers" %>
 								<% if change[:change_type] == "Added" || change[:change_type] == "edited" %>
-									<p>added a <%= change[:change_attr] %></p>
+									added a <%= change[:change_attr] %>
 								<% end %>
 							<% when "founders" %>
 								<% if change[:change_type] == "Added" %>
-									<p>added <%= change[:change_attr] %>: 
+									added <%= change[:change_attr] %>: 
 									<% change[:change].second.each_with_index do |change, i| %>
-										<%= change %></p>
+										<%= change %>
 									<% end %>
 								<% elsif change[:change_type] == "Edited" %>
-									<p>changed <%= change[:change_attr] %> from 
+									changed <%= change[:change_attr] %> from 
 										<% change[:change].first.each_with_index do |c, i| %>
 											<%= " and " if i + 1 == change[:change].first.length && change[:change].first.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].first.length || i + 2 == change[:change].first.length  %>
 										<% end %>
 									to 
 										<% change[:change].second.each_with_index do |c, i| %>
 											<%= " and " if i + 1 == change[:change].second.length && change[:change].second.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].second.length || i + 2 == change[:change].second.length || change[:change].first.length == 1 %>
-										<% end %></p>
+										<% end %>
 								<% end %>
 							<% when "status" %>
 								<% if change[:change_type] == "Added" %>
-									<p>added <%= change[:change_attr] %>: 
+									added <%= change[:change_attr] %>: 
 									<% change[:change].second.each_with_index do |c, i| %>
-										<%= c.first %></p>
+										<%= c.first %>
 									<% end %>
 								<% elsif change[:change_type] == "Edited" %>
-									<p>changed <%= change[:change_attr] %> from 
+									changed <%= change[:change_attr] %> from 
 										<% change[:change].first.each_with_index do |c, i| %>
 											<%= c.first %>
 										<% end %>
 									to 
 										<% change[:change].second.each_with_index do |c, i| %>
-											<%= c.first %></p>
+											<%= c.first %>
 										<% end %>
 								<% end %>
 							<% when "Created" %>
-								<p>Created 
-									<%= link_to log.networks.name, log.networks %></p>
+								Created 
+									<%= link_to log.networks.name, log.networks %>
 							<% when "logo" %>
-								<p>New logo</p>						
+								New logo						
 							<% else %>
 								<% if change[:change_type] == "Added" %>
-									<p>added <%= change[:change_attr] %>: "<%= change[:change].second.capitalize %>"</p>
+									added <%= change[:change_attr] %>: "<%= change[:change].second.capitalize %>"
 								<% elsif change[:change_type] == "Edited" %>
-									<p>changed <%= change[:change_attr] %> from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"</p>
+									changed <%= change[:change_attr] %> from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
 								<% end %>
 							<% end %>
 						<% end %>
