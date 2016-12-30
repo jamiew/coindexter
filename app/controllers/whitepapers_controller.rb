@@ -2,7 +2,13 @@ class WhitepapersController < ApplicationController
   before_action :set_whitepaper, only: [:show, :edit, :update, :destroy]
 
   def index
-    @whitepapers = Whitepaper.all
+    if defined?(params[:network_id])
+      puts 'defined'
+      @network = Network.friendly.find(params[:network_id])
+      @whitepapers = @network.whitepapers
+      puts "whitepapers is #{@whitepapers.inspect}"
+    end
+      @whitepapers = Whitepaper.all
   end
 
   def show

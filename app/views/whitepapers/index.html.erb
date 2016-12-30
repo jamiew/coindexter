@@ -1,21 +1,21 @@
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
-		<%= render(partial: 'networks/info_menu', locals: { network: @network, active_item: "whitepapers"}) %>
+		<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "whitepapers"}) %>
 	</div>
-	<div class="col-md-6 col-md-offset-3 main">
-		<ul class="whitepaper-list">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-					<h1 class="list-name">Latest whitepapers</h1>
-				</div>
-			</div>
-			<%= render 'whitepaper_list' %>
-		</ul>
-		<ul class="action-links">
-			<li><%= link_to(new_whitepaper_path, class: "action-link", accesskey: 'A') do %>
-				Add new whitepaper
-				<% end %>
-			</li>
-		</ul>
+	<div class="col-md-6 main">
+		<div class="info-header">
+			<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
+		</div>
+		<div class="content">
+			<ul class="whitepaper-list">
+				<%= render 'whitepaper_list', locals: {whitepapers: @whitepapers} %>
+			</ul>
+			<ul class="action-links">
+				<li><%= link_to(new_whitepaper_path, class: "action-link", accesskey: 'A') do %>
+					Add new whitepaper
+					<% end %>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>

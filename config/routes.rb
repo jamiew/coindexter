@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   resources :whitepapers
 
   match 'networks/:network_id/coins/:id/logs', to:'coins#logs', via: 'get'
+
+  match 'links', to: 'links#index_all', via: 'get'
   
   match 'networks/:id/logs', to:'networks#logs', via: 'get'
 

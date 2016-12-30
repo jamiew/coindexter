@@ -3,12 +3,17 @@ class LinksController < ApplicationController
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
 	def index
-		if params.has_key?(:network_id)
-			@network = Network.friendly.find(params[:network_id])
-			@links = @network.links.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-		else
-			@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		@network = Network.friendly.find(params[:network_id])
+		@links = @network.links
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
 		end
+	end
+
+	def index_all
+		@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 		respond_to do |format|
 		    format.html
 		    format.js
