@@ -36,21 +36,11 @@
 											<%= " and " if i + 1 == change[:change].second.length && change[:change].second.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].second.length || i + 2 == change[:change].second.length || change[:change].first.length == 1 %>
 										<% end %>
 								<% end %>
-							<% when "status" %>
+							<% when "Status" %>
 								<% if change[:change_type] == "Added" %>
-									added <%= change[:change_attr] %>: 
-									<% change[:change].second.each_with_index do |c, i| %>
-										<%= c.first %>
-									<% end %>
-								<% elsif change[:change_type] == "Edited" %>
-									changed <%= change[:change_attr] %> from 
-										<% change[:change].first.each_with_index do |c, i| %>
-											<%= c.first %>
-										<% end %>
-									to 
-										<% change[:change].second.each_with_index do |c, i| %>
-											<%= c.first %>
-										<% end %>
+									added <%= change[:change_attr] %>: <%= change[:change].first %>
+								<% elsif change[:change_type] == "edited" %>
+									changed <%= change[:change_attr] %> from <%= change[:change].first %> to <%= change[:change].second %>
 								<% end %>
 							<% when "Created" %>
 								Created 
