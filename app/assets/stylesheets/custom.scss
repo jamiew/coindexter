@@ -636,12 +636,13 @@ form.new_comment {
 				font-family: "WhitneyCondensed-Semibold";
 			}
 			h6.when-posted {
-				text-align:left;
+				float:right;
 				font-size:16px;
 				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
-				clear:both;
 				margin-bottom:3px;
+				padding-top:0px;
+				margin-top:4px;
 			}
 			h6.comment-count {
 				font-size:12px;
@@ -657,6 +658,7 @@ form.new_comment {
 			}
 			a.who-posted {
 				display:inline;
+				float:left;
 				text-align:left;
 				text-transform: lowercase;
 				font-family: "WhitneyHTF-MediumSC";
@@ -669,7 +671,7 @@ form.new_comment {
 					border-radius: 3px;
 					margin-right:2px;
 					margin-top:-2px;
-				}
+				};
 			}
 			p.link-body {
 				margin-bottom:7px;
