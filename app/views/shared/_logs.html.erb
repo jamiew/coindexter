@@ -1,7 +1,7 @@
-<% @logs.each_with_index do |log, i| %>
+<% @logs.each do |log| %>
 	<% cache log do %>
 		<% if log.feed_type == "network_log" %>
-			<%= log.changes.first %>
+			<%= render(partial: 'networks/log', locals: {log: log}) %>
 		<% elsif log.feed_type == "coin_log" %>
 			<%= render(partial: 'coins/log', locals: {log: log}) %>	
 		<% elsif log.feed_type == "link" %>

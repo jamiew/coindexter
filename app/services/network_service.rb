@@ -125,7 +125,7 @@ class NetworkService < LogService
 						change_attr = "Proof algorithm"
 					when "coin_info"
 						change_attr = "Additional info"                
-					when "whitepapers", "founders"
+					when "founders", "whitepapers"
 						if value.first == {} || value.first == [] || value.first == [""]
 						  type = "added"
 						  unless value.first == [""] && value.second.second.nil?
@@ -145,11 +145,19 @@ class NetworkService < LogService
 					else
 						change_attr = key
 				end
-				if value.first == "" || value.first.nil?
-				  type = "added"
-				else
-				  type = "edited"
+				if type.nil?
+					if value.first == "" || value.first.nil?
+						type = "added"
+					else
+						type = "edited"
+					end
 				end
+				if change_attr.nil?
+			    	change_attr = key
+			    end
+				if abort_log
+			        break
+			    end
 				if change_attr.nil?
 					change_attr = key
 				end

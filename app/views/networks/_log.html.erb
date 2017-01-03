@@ -17,47 +17,46 @@
 					<li>
 						<% case change[:change_attr] %>
 							<% when "whitepapers" %>
-								<% if change[:change_type] == "Added" || change[:change_type] == "edited" %>
-									added a <%= change[:change_attr] %>
+								<% if change[:change_type] == "added" || change[:change_type] == "edited" %>
+									added a <span class="log-data"><%= change[:change_attr] %></span>
 								<% end %>
 							<% when "founders" %>
-								<% if change[:change_type] == "Added" %>
-									added <%= change[:change_attr] %>: 
+								<% if change[:change_type] == "added" %>
+									Added <%= change[:change_attr] %>: 
 									<% change[:change].second.each_with_index do |change, i| %>
-										<%= change %>
+										<span class="log-data"><%= change %></span>
 									<% end %>
-								<% elsif change[:change_type] == "Edited" %>
+								<% elsif change[:change_type] == "edited" %>
 									changed <%= change[:change_attr] %> from 
 										<% change[:change].first.each_with_index do |c, i| %>
-											<%= " and " if i + 1 == change[:change].first.length && change[:change].first.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].first.length || i + 2 == change[:change].first.length  %>
+											<%= " and " if i + 1 == change[:change].first.length && change[:change].first.length != 1 %><span class="log-data"><%= c %></span><%= ",	" unless i + 1 == change[:change].first.length || i + 2 == change[:change].first.length  %>
 										<% end %>
 									to 
 										<% change[:change].second.each_with_index do |c, i| %>
-											<%= " and " if i + 1 == change[:change].second.length && change[:change].second.length != 1 %><%= c %><%= ",	" unless i + 1 == change[:change].second.length || i + 2 == change[:change].second.length || change[:change].first.length == 1 %>
+											<%= " and " if i + 1 == change[:change].second.length && change[:change].second.length != 1 %><span class="log-data"><%= c %></span><%= ", " unless i + 1 == change[:change].second.length || i + 2 == change[:change].second.length || change[:change].first.length == 1 %>
 										<% end %>
 								<% end %>
 							<% when "Status" %>
-								<% if change[:change_type] == "Added" %>
-									added <%= change[:change_attr] %>: <%= change[:change].first %>
+								<% if change[:change_type] == "added" %>
+									Set to <%= change[:change_attr].downcase %>: <span class="log-data"><%= change[:change].first.capitalize %></span>
 								<% elsif change[:change_type] == "edited" %>
-									changed <%= change[:change_attr] %> from <%= change[:change].first %> to <%= change[:change].second %>
+									Changed <%= change[:change_attr].downcase %> from <span class="log-data"><%= change[:change].first.capitalize %></span> to <span class="log-data"><%= change[:change].second.capitalize %></span>
 								<% end %>
-							<% when "Created" %>
+							<% when "created" %>
 								Created 
 									<%= link_to log.networks.name, log.networks %>
-							<% when "logo" %>
+							<% when "Logo" %>
 								New logo						
 							<% else %>
-								<% if change[:change_type] == "Added" %>
-									added <%= change[:change_attr] %>: "<%= change[:change].second.capitalize %>"
-								<% elsif change[:change_type] == "Edited" %>
-									changed <%= change[:change_attr] %> from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
+								<% if change[:change_type] == "added" %>
+									Added <%= change[:change_attr] %>: <span class="log-data"><%= change[:change].second.capitalize %></span>
+								<% elsif change[:change_type] == "edited" %>
+									Changed <%= change[:change_attr] %> from <span class="log-data"><%= change[:change].first %>" to "<%= change[:change].second.capitalize %></span>
 								<% end %>
-							<% end %>
 						<% end %>
-						<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 					</li>
 				<% end %>
+				<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
 			</ul>
 		</div>
 	</div>

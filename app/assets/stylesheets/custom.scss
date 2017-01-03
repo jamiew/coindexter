@@ -684,11 +684,8 @@ form.new_comment {
 			}
 			ul.log-list > li, ul.link-list > li {
 				display: block;
-				p {
-					font-family: "WhitneyCondensed-Semibold";
-					font-size:24px;
-					margin-bottom:8px;
-				}
+				margin-top: 8px;
+				margin-bottom: 12px;
 			}
 			.bootstrap-switch {
 				margin-top:-2px;
@@ -1221,5 +1218,7 @@ ul.action-links {
 	}
 }
 
-
+span.log-data {
+	font-family: "WhitneyHTF-Semibold";
+}
 
