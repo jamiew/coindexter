@@ -36,13 +36,13 @@
 									<%= link_to network.name, network %>
 								</div>
 							</div>
-							<h6 class="when-posted"><%= time_ago_in_words(link.created_at) %></h6>
 						<% end %>
 					<% end %>
 				</div>
 				<div class="col-md-8">
 					<h6 class="link-title"><%= link_to link.title, link.link %></h6>
 					<%= render partial: '/shared/who_posted', locals: {user: link.user} %>
+					<h6 class="when-posted"><%= time_ago_in_words(link.created_at) %></h6>
 					<% if link.comment_count > 1 || link.comment_count == 0 %>
 						<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
 					<% elsif link.comment_count > 0 %>

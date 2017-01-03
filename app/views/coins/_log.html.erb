@@ -13,7 +13,6 @@
 					</div>
 				</div>
 			<% end %>
-			<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
 		</div>
 		<div class="col-md-8">
 			<ul class="log-list"> 
@@ -75,6 +74,7 @@
 								</p>
 						<% end %>
 						<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
+						<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
 					</li>
 				<% end %>
 			</ul>
