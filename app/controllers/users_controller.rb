@@ -82,6 +82,7 @@ class UsersController < ApplicationController
         log = LogService.new
         log.data = link
         log.set_metadata(user: link.user, created_at: link.created_at, feed_type: "link")
+        puts "log is #{log.inspect}"
         add_networks_and_coins(log, link.networks, link.coins)
         links << log
       end
@@ -92,6 +93,10 @@ class UsersController < ApplicationController
         logs << log
       end
       logs += links
+      temp_logs = logs.sort_by{|log| log.created_at}.reverse
+      temp_logs.each do |tl|
+        puts tl.inspect
+      end
       @logs = logs.sort_by{|log| log.created_at}.reverse
     end
     

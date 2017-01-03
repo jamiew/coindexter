@@ -128,7 +128,7 @@ class NetworkService < LogService
 					when "founders", "whitepapers"
 						if value.first == {} || value.first == [] || value.first == [""]
 						  type = "added"
-						  unless value.first == [""] && value.second.second.nil?
+						  if value.first == [""] && value.second.nil?
 						    abort_log = true
 						  end  
 						else 
@@ -141,6 +141,8 @@ class NetworkService < LogService
 					when "status"
 						change_attr = "Status"
 					when "id"
+						puts "a key is #{key}"
+						puts "a value is #{value}"
 						change_attr = "Created"
 					else
 						change_attr = key
@@ -158,9 +160,6 @@ class NetworkService < LogService
 				if abort_log
 			        break
 			    end
-				if change_attr.nil?
-					change_attr = key
-				end
 				data = set_data(change: value, change_attr: change_attr, change_type: type)
 				dataset << data
 		    end
