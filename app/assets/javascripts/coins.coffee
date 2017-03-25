@@ -3,13 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$('ul#info-menu > li').click ->
-		selector = 'ul#' + $(this).attr 'id'
-		$('.show-all').removeClass 'active-item'
-		$('ul.status-group').hide()
-		$(selector).show()
-	$('#show-all').click ->
-		$('ul.status-group').show()
 
 		###
 		if $(".coin-main-info").length > 0

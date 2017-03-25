@@ -3,12 +3,11 @@ class WhitepapersController < ApplicationController
 
   def index
     if defined?(params[:network_id])
-      puts 'defined'
       @network = Network.friendly.find(params[:network_id])
       @whitepapers = @network.whitepapers
-      puts "whitepapers is #{@whitepapers.inspect}"
-    end
+    else
       @whitepapers = Whitepaper.all
+    end
   end
 
   def show

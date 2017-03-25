@@ -271,7 +271,6 @@ h1.edit-network-name, h1.edit-coin-name {
 .left-nav {
 	padding-bottom:163px;
 	padding-right:40px;
-	margin-right:8px;
 	border-right: 3px solid $border-orange;
 
 }
@@ -962,7 +961,6 @@ h1.list-name {
 }
 .network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .whitepapers, .results, .about, .info-header, form {
 	margin-bottom:24px;
-	margin-left:38px;
 	div {
 		div {
 			h1#network-name, h1#coin-name {
@@ -1080,14 +1078,8 @@ form.edit_coin, form.new_coin, .sign-in-up {
 }
 
 .whitepaper-cnt {
-	z-index: 10;
-	width:92%;
-	height: 92%;
 	margin: 4%;
 	box-shadow: 0px 0px 0px 500px rgba(0,0,0,0.9);
-	position:fixed;
-	top:0;
-	left:0;
 }
 
 .user-log-classification {
@@ -1164,7 +1156,6 @@ ul.action-links {
 }
 
 .whitepaper-list-cnt {
-	position:relative;
 	min-height:141px;
 	.whitepaper-thumb-cnt {
 		text-align:center;
@@ -1180,9 +1171,6 @@ ul.action-links {
 		}
 	}
 	.whitepaper-metadata {
-		position:absolute;
-		bottom:9px;
-		left: 150px;
 		text-align:left;
 		a {
 			p.whitepaper-title {

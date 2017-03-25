@@ -15,16 +15,11 @@ class NetworksController < ApplicationController
 
 	def links
 		@links = Network.friendly.find(params[:id]).links
-		@network = Network.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html
 		    format.js
 		    format.json
 		end
-	end
-
-	def whitepaper
-
 	end
 
 	def logs

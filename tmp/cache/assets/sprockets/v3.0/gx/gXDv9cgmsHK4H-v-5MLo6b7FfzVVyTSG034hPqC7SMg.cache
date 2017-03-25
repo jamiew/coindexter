@@ -1,0 +1,16 @@
+I"”(function() {
+  $(function() {
+    $('ul#info-menu > li').click(function() {
+      var selector;
+      selector = 'ul#' + $(this).attr('id');
+      $('.show-all').removeClass('active-item');
+      $('ul.networks-in-categories').hide();
+      return $(selector).show();
+    });
+    return $('#show-all').click(function() {
+      return $('ul.networks-in-categories').show();
+    });
+  });
+
+}).call(this);
+:ET

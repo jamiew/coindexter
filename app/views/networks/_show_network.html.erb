@@ -1,99 +1,103 @@
-<ul>
-	<li class="network-main-info network-info-block block">
-		<% if @network.logo.to_s == "/assets/fallback/default.png" %>
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>logo</h6>
-				</div>
-				<div class="col-md-8">
-					<%= link_to "Add a logo to #{@network.name}", edit_network_url, class: "add-missing-field" %>
-				</div>
-			</div>
-		<% end %>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>status</h6>
-			</div>
-			<div class="col-md-8 status">
-				<% unless @network.status.blank? %>
-					<div class="status-icon <%= @network.status.downcase %>-icon"></div>
-					<p class="status <%= @network.status.downcase %>-status"><%= @network.status.downcase %></p>
-				<% else %>
-					<%= link_to "Is #{@network.name} a concept, in pre-production, or is it live?", edit_network_url, class: "add-missing-field" %>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<ul>
+			<li class="network-main-info network-info-block block">
+				<% if @network.logo.to_s == "/assets/fallback/default.png" %>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>logo</h6>
+						</div>
+						<div class="col-md-8">
+							<%= link_to "Add a logo to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+						</div>
+					</div>
 				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>description</h6>
-			</div>
-			<div class="col-md-8">
-				<% if @network.description.blank? %>
-					<%= link_to "Add a description to #{@network.name}", edit_network_url, class: "add-missing-field" %>
-				<% else %>
-					<p><%= @network.description %></p>
-				<% end %>
-			</div>
-		</div>
-	</li>
-</ul>
-<ul>
-	<li class="network-links network-links-block block">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-4 title-row">
-				<h6>people</h6>
-			</div>
-		</div>		
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>Founders</h6>
-			</div>
-			<div class="col-md-8">
-				<% if @network.founders.empty? %>
-					<%= link_to "Who founded #{@network.name}?", edit_network_url, class: "add-missing-field" %>
-				<% else %>
-					<ul>
-						<% @network.founders.each do |founder| %>
-							<li>
-								<%= founder %>
-							</li>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>status</h6>
+					</div>
+					<div class="col-md-8 status">
+						<% unless @network.status.blank? %>
+							<div class="status-icon <%= @network.status.downcase %>-icon"></div>
+							<p class="status <%= @network.status.downcase %>-status"><%= @network.status.downcase %></p>
+						<% else %>
+							<%= link_to "Is #{@network.name} a concept, in pre-production, or is it live?", edit_network_url, class: "add-missing-field" %>
 						<% end %>
-					</ul>
-				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>Owner</h6>
-			</div>
-			<div class="col-md-8">
-				<% if @network.founders.empty? %>
-					<%= link_to "Who's running #{@network.name}?", edit_network_url, class: "add-missing-field" %>
-				<% else %>
-					<p><%= @network.team %></p>
-				<% end %>
-			</div>
-		</div>						
-	</li>
-</ul>
-<ul>
-	<li class="network-links network-links-block block">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-4 title-row">
-				<h6>go</h6>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>url</h6>
-			</div>
-			<div class="col-md-8">
-				<% if @network.link.empty? %>
-					<%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %>
-				<% else %>
-					<%= link_to @network.name, @network.link %>
-				<% end %>
-			</div>
-		</div>
-	</li>
-</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>description</h6>
+					</div>
+					<div class="col-md-8">
+						<% if @network.description.blank? %>
+							<%= link_to "Add a description to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+						<% else %>
+							<p><%= @network.description %></p>
+						<% end %>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li class="network-links network-links-block block">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-4 title-row">
+						<h6>people</h6>
+					</div>
+				</div>		
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Founders</h6>
+					</div>
+					<div class="col-md-8">
+						<% if @network.founders.empty? %>
+							<%= link_to "Who founded #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+						<% else %>
+							<ul>
+								<% @network.founders.each do |founder| %>
+									<li>
+										<%= founder %>
+									</li>
+								<% end %>
+							</ul>
+						<% end %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Owner</h6>
+					</div>
+					<div class="col-md-8">
+						<% if @network.founders.empty? %>
+							<%= link_to "Who's running #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+						<% else %>
+							<p><%= @network.team %></p>
+						<% end %>
+					</div>
+				</div>						
+			</li>
+		</ul>
+		<ul>
+			<li class="network-links network-links-block block">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-4 title-row">
+						<h6>go</h6>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>url</h6>
+					</div>
+					<div class="col-md-8">
+						<% if @network.link.empty? %>
+							<%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+						<% else %>
+							<%= link_to @network.name, @network.link %>
+						<% end %>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

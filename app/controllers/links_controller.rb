@@ -2,7 +2,7 @@ class LinksController < ApplicationController
 
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
-	def index
+	def network_index
 		@network = Network.friendly.find(params[:network_id])
 		@links = @network.links
 		respond_to do |format|
@@ -12,7 +12,10 @@ class LinksController < ApplicationController
 		end
 	end
 
-	def index_all
+	def index
+		if !params[:network_id].nil?
+      		@network = Network.friendly.find(params[:network_id])
+      	end
 		@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
 		respond_to do |format|
 		    format.html

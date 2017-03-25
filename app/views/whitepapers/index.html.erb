@@ -7,9 +7,7 @@
 			<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
 		</div>
 		<div class="content">
-			<ul class="whitepaper-list">
-				<%= render 'whitepaper_list', locals: {whitepapers: @whitepapers} %>
-			</ul>
+			<%= render 'whitepaper_list', locals: {whitepapers: @whitepapers} %>
 			<ul class="action-links">
 				<li><%= link_to(new_whitepaper_path, class: "action-link", accesskey: 'A') do %>
 					Add new whitepaper

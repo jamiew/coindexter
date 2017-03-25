@@ -3,8 +3,11 @@
 	<li <%= "class=active-item"  if active_item == "whitepapers" %> id="whitepapers">
 		<%= link_to "Whitepapers", "/networks/#{@network.name.downcase}/whitepapers/"  %>
 	</li>
-	<li <%= "class=active-item"  if active_item == "links" %> id="links"><%= link_to "Links", "/networks/#{@network.name.downcase}/links/" %></li>
-	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Log", "/networks/#{@network.name.downcase}/logs" %></li>
+	<li <%= "class=active-item"  if active_item == "links" %> id="links">
+		<%= link_to "Links", "/networks/#{@network.name.downcase}/links/" %>
+	</li>
+	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Log", "/networks/#{@network.name.downcase}/logs" %>
+	</li>
 	<li id="coins">coins
 		<% if network.coins.empty? %>
 			<%= link_to "None. Add one?", new_network_coin_path(network), class:"add-another", target: "_blank" %>

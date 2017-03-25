@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-md-2 col-md-offset-1 left-nav">
+		<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "links"}) %>
+	</div>
+	<div class="col-md-6 main">
+		<div class="content">
+			<div class="info-header">
+				<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
+			</div>
+			<ul class="link-list">
+				<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
+			</ul>
+		</div>
+	</div>
+</div>
+<ul class="action-links">
+	<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %>
+		Post a link
+		<% end %>
+	</li>
+</ul>

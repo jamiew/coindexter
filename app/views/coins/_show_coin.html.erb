@@ -1,176 +1,180 @@
-<ul id="<%= @coin.name %> show-coin">
-	<li class="coin-main-info coin-info-block block">
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>status</h6>
-			</div>
-			<div class="col-md-8 data <%= 'status' unless @coin.coin_status.nil? || @coin.coin_status == '' %>">
-				<% if @coin.coin_status.nil? || @coin.coin_status == "" %>
-					<%= link_to "Add its status", edit_network_coin_url, class: "add-missing-field" %>
-				<% else %>
-					<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
-					<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
-				<% end %>
-			</div>
-		</div>
-		<% unless @coin.coin_status.downcase != "live" %>
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>Exchange</h6>
-				</div>
-				<div class="col-md-8 data">
-					<% if @coin.exchanges.nil? || @coin.exchanges == "" || @coin.exchanges.empty? %>
-						<%= link_to "Add an exchange", edit_network_coin_url, class: "add-missing-field" %>
-					<% else %>
-						<ul>
-						<% @coin.exchanges.each_with_index do |exchange, i| %>
-							<li><%= link_to exchange.name, exchange.url %></li>
+<div class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<ul id="<%= @coin.name %> show-coin">
+			<li class="coin-main-info coin-info-block block">
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>status</h6>
+					</div>
+					<div class="col-md-8 data <%= 'status' unless @coin.coin_status.nil? || @coin.coin_status == '' %>">
+						<% if @coin.coin_status.nil? || @coin.coin_status == "" %>
+							<%= link_to "Add its status", edit_network_coin_url, class: "add-missing-field" %>
+						<% else %>
+							<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
+							<p class="status <%= @coin.coin_status.downcase %>-status"><%= @coin.coin_status.downcase %></p>
 						<% end %>
-					<% end %>
+					</div>
 				</div>
-			</div>
-		<% end %>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>additional</h6>
-			</div>
-			<div class="col-md-8 data">
-				<% if @coin.application_description.nil? || @coin.application_description == "" %>
-					<%= link_to "What's a basic summary for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
-				<% else %>
-					<p><%= @coin.coin_info %></p>
+				<% unless @coin.coin_status.downcase != "live" %>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>Exchange</h6>
+						</div>
+						<div class="col-md-8 data">
+							<% if @coin.exchanges.nil? || @coin.exchanges == "" || @coin.exchanges.empty? %>
+								<%= link_to "Add an exchange", edit_network_coin_url, class: "add-missing-field" %>
+							<% else %>
+								<ul>
+								<% @coin.exchanges.each_with_index do |exchange, i| %>
+									<li><%= link_to exchange.name, exchange.url %></li>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
 				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>Networks</h6>
-			</div>
-			<div class="col-md-8">
-				<% unless @coin.network.nil? %>
-					<%= link_to @coin.network.name, @coin.network %>
-				<% else %>
-					<%= link_to "Add a network to #{@coin.name}", edit_network_coin_url, class: "add-missing-field" %>
-				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>Symbol</h6>
-			</div>
-			<div class="col-md-8 symbol">
-				<% unless @coin.symbol.nil? || @coin.symbol.blank? || @coin.symbol.empty? %>
-					<%= @coin.symbol %>
-				<% else %>
-					<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
-				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 label">
-				<h6>Saledate</h6>
-			</div>
-			<div class="col-md-8 saledate">
-				<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
-					<%= @coin.saledate.strftime('%b %d, %Y') %>
-				<% else %>
-					<%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %>
-				<% end %>
-			</div>
-		</div>
-	</li>
-	<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
-		<li class="coin-price-info @coin-info-block block">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4 title-row">
-					<h6>financials</h6>
-				</div>
-			</div>	
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>price (usd)</h6>
-				</div>
-				<div class="col-md-8 data">
-					<p><%= number_to_currency(@coin.price, :unit => '$') unless @coin.price.nil? %></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>1d</h6>
-				</div>
-				<div class="col-md-8 data">
-					<p><span class=<%= @one_day_up %>><%= @coin.one_day_price_change unless @coin.one_day_price_change.nil? %>%</span></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>1h</h6>
-				</div>
-				<div class="col-md-8 data">
-					<p><span class=<%= @one_hour_up %>><%= @coin.one_hour_price_change unless @coin.one_hour_price_change.nil? %>%</span></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>Market cap</h6>
-				</div>
-				<div class="col-md-8 data">
-					<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.market_cap.nil? %></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>Available supply</h6>
-				</div>
-				<div class="col-md-8 data">
-					<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>Total supply</h6>
-				</div>
-				<div class="col-md-8 data">
-					<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
-				</div>
-			</div>
-		</li>
-	<% end %>
-	<li class="coin-info-block block">
-		<div class="row">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4 title-row">
-					<h6>technical</h6>
-				</div>
-			</div>	
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>Repo</h6>
-				</div>
-				<div class="col-md-8">
-					<% if @coin.repositories.empty? || @coin.repositories.first.name == ""  %>
-						<%= link_to "Add a repository", edit_network_coin_url, class: "add-missing-field" %>
-					<% else %>
-						<% @coin.repositories.each_with_index do |repository, i| %>
-							<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
-								<%= link_to repository.name, repository.url %>
-							</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>additional</h6>
+					</div>
+					<div class="col-md-8 data">
+						<% if @coin.application_description.nil? || @coin.application_description == "" %>
+							<%= link_to "What's a basic summary for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
+						<% else %>
+							<p><%= @coin.coin_info %></p>
 						<% end %>
-					<% end %>	
-				</div>	
-			</div>	
-			<div class="row">
-				<div class="col-md-4 label">
-					<h6>Type</h6>
+					</div>
 				</div>
-				<div class="col-md-8">
-					<% if @coin.coin_type.nil? || @coin.coin_type == "" %>
-						<%= link_to "Add a type", edit_network_coin_url, class: "add-missing-field" %>
-					<% else %>
-						<p><%= @coin.coin_type.capitalize %></p>
-					<% end %>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Networks</h6>
+					</div>
+					<div class="col-md-8">
+						<% unless @coin.network.nil? %>
+							<%= link_to @coin.network.name, @coin.network %>
+						<% else %>
+							<%= link_to "Add a network to #{@coin.name}", edit_network_coin_url, class: "add-missing-field" %>
+						<% end %>
+					</div>
 				</div>
-			</div>	
-		</div>
-	</li>
-</ul>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Symbol</h6>
+					</div>
+					<div class="col-md-8 symbol">
+						<% unless @coin.symbol.nil? || @coin.symbol.blank? || @coin.symbol.empty? %>
+							<%= @coin.symbol %>
+						<% else %>
+							<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
+						<% end %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 label">
+						<h6>Saledate</h6>
+					</div>
+					<div class="col-md-8 saledate">
+						<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
+							<%= @coin.saledate.strftime('%b %d, %Y') %>
+						<% else %>
+							<%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %>
+						<% end %>
+					</div>
+				</div>
+			</li>
+			<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
+				<li class="coin-price-info @coin-info-block block">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-4 title-row">
+							<h6>financials</h6>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>price (usd)</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p><%= number_to_currency(@coin.price, :unit => '$') unless @coin.price.nil? %></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>1d</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p><span class=<%= @one_day_up %>><%= @coin.one_day_price_change unless @coin.one_day_price_change.nil? %>%</span></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>1h</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p><span class=<%= @one_hour_up %>><%= @coin.one_hour_price_change unless @coin.one_hour_price_change.nil? %>%</span></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>Market cap</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.market_cap.nil? %></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>Available supply</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>Total supply</h6>
+						</div>
+						<div class="col-md-8 data">
+							<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
+						</div>
+					</div>
+				</li>
+			<% end %>
+			<li class="coin-info-block block">
+				<div class="row">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-4 title-row">
+							<h6>technical</h6>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>Repo</h6>
+						</div>
+						<div class="col-md-8">
+							<% if @coin.repositories.empty? || @coin.repositories.first.name == ""  %>
+								<%= link_to "Add a repository", edit_network_coin_url, class: "add-missing-field" %>
+							<% else %>
+								<% @coin.repositories.each_with_index do |repository, i| %>
+									<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
+										<%= link_to repository.name, repository.url %>
+									</div>
+								<% end %>
+							<% end %>	
+						</div>	
+					</div>	
+					<div class="row">
+						<div class="col-md-4 label">
+							<h6>Type</h6>
+						</div>
+						<div class="col-md-8">
+							<% if @coin.coin_type.nil? || @coin.coin_type == "" %>
+								<%= link_to "Add a type", edit_network_coin_url, class: "add-missing-field" %>
+							<% else %>
+								<p><%= @coin.coin_type.capitalize %></p>
+							<% end %>
+						</div>
+					</div>	
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

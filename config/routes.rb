@@ -13,12 +13,6 @@ Rails.application.routes.draw do
 
   resources :coins
 
-  resources :links do 
-    resources :comments do
-      resources :comments
-    end
-  end
-
   resources :comments do
     resources :comments
   end
@@ -30,6 +24,12 @@ Rails.application.routes.draw do
       resources :comments do
         resources :comments
       end
+    end
+  end
+
+  resources :links do 
+    resources :comments do
+      resources :comments
     end
   end
 

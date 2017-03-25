@@ -1,1 +1,11 @@
-<%= render '/whitepapers/whitepaper_list' %>
+<ul>
+	<% if @network.whitepapers.empty? %>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<p class="add-first">No whitepapers yet. <%= link_to "Add one?", new_whitepaper_url(network: @network), remote: true %></p>
+			</div>
+		</div>
+	<% else %>
+		<%= render '/whitepapers/whitepaper_list' %>
+	<% end %>
+<ul>
