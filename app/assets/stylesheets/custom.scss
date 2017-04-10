@@ -685,7 +685,6 @@ form.new_comment {
 			}
 			ul.log-list > li, ul.link-list > li {
 				display: block;
-				margin-top: 8px;
 				margin-bottom: 12px;
 			}
 			.bootstrap-switch {
@@ -1053,18 +1052,28 @@ form.edit_coin, form.new_coin, .sign-in-up {
 	}
 }
 
-.log-block, .link-block {
-	padding-bottom:18px;
-	padding-top:8px;
-	margin-bottom:24px;
+.link-block {
 	border-bottom: 3px solid $border-orange;
+	padding-bottom:18px  !important;
+	padding-top:8px !important;
+}
+
+.log-inner-block {
+	.who-posted-cnt {
+		padding-bottom:52px  !important;
+		border-bottom: 3px solid $border-orange;
+	}
+}
+
+.log-block, .link-block {
+	margin-bottom:29px !important;
 	&:last-child {
 		border-bottom: none;
 	}
 	div {
 		div {
 			.user-log-classification {
-				margin-top:2px;
+				margin-top:-6px;
 			}
 			h6.when-posted {
 				padding-top:9px;

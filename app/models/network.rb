@@ -20,57 +20,8 @@ class Network < ApplicationRecord
 	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :category_id]
 
 	enum network_status_options: [:concept, :preproduction, :live, :dead]
-=begin
-	def whitepapers
-	    read_attribute(:whitepapers).map {|w| Whitepaper.new(w) }
+
+	def should_generate_new_friendly_id?
+	  slug.blank? || name_changed?
 	end
-
-	class Whitepaper
-		attr_accessor :title, :url, :pdf
-
-		def initialize(hash)
-		  @title = hash['title']
-		  @url = hash['url']
-		  @pdf = hash['pdf'].force_encoding("UTF-8")
-		end
-
-		def persisted?() false; end
-		def new_record?() false; end
-		def marked_for_destruction?() false; end
-		def _destroy() false; end
-
-	end
-
-	def whitepapers_attributes=(attributes)
-		whitepapers = []
-		attributes.each do |index, attrs|
-		  next if '1' == attrs.delete("_destroy")
-		  whitepapers << attrs
-		end
-		whitepaper_changed(whitepapers)
-	end
-
-	def build_whitepaper
-		w = self.whitepapers.dup
-		w << Whitepaper.new({title: '', url: '', pdf: ''})
-		self.whitepapers = w
-	end
-
-	def whitepaper_changed(whitepapers)
-	    any_changes = false
-	    if self.whitepapers.length != whitepapers.length
-	      any_changes = true
-	    else
-	      self.whitepapers.each_with_index do |whitepaper, i|
-	        if whitepaper.title != whitepapers[i]["title"] || whitepaper.url != whitepapers[i]["url"] || whitepaper.pdf != whitepapers[i]["pdf"]
-	          any_changes = true
-	        end
-	      end
-	    end
-	    if any_changes
-	      write_attribute(:whitepapers, whitepapers)
-	    end
-  	end
-=end
-
 end

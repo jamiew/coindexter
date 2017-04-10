@@ -1,19 +1,15 @@
 <div class="row">
-	<% if defined?(@network) %>
+	<% if defined?(@network) %>		
 		<div class="col-md-2 col-md-offset-1 left-nav">
 			<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "links"}) %>
 		</div>
-	<% end %>
-	
-		<% if defined?(@network) %>		
-			<div class="col-md-6 main">
-				<div class="info-header">
-					<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
-				</div>
+		<div class="col-md-9 main">
+			<div class="info-header">
+				<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
 			</div>
 			<div class="content">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-8">
 						<% if @network.links.empty? %>
 							<div class="row">
 								<div class="col-md-8 col-md-offset-4">
@@ -27,21 +23,29 @@
 					</div>
 				</div>
 			</div>
-		<% else %>
-			<div class="col-md-6 main col-md-offset-3">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-4">
-						<h1 class="list-name">Latest links</h1>
-					</div>
-				</div>
-				<div class="row">
-					<ul class="link-list">
-						<%= render(partial: 'links/show_all_links', collection: @links, as: :link) %>
-					</ul>
+		</div>
+	<% else %>
+		<div class="col-md-6 main col-md-offset-3">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<h1 class="list-name">Latest links</h1>
 				</div>
 			</div>
-		<% end %>
-	</div>
+			<div class="row">
+				<% if @links.empty? %>
+					<div class="row">
+						<div class="col-md-8 col-md-offset-4">
+							<p class="add-first">No links yet. <%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
+						</div>
+					</div>
+				<% else %>
+					<ul class="link-list">
+						<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
+					</ul>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
 </div>
 <ul class="action-links">
 	<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %>

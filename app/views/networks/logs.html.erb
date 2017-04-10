@@ -1,13 +1,21 @@
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
-		<%= render(partial: 'info_menu', object: @network) %>
+		<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "logs"}) %>
 	</div>
-	<div class="col-md-6 main">
-		<ul>
-			<li class="network-header network-info-block block">
-				<%= render(partial: 'networks/network_main_info_header') %>
-			</li>
-			<%= render(partial: 'log', collection: @logs, as: :log) %>
-		</ul>
+	<div class="col-md-9 main">
+		<div class="info-header">
+			<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
+		</div>
+		<div class="content">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="row">
+						<ul>
+							<%= render(partial: 'log', collection: @logs, as: :log) %>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

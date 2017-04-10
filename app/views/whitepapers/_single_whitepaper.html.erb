@@ -1,10 +1,10 @@
 <div class="row whitepaper-list-cnt">
-	<div class="col-md-4 whitepaper-thumb-cnt">
+	<div class="col-md-3 col-md-offset-1 whitepaper-thumb-cnt">
 		<%= link_to network_whitepapers_path(wp) do %>
 			<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
 		<% end %>
 	</div>
-	<div class="col-md-8 whitepaper-metadata">
+	<div class="col-md-7 whitepaper-metadata">
 		<% if defined?(wp.network) && !wp.network.nil? %>
     		<%= link_to network_whitepapers_path(wp) do %>
 				<p class="whitepaper-title"><%= wp.whitepaper_title %></p>
