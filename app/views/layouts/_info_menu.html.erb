@@ -6,7 +6,7 @@
 	<li <%= "class=active-item"  if active_item == "links" %> id="links">
 		<%= link_to "Links", network_links_path(network) %>
 	</li>
-	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Log", "/networks/#{@network.name.downcase.gsub! /\s+/, '-'}/logs" %>
+	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Log", "/networks/#{@network.name.downcase.split(' ').join('-')}/logs" %>
 	</li>
 	<li id="coins">coins
 		<% if network.coins.empty? %>

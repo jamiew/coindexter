@@ -4,7 +4,7 @@
 		<%= link_to "Whitepapers", network_whitepapers_path(network), remote: true %>
 	</li>
 	<li <%= "class=active-item"  if active_item == "links" %> id="links"><%= link_to "Links", network_links_path(network), remote: true %></li>
-	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Log", "/networks/#{@network.name.downcase}/logs", remote: true %></li>
+	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Log", "/networks/#{network.name.downcase}/logs", remote: true %></li>
 	<li id="coins">coins
 		<% if network.coins.empty? %>
 			<%= link_to "None. Add one?", new_network_coin_path(network), class:"add-another", target: "_blank" %>
