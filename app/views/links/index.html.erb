@@ -17,8 +17,12 @@
 								</div>
 							</div>
 						<% else %>
-							<%= render(partial: 'show_all_links', collection: @network.links, as: :link ) %>
-							<%= will_paginate @links %>
+							<div class="row">
+								<ul class="link-list">
+									<%= render(partial: 'show_all_links', collection: @network.links, as: :link ) %>
+								</ul>
+								<%= will_paginate @links %>
+							</div>
 						<% end %>
 					</div>
 				</div>
@@ -33,15 +37,14 @@
 			</div>
 			<div class="row">
 				<% if @links.empty? %>
-					<div class="row">
-						<div class="col-md-8 col-md-offset-4">
-							<p class="add-first">No links yet. <%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
-						</div>
+					<div class="col-md-8 col-md-offset-4">
+						<p class="add-first">No links yet. <%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
 					</div>
 				<% else %>
-					<ul class="link-list">
+					<ul class="link-list no-network-link-list">
 						<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
 					</ul>
+					<%= will_paginate @links %>
 				<% end %>
 			</div>
 		</div>

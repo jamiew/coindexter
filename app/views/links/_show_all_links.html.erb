@@ -1,17 +1,23 @@
 <li class="link-block block">
-	<div class="col-md-4">
-		<% link.networks.each do |network| %>
-			<div class="user-log-classification">
-				<div class="user-log-classification-link">
-					<% if network.logo.nil? %>
-						<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
-					<% end %>
-					<%= link_to network.name, network %>
+	<div class="col-md-4 link-association">
+		<% if link.networks.empty? %>
+ 		<div>&nbsp;</div>
+		<% else %>
+			<% link.networks.each do |network| %>
+				<div class="user-log-classification">
+					<div class="user-log-classification-link">
+						<% unless network.logo.nil? %>
+							<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
+						<% end %>
+						<%= link_to network.name, network %>
+						<div style="clear: both;"></div>
+					</div>
+					<div style="clear: both;"></div>
 				</div>
-			</div>
+			<% end %>
 		<% end %>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-8 link-data">
 		<h6 class="link-title"><%= link_to link.title, link.link %></h6>
 		<%= render partial: '/shared/who_posted', locals: {user: link.user, created_at: link.created_at} %>
 		<% if link.comment_count > 1 || link.comment_count == 0 %>
@@ -20,4 +26,5 @@
 			<h6 class="comment-count"><%= link_to "#{link.comment_count} comment", link %></h6>
 		<% end %>
 	</div>
+	<div style="clear: both;"></div>
 </li>

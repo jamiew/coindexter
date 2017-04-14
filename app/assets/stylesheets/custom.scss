@@ -361,6 +361,9 @@ ul#info-menu {
 			margin-top:7px !important;
 			margin-bottom:6px !important;
 		}
+		a:last-child {
+			padding-top:5px;
+		}
 	}
 	li.menu-title {
 		font-family:'WhitneyHTF-MediumSC';
@@ -422,7 +425,7 @@ form.new_comment {
 }
 
 .block {
-	margin-bottom: 15px;
+	margin-bottom: 18px;
 }
 
 .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
@@ -622,7 +625,7 @@ form.new_comment {
 				font-size:24px;
 				line-height:1.5;
 				letter-spacing:0.05em;
-				margin-top:0px;
+				margin-top:-8px;
 				margin-bottom:8px;
 			}
 			h3.link-title {
@@ -647,7 +650,8 @@ form.new_comment {
 				font-size:12px;
 				font-family: "WhitneyHTF-Medium";
 				text-transform:uppercase;
-				margin-top:7px;
+				clear:both;
+				margin-top:7px
 			}
 			h6.comment-count > a {
 				color: $text;
@@ -656,7 +660,6 @@ form.new_comment {
 				}
 			}
 			a.who-posted {
-				display:inline;
 				float:left;
 				text-align:left;
 				text-transform: lowercase;
@@ -801,7 +804,7 @@ form.new_comment {
 				img {
 					border-radius: 4px;
 				}
-				margin-bottom: 24px;
+				margin-bottom: 0px;
 			}
 		}
 		#chart {
@@ -821,8 +824,7 @@ form.new_comment {
 				min-height: 145px;
 			}
 			.coin-in-categories, .network-in-categories {
-				margin-top:-1px;
-				margin-bottom:26px;
+				margin-bottom:22px;
 				background-color: rgba(255,255,255,0.8);
 				border: 3px solid $border-orange;
 				padding: 20px 0 2px 0;
@@ -952,7 +954,7 @@ h1.list-name {
 	color: $text;
 	text-transform: uppercase;
 	font-family: "WhitneyCondensed-Semibold";
-	margin-bottom: 19px;
+	margin-bottom:19px;
 }
 .networks-in-categories {
 	padding-top:7px;
@@ -993,12 +995,19 @@ h1.list-name {
 }
 
 ul.link-list {
+	padding: 0;
 	div {
 		div {
 			h1.list-name {
 				padding-bottom: 2px !important;
 			}
 		}
+	}
+}
+
+ul.no-network-link-list {
+	li:first-child {
+		margin-top:18px;
 	}
 }
 
@@ -1052,21 +1061,25 @@ form.edit_coin, form.new_coin, .sign-in-up {
 	}
 }
 
-.link-block {
+.link-data, .log-inner-block {
+	padding-bottom:23px  !important;
+	margin-bottom:22px;
 	border-bottom: 3px solid $border-orange;
-	padding-bottom:18px  !important;
-	padding-top:8px !important;
 }
+
+.link-association {
+	margin-top:-6px;
+}
+
 
 .log-inner-block {
 	.who-posted-cnt {
-		padding-bottom:52px  !important;
-		border-bottom: 3px solid $border-orange;
+		padding-bottom:7px  !important;
 	}
 }
 
 .log-block, .link-block {
-	margin-bottom:29px !important;
+	clear:both;
 	&:last-child {
 		border-bottom: none;
 	}
