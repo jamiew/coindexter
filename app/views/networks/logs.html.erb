@@ -11,7 +11,7 @@
 				<div class="col-md-8 logs-cnt">
 					<div class="row">
 						<ul>
-							<%= render(partial: 'log', collection: @logs, as: :log) %>
+							<%= render(partial: 'log', collection: @logs, as: :log, locals: {show_tag: false}) %>
 						</ul>
 					</div>
 				</div>

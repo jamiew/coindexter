@@ -6,6 +6,6 @@
 			</div>
 		</div>
 	<% else %>
-		<%= render(partial: 'links/show_all_links', collection: @network.links, as: :link,  ) %>
+		<%= render(partial: 'links/show_all_links', collection: @network.links, as: :link, locals: {show_tag: false}) %>
 	<% end %>
 </ul>

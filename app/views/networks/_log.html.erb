@@ -1,16 +1,20 @@
 <li class="log-block block">
 	<div class="row">
-		<div class="col-md-3 col-md-offset-1">
-    		<% unless log.networks.nil? %>
-	    		<div class="user-log-classification">
-					<div class="user-log-classification-network">
-						<%= image_tag(log.networks.logo.small.url, size: "20x20") if log.networks.logo? %>
-						<%= link_to truncate(log.networks.name, length: 16), log.networks %>
+		<% if show_tag %>
+			<div class="col-md-4">
+	    		<% unless log.networks.nil? %>
+		    		<div class="user-log-classification">
+						<div class="user-log-classification-network">
+							<%= image_tag(log.networks.logo.small.url, size: "20x20") if log.networks.logo? %>
+							<%= link_to truncate(log.networks.name, length: 18), log.networks %>
+						</div>
 					</div>
-				</div>
-			<% end %>
-		</div>
-		<div class="col-md-8 log-inner-block">
+				<% end %>
+			</div>
+			<div class="col-md-8 log-inner-block">
+		<% else %>
+			<div class="col-md-8 col-md-offset-4 log-inner-block">
+		<% end %>
 			<ul class="log-list"> 
 				<% log.changes.each do |change| %>
 					<% unless change[:change].empty? || change[:change] == "" || change[:change].nil? || change[:change].second == "" || change[:change].second == [""] %> 

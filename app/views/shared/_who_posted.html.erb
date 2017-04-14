@@ -10,6 +10,8 @@
 			<%= user.username %>
 		<% end %>
 	<% end %>
-	<h6 class="when-posted"><%= time_ago_in_words(created_at) %></h6>
+	<% if defined?(created_at) %>
+		<h6 class="when-posted"><%= time_ago_in_words(created_at) %></h6>
+	<% end %>
 	<div style="clear: both;"></div>
 </div>

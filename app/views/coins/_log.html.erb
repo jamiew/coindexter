@@ -1,20 +1,24 @@
 <li class="log-block block">
 	<div class="row">
-		<div class="col-md-4">
-			<% if defined?(log.coins) && !log.coins.nil? %>
-	    		<div class="user-log-classification">
-					<div class="user-log-classification-network">
-						<%= image_tag(log.coins.logo.small.url, size: "20x20") if log.coins.logo? %>
-						<% if log.coins.network.nil? %>
-							<%= link_to truncate(log.coins.name, length: 16	), log.coin %>
-						<% else %>
-							<%= link_to truncate(log.coins.name, length: 16	), network_coin_path(log.coins.network, log.coins) %>
-						<% end %>
+		<% if show_tag %>
+			<div class="col-md-4">
+				<% if defined?(log.coins) && !log.coins.nil? %>
+		    		<div class="user-log-classification">
+						<div class="user-log-classification-network">
+							<%= image_tag(log.coins.logo.small.url, size: "20x20") if log.coins.logo? %>
+							<% if log.coins.network.nil? %>
+								<%= link_to truncate(log.coins.name, length: 16	), log.coin %>
+							<% else %>
+								<%= link_to truncate(log.coins.name, length: 16	), network_coin_path(log.coins.network, log.coins) %>
+							<% end %>
+						</div>
 					</div>
-				</div>
-			<% end %>
-		</div>
-		<div class="col-md-8">
+				<% end %>
+			</div>
+			<div class="col-md-8 log-inner-block">
+		<% else %>
+			<div class="col-md-8 col-md-offset-4 log-inner-block">
+		<% end %>
 			<ul class="log-list"> 
 				<% log.changes.each do |change| %>
 					<li>
@@ -73,11 +77,10 @@
 									<% end %>
 								</p>
 						<% end %>
-						<%= render partial: '/shared/who_posted', locals: {user: log.user} %>
-						<h6 class="when-posted"><%= time_ago_in_words(log.created_at) %></h6>
 					</li>
 				<% end %>
 			</ul>
+			<%= render partial: '/shared/who_posted', locals: {user: log.user, created_at: log.created_at} %>
 		</div>
 	</div>
 </li>
