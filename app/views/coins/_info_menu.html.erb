@@ -1,6 +1,6 @@
 <ul id="info-menu">
 	<li <%= "class=active-item" if active_item == "details" %> class="active-item" id="details"><%= link_to "Details", network_coin_path %></li>
-	<li <%= "class=active-item" if active_item == "log" %> id="log"><%= link_to "Logs", "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase}/logs", remote: true %></li>
+	<li <%= "class=active-item" if active_item == "log" %> id="log"><%= link_to "Logs", "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase.split(' ').join('-')}/logs", remote: true %></li>
 	<li id="network">network
 		<%= link_to network_path(coin.network) do %>
 			<div class="user-log-classification">
