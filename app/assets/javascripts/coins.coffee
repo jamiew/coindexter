@@ -4,25 +4,25 @@
 
 $ ->
 
-		###
-		if $(".coin-main-info").length > 0
-		chart = new (cryptowatch.Embed)('coinbase', 'btcusd',
-			height: 300
-			customColorScheme:
-				bg: 'fdeee9'
-				text: '545454'
-				textStrong: '545454'
-				textWeak: '999999'
-				short: 'EB3333'
-				shortFill: 'EB3333'
-				long: '23a06d'
-				longFill: '23a06d'
-				cta: '000000'
-				ctaHighlight: '000000'
-				alert: '000000')
+	###
+	if $(".coin-main-info").length > 0
+	chart = new (cryptowatch.Embed)('coinbase', 'btcusd',
+		height: 300
+		customColorScheme:
+			bg: 'fdeee9'
+			text: '545454'
+			textStrong: '545454'
+			textWeak: '999999'
+			short: 'EB3333'
+			shortFill: 'EB3333'
+			long: '23a06d'
+			longFill: '23a06d'
+			cta: '000000'
+			ctaHighlight: '000000'
+			alert: '000000')
 
-		chart.mount '#chart'
-		###
+	chart.mount '#chart'
+	###
 
 	$prev_scroll_top = 0
 
@@ -47,7 +47,6 @@ $ ->
 		else 
 			$('.action-links').css 'bottom', 30
 
-	
 
 
 

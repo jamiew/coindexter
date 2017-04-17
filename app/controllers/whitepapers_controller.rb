@@ -15,12 +15,11 @@ class WhitepapersController < ApplicationController
   end
 
   def new
-    @whitepaper = Whitepaper.new
     if defined?(params[:network_id])
       @network = Network.friendly.find(params[:network_id])
-      @whitepaper = @network.whitepaper.new
+      @whitepaper = @network.whitepapers.new
     else
-      @whitepaper = @network.whitepaper.new
+      @whitepaper = @network.whitepapers.new
     end
   end
 
@@ -28,12 +27,16 @@ class WhitepapersController < ApplicationController
   end
 
   def create
+    @network = Network.friendly.find(params[:network_id])
     @whitepaper = Whitepaper.new(whitepaper_params)
 
     respond_to do |format|
       if @whitepaper.save
-        format.html { redirect_to @whitepaper, notice: 'Whitepaper attachment was successfully created.' }
+        @whitepaper.network = @network
+        @whitepaper.save
+        format.html { redirect_to network_whitepapers_path, notice: 'Whitepaper attachment was successfully created.' }
         format.json { render :show, status: :created, location: @whitepaper }
+        puts "saved wp is #{@whitepaper.inspect}"
       else
         format.html { render :new }
         format.json { render json: @whitepaper.errors, status: :unprocessable_entity }
@@ -69,6 +72,6 @@ class WhitepapersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def whitepaper_params
-      params.require(:whitepaper).permit(:network_id, :title, :whitepaper)
+      params.require(:whitepaper).permit(:network, :network_id, :title, :whitepaper)
     end
 end

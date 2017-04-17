@@ -25,6 +25,7 @@ Rails.application.routes.draw do
         resources :comments
       end
     end
+
   end
 
   resources :links do 
@@ -52,6 +53,8 @@ Rails.application.routes.draw do
   match 'about', to: 'users#index', :as => :about, via: "get"
 
   match 'sales', to: 'coins#sales', :as => :sales, via: "get"
+
+  get :coin_search, to: 'searches#coin_search', :as => :coin_search
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'

@@ -12,14 +12,21 @@ class SearchesController < ApplicationController
 		@network_results.each do |result|
 			result_categories << result.category
 		end
-		@whitepaper_results.each do |result|
-			result_categories << result.category
-		end
 		@result_categories = result_categories.uniq
-		puts "result categories are "
-		@result_categories.each do |cat|
-			puts cat.name
+	end
+
+	def coin_search
+		puts 'executed'
+		@query = params[:query]
+		@coin_results = Coin.search(params[:query])
+		@coin_results.each do |result|
+			puts result.inspect
 		end
+		render :layout => nil 
+		respond_to do |format|
+
+	        format.js
+	    end
 	end
 	
 end

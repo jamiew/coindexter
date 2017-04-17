@@ -4,6 +4,7 @@
 
 
 $ ->  
+
 	$('ul#info-menu > li').click ->
 		selector = 'ul#' + $(this).attr 'id'
 		$('#info-menu > li').removeClass 'active-item'
@@ -52,6 +53,10 @@ $ ->
 			$('.action-links').css 'bottom', $curr_bottom
 		else 
 			$('.action-links').css 'bottom', 10
-
-
-
+	
+	$('input#coin_name').on "keyup", ->
+		$inputVal = $(this).val()
+		if ($inputVal.length > 2) 
+			$.get '/coin_search',
+		      query: $inputVal 
+		      (data) -> $('body').append data

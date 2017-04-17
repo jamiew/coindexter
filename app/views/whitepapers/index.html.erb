@@ -9,7 +9,7 @@
 		<div class="content">
 			<%= render 'whitepaper_list', locals: {whitepapers: @whitepapers} %>
 			<ul class="action-links">
-				<li><%= link_to(new_whitepaper_path, class: "action-link", accesskey: 'A') do %>
+				<li><%= link_to(new_whitepaper_url(network_id: @network), class: "action-link", accesskey: 'A') do %>
 					Add new whitepaper
 					<% end %>
 				</li>
