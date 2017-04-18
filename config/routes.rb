@@ -56,6 +56,10 @@ Rails.application.routes.draw do
 
   get :coin_search, to: 'searches#coin_search', :as => :coin_search
 
+  get :network_search, to: 'searches#network_search', :as => :network_search
+
+  get :network_match, to: 'searches#network_match', :as => :network_match
+
   get 'networks/:network_id/coin/:id/add_network', to: 'coins#add_network', :as => :add_network_to_coin
 
   devise_scope :user do

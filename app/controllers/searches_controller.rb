@@ -23,5 +23,30 @@ class SearchesController < ApplicationController
 	        format.js 
 	    end
 	end
+
+	def network_search
+		@query = params[:query]
+		@network = Network.friendly.find(params[:network])
+		@network_results = Network.search(params[:query])
+		respond_to do |format|
+	        format.js 
+	    end
+	end
+
+	def network_match
+		@query = params[:query]
+		@network = Network.friendly.find(params[:network])
+		query_length = @query.length
+		@network.coins.each do |coin|
+			if(coin.name[0..query_length - 1].downcase == @query.downcase)
+				@matching_coin = coin
+			else
+				@matching_coin
+			end
+		end
+		respond_to do |format|
+	        format.js 
+	    end
+	end
 	
 end

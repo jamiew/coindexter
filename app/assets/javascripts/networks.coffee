@@ -58,6 +58,6 @@ $ ->
 		$network_name = $('.quick-search-results').data("network-name")
 		$inputVal = $(this).val()
 		if ($inputVal.length > 2) 
-			$.get '/coin_search',
+			$.get '/network_match',
 		      query: $inputVal,
 		      network: $network_name

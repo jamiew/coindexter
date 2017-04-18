@@ -1,6 +1,6 @@
 class CoinsController < ApplicationController
 
-	#before_action :authenticate_user!, only: [:edit,:new,:create,:update]
+	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
 	def index
 		page_title = "Coins"
