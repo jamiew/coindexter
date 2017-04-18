@@ -20,7 +20,12 @@
 		<div class="col-md-8">
 			<%= f.text_field :name, class: "form-input" %>
 		</div>
-		<div class="col-md-8 quick-search-results">
+		<div class="col-md-8 col-md-offset-4 quick-search-results" data-network-name="<%= @network.name.downcase %>" >
+			<% if defined?(@coin_results) %>
+				<% @coin_results.each do |coin| %>
+					<%= 'hey' %>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 	<div class="row first-in-form-group">

@@ -1,0 +1,6 @@
+<% coin_results.each do |coin| %>
+	The coin <%= coin.name %> already exists. 
+	<%= link_to add_network_to_coin_path(network.name.downcase, coin.name.downcase) do %>
+		 add?
+    <% end %>
+<% end %>

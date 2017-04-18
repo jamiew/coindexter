@@ -1,6 +1,6 @@
 class CoinsController < ApplicationController
 
-	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
+	#before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
 	def index
 		page_title = "Coins"
@@ -65,6 +65,14 @@ class CoinsController < ApplicationController
 		else
 	        render 'new'
 	    end
+	end
+
+	def add_network
+		@network = Network.friendly.find(params[:network_id])
+		@coin = Coin.friendly.find(params[:id])
+		@coin.network = @network
+		@coin.save
+		redirect_to network_coin_path(@network, @coin)
 	end
 
 	def update

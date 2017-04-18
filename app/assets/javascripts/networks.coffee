@@ -55,8 +55,9 @@ $ ->
 			$('.action-links').css 'bottom', 10
 	
 	$('input#coin_name').on "keyup", ->
+		$network_name = $('.quick-search-results').data("network-name")
 		$inputVal = $(this).val()
 		if ($inputVal.length > 2) 
 			$.get '/coin_search',
-		      query: $inputVal 
-		      (data) -> $('body').append data
+		      query: $inputVal,
+		      network: $network_name

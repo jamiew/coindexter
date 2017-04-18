@@ -16,16 +16,11 @@ class SearchesController < ApplicationController
 	end
 
 	def coin_search
-		puts 'executed'
 		@query = params[:query]
+		@network = Network.friendly.find(params[:network])
 		@coin_results = Coin.search(params[:query])
-		@coin_results.each do |result|
-			puts result.inspect
-		end
-		render :layout => nil 
 		respond_to do |format|
-
-	        format.js
+	        format.js 
 	    end
 	end
 	
