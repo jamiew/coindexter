@@ -264,10 +264,6 @@ nav, .navbar {
 	}
 }	
 
-h1.edit-network-name, h1.edit-coin-name {
-	margin-left:25px;
-}
-
 .left-nav {
 	padding-bottom:163px;
 	padding-right:40px;
@@ -1064,7 +1060,14 @@ form.edit_coin, form.new_coin, .sign-in-up {
 .link-data, .log-inner-block {
 	padding-bottom:23px  !important;
 	margin-bottom:22px;
+}
+
+.whitepaper-divider, .link-data, .log-inner-block {
 	border-bottom: 3px solid $border-orange;
+}
+
+.whitepaper-divider {
+	margin-bottom:24px;
 }
 
 .link-association {
@@ -1219,7 +1222,7 @@ ul.action-links {
 		}
 	}
 	margin-top:20px;
-	margin-bottom: 48px !important;
+	margin-bottom: 21px !important;
 	.user-log-classification {
 		.user-log-classification-whitepaper {
 			img {

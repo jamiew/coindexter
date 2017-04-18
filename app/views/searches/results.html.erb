@@ -33,7 +33,7 @@
 								<p>If that network doesn't exist, <%= link_to "add it", new_network_path %>.</p>
 							<% else %>
 								<% @whitepaper_results.each do |wp| %>
-									<%= render 'whitepapers/single_whitepaper', :wp => wp %>
+									<%= render 'whitepapers/single_whitepaper', :wp => wp, :network => wp.network %>
 								<% end %>
 							<% end %>
 						</div>
