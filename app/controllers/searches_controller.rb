@@ -26,7 +26,6 @@ class SearchesController < ApplicationController
 
 	def network_search
 		@query = params[:query]
-		@network = Network.friendly.find(params[:network])
 		@network_results = Network.search(params[:query])
 		respond_to do |format|
 	        format.js 

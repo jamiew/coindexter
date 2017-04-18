@@ -61,3 +61,9 @@ $ ->
 			$.get '/network_match',
 		      query: $inputVal,
 		      network: $network_name
+
+	$('input#network_name').on "keyup", ->
+		$inputVal = $(this).val()
+		if ($inputVal.length > 2) 
+			$.get '/network_search',
+		      query: $inputVal

@@ -1,0 +1,14 @@
+<% if(network_results.length > 1) %>
+	<p>Heads up! The networks
+	<% network_results.each do |network| %>
+		<% if network == network_results.last %>
+			and <%= link_to(network.name, network) %>
+		<% elsif network_results.index(network) == network_results.length - 2 %>
+			<%= link_to(network.name, network) %>
+		<% else %>
+			<%= link_to(network.name, network) %>,
+		<% end %>
+	<% end %>
+	already exist.
+<% end %>
+<p>If you're adding a new network, continue typing.</p>

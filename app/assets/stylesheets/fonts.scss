@@ -1,4 +1,28 @@
 @font-face{
+		font-family:'WhitneyHTF-Book';
+		src: font-url('WhitneyHTF-Book.eot');
+			src:font-url('WhitneyHTF-Book.eot');
+			src:font-url('WhitneyHTF-Book.eot?#iefix') format('embedded-opentype'),
+				font-url('WhitneyHTF-Book.woff') format('woff'),
+				font-url('WhitneyHTF-Book.ttf') format('truetype'),
+				font-url('WhitneyHTF-Book.svg#WhitneyHTF-Book') format('svg');
+		font-weight:normal;
+		font-style:normal;
+}
+
+@font-face{
+		font-family:'WhitneyHTF-BookSC';
+		src: font-url('WhitneyHTF-BookSC.eot');
+			src:font-url('WhitneyHTF-BookSC.eot');
+			src:font-url('WhitneyHTF-BookSC.eot?#iefix') format('embedded-opentype'),
+				font-url('WhitneyHTF-BookSC.woff') format('woff'),
+				font-url('WhitneyHTF-BookSC.ttf') format('truetype'),
+				font-url('WhitneyHTF-BookSC.svg#WhitneyHTF-BookSC') format('svg');
+		font-weight:normal;
+		font-style:normal;
+}
+
+@font-face{
 		font-family:'WhitneyHTF-Medium';
 		src: font-url('WhitneyHTF-Medium.eot');
 			src:font-url('WhitneyHTF-Medium.eot');
