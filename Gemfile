@@ -86,6 +86,9 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'jquery-ui-rails'
 
+#access environment variables
+gem 'foreman'
+
 group :production do 
   gem 'rails_12factor'
 end

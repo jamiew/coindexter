@@ -1,6 +1,6 @@
 class UserMailer < Devise::Mailer 
 
-	default from: 'do-not-reply@coindexter.io'
+	default from: 'jonathan.coindexter@gmail.com'
 
 	helper :application # gives access to all helpers defined within `application_helper`.
   	include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
@@ -22,12 +22,16 @@ Please confirm your email address by clicking on this link: http://localhost:300
    		super
   	end
 
-	def reset_password_instructions(user)
-		UserMailer.reset_password_instructions(user, "faketoken", {})
+	def reset_password_instructions(user, token, opts={})
+		mail.reset_password_instructions(user)
 	end
 
 	def unlock_instructions(user)
 		UserMailer.unlock_instructions(user, "faketoken", {})
+	end
+
+	def test()
+	    mail(to: "jonathan.libov@gmail.com", subject: 'Welcome')
 	end
 
 end
