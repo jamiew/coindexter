@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}, sign_up: 'signup'
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}, sign_up: 'signup', sign_in: 'login'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'networks#index'
   resources :categories
   resources :users do
-    member do
-      get :confirm_email
-    end
   end
 
   resources :coins
@@ -61,11 +58,6 @@ Rails.application.routes.draw do
   get :network_match, to: 'searches#network_match', :as => :network_match
 
   get 'networks/:network_id/coin/:id/add_network', to: 'coins#add_network', :as => :add_network_to_coin
-
-  devise_scope :user do
-    get 'signup', to: 'devise/registrations#new'
-    get 'signin', to: 'devise/sessions#new'
-  end
 
   match ':id/', to: 'users#show', via: "get"
 

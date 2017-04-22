@@ -5,10 +5,10 @@ class UserMailerPreview < ActionMailer::Preview
   	end
 
 	def reset_password_instructions
-		UserMailer.reset_password_instructions(User.last, "faketoken", {})
+		UserMailer.reset_password_instructions(User.last, User.last.reset_password_token, {})
 	end
 
 	def unlock_instructions
-		UserMailer.unlock_instructions(User.last, "faketoken", {})
+		UserMailer.unlock_instructions(User.last, token, {})
 	end
 end

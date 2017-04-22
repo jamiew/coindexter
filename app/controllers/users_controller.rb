@@ -12,8 +12,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     puts "got here"
     if @user.save
-      puts "user is @user"
-      puts "token is @user.confirmation_token"
       UserMailer.confirmation_instructions(@user, @user.confirmation_token).deliver_now
       flash[:success] = "Please check your email to confirm your email address"
     else

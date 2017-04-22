@@ -57,7 +57,7 @@ body {
 p.notice, p.alert {
 	text-align:center;
 	display: block;
-	padding: 1em 2em;
+	padding: 18px 0 16px 0;
 	display:none;
 	color: white;
 }
@@ -165,6 +165,7 @@ nav, .navbar {
 			form {
 				float:left;
 				margin-left:0;
+				margin-bottom:0px;
 				.form-group	{
 					span {
 						color: $primary-orange;
@@ -358,7 +359,7 @@ ul#info-menu {
 			margin-bottom:6px !important;
 		}
 		a:last-child {
-			padding-top:5px;
+			padding-top:6px;
 		}
 	}
 	li.menu-title {
@@ -369,7 +370,7 @@ ul#info-menu {
 	}
 }
 
-.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
+.block, .edit_coin, .new_coin, .sign-in-up, .new_user, new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
 	div {
 		div {
 			h6 {
@@ -424,8 +425,7 @@ form.new_comment {
 	margin-bottom: 18px;
 }
 
-.edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
-	padding-top: 6px;
+.edit_coin, .new_coin, .sign-in-up, .new_user, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .new_whitepaper, .edit_whitepaper {
 	.row {
 		margin-bottom: 12px;
 
@@ -437,12 +437,12 @@ form.new_comment {
 		margin-bottom:5px;
 		.title-row > h6 {
 			margin-bottom:10px !important;
-			margin-top:28px !important;
+			margin-top:33px !important;
 		}
 	}
 }
 
-.block, .edit_coin, .new_coin, .sign-in-up, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content, .new_whitepaper, .edit_whitepaper, .whitepapers {
+.block, .edit_coin, .new_coin, .sign-in-up, .new_user, .new_link, .edit_link, .new_comment, .edit_comment, .new_network, .edit_network, .edit_user, .main, .content, .new_whitepaper, .edit_whitepaper, .whitepapers {
 	.row {
 		.label {
 			text-align:right;
@@ -461,6 +461,9 @@ form.new_comment {
 			h6 {
 				font-family: "WhitneyHTF-Bold";
 			}
+		}
+		.password-link {
+			margin-top:6px;
 		}
 		.already-have-account {
 			margin-top:24px;
@@ -1032,11 +1035,7 @@ span.down {
 	color: $concept-outer;
 }
 
-.sign-in-up {
-	padding-left:40px;
-}
-
-form.edit_coin, form.new_coin, .sign-in-up {
+form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 	.row {
 		div[class*='col-'] {
 			h1 {
