@@ -1,6 +1,3 @@
-api_key: 'API Key'
-domain: 'Domain'
-username: 'Default SMTP Login'
-password: 'Default Password'
-gmail_username: 'username@gmail.com'
-gmail_password: 'gmail password'
+GMAIL_DOMAIN: 'gmail.com'
+GMAIL_USERNAME: 'jonathan.coindexter'
+GMAIL_PASSWORD: '2yxyhRmcbB"

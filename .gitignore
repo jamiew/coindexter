@@ -1,9 +1,9 @@
 log
 /.bundle
 /db/*.sqlite3
-/log/*.log
 /tmp
 config/database.yml
-config/google_analytics.yml
 .DS_Store
 public/assets/**
+.env
+Procfile
