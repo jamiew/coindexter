@@ -19,4 +19,8 @@ class ApplicationController < ActionController::Base
 		devise_parameter_sanitizer.permit( :sign_up, keys: [:first_name, :last_name, :email, :password, :password_confirmation, :avatar, :username])
 	end
 
+  def redirect_to_https
+    redirect_to :protocol => "https://" unless (request.ssl? || request.local?)
+  end
+
 end

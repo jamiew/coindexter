@@ -1,5 +1,6 @@
 class NetworksController < ApplicationController
 
+	before_action :redirect_to_https
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
 
 	def index
