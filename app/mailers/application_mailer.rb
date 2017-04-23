@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'do-not-reply@coindexter.io'
+  default from: 'jonathan@coindexter.io'
   layout 'mailer'
 end

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @user.username %>,</p>
+    <p>Thanks for registering. Before you can create or edit networks and coins on Coindexter, we need you to confirm your electronic mail address. You can do so by clicking on this uniform resource locator: <%= confirm_email_user_url(@user.confirm_token) %></p>
+    <p>- Jonathan from Coindexter</p>
+  </body>
+</html>
+
+,
+
+
+
+
+
+
