@@ -5,11 +5,11 @@
       <%= f.hidden_field :reset_password_token %>
       <div class="row">
         <div class="col-md-8 col-md-offset-4">
-          <h2>Change your password</h2>
+          <h1>Change your password</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-offset-4">
+        <div class="col-md-4 label">
           <%= f.label :password, "New password" %><br />
         </div>
         <div class="col-md-8">
@@ -20,8 +20,10 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-4 label">
           <%= f.label :password_confirmation, "Confirm new password" %><br />
+        </div>
+        <div class="col-md-8">
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
       </div>
