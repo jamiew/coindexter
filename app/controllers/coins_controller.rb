@@ -42,8 +42,10 @@ class CoinsController < ApplicationController
 
 	def edit
 		@use_ajax = false
-		@network = Network.friendly.find(params[:network_id])
-		@coin = @network.coins.friendly.find(params[:id])
+		@coin = Coin.friendly.find(params[:id])
+		unless params[:network_id].nil?
+			@network = Network.friendly.find(params[:network_id])		
+		end
 		if @coin.repositories.empty?
 			@coin.build_repository
 		end
@@ -78,7 +80,14 @@ class CoinsController < ApplicationController
 	def update
 		@coin = Coin.friendly.find(params[:id])
 	  	if @coin.update_attributes(coin_params)
-	    	redirect_to network_coin_path(params[:network_id], @coin)
+	    	if defined?(coin_params[:network_id])
+	    		@network = Network.find(coin_params[:network_id].second)
+	    		@coin.network = @network
+	    		@coin.save
+	    		redirect_to network_coin_path(@network, @coin)
+	    	else 
+	    		redirect_to coin_path(@coin)
+	    	end
 		else
 	    	render 'edit'
 	  	end
@@ -96,7 +105,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :network_id, networks: [], network_ids: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :proof_algorithm, :network_id, networks: [], network_id: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
 		def up_or_down(value)

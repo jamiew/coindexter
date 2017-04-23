@@ -6,6 +6,16 @@
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2">
 						<div class="row results">
+							<h1 class="list-name">Networks matching '<%= @query %>'</h1>
+							<% if @network_results.empty? %>
+								<p>No networks found. <%= link_to "Add one?", new_network_path %></p>
+							<% else %>
+								<% @network_results.each_with_index do |result, i| %>
+									<%= render '/networks/network_widget', :network => result, :i => i %>
+								<% end %>
+							<% end %>
+						</div>
+						<div class="row results">
 							<h1 class="list-name">Coins matching '<%= @query.downcase %>'</h1>
 							<% if @coin_results.empty? %>
 								<p>No coins found. Navigate to the <%= link_to "network", networks_url %> you think the coin belongs to and add it there.</p>
@@ -13,16 +23,6 @@
 							<% else %>
 								<% @coin_results.each_with_index do |result, i| %>
 									<%= render '/coins/coin_widget', :coin => result, :i => i %>
-								<% end %>
-							<% end %>
-						</div>
-						<div class="row results">
-							<h1 class="list-name">Networks matching '<%= @query %>'</h1>
-							<% if @network_results.empty? %>
-								<p>No networks found. <%= link_to "Add one?", new_network_path %></p>
-							<% else %>
-								<% @network_results.each_with_index do |result, i| %>
-									<%= render '/networks/network_widget', :network => result, :i => i %>
 								<% end %>
 							<% end %>
 						</div>

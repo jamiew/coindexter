@@ -22,7 +22,11 @@
 						</div>
 						<div class="col-md-8 data">
 							<% if @coin.exchanges.nil? || @coin.exchanges == "" || @coin.exchanges.empty? %>
-								<%= link_to "Add an exchange", edit_network_coin_url, class: "add-missing-field" %>
+								<% unless @coin.network.nil? %>	
+									<%= link_to "Add an exchange", edit_network_coin_url, class: "add-missing-field" %>
+								<% else %>
+									<%= link_to "Add an exchange", edit_coin_url, class: "add-missing-field" %>
+								<% end %>
 							<% else %>
 								<ul>
 								<% @coin.exchanges.each_with_index do |exchange, i| %>
@@ -38,7 +42,11 @@
 					</div>
 					<div class="col-md-8 data">
 						<% if @coin.application_description.nil? || @coin.application_description == "" %>
-							<%= link_to "What's a basic summary for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
+							<% unless @coin.network.nil? %>	
+								<%= link_to "What's a basic summary for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
+							<% else %>
+								<%= link_to "What's a basic summary for #{@coin.name}?", edit_coin_url, class: "add-missing-field" %>
+							<% end %>
 						<% else %>
 							<p><%= @coin.coin_info %></p>
 						<% end %>
@@ -52,7 +60,7 @@
 						<% unless @coin.network.nil? %>
 							<%= link_to @coin.network.name, @coin.network %>
 						<% else %>
-							<%= link_to "Add a network to #{@coin.name}", edit_network_coin_url, class: "add-missing-field" %>
+							<%= link_to "Add a network to #{@coin.name}", edit_coin_url, class: "add-missing-field" %>
 						<% end %>
 					</div>
 				</div>
@@ -76,7 +84,11 @@
 						<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
 							<%= @coin.saledate.strftime('%b %d, %Y') %>
 						<% else %>
-							<%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %>
+							<% unless @coin.network.nil? %>	
+								<%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %>
+							<% else %>
+								<%= link_to "When does #{@coin.name} go on sale?", edit_coin_url, class: "add-missing-field" %>
+							<% end %>
 						<% end %>
 					</div>
 				</div>
@@ -151,7 +163,11 @@
 						</div>
 						<div class="col-md-8">
 							<% if @coin.repositories.empty? || @coin.repositories.first.name == ""  %>
-								<%= link_to "Add a repository", edit_network_coin_url, class: "add-missing-field" %>
+								<% unless @coin.network.nil? %>	
+									<%= link_to "Add a repository", edit_network_coin_url, class: "add-missing-field" %>
+								<% else %>
+									<%= link_to "Add a repository", edit_coin_url, class: "add-missing-field" %>
+								<% end %>
 							<% else %>
 								<% @coin.repositories.each_with_index do |repository, i| %>
 									<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
@@ -167,7 +183,11 @@
 						</div>
 						<div class="col-md-8">
 							<% if @coin.coin_type.nil? || @coin.coin_type == "" %>
-								<%= link_to "Add a type", edit_network_coin_url, class: "add-missing-field" %>
+								<% unless @coin.network.nil? %>	
+									<%= link_to "Add a type", edit_network_coin_url, class: "add-missing-field" %>
+								<% else %>
+									<%= link_to "Add a type", edit_coin_url, class: "add-missing-field" %>
+								<% end %>
 							<% else %>
 								<p><%= @coin.coin_type.capitalize %></p>
 							<% end %>
