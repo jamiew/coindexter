@@ -99,6 +99,11 @@ class NetworksController < ApplicationController
 		network = Network.friendly.find(params[:network_id])
 		user = current_user
 		user.follow(network)
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
 
 	private
