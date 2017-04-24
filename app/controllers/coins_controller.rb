@@ -1,6 +1,6 @@
 class CoinsController < ApplicationController
 
-	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
+	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
 	def index
 		page_title = "Coins"
@@ -25,6 +25,11 @@ class CoinsController < ApplicationController
 
 	def show
 		@coin = Coin.friendly.find(params[:id])
+		if current_user && current_user.following?(@coin)
+			@following = true
+		else 
+			@following = false
+		end
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -100,6 +105,40 @@ class CoinsController < ApplicationController
 	def sales
 		@previous_sales = Coin.where('saledate <= ?', Time.now).order(saledate: :desc).group_by { |sale| sale.send(:saledate).strftime('%B %Y') }
 		@upcoming_sales = Coin.where('saledate > ?', Time.now).order(saledate: :desc).group_by { |sale| sale.send(:saledate).strftime('%B %Y') }
+	end
+
+	def follow
+		@coin = Coin.friendly.find(params[:id])
+		@user = current_user
+		@network = @coin.network
+		if @user.follow(@coin)
+			unless @coin.network.nil?
+				@user.follow(@coin.network)
+			end
+			@success = true
+		end
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
+	end
+
+	def unfollow
+		@coin = Coin.friendly.find(params[:id])
+		@user = current_user
+		@network = @coin.network
+		if @user.stop_following(@coin)
+			unless @coin.network.nil?
+				@user.stop_following(@coin.network)
+			end
+			@success = true
+		end
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
 	end
 
 	private

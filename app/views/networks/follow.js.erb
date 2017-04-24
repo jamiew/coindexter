@@ -1,4 +1,6 @@
 <% if @success %>
-	$("#follow-network").text("Following #{@network_name}")
+	$(".action-links > li:first-child").html("<%= escape_javascript link_to('Following #{@network.name}', unfollow_network_path, remote: true, class: 'action-link', id: 'following-network', accesskey: 'F') %>");
+	$("#following-network").text("Following " + "<%= escape_javascript @network.name %>");
 <% else %>
+
 <% end %>

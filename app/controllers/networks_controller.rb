@@ -1,6 +1,6 @@
 class NetworksController < ApplicationController
 
-	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow]
+	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
 	def index
 		@networks = Network.all
@@ -47,6 +47,11 @@ class NetworksController < ApplicationController
 	def show
 		@network = Network.friendly.find(params[:id])
 		@whitepapers = @network.whitepapers.all
+		if current_user && current_user.following?(@network)
+			@following = true
+		else 
+			@following = false
+		end
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -96,9 +101,36 @@ class NetworksController < ApplicationController
 	end
 
 	def follow
-		network = Network.friendly.find(params[:network_id])
-		user = current_user
-		user.follow(network)
+		@network = Network.friendly.find(params[:id])
+		@user = current_user
+		@coins = @network.coins
+		if @user.follow(@network)
+			if @network.coins.any?
+				@network.coins.each do |coin| 
+					@user.follow(coin)
+				end
+			end
+			@success = true
+		end
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
+	end
+
+	def unfollow
+		@network = Network.friendly.find(params[:id])
+		@user = current_user
+		@coins = @network.coins
+		if @user.stop_following(@network)
+			if @network.coins.any?
+				@network.coins.each do |coin| 
+					@user.stop_following(coin)
+				end
+			end
+			@success = true
+		end
 		respond_to do |format|
 		    format.html
 		    format.js

@@ -35,7 +35,13 @@ Rails.application.routes.draw do
 
   match 'networks/:network_id/coins/:id/logs', to:'coins#logs', via: 'get'
 
-  match 'networks/:network_id/follow', to: 'networks#follow', via: 'get', :as => :follow_network
+  match 'networks/:id/follow', to: 'networks#follow', via: 'get', :as => :follow_network
+
+  match 'networks/:id/unfollow', to: 'networks#unfollow', via: 'get', :as => :unfollow_network
+
+  match 'networks/:network_id/coins/:id/follow', to: 'coins#follow', via: 'get', :as => :follow_coin
+
+  match 'networks/:network_id/coins/:id/unfollow', to: 'coins#unfollow', via: 'get', :as => :unfollow_coin
 
   match 'links', to: 'links#index_all', :as => 'all_links', via: 'get'
   

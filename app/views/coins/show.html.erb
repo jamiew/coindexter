@@ -12,15 +12,20 @@
 	</div>
 	<ul class="action-links">
 		<% if current_user %>
-			<li>
-				<% unless @coin.network.nil? %>	
-					<%= link_to("Edit #{@coin.name}", edit_network_coin_path, class: "action-link", accesskey: 'E') %>	
-				<% else %>
-					<%= link_to("Edit #{@coin.name}", edit_coin_path, class: "action-link", accesskey: 'E') %>
-				<% end %>
-			</li>
+			<% if @following %>
+				<li><%= link_to("Unfollow #{@coin.name}", unfollow_coin_path, remote: true, class: "action-link", id: "unfollow-network", accesskey: 'F') %></li>
+			<% else %>
+				<li><%= link_to("Follow #{@coin.name}", follow_coin_path, remote: true, class: "action-link", id: "follow-coin", accesskey: 'F') %></li>
+			<% end %>
 		<% else %>
-			<li><%= link_to("Edit #{@coin.name}", '/signin', class: "action-link", accesskey: 'E') %></li>
+			<li><%= link_to("Follow #{@coin.name}", follow_coin_path, class: "action-link", id: "follow-coin", accesskey: 'F') %></li>
 		<% end %>
+		<li>
+			<% unless @coin.network.nil? %>	
+				<%= link_to("Edit #{@coin.name}", edit_network_coin_path, class: "action-link", accesskey: 'E') %>	
+			<% else %>
+				<%= link_to("Edit #{@coin.name}", edit_coin_path, class: "action-link", accesskey: 'E') %>
+			<% end %>
+		</li>
 	</ul>
 </div>

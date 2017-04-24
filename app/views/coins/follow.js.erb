@@ -1,0 +1,6 @@
+<% if @success %>
+	$(".action-links > li:first-child").html("<%= escape_javascript link_to('Following #{@coin.name}', unfollow_coin_path, remote: true, class: 'action-link', id: 'following-coin', accesskey: 'F') %>");
+	$("#following-coin").text("Following " + "<%= escape_javascript @coin.name %>");
+<% else %>
+
+<% end %>

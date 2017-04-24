@@ -12,9 +12,9 @@
 	</div>
 	<ul class="action-links">
 		<% if current_user %>
-			<li><%= link_to("Follow #{@network.name}", follow_network_path, remote: true, class: "action-link", id: "follow-network", accesskey: 'F') %></li>
+			<li><%= link_to("Following #{@network.name}", follow_network_path, remote: true, class: "action-link", id: "follow-network", accesskey: 'F') %></li>
 		<% else %>
-			<li><%= link_to("Follow #{@network.name}", follow_network_path, class: "action-link", id: "follow-network", accesskey: 'F') %></li>
+			<li><%= link_to("Following #{@network.name}", unfollow_network_path, class: "action-link", id: "following-network", accesskey: 'F') %></li>
 		<% end %>
 		<li><%= link_to("Edit #{@network.name}", edit_network_path(@network), class: "action-link", accesskey: 'E') %></li>
 	</ul>
