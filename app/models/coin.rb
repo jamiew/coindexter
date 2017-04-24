@@ -18,6 +18,8 @@ class Coin < ApplicationRecord
 
   enum coin_status_options: [:concept, :preproduction, :live, :dead]
 
+  acts_as_followable
+
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?
   end

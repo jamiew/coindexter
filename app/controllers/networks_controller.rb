@@ -1,6 +1,6 @@
 class NetworksController < ApplicationController
 
-	before_action :authenticate_user!, only: [:edit,:new,:create,:update]
+	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow]
 
 	def index
 		@networks = Network.all
@@ -93,6 +93,12 @@ class NetworksController < ApplicationController
 
 	def destroy
 		@network.destroy
+	end
+
+	def follow
+		network = Network.friendly.find(params[:network_id])
+		user = current_user
+		user.follow(network)
 	end
 
 	private

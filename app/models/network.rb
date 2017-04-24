@@ -21,6 +21,8 @@ class Network < ApplicationRecord
 
 	enum network_status_options: [:concept, :preproduction, :live, :dead]
 
+	acts_as_followable
+
 	def should_generate_new_friendly_id?
 	  slug.blank? || name_changed?
 	end

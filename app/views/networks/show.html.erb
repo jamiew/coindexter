@@ -11,10 +11,7 @@
 		</div>
 	</div>
 	<ul class="action-links">
-		<% if current_user %>
-			<li><%= link_to("Edit #{@network.name}", edit_network_path, class: "action-link", accesskey: 'E') %></li>
-		<% else %>
-			<li><%= link_to("Edit #{@network.name}", '/signin', class: "action-link", accesskey: 'E') %></li>
-		<% end %>
+		<li><%= link_to("Follow #{@network.name}", follow_network_path(@network, current_user), class: "action-link", id: "follow-network", accesskey: 'F') %></li>
+		<li><%= link_to("Edit #{@network.name}", edit_network_path, class: "action-link", accesskey: 'E') %></li>
 	</ul>
 </div>

@@ -86,8 +86,8 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'jquery-ui-rails'
 
-#access environment variables
-gem 'foreman'
+#following model
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 group :production do 
   gem 'rails_12factor'
