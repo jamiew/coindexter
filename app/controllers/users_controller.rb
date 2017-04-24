@@ -52,10 +52,30 @@ class UsersController < ApplicationController
   def show
     @user = User.friendly.find(params[:id])
     @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
-      respond_to do |format|
-        format.html
-        format.js
-        format.json
+    all_follows = @user.all_follows
+    @networks_following = []
+    @coins_following = []
+    all_follows.each do |follow|
+      if follow.followable_type == "Network"
+        @networks_following << Network.find(follow.followable_id)
+      else 
+        @coins_following << Coin.find(follow.followable_id)
+      end
+    end
+    respond_to do |format|
+      format.html
+      format.js
+      format.json
+    end
+  end
+
+  def activity
+    @user = User.friendly.find(params[:user_id])
+    @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
+    respond_to do |format|
+      format.html
+      format.js
+      format.json
     end
   end
 

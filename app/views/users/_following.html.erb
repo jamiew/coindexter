@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-2">
+		<div class="row results">
+			<h1 class="list-name">Networks followed</h1>
+			<% if @networks_following.any? %>
+				<ul class="network-following-list">
+					<% @networks_following.each_with_index do |network, i| %>
+						<li>
+							<%= render partial: 'networks/network_widget', locals: { network: network, i: i } %>	
+						</li>
+					<% end %>
+				</ul>
+			<% else %>
+				<p>None</p>
+			<% end %>
+		</div>
+		<div class="row results">
+			<h1 class="list-name">Coins followed</h1>
+			<% if @coins_following.any? %>
+				<ul class="coin-following-list">
+					<% @coins_following.each_with_index do |coin, i| %>
+						<li>
+							<%= render partial: 'coins/coin_widget', locals: { coin: coin, i: i } %>	
+						</li>
+					<% end %>
+				</ul>
+			<% else %>
+				<p>None</p>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -6,9 +6,17 @@ Rails.application.routes.draw do
   root 'networks#index'
   resources :categories
   resources :users do
+    get :following
+    get :activity
   end
 
-  resources :coins
+  resources :coins do
+    member do
+      put :follow
+      put :unfollow
+      get :logs
+    end
+  end
 
   resources :comments do
     resources :comments
@@ -16,7 +24,15 @@ Rails.application.routes.draw do
 
   resources :searches
   resources :networks do
-    resources :whitepapers, :coins
+    member do
+      put :follow
+      put :unfollow
+      get :logs
+    end
+    resources :whitepapers
+    resources :coins do
+      get :logs
+    end
     resources :links do 
       resources :comments do
         resources :comments
@@ -32,38 +48,24 @@ Rails.application.routes.draw do
   end
 
   resources :whitepapers
-
-  match 'networks/:network_id/coins/:id/logs', to:'coins#logs', via: 'get'
-
-  match 'networks/:id/follow', to: 'networks#follow', via: 'get', :as => :follow_network
-
-  match 'networks/:id/unfollow', to: 'networks#unfollow', via: 'get', :as => :unfollow_network
-
-  match 'networks/:network_id/coins/:id/follow', to: 'coins#follow', via: 'get', :as => :follow_coin
-
-  match 'networks/:network_id/coins/:id/unfollow', to: 'coins#unfollow', via: 'get', :as => :unfollow_coin
-
-  match 'links', to: 'links#index_all', :as => 'all_links', via: 'get'
   
-  match 'networks/:id/logs', to:'networks#logs', via: 'get'
-
-  match '/search', to:"searches#results", via: "get"
-
-  match '/account/', to:"users#edit", via: "get"
+  get '/account/', to:"users#edit"
   
-  match '/account/:id', to:"users#edit", via: "get"
+  get '/account/:id', to:"users#edit"
 
-  match 'finish/:id/', to: 'users#finish', :as => :finish, via: "get"
+  get 'finish/:id/', to: 'users#finish', :as => :finish
 
-  match 'about', to: 'users#index', :as => :about, via: "get"
+  get 'about', to: 'users#index', :as => :about
 
-  match 'sales', to: 'coins#sales', :as => :sales, via: "get"
+  get 'sales', to: 'coins#sales', :as => :sales
 
-  get :coin_search, to: 'searches#coin_search', :as => :coin_search
+  get 'search', to: 'searches#results', :as => :results
 
-  get :network_search, to: 'searches#network_search', :as => :network_search
+  get 'coin_search', to: 'searches#coin_search', :as => :coin_search
 
-  get :network_match, to: 'searches#network_match', :as => :network_match
+  get 'network_search', to: 'searches#network_search', :as => :network_search
+
+  get 'network_match', to: 'searches#network_match', :as => :network_match
 
   get 'networks/:network_id/coin/:id/add_network', to: 'coins#add_network', :as => :add_network_to_coin
 
@@ -71,7 +73,5 @@ Rails.application.routes.draw do
      get 'signup', to: 'devise/registrations#new'
      get 'signin', to: 'devise/sessions#new'
   end
-
-  match ':id/', to: 'users#show', via: "get"
 
 end

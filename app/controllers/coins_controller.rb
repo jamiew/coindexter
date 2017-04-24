@@ -13,7 +13,11 @@ class CoinsController < ApplicationController
 
 	def logs
         coin_logs = NetworkService.new
-        @coin = Coin.friendly.find(params[:id]) 
+        if params[:id].nil?
+        	@coin = Coin.friendly.find(params[:coin_id]) 
+        else
+        	@coin = Coin.friendly.find(params[:id]) 
+        end
         logs = coin_logs.get_logs(@coin, "coin_log").reverse
         @logs = logs.paginate(:page => params[:page], :per_page => 10)
 		respond_to do |format|

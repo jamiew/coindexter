@@ -1,5 +1,5 @@
 <div class="who-posted-cnt">
-	<% if defined?(current_user) %>
+	<% if defined?(current_user) && !user.nil? %>
 		<%= link_to user, class: "who-posted" do %>
 			<%= image_tag(user.avatar, size: '16x16', class: 'avatar') if defined?(user.avatar) %>
 			<%= current_user == user ? "Me" : user.username %>

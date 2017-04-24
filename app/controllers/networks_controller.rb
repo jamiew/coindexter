@@ -24,10 +24,13 @@ class NetworksController < ApplicationController
 
 	def logs
         network_logs = NetworkService.new
-        @network = Network.friendly.find(params[:id]) 
+        if params[:id].nil?
+        	@network = Network.friendly.find(params[:coin_id]) 
+        else
+        	@network = Network.friendly.find(params[:id]) 
+        end
         logs = network_logs.get_logs(@network, "Network").reverse
         @logs = logs.paginate(:page => params[:page], :per_page => 10)
-        puts "the logs are #{logs}"
 		respond_to do |format|
 		    format.html
 		    format.js

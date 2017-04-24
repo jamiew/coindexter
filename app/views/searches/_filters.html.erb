@@ -2,7 +2,11 @@
 	<ul id="info-menu" class="search-filter-categories">
 		<li id="show-all" class="active-item"><p>All categories</p></li>
 		<% @result_categories.each do |category| %>
-			<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %>><p><%= category.name.capitalize %></p></li>
+			<% unless category.nil? %>
+				<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %>>
+						<p><%= category.name.capitalize %></p>
+				</li>
+			<% end %>
 		<% end %>
 	</ul>
 </div>

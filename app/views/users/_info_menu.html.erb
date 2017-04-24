@@ -1,10 +1,19 @@
 <ul id="info-menu">
+	<li class="active-item" id="following">
+		<p>
+			<%= link_to "Following", user_url(current_user) %>
+		</p>
+	</li>
 	<% if !@user.nil? %>
-		<li class="active-item" id="account"><p><%= link_to "Account", '/account' %><p></li>
+		<li id="account">
+			<p>
+				<%= link_to "Account", edit_user_url(current_user), remote: true %>
+			</p>
+		</li>
 	<% end %>
-	<% if @user.id == current_user.id %>
-		<li id="activity"><p><%= link_to "Activity", '/' + current_user.username, remote: true %></p></li>
-	<% else %>
-		<li id="activity"><p><%= link_to "Activity", @user, remote: true %></p></li>
-	<% end %>
+	<li id="activity">
+		<p>
+			<%= link_to "Activity", user_activity_url(current_user), remote: true %>
+		</p>
+	</li>
 </ul>
