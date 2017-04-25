@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.friendly.find(params[:id])
+    @user = User.friendly.find(params[:username])
     @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
     all_follows = @user.all_follows
     @networks_following = []
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
   end
 
   def activity
-    @user = User.friendly.find(params[:user_id])
+    @user = User.friendly.find(params[:username])
     @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
     respond_to do |format|
       format.html

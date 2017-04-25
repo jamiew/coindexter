@@ -12,7 +12,7 @@
 			    <li id="header-link-feed"><%= link_to 'About', about_url  %></a></li>
 			    <li id="header-link-account">
 			    	<% if user_signed_in? %>
-		    			<%= link_to user_path(current_user.id), class: 'user-activity' do   %>
+		    			<%= link_to current_user_path(current_user.username), class: 'user-activity' do   %>
 			    			<%= current_user.avatar.nil? ? "" : image_tag(current_user.avatar, size: '30x30', class: 'avatar') %> 
 			    			<p><%= current_user.username unless current_user.username.nil? %></p>
 		    			<% end %>

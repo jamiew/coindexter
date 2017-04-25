@@ -386,7 +386,7 @@ ul#info-menu {
 
 .rememberable {
 	margin-top: 3px;
-	margin-bottom:5px;
+	margin-bottom:6px;
 	label {
 		margin: 0 !important;
 	}
@@ -407,6 +407,8 @@ ul#info-menu {
 			}
 		}
 	}
+	margin-bottom: 12px !important;
+	padding-bottom: 1px;
 }
 
 form {
@@ -963,7 +965,7 @@ h1.list-name {
 	margin-bottom:24px;
 	div {
 		div {
-			h1#network-name, h1#coin-name {
+			h1#network-name, h1#coin-name, h1#user-username {
 				margin-top:16px;
 				margin-bottom:11px;
 			}
@@ -984,6 +986,9 @@ h1.list-name {
 			p {
 				margin-top:11px !important;
 				margin-bottom:12px !important;
+			}
+			p:last-child {
+				margin-bottom: 16px !important;
 			}
 			padding-bottom:8px;
 		}
@@ -1011,7 +1016,7 @@ ul.no-network-link-list {
 }
 
 .results {
-	margin-bottom:42px !important;
+	margin-bottom:37px !important;
 	a.network-widget, a.coin-widget {
 		.network-in-categories, .coin-in-categories {
 			margin-bottom: 17px !important;
@@ -1020,9 +1025,20 @@ ul.no-network-link-list {
 	}
 	h1 {
 		text-transform: none !important;
-		margin-top: 11px;
 		margin-bottom: 13px;
 	}
+}
+
+ul.network-following-list {
+	margin-bottom: 24px !important;
+}
+
+.profile-followed {
+	margin-top:5px;
+}
+
+.profile-coin-followed {
+	margin-top:29px;
 }
 
 span.up {
@@ -1039,8 +1055,8 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 	.row {
 		div[class*='col-'] {
 			h1 {
-				margin-top:3px;
-				margin-bottom:8px;
+				margin-top:4px;
+				margin-bottom:5px;
 				a {
 					text-transform:lowercase;
 				}
@@ -1050,7 +1066,7 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 				margin-bottom:4px;
 			}
 			h6.sign-in-alternative {
-				margin-bottom:-15px;
+				margin-bottom:-14px;
 			}
 		}
 	}
@@ -1058,7 +1074,14 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 
 .link-data, .log-inner-block {
 	padding-bottom:23px  !important;
+}
+
+.link-data {
 	margin-bottom:22px;
+}
+
+.log-inner-block {
+	margin-bottom:21px;
 }
 
 .whitepaper-divider, .link-data, .log-inner-block {

@@ -69,6 +69,12 @@ Rails.application.routes.draw do
 
   get 'networks/:network_id/coin/:id/add_network', to: 'coins#add_network', :as => :add_network_to_coin
 
+  get ':username', to: 'users#show', :as => :current_user
+  
+  get ':username/edit', to: 'users#edit', :as => :edit_current_user
+  
+  get ':username/activity', to: 'users#activity', :as => :current_user_activity
+
   devise_scope :user do
      get 'signup', to: 'devise/registrations#new'
      get 'signin', to: 'devise/sessions#new'

@@ -19,7 +19,7 @@
 						<% else %>
 							<div class="row">
 								<ul class="link-list">
-									<%= render(partial: 'show_all_links', collection: @network.links, as: :link, locals: {show_tag: false}) %>
+									<%= render(partial: 'show_all_links', collection: @network.links, as: :link) %>
 								</ul>
 								<%= will_paginate @links %>
 							</div>
@@ -42,7 +42,7 @@
 					</div>
 				<% else %>
 					<ul class="link-list no-network-link-list">
-						<%= render(partial: 'show_all_links', collection: @links, as: :link, locals: {show_tag: false}) %>
+						<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
 					</ul>
 					<%= will_paginate @links %>
 				<% end %>

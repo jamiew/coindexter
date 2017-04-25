@@ -1,6 +1,6 @@
 <div class="row">
-	<div class="col-md-10 col-md-offset-2">
-		<div class="row results">
+	<div class="col-md-8 col-md-offset-4">
+		<div class="results profile-followed">
 			<h1 class="list-name">Networks followed</h1>
 			<% if @networks_following.any? %>
 				<ul class="network-following-list">
@@ -10,11 +10,16 @@
 						</li>
 					<% end %>
 				</ul>
-			<% else %>
-				<p>None</p>
-			<% end %>
-		</div>
-		<div class="row results">
+			</div>
+		<% else %>
+			<p>None</p>
+		<% end %>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 col-md-offset-4">
+		<div class="results profile-coin-followed">
 			<h1 class="list-name">Coins followed</h1>
 			<% if @coins_following.any? %>
 				<ul class="coin-following-list">
@@ -27,6 +32,6 @@
 			<% else %>
 				<p>None</p>
 			<% end %>
-		</div>
+		<div class="clear"></div>
 	</div>
 </div>
