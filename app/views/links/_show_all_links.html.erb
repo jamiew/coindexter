@@ -17,16 +17,6 @@
 			<% end %>
 		<% end %>
 	</div>
-	<div class="col-md-8 link-data">
-		<h6 class="link-title"><%= link_to link.title, link.link %></h6>
-		<%= render partial: '/shared/who_posted', locals: {user: link.user, created_at: link.created_at} %>
-		<% if link.comment_count > 1 || link.comment_count == 0 %>
-			<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
-		<% elsif link.comment_count > 0 %>
-			<h6 class="comment-count">
-				<%= link_to "#{link.comment_count} comment", link %>
-			</h6>
-		<% end %>
-	</div>
+	<%= render partial: '/links/link_data', locals: { link: link } %>
 	<div style="clear: both;"></div>
 </li>

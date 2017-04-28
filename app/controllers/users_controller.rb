@@ -40,6 +40,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def daily_digest
+    network_changes_in_past_day = []
+    @networks.each do |network| 
+      network_changes_in_past_day << versions.where("created_at > ?",  1.day.ago)
+    end
+    coin_changes_in_past_day = []
+    @coins.each do |coin| 
+      coin_changes_in_past_day << versions.where("created_at > ?",  1.day.ago)
+    end
+    @user.all.each do |user|
+      @user = user
+      @email_content = []
+      networks_following = []
+      coins_following = []
+      user.all_follows.each do |follow|
+        if follow.followable_type == "Network"
+          networks_following_changes << Network.find(follow.followable_id)
+        else 
+          coins_following_changes << Coin.find(follow.followable_id)
+        end
+      end
+
+
+    end
+  end
+
   def finish
     @user = User.find(params[:id])
     if @user.username.nil? || @user.username.blank?

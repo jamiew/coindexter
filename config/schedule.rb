@@ -11,3 +11,8 @@ every 1.minute do
    rake "update_all_coin_prices"
 end
 
+every :day, :at => '9:15am' do
+   rake "update_all_coin_prices"
+end
+
+
