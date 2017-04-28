@@ -42,18 +42,18 @@ class UsersController < ApplicationController
 
   def daily_digest
     network_changes_in_past_day = []
-    @networks.each do |network| 
-      network_changes_in_past_day << versions.where("created_at > ?",  1.day.ago)
+    Network.all.each do |network| 
+      network_changes_in_past_day << [network, network.versions.where("created_at > ?",  1.day.ago)]
     end
     coin_changes_in_past_day = []
-    @coins.each do |coin| 
-      coin_changes_in_past_day << versions.where("created_at > ?",  1.day.ago)
+    Coin.all.each do |coin| 
+      coin_changes_in_past_day << [coin, coin.versions.where("created_at > ?",  1.day.ago)]
     end
-    @user.all.each do |user|
+    User.all.each do |user|
       @user = user
       @email_content = []
-      networks_following = []
-      coins_following = []
+      networks_following_changes = []
+      coins_following_changes = []
       user.all_follows.each do |follow|
         if follow.followable_type == "Network"
           networks_following_changes << Network.find(follow.followable_id)
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
           coins_following_changes << Coin.find(follow.followable_id)
         end
       end
-
+      user_network_changes_in_past_day [] 
 
     end
   end
