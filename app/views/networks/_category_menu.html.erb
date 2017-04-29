@@ -8,3 +8,18 @@
 		<% end %>
 	</ul>
 </div>
+<div class="col-xs-12 category-dropdown">
+	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    categories
+    	<span class="caret"></span>
+  	</button>
+	<ul class="dropdown-menu top-nav" aria-labelledby="dropdownMenuDivider">
+		<li>all categories</li>
+		<li role="separator" class="divider"></li>
+		<% @categories.each do |category| %>
+			<% unless category.networks.nil? %>
+				<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %>><%= category.name.downcase %></li>
+			<% end %>	
+		<% end %>
+	</ul>
+</div>

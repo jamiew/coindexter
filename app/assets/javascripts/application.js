@@ -17,5 +17,4 @@
 //= require_tree .
 //= require bootstrap-switch
 //= require moment 
-//= require fullcalendar
-//= require jquery-ui/widgets/datepicker
+//= require bootstrap-sprockets
