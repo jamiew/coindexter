@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
-        if get_all_logs(@user.id).empty?
+        if get_all_logs(@user.id,nil).empty?
           redirect_to root_url
         else
           redirect_to @user
@@ -55,6 +55,8 @@ class UsersController < ApplicationController
         coin_changes_in_past_day << [coin, coin.versions.where("created_at > ?", 1.day.ago)]
       end
     end
+    
+=begin
     User.all.each do |user|
       @user = user
       @email_content = []
@@ -74,9 +76,51 @@ class UsersController < ApplicationController
         coins_following.index coin.first 
       end
       puts "@networks_following_changes is #{@networks_following_changes}"
-      DigestMailer.daily_digest(@user, @networks_following_changes).deliver_now
-      puts "digest delivered to #{@user.username}"
+      # DigestMailer.daily_digest(@user, @networks_following_changes).deliver_now
     end
+
+
+    @user = User.friendly.find("libovness")
+    @email_content = []
+    networks_following = []
+    coins_following = []
+    @user.all_follows.each do |follow|
+      if follow.followable_type == "Network"
+        networks_following << Network.find(follow.followable_id)
+      else 
+        coins_following << Coin.find(follow.followable_id)
+      end
+    end
+    @networks_following_changes = network_changes_in_past_day.select do |network|
+      networks_following.index network.first 
+    end
+    @coins_following_changes = coin_changes_in_past_day.select do |coin|
+      coins_following.index coin.first 
+    end
+    puts "@networks_following_changes is #{@networks_following_changes}"
+    # DigestMailer.daily_digest(@user, @networks_following_changes).deliver_now
+=end 
+
+    @user = User.friendly.find("libovness")
+    @email_content = []
+    networks_following = []
+    coins_following = []
+    @user.all_follows.each do |follow|
+      if follow.followable_type == "Network"
+        networks_following << Network.find(follow.followable_id)
+      else 
+        coins_following << Coin.find(follow.followable_id)
+      end
+    end
+
+    @all_following_logs = []
+
+    networks_following.each do |network|
+      network_logs = NetworkService.new
+      @all_following_logs << network_logs.get_logs(network, "Network",nil,nil,1).reverse
+    end
+
+    puts "@logs are #{@logs}"
 
   end
 
@@ -125,15 +169,23 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username)
     end
 
-    def get_all_logs(user_id=nil)
+    def get_all_logs(user_id=nil, since=nil)
     
       links = []
       logs = []
       
       if user_id.nil?
-        link_query = Link.all.limit(20)
+        if since.nil?
+          link_query = Link.all.limit(20)
+        else
+          link_query = Link.all.limit(20).where("created_at > ?", since.day.ago)
+        end
       else
-        link_query = User.find(user_id).links
+        if since.nil?
+          link_query = User.find(user_id).links
+        else
+          link_query = User.find(user_id).links.where("created_at > ?", since.day.ago)
+        end
       end
       
       link_query.each do |link| 

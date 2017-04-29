@@ -2,13 +2,17 @@ class NetworkService < LogService
 
 	attr_accessor :network, :coin, :user
 
-	def get_logs(object, feed_type, limit=nil, user_id=nil)
+	def get_logs(object, feed_type, limit=nil, user_id=nil, since=nil)
 
 		if !user_id.nil?
-          versions = object.versions.where(:whodunnit => user_id).all.order("created_at DESC").limit(5)
+          	versions = object.versions.where(:whodunnit => user_id).all.order("created_at DESC").limit(5)
         else
         	if limit.nil?
-          		versions = object.versions.all.order("created_at DESC")
+          		if since.nil?
+          			versions = object.versions.all.order("created_at DESC")
+          		else 
+          			versions = object.versions.where("created_at > ?",since.day.ago).order("created_at DESC")
+          		end
           	else
           		versions = object.versions.all.order("created_at DESC").limit(5)
           	end
