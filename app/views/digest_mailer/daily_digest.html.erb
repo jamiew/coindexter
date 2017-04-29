@@ -5,11 +5,15 @@
   </head>
   <body>
     <p>Hi <%= @user.username %>,</p>
-    <p><%= @networks_following_changes %></p>
+    <p>Here are the changes amongst networks and coins you follow:
+    <% @logs.each do |log| %>
+		<%= image_tag log.first.networks.logo, alt: log.first.networks.name  %>
+		<h1><%= log.first.networks.name %></h1>
+		<%= render(partial: '/networks/log', collection: log, as: :log, locals: {show_tag: false}) %>
+	<% end %>
   </body>
 </html>
 
-,
 
 
 

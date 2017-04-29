@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi <%= @user.username %>,</p>
+    <% unless @network_logs.nil? %>
+      <p>Here are the changes amongst the networks you follow:</p>
+      <% @network_logs.each do |log| %>
+        <%= image_tag log.first.networks.logo, alt: log.first.networks.name, style: "display:inline;"  %>
+        <%= link_to log.first.networks, style: "text-decoration: none !important;" do %>
+          <h2 style="display:inline; color: rgb(235,107,51);"><%= log.first.networks.name %></h2>
+        <% end %>
+        <%= render(partial: '/networks/log_data', collection: log, as: :log, locals: { email: true }) %>
+        <%= render partial: '/shared/who_posted', locals: { email: true, user: log.first.user, created_at: log.first.created_at } %>
+      <% end %>
+    <% end %>
+    <br />
+    <% unless @coin_logs.nil? %>
+      <p>Here are the changes amongst the coins you follow:</p>
+      <% @coin_logs.each do |log| %>
+        <%= image_tag log.first.coins.logo, alt: log.first.coins.name, style: "display:inline;"  %>
+        <%= link_to log.first.coins, style: "text-decoration: none !important;" do %>
+          <h2 style="display:inline; color: rgb(235,107,51);"><%= log.first.coins.name %></h2>
+        <% end %>
+        <%= render(partial: '/coins/log_data', collection: log, as: :log, locals: { email: true }) %>
+        <%= render partial: '/shared/who_posted', locals: { email: true, user: log.first.user, created_at: log.first.created_at } %>
+      <% end %>
+    <% end %>
+  </body>
+</html>

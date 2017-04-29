@@ -113,9 +113,15 @@ class NetworkService < LogService
 						  type = "added"
 						else
 						  type = "edited"
-						  value[0] = Network.find(value[0])
+						  unless value[0].nil?
+						  	value[0] = Network.find(value[0])
+						  end
 						end
-						value[1] = Network.find(value[1])
+						if value[1].nil?
+							value[1] = ""
+						else	
+							value[1] = Network.find(value[1])
+						end
 						change_attr = "Network"
 					when "type"
 						change_attr = "Asset type"

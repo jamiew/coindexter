@@ -12,7 +12,7 @@ every 1.minute do
 end
 
 every :day, :at => '9:15am' do
-   rake "update_all_coin_prices"
+   rake "send_daily_digest"
 end
 
 

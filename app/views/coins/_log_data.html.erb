@@ -1,61 +1,65 @@
-<ul class="log-list"> 
-	<% log.changes.each do |change| %>
-		<li>
-			<% case change[:change_attr] %>
-				<% when "Repositories", "Exchanges" %>
-					<p>
-						<%= change[:change_attr].capitalize %>
-						<% if change[:change_type] == "added" %>
-							added: 
-								<% puts "log is #{change[:change].second}" %>
-								<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
-						<% elsif change[:change_type] == "edited" %>
-							changed from 
-								<% change[:change].first.each_with_index do |change, i| %>
-									<%= link_to change["name"], change["url"] %>
-								<% end %>
-							to 
-								<% change[:change].second.each_with_index do |change, i| %>
-									<%= link_to change["name"], change["url"] %>
-								<% end %>
-						<% end %>
-					</p>
-				<% when "Network", "Description" %>
-					<p>
-						<%= change[:change_attr].capitalize %>
-						<% if change[:change_type] == "added" %>
-							added:
-							<%= link_to change[:change].second.name, change[:change].second unless change[:change].nil? %>
-						<% elsif change[:change_type] == "edited" %>
-							changed from 
-								<% change[:change].first.each_with_index do |change, i| %>
-									<%= link_to change["name"], change unless change.nil? %><%= "," unless i + 1 == change[:change].second.length %>
-								<% end %>
-							to 
-								<% change[:change].second.each_with_index do |change, i| %>
-									<%= link_to change["name"], change unless change.nil? %>
-								<% end %>
-						<% end %>
-					</p>
-				<% when "Created" %>
-					<p>
-						Created 
-						<%= link_to log.coins.name, log.coins %>
-					</p>
-				<% when "logo" %>
-					<p>
-						New logo
-					</p>
-				<% else %>
-					<p>
-						<%= change[:change_attr].capitalize %>
-						<% if change[:change_type] == "added" %>
-							added: "<%= change[:change].second.capitalize %>"
-						<% elsif change[:change_type] == "edited" %>
-							changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
-						<% end %>
-					</p>
+<% if defined?(email) %> 
+	<ul class="log-list" style="padding: 0 !important; margin: 0  !important; text-indent: 0  !important; list-style-type: 0  !important;"> 
+<% else %>
+	<ul class="log-list"> 
+<% end %>
+		<% log.changes.each do |change| %>
+			<% if defined?(email) %> 
+				<li style="padding: 0; margin: 0; text-indent: 0; list-style-type: 0;"> 
+			<% else %>
+				<li>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+					<% case change[:change_attr] %>
+						<% when "Repositories", "Exchanges" %>
+							<p>
+								<%= change[:change_attr].capitalize %>
+								<% if change[:change_type] == "added" %>
+									added: 
+										<% puts "log is #{change[:change].second}" %>
+										<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
+								<% elsif change[:change_type] == "edited" %>
+									changed from 
+										<% change[:change].first.each_with_index do |change, i| %>
+											<%= link_to change["name"], change["url"] %>
+										<% end %>
+									to 
+										<% change[:change].second.each_with_index do |change, i| %>
+											<%= link_to change["name"], change["url"] %>
+										<% end %>
+								<% end %>
+							</p>
+						<% when "Network", "Description" %>
+							<p>
+								<%= change[:change_attr].capitalize %>
+								<% if change[:change_type] == "added" %>
+									added:
+									<%= link_to change[:change].second.name, change[:change].second unless change[:change].nil? %>
+								<% elsif change[:change_type] == "edited" %>
+									changed from 
+										<%= link_to change[:change].first["name"], change[:change].first unless change[:change].nil? %>
+									to 
+										<%= link_to change[:change].second["name"], change[:change].second unless change[:change].nil? %>
+								<% end %>
+							</p>
+						<% when "Created" %>
+							<p>
+								Created 
+								<%= link_to log.coins.name, log.coins %>
+							</p>
+						<% when "logo" %>
+							<p>
+								New logo
+							</p>
+						<% else %>
+							<p>
+								<%= change[:change_attr].capitalize %>
+								<% if change[:change_type] == "added" %>
+									added: "<%= change[:change].second.capitalize %>"
+								<% elsif change[:change_type] == "edited" %>
+									changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
+								<% end %>
+							</p>
+					<% end %>
+				</li>
+		<% end %>
+	</ul>

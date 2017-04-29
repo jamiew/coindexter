@@ -15,8 +15,8 @@
 		<% else %>
 			<div class="col-md-8 col-md-offset-4 log-inner-block">
 		<% end %>
-			<%= render partial: '/networks/log_data', log: log %>
-			<%= render partial: '/shared/who_posted', locals: {user: log.user, created_at: log.created_at} %>
+			<%= render partial: '/networks/log_data', locals: { log: log } %>
+			<%= render partial: '/shared/who_posted', locals: { user: log.user, created_at: log.created_at } %>
 		</div>
 	</div>
 </li>
