@@ -43,27 +43,41 @@ class UsersController < ApplicationController
   def daily_digest
     network_changes_in_past_day = []
     Network.all.each do |network| 
-      network_changes_in_past_day << [network, network.versions.where("created_at > ?",  1.day.ago)]
+      versions = network.versions.where("created_at > ?", 1.day.ago)
+      unless versions.empty?
+        network_changes_in_past_day << [network, versions]
+      end
     end
     coin_changes_in_past_day = []
     Coin.all.each do |coin| 
-      coin_changes_in_past_day << [coin, coin.versions.where("created_at > ?",  1.day.ago)]
+      versions = coin.versions.where("created_at > ?", 1.day.ago)
+      unless versions.empty? 
+        coin_changes_in_past_day << [coin, coin.versions.where("created_at > ?", 1.day.ago)]
+      end
     end
     User.all.each do |user|
       @user = user
       @email_content = []
-      networks_following_changes = []
-      coins_following_changes = []
+      networks_following = []
+      coins_following = []
       user.all_follows.each do |follow|
         if follow.followable_type == "Network"
-          networks_following_changes << Network.find(follow.followable_id)
+          networks_following << Network.find(follow.followable_id)
         else 
-          coins_following_changes << Coin.find(follow.followable_id)
+          coins_following << Coin.find(follow.followable_id)
         end
       end
-      user_network_changes_in_past_day [] 
-
+      @networks_following_changes = network_changes_in_past_day.select do |network|
+        networks_following.index network.first 
+      end
+      @coins_following_changes = coin_changes_in_past_day.select do |coin|
+        coins_following.index coin.first 
+      end
+      puts "@networks_following_changes is #{@networks_following_changes}"
+      DigestMailer.daily_digest(@user, @networks_following_changes).deliver_now
+      puts "digest delivered to #{@user.username}"
     end
+
   end
 
   def finish

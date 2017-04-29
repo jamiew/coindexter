@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :searches
   resources :networks do
     member do
-      put :follow
+      get :follow
       put :unfollow
       get :logs
     end
@@ -70,7 +70,7 @@ Rails.application.routes.draw do
   get 'networks/:network_id/coin/:id/add_network', to: 'coins#add_network', :as => :add_network_to_coin
 
   get 'daily_digest', to: 'users#daily_digest', :as => :daily_digest
-  
+
   get ':username', to: 'users#show', :as => :current_user
   
   get ':username/edit', to: 'users#edit', :as => :edit_current_user
