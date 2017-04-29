@@ -1,38 +1,44 @@
 <nav class="navbar">
   	<div class="container">
-  		<div class="navbar-header">
-	  		<%= link_to image_tag("logo-search-orange.png", size: "48x48"), '/', class: "navbar-brand", id: "logo" %>
-	  		<%= render '/layouts/header/search' %>
-	  	</div>
-	  	<div id="navbar">
-		  	<ul class="nav navbar-nav navbar-right">
-			    <li id="header-link-networks"><%= link_to 'Networks', root_url %></a></li>
-			    <li id="header-link-links"><%= link_to 'Links', links_url %></a></li>
-			    <li id="header-link-sales"><%= link_to 'Coin Sales', sales_url %></li>
-			    <li id="header-link-feed"><%= link_to 'About', about_url  %></a></li>
-			    <li id="header-link-account">
-			    	<% if user_signed_in? %>
-		    			<%= link_to current_user_path(current_user.username), class: 'user-activity' do   %>
-			    			<%= current_user.avatar.nil? ? "" : image_tag(current_user.avatar, size: '30x30', class: 'avatar') %> 
-			    			<p><%= current_user.username unless current_user.username.nil? %></p>
-		    			<% end %>
-		    			<% if current_user.username.nil? %>
-		    				<%= link_to current_user.id.to_s, class: 'header-link-account-glyphicon' do %>
-			    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-			    			<% end %>
-		    			<% else %>
-			    			<%= link_to '/' + current_user.username, class: 'header-link-account-glyphicon' do %>
-			    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-			    			<% end %>
-			    		<% end %>
-		    			<%= link_to destroy_user_session_path, method: :delete, class: 'header-link-account-glyphicon logout' do %>
-		    				<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-		    			<% end %>
-			    	<% else %>
-			    		<%= link_to 'login', '/signin', class: 'login-link' %>
-					<% end %>
-			    </li>
-			</ul>
+  		<div class="row">
+  			<div class="col-md-5 col-xs-12">
+		  		<div class="navbar-header">
+			  		<%= link_to image_tag("logo-search-orange.png", size: "48x48"), '/', class: "navbar-brand", id: "logo" %>
+			  		<%= render '/layouts/header/search' %>
+			  	</div>
+			</div>
+			<div class="col-md-7 col-xs-12" id="navbar-container">
+			  	<div id="navbar">
+				  	<ul class="nav navbar-nav navbar-right">
+					    <li id="header-link-networks"><%= link_to 'Networks', root_url %></a></li>
+					    <li id="header-link-links"><%= link_to 'Links', links_url %></a></li>
+					    <li id="header-link-sales"><%= link_to 'Coin Sales', sales_url %></li>
+					    <li id="header-link-feed"><%= link_to 'About', about_url  %></a></li>
+					    <li id="header-link-account">
+					    	<% if user_signed_in? %>
+				    			<%= link_to current_user_path(current_user.username), class: 'user-activity' do   %>
+					    			<%= current_user.avatar.nil? ? "" : image_tag(current_user.avatar, size: '30x30', class: 'avatar') %> 
+					    			<p><%= current_user.username unless current_user.username.nil? %></p>
+				    			<% end %>
+				    			<% if current_user.username.nil? %>
+				    				<%= link_to current_user.id.to_s, class: 'header-link-account-glyphicon' do %>
+					    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					    			<% end %>
+				    			<% else %>
+					    			<%= link_to '/' + current_user.username, class: 'header-link-account-glyphicon' do %>
+					    				<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+					    			<% end %>
+					    		<% end %>
+				    			<%= link_to destroy_user_session_path, method: :delete, class: 'header-link-account-glyphicon logout' do %>
+				    				<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+				    			<% end %>
+					    	<% else %>
+					    		<%= link_to 'login', '/signin', class: 'login-link' %>
+							<% end %>
+					    </li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 	<p class="notice"><%= notice %></p>

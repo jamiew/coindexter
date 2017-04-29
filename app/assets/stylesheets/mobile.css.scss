@@ -1,0 +1,73 @@
+$primary-orange: rgb(235,107,51);
+$secondary-orange: rgb(245,144,101);
+$navbar-orange: rgb(253,238,233);
+$border-orange: rgb(251,226,216);
+$background-orange: rgb(254,247,245);
+
+@media (max-width: 767px) {
+	body {
+		.main-container {
+			padding-top: 0;
+		}
+	}
+	navbar-header {
+		margin: 0 auto;
+	}
+	nav, .navbar {
+		.container {
+			.navbar-header {
+				a.navbar-brand {
+					margin-right:-3px;
+				}
+				form {
+					.form-group	{
+						input {
+							width:300px;
+						}
+					}
+				}
+			}
+		}
+		ul.navbar-nav {
+			li {
+				position: static;
+				float: left;
+				text-align: center !important;
+				width: 25%;
+				margin-right: 0 !important;
+				a {
+					position: static;
+					display: inline;
+					padding: 0;
+				}
+			}
+			li#header-link-account {
+				display: none;
+			}
+			margin: 0 !important;
+			padding-bottom:4px;
+		}
+	}
+	.action-links {
+		display: none;
+	}
+	.left-nav {
+		display: none;
+	}
+
+	ul.full-category-cnt {
+		padding-left: 0;
+		margin-left: 0;
+	}
+
+	#navbar-container {
+		padding: 10px 0;
+		background-color: $navbar-orange;
+		background-opacity: 1.0;
+		position: fixed;
+		z-index:9999;
+		bottom: 0;
+		border-top: $border-orange 2px solid;
+	}
+}
+
