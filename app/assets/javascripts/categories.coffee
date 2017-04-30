@@ -10,8 +10,9 @@ $(document).on 'turbolinks:load', ->
 		$(selector).show()
 	$('#show-all').click ->
 		$('ul.networks-in-categories').show()
-	$('ul.dropdown-menu > li').click ->
+	$('ul#category-dropdown > li').click ->
 		selector = 'ul#' + $(this).attr 'id'
 		$('ul.full-category-cnt').hide()
 		$('button.dropdown-toggle').text $(this).text()
 		$(selector).show()
+	

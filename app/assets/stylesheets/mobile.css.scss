@@ -4,7 +4,7 @@ $navbar-orange: rgb(253,238,233);
 $border-orange: rgb(251,226,216);
 $background-orange: rgb(254,247,245);
 
-.category-dropdown {
+.dropdown-navigator {
 	display:none;
 }
 
@@ -87,7 +87,7 @@ $background-orange: rgb(254,247,245);
 		bottom: 0;
 		border-top: $border-orange 2px solid;
 	}
-	.category-dropdown {
+	.dropdown-navigator {
 		display:block;
 		button.btn {
 			width: 100%;
@@ -131,9 +131,7 @@ $background-orange: rgb(254,247,245);
 	}
 
 	#related-dropdown {
-		ul.dropdown-menu {
-			height: 190px;
-		}
+		height: 190px;
 	}
 
 	div[class*='user-log-classification'] {

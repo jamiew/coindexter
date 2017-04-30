@@ -3,16 +3,17 @@
 		<div class="col-md-2 col-md-offset-1 left-nav">
 			<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "links"}) %>
 		</div>
-		<div class="col-md-9 main">
+		<%= render partial: '/networks/related_dropdown', locals: { network: @network } %>
+		<div class="col-md-9 col-xs-12 main">
 			<div class="info-header">
 				<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
 			</div>
 			<div class="content">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-8 col-xs-12 ">
 						<% if @network.links.empty? %>
 							<div class="row">
-								<div class="col-md-8 col-md-offset-4">
+								<div class="col-md-8 col-md-offset-4 col-xs-12 col-xs-offset-0">
 									<p class="add-first">No links yet. <%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
 								</div>
 							</div>

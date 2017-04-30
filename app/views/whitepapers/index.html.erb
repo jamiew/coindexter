@@ -2,7 +2,8 @@
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "whitepapers"}) %>
 	</div>
-	<div class="col-md-9 main">
+	<%= render partial: '/networks/related_dropdown', locals: { network: @network } %>
+	<div class="col-md-9 col-xs-12 main">
 		<div class="info-header">
 			<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
 		</div>

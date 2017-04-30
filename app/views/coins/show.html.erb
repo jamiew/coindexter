@@ -2,6 +2,17 @@
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<%= render(partial: 'info_menu', locals: {coin: @coin, active_item: "details"}) %>
 	</div>
+	<div class="col-xs-12 dropdown-navigator">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	    related
+	    	<span class="caret"></span>
+	  	</button>
+		<ul class="dropdown-menu top-nav" id="related-dropdown" aria-labelledby="dropdownMenuDivider">
+			<li data-link=<%= coin.network.nil? ? coin_path : network_coin_path %>>details</li>
+			<li data-link=<%= coin.network.nil? ? coin_path : "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase.split(' ').join('-')}/logs" %>>logs</li>
+			</li>
+		</ul>
+	</div>
 	<div class="col-md-9 col-xs-12 main ">
 		<div class="info-header">
 			<%= render 'coin_main_info_header', coin: @coin %>

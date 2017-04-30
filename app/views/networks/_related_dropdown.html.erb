@@ -1,0 +1,12 @@
+<div class="col-xs-12 dropdown-navigator">
+	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    related
+    	<span class="caret"></span>
+  	</button>
+	<ul class="dropdown-menu top-nav" id="related-dropdown" aria-labelledby="dropdownMenuDivider">
+		<li data-link=<%= network_path(network) %>>details</li>
+		<li data-link=<%= network_whitepapers_path(network) %>>whitepapers</li>
+		<li data-link=<%= network_links_path(network) %>>links</li>
+		<li data-link=<%= "/networks/#{network.name.downcase.split(' ').join('-')}/logs" %>>logs</li>
+	</ul>
+</div>
