@@ -70,7 +70,6 @@ $ ->
 
 	$('ul#related-dropdown > li').click ->
 		selector = $(this).attr 'data-link'
-		alert selector
 		$(location).attr 'href', selector
   		
 		

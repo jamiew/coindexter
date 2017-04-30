@@ -130,7 +130,7 @@ $background-orange: rgb(254,247,245);
 		}
 	}
 
-	#related-dropdown {
+	#network-related-dropdown {
 		height: 190px;
 	}
 
@@ -165,10 +165,25 @@ $background-orange: rgb(254,247,245);
 	.label {
 		text-align: left !important;
 		padding-left: 15px;
+		h6 {
+			font-family: "WhitneyHTF-SemiboldSC" !important;
+		}
+		margin-top: 5px; 
+	}
+
+	.title-row {
+		h6 {
+			font-family: "WhitneyHTF-SemiboldSC" !important;
+		}
+		margin-bottom: -20px;
 	}
 
 	.data, .symbol, .status {
 		margin-bottom: 1em;
+	}
+
+	.status {
+		margin-bottom: 0;
 	}
 		
 }

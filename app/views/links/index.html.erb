@@ -14,7 +14,12 @@
 						<% if @network.links.empty? %>
 							<div class="row">
 								<div class="col-md-8 col-md-offset-4 col-xs-12 col-xs-offset-0">
-									<p class="add-first">No links yet. <%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
+									<p class="add-first">No links yet. 
+										<% if browser.platform.ios? or browser.platform.android? %>
+											Add one from desktop.
+										<% else %>
+											<%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
+										<% end %>
 								</div>
 							</div>
 						<% else %>
@@ -39,7 +44,13 @@
 			<div class="row">
 				<% if @links.empty? %>
 					<div class="col-md-8 col-md-offset-4">
-						<p class="add-first">No links yet. <%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
+						<p class="add-first">No links yet. 
+							<% if browser.platform.ios? or browser.platform.android? %>
+								Add one from desktop.
+							<% else %>
+								<%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
+							<% end %>
+						</div>
 					</div>
 				<% else %>
 					<ul class="link-list no-network-link-list">

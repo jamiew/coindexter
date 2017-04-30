@@ -3,7 +3,13 @@
 		<% if @network.whitepapers.empty? %>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
-					<p class="add-first">No whitepapers yet. <%= link_to "Add one?", new_whitepaper_url(network_id: @network) %></p>
+					<p class="add-first">No whitepapers yet.
+						<% if browser.platform.ios? or browser.platform.android? %>
+							Add one from desktop.
+						<% else %>
+							 <%= link_to "Add one?", new_whitepaper_url(network_id: @network), remote: true %>
+						<% end %>
+					</p>
 				</div>
 			</div>
 		<% else %>

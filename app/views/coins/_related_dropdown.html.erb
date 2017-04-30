@@ -1,0 +1,11 @@
+<div class="col-xs-12 dropdown-navigator">
+	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    related
+    	<span class="caret"></span>
+  	</button>
+	<ul class="dropdown-menu top-nav" id="coin-related-dropdown" aria-labelledby="dropdownMenuDivider">
+		<li data-link=<%= @coin.network.nil? ? coin_path : network_coin_path %>>details</li>
+		<li data-link=<%= @coin.network.nil? ? coin_path : "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase.split(' ').join('-')}/logs" %>>logs</li>
+		</li>
+	</ul>
+</div>

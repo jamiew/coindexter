@@ -89,6 +89,9 @@ gem 'jquery-ui-rails'
 #following model
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
+# know what browswer it is in view
+gem 'browser'
+
 group :production do 
   gem 'rails_12factor'
 end

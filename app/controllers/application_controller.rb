@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_paper_trail_whodunnit
 
+  require "browser"
+  browser = Browser.new("Some User Agent", accept_language: "en-us")
+
   def about
     render 'layouts/about'
   end
