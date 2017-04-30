@@ -1,41 +1,47 @@
 <div class="row">
 	<%= render 'filters', object: @categories %>
-	<div class="col-md-6 main">
+	<div class="col-md-6 col-xs-12 main">
 		<ul>
 			<li class="search-block block">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-2">
+					<div class="col-md-10 col-md-offset-2 col-xs-12 col-xs-offset-0">
 						<div class="row results">
-							<h1 class="list-name">Networks matching '<%= @query %>'</h1>
-							<% if @network_results.empty? %>
-								<p>No networks found. <%= link_to "Add one?", new_network_path %></p>
-							<% else %>
-								<% @network_results.each_with_index do |result, i| %>
-									<%= render '/networks/network_widget', :network => result, :i => i %>
+							<div class="col-md-12 col-xs-12">
+								<h1 class="list-name">Networks matching '<%= @query %>'</h1>
+								<% if @network_results.empty? %>
+									<p>No networks found. <%= link_to "Add one?", new_network_path %></p>
+								<% else %>
+									<% @network_results.each_with_index do |result, i| %>
+										<%= render '/networks/network_widget', :network => result, :i => i %>
+									<% end %>
 								<% end %>
-							<% end %>
+							</div>
 						</div>
 						<div class="row results">
-							<h1 class="list-name">Coins matching '<%= @query.downcase %>'</h1>
-							<% if @coin_results.empty? %>
-								<p>No coins found. Navigate to the <%= link_to "network", networks_url %> you think the coin belongs to and add it there.</p>
-								<p>If that network doesn't exist, <%= link_to "add it", new_network_path %>.</p>
-							<% else %>
-								<% @coin_results.each_with_index do |result, i| %>
-									<%= render '/coins/coin_widget', :coin => result, :i => i %>
+							<div class="col-md-12 col-xs-12">
+								<h1 class="list-name">Coins matching '<%= @query.downcase %>'</h1>
+								<% if @coin_results.empty? %>
+									<p>No coins found. Navigate to the <%= link_to "network", networks_url %> you think the coin belongs to and add it there.</p>
+									<p>If that network doesn't exist, <%= link_to "add it", new_network_path %>.</p>
+								<% else %>
+									<% @coin_results.each_with_index do |result, i| %>
+										<%= render '/coins/coin_widget', :coin => result, :i => i %>
+									<% end %>
 								<% end %>
-							<% end %>
+							</div>
 						</div>
 						<div class="row results">
-							<h1 class="list-name">Whitepapers matching '<%= @query %>'</h1>
-							<% if @whitepaper_results.empty? %>
-								<p>No whitepapers found. Navigate to the <%= link_to "network", networks_url %> you think the whitepaper belongs to and add it there.</p>
-								<p>If that network doesn't exist, <%= link_to "add it", new_network_path %>.</p>
-							<% else %>
-								<% @whitepaper_results.each do |wp| %>
-									<%= render 'whitepapers/single_whitepaper', :wp => wp, :network => wp.network %>
+							<div class="col-md-12 col-xs-12">
+								<h1 class="list-name">Whitepapers matching '<%= @query %>'</h1>
+								<% if @whitepaper_results.empty? %>
+									<p>No whitepapers found. Navigate to the <%= link_to "network", networks_url %> you think the whitepaper belongs to and add it there.</p>
+									<p>If that network doesn't exist, <%= link_to "add it", new_network_path %>.</p>
+								<% else %>
+									<% @whitepaper_results.each do |wp| %>
+										<%= render 'whitepapers/single_whitepaper', :wp => wp, :network => wp.network %>
+									<% end %>
 								<% end %>
-							<% end %>
+							</div>
 						</div>
 					</div>
 				</div>

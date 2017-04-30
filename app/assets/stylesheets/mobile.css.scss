@@ -12,6 +12,13 @@ $background-orange: rgb(254,247,245);
 	body {
 		.main-container {
 			padding-top: 0;
+			.row {
+				div {
+					ul {
+						padding-left: 0;
+					}
+				}
+			}
 		}
 	}
 	navbar-header {
@@ -106,16 +113,65 @@ $background-orange: rgb(254,247,245);
 			padding: 6px 12px;
 			box-shadow: none;
 			li {
+				padding-left: 15px;
 				margin-top: 1em;
 				margin-bottom: 1em;
 				color: #545454;
 				width: 100%;
 			}
 			z-index: 99999;
-			height: 300px;
+			height: 400px;
 			overflow: scroll;
 		}
 	}
+	#sales-dropdown {
+		ul.dropdown-menu {
+			height: 170px;
+		}
+	}
 
+	#related-dropdown {
+		ul.dropdown-menu {
+			height: 190px;
+		}
+	}
+
+	div[class*='user-log-classification'] {
+		float:left;
+		margin-left: 0px;
+		margin-bottom: 5px;
+		margin-top:6px;
+	}
+	.link-data {
+		clear:both;
+		margin-left: 5px;
+	}
+	ul.log-list, .link-data {
+		clear:both;
+	}
+
+	.whitepaper-list-cnt {
+		.whitepaper-thumb-cnt {
+			.whitepaper-thumbnail {
+				height: 125px;
+			}
+		} 
+	}
+	h6.when-posted {
+		margin-top: 13px !important;
+	}
+	.info-header {
+		text-align:center;
+	}
+
+	.label {
+		text-align: left !important;
+		padding-left: 15px;
+	}
+
+	.data, .symbol, .status {
+		margin-bottom: 1em;
+	}
+		
 }
 

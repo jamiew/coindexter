@@ -2,33 +2,51 @@
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<ul id="info-menu" class="search-filter-categories">
 			<li id="show-all" class="active-item"><p>All sales</p></li>
-			<li id="upcoming" class="category-link"><p>Upcoming sales</p></li>
-			<li id="previous" class="category-link"><p>Previous sales</p></li>
+			<li id="upcoming" class="category-link"><p>Upcoming</p></li>
+			<li id="previous" class="category-link"><p>Past</p></li>
 		</ul>
 	</div>
-	<div class="col-md-6 main">
+	<div class="col-xs-12 category-dropdown" id="sales-dropdown">
+		<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	    all sales
+	    	<span class="caret"></span>
+	  	</button>
+		<ul class="dropdown-menu top-nav" aria-labelledby="dropdownMenuDivider">
+			<li id="show-all" class="active-item"><p>all sales</p></li>
+			<li role="separator" class="divider"></li>
+			<li id="upcoming" class="category-link"><p>upcoming sales</p></li>
+			<li id="previous" class="category-link"><p>past sales</p></li>
+		</ul>
+	</div>
+	<div class="col-md-6 main col-xs-12">
 		<ul>
 			<li class="sale-block block">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-2">
+					<div class="col-md-10 col-md-offset-2 col-xs-12 col-xs-offset-0 upcoming">
 						<% @upcoming_sales.each do |group| %>
 							<h1 class="list-name"><%= group[0] %></h1>
-							<% group[1].each_with_index do |sale, i| %>
-								<%= render '/coins/coin_widget', :coin => sale, :i => i %>
-							<% end %>
+								<div class="row results">
+									<div class="col-md-12 col-xs-12">
+										<% group[1].each_with_index do |sale, i| %>
+											<%= render '/coins/coin_widget', :coin => sale, :i => i %>
+										<% end %>
+									</div>
+								</div>
 						<% end %>
 					</div>
 				</div>
 			</li>
 			<li class="sale-block block">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-2">
+					<div class="col-md-10 col-md-offset-2 col-xs-12 col-xs-offset-0 previous">
 						<% @previous_sales.each do |group| %>
 							<div class="row results">
-								<h1 class="list-name"><%= group[0] %></h1>
-								<% group[1].each_with_index do |sale, i| %>
-									<%= render '/coins/coin_widget', :coin => sale, :i => i %>
-								<% end %>
+								<div class="col-md-12 col-xs-12">
+									<h1 class="list-name"><%= group[0] %></h1>
+									<% group[1].each_with_index do |sale, i| %>
+										<%= render '/coins/coin_widget', :coin => sale, :i => i %>
+									<% end %>
+								</div>
 							</div>
 						<% end %>
 					</div>

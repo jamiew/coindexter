@@ -1,22 +1,24 @@
 <li class="link-block block">
-	<div class="col-md-4 link-association">
-		<% if link.networks.empty? %>
- 		<div>&nbsp;</div>
-		<% else %>
-			<% link.networks.each do |network| %>
-				<div class="user-log-classification">
-					<div class="user-log-classification-link">
-						<% unless network.logo.nil? %>
-							<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
-						<% end %>
-						<%= link_to network.name, network %>
+	<div class="row">
+		<div class="col-md-4 link-association">
+			<% if link.networks.empty? %>
+	 		<div>&nbsp;</div>
+			<% else %>
+				<% link.networks.each do |network| %>
+					<div class="user-log-classification">
+						<div class="user-log-classification-link">
+							<% unless network.logo.nil? %>
+								<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
+							<% end %>
+							<%= link_to network.name, network %>
+							<div style="clear: both;"></div>
+						</div>
 						<div style="clear: both;"></div>
 					</div>
-					<div style="clear: both;"></div>
-				</div>
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
+		<%= render partial: '/links/link_data', locals: { link: link } %>
+		<div style="clear: both;"></div>
 	</div>
-	<%= render partial: '/links/link_data', locals: { link: link } %>
-	<div style="clear: both;"></div>
 </li>
