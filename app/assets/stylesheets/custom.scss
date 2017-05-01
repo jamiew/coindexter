@@ -994,7 +994,7 @@ h1.list-name {
 		color: $text;
 		margin-top:4px;
 	}
-	img {
+	img[alt="Default"] {
 		border: 3px solid $border-orange;
 		background-color: #fff;
 		padding: 4px;
