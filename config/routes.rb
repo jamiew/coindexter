@@ -71,6 +71,11 @@ Rails.application.routes.draw do
 
   get 'daily_digest', to: 'users#daily_digest', :as => :daily_digest
 
+  devise_scope :user do
+    get 'signup', to: 'devise/registrations#new'
+    get 'signin', to: 'devise/sessions#new'
+  end
+
   get ':username', to: 'users#show', :as => :current_user
   
   get ':username/edit', to: 'users#edit', :as => :edit_current_user
@@ -78,9 +83,6 @@ Rails.application.routes.draw do
   get ':username/activity', to: 'users#activity', :as => :current_user_activity
 
 
-  devise_scope :user do
-     get 'signup', to: 'devise/registrations#new'
-     get 'signin', to: 'devise/sessions#new'
-  end
+ 
 
 end
