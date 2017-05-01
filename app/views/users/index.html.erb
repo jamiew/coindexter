@@ -2,7 +2,10 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
 		<ul class="action-links">
-			<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %> Add new link &nbsp;<%= image_tag("add-icon-white") %><% end %></li>
+			<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %> 
+					Add new link 
+				<% end %>
+			</li>
 			<li><%= link_to(new_network_path, remote: false, class: "action-link", accesskey: 'N') do %>Add new network<% end %></li>
 		</ul>
 		<ul class="feed">
