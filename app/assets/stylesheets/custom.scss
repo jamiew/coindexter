@@ -531,10 +531,9 @@ form.new_comment {
 				background-position: left 8px top 9px;
 			}
 			.coindexter-signin {
-				border: 2px solid $primary-orange;
-				background-color: $primary-orange;
-				background-image: image-url("logo-button-white.png");
-				background-position: left 8px top 9px;
+				padding: 0;
+				color: $primary-orange;
+				margin-top: 12px !important;
 			}
 			.sign-in-alternative {
 				margin-bottom:-27px;
