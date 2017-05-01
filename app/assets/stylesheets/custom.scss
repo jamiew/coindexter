@@ -1095,7 +1095,7 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 }
 
 .link-data {
-	margin-bottom:22px;
+	margin-bottom:29px;
 }
 
 .log-inner-block {
@@ -1109,11 +1109,6 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 .whitepaper-divider {
 	margin-bottom:24px;
 }
-
-.link-association {
-	margin-top:-6px;
-}
-
 
 .log-inner-block {
 	.who-posted-cnt {
@@ -1130,6 +1125,8 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 		div {
 			.user-log-classification {
 				margin-top:-6px;
+				clear:both;
+				margin-bottom: 17px;
 			}
 			h6.when-posted {
 				padding-top:9px;
