@@ -18,3 +18,4 @@
 //= require bootstrap-switch
 //= require moment 
 //= require bootstrap-sprockets
+//= require retina_tag

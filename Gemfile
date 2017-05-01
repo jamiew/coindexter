@@ -92,6 +92,9 @@ gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 # know what browswer it is in view
 gem 'browser'
 
+# retina images
+gem 'retina_tag'
+
 group :production do 
   gem 'rails_12factor'
 end
