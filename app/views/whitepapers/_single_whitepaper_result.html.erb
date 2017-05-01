@@ -6,7 +6,7 @@
 	</div>
 	<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-0 whitepaper-metadata">
 		<% if defined?(wp.network) && !wp.network.nil? %>
-    		<%= link_to network_whitepapers_path(wp) do %>
+    		<%= link_to network_whitepaper_path(network, wp) do %>
 				<p class="whitepaper-title"><%= wp.whitepaper_title %></p>
 			<% end %>
     		<div class="user-log-classification">

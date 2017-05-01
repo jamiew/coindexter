@@ -270,14 +270,19 @@ nav, .navbar {
 	padding-bottom:163px;
 	padding-right:40px;
 	border-right: 3px solid $border-orange;
-
+	ul.info-menu:last-child {
+		margin-top: 60px;
+	}
+	ul.info-menu:first-child {
+		margin-top: 149px;
+	}
 }
 
-ul#info-menu {
+ul.info-menu {
 	text-align:right;
 	margin-top: 149px;
 	padding-left: 0px;
-	li.category-link {
+	li.category-link, li.status-link {
 		p {
 			@include info-menu-item;
 		}
@@ -289,7 +294,7 @@ ul#info-menu {
 			font-family: "WhitneyHTF-SemiBoldSC";
 		}
 	}
-	li#show-all {
+	li#category-show-all, li#status-show-all {
 		p {
 			@include info-menu-item;
 		}
@@ -324,7 +329,7 @@ ul#info-menu {
 		}
 		.user-log-classification:last-child {
 			.user-log-classification-coin, .user-log-classification-network {
-				margin-bottom:12px;
+				margin-bottom:11px;
 			}
 		}
 	}
@@ -379,6 +384,10 @@ ul#info-menu {
 			}
 		}
 	}
+}
+
+.search-block {
+	margin-top: 6px;
 }
 
 .new_comment {
@@ -437,10 +446,10 @@ form.new_comment {
 
 .block {
 	.row { 
-		margin-bottom:5px;
+		margin-bottom:6px;
 		.title-row > h6 {
-			margin-bottom:10px !important;
-			margin-top:33px !important;
+			margin-bottom:9px !important;
+			margin-top:34px !important;
 		}
 	}
 }
@@ -479,8 +488,11 @@ form.new_comment {
 
 		}
 		div[class*='col-'] {
-			p {
-				margin: 0 0 7px 0;
+			p, a {
+				margin: 0 0 6px 0;
+			}
+			a {
+				line-height: 24px;
 			}
 			h6, label {
 				font-family: 'WhitneyHTF-MediumSC';
@@ -852,6 +864,9 @@ form.new_comment {
 				p.market-cap {
 					margin-bottom: 4px;
 				}
+				p.one-day-change {
+					line-height: 15px;
+				}
 				color: $text;
 				&:hover {
 					border: 3px solid $primary-orange;
@@ -865,7 +880,8 @@ form.new_comment {
 			p.status {
 				font-family: 'WhitneyHTF-MediumSC';
 				font-size:18px;
-				line-height:23px;
+				line-height:24px;
+				margin-bottom:6px;
 			}
 			div.status-icon {
 				width:12px;
@@ -897,7 +913,7 @@ form.new_comment {
 			.live-status {
 				color: $primary-green;
 			}
-			.pre-production-status {
+			.preproduction-status {
 				color: $pre-production-outer;
 			}
 			.concept-status {
@@ -1167,6 +1183,10 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 	&:hover {
 		cursor:pointer;
 	}
+}
+
+ul.full-category-cnt {
+	margin-bottom: 23px;
 }
 
 ul.action-links {

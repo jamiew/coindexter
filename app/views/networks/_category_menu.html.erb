@@ -1,9 +1,23 @@
 <div class="col-md-2 col-md-offset-1 left-nav">
-	<ul id="info-menu">
-		<li id="show-all" class="active-item"><p>All categories</p></li>
+	<ul class="info-menu" id="status-info-menu">
+		<li id="status-show-all" class="active-item">
+			<p>All statuses</p>
+		</li>
+		<li class="status-link" data-status="live">
+			<p>Live</p>
+		</li>
+		<li class="status-link" data-status="preproduction">
+			<p>Preproduction</p>
+		</li>
+		<li class="status-link" data-status="concept">
+			<p>Concept</p>
+		</li>
+	</ul>
+	<ul class="info-menu" id="category-info-menu">
+		<li id="category-show-all" class="active-item"><p>All categories</p></li>
 		<% @categories.each do |category| %>
 			<% unless category.networks.nil? %>
-				<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %>><p><%= category.name.capitalize %></p></li>
+				<li class="category-link" data-category=<%= category.name.gsub(/\s+/, "").downcase %>><p><%= category.name.capitalize %></p></li>
 			<% end %>	
 		<% end %>
 	</ul>
@@ -18,7 +32,7 @@
 		<li role="separator" class="divider"></li>
 		<% @categories.each do |category| %>
 			<% unless category.networks.nil? %>
-				<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %>><%= category.name.downcase %></li>
+				<li class="category-link" data-category=<%= category.name.gsub(/\s+/, "").downcase %>><%= category.name.downcase %></li>
 			<% end %>	
 		<% end %>
 	</ul>

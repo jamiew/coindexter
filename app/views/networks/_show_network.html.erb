@@ -11,7 +11,7 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None yet. Add a logo from desktop.
 							<% else %>
-								<%= link_to "Add a logo to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+								<p><%= link_to "Add a logo to #{@network.name}", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add a logo from desktop.
 							<% else %>
-								<%= link_to "Is #{@network.name} a concept, in pre-production, or is it live?", edit_network_url, class: "add-missing-field" %>
+								<p><%= link_to "Is #{@network.name} a concept, in pre-production, or is it live?", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% end %>
 					</div>
@@ -42,7 +42,7 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add a description from desktop.
 							<% else %>
-								<%= link_to "Add a description to #{@network.name}", edit_network_url, class: "add-missing-field" %>
+								<p><%= link_to "Add a description to #{@network.name}", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
 							<p><%= @network.description %></p>
@@ -67,7 +67,7 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add founders from desktop.
 							<% else %>
-								<%= link_to "Who founded #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+								<p><%= link_to "Who founded #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
 							<ul>
@@ -89,7 +89,7 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add an owner from desktop.
 							<% else %>
-								<%= link_to "Who's running #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+								<p><%= link_to "Who's running #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
 							<p><%= @network.team %></p>
@@ -114,10 +114,10 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add the link from desktop.
 							<% else %>
-								<%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %>
+								<p><%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
-							<%= link_to @network.name, @network.link %>
+							<p><%= link_to @network.name, @network.link %></p>
 						<% end %>
 					</div>
 				</div>

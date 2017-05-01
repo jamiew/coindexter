@@ -1,11 +1,11 @@
 <% @categories.each do |category| %>
-	<ul class="full-category-cnt" id=<%= category.name.gsub(/\s+/, "").downcase %>>
+	<ul class="full-category-cnt" data-category=<%= category.name.gsub(/\s+/, "").downcase %>>
 		<% unless category.networks.empty? %>
 			<li class="category-network-block block">
 				<div class="row networks-in-categories <%= category.name %>"> 
 					<div class="col-md-12 col-xs-12">
 						<h1 class="list-name"><%= category.name %></h1>
-						<% category.networks.each_with_index do |network, i| %>		
+						<% category.networks.each_with_index do |network, i| %>
 							<%= render 'network_widget', :network => network, :i => i %>
 						<% end %>
 					</div>
