@@ -53,10 +53,11 @@
 						</div>
 					</div>
 				<% else %>
-					<ul class="link-list no-network-link-list">
-						<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
-					</ul>
-					<%= will_paginate @links %>
+					<div class="col-md-12">
+						<ul class="link-list no-network-link-list">
+							<%= render(partial: 'show_all_links', collection: @links, as: :link) %>
+						</ul>
+						<%= will_paginate @links %>
 				<% end %>
 			</div>
 		</div>

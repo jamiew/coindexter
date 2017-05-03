@@ -3,16 +3,21 @@
 		<% if show_tag %>
 			<div class="col-md-4">
 				<% if defined?(log.coins) && !log.coins.nil? %>
-		    		<div class="user-log-classification">
-						<div class="user-log-classification-network">
-							<%= image_tag(log.coins.logo.small.url, size: "20x20") if log.coins.logo? %>
-							<% if log.coins.network.nil? %>
-								<%= link_to truncate(log.coins.name, length: 16	), log.coin %>
-							<% else %>
-								<%= link_to truncate(log.coins.name, length: 16	), network_coin_path(log.coins.network, log.coins) %>
-							<% end %>
+			    	<% if defined?(log.coins.network) %>
+			    		<a href=<%= network_coin_path(log.coins.network, log.coins) %> class="user-log-classification-anchor">
+			    	<% else %>
+			    		<a href=<%= log.coins %> class="user-log-classification-anchor">
+			    	<% end %>
+			    		<div class="user-log-classification">
+							<div class="user-log-classification-network">
+								<%= image_tag(log.coins.logo.small.url, size: "20x20") if log.coins.logo? %>
+								<% if log.coins.network.nil? %>
+									<%= link_to truncate(log.coins.name, length: 16	), log.coin %>
+								<% else %>
+									<%= link_to truncate(log.coins.name, length: 16	), network_coin_path(log.coins.network, log.coins) %>
+								<% end %>
+							</div>
 						</div>
-					</div>
 				<% end %>
 			</div>
 			<div class="col-md-8 log-inner-block">

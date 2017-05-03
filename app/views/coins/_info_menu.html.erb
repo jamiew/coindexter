@@ -13,18 +13,21 @@
 			<%= link_to "Logs", "/coins/#{@coin.name.downcase.split(' ').join('-')}/logs", remote: true %>
 		<% end %>	
 	</li>
-	<li id="network">network<br>
+	<li class="menu-title" id="network">networks<br>
 		<% unless coin.network.nil? %>
-			<%= link_to network_path(coin.network) do %>
+			<%= link_to coin.network, class: "user-log-classification-anchor" do %>
 				<div class="user-log-classification">
 					<div class="user-log-classification-network">
 						<%= image_tag(coin.network.logo.small.url, size: "20x20") if coin.logo? %>
 						<%= truncate(coin.network.name, length: 16) %>
+						<div class="clear"></div>
 					</div>
+					<div class="clear"></div>
 				</div>
+				<div class="clear"></div>
 			<% end %>
 		<% else %>
-			<%= link_to "Add one?", edit_coin_url %>
+			<%= link_to "Add one?", edit_coin_url, class: "add-one" %>
 		<% end %>
 	</li>
 </ul>

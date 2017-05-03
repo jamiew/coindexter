@@ -319,33 +319,30 @@ ul.info-menu {
 				cursor:pointer;
 				opacity:1;
 			}
-		}
-		.user-log-classification {
-			clear:both;
-			margin-top:4px;
-			margin-bottom:0;
-			font-family:"WhitneyCondensed-Semibold";
-			font-size:16px;
-		}
-		.user-log-classification:last-child {
-			.user-log-classification-coin, .user-log-classification-network {
-				margin-bottom:11px;
+			.user-log-classification {
+				clear:both;
+				margin-top:4px;
+				margin-bottom:0;
+				font-family:"WhitneyCondensed-Semibold";
+				font-size:16px;
 			}
 		}
 	}
 	li.active-item {
-		.user-log-classification {
-			opacity: 1;
-			.user-log-classification-coin {
-				border: 3px solid $primary-orange;
+		a { 
+			.user-log-classification {
 				opacity: 1;
-				color: $primary-orange;
+				.user-log-classification-coin {
+					border: 3px solid $primary-orange;
+					opacity: 1;
+					color: $primary-orange;
+				}
 			}
 		}
 	}
 	li#coins, li#network {
 		opacity:1;
-		margin-top:48px;
+		margin-top:49px;
 		font-family:"WhitneyHTF-MediumSC";
 		a {
 			opacity:1;
@@ -360,19 +357,25 @@ ul.info-menu {
 				border: none;
 			}
 		}
-		a:first-child {
-			margin-top:7px !important;
-			margin-bottom:6px !important;
-		}
 		a:last-child {
-			padding-top:6px;
+			padding-top:2px;
+		}
+		a:first-child {
+			margin-top:5px !important;
+			margin-bottom:12px !important;
+		}
+		a.user-log-classification-anchor {
+			margin-bottom: 11px !important;
+		}
+		a.add-coin {
+			padding-top:6px !important;
 		}
 	}
 	li.menu-title {
 		font-family:'WhitneyHTF-MediumSC';
 		font-size:18px;
 		margin-top: 48px;
-		margin-bottom:1px;
+		margin-bottom:7px;
 	}
 }
 
@@ -391,7 +394,7 @@ ul.info-menu {
 }
 
 .new_comment {
-	margin-top:37px !important;
+	margin-top:66px !important;
 }
 
 .rememberable {
@@ -691,7 +694,7 @@ form.new_comment {
 				};
 			}
 			p.link-body {
-				margin-bottom:7px;
+				margin-bottom:12px;
 			}
 			a.add-missing-field {
 				opacity:0.7;
@@ -805,10 +808,11 @@ form.new_comment {
 			ul.comments-cnt {
 				margin-left:-32px;
 			}
-			.user-log-classification {
-				margin-left:0;
-				padding-left:0;
-
+			a {
+				.user-log-classification {
+					margin-left:0;
+					padding-left:0;
+				}
 			}
 		}
 		#show-single-link {
@@ -821,6 +825,7 @@ form.new_comment {
 				}
 				margin-bottom: 0px;
 			}
+			margin-top: 8px;
 		}
 		#chart {
 			display:inline;
@@ -1016,6 +1021,14 @@ h1.list-name {
 	}
 }
 
+.info-header {
+	img#network-logo {
+		border: 3px solid $border-orange;
+		background-color: #fff;
+		padding: 4px;
+	}
+}
+
 ul.link-list {
 	padding: 0;
 	div {
@@ -1099,7 +1112,7 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 }
 
 .log-inner-block {
-	margin-bottom:21px;
+	margin-bottom:27px;
 }
 
 .whitepaper-divider, .link-data, .log-inner-block {
@@ -1123,13 +1136,14 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 	}
 	div {
 		div {
-			.user-log-classification {
-				margin-top:-6px;
-				clear:both;
-				margin-bottom: 17px;
-			}
-			h6.when-posted {
-				padding-top:9px;
+			a {
+				.user-log-classification {
+					margin-top:-6px;
+					clear:both;
+				}
+				h6.when-posted {
+					padding-top:9px;
+				}
 			}
 		}
 	}		
@@ -1143,17 +1157,16 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 	box-shadow: 0px 0px 0px 500px rgba(0,0,0,0.9);
 }
 
+.user-log-classification-anchor {
+	display:block;
+	margin-bottom: 17px !important;
+}
+
 .user-log-classification {
-	p  {
-		font-family:"WhitneyHTF-MediumSC";
-		text-align:right;
-	}
-	a {
-		font-family:"WhitneyCondensed-Semibold";
-		letter-spacing:0.05em;
-		&:hover {
-			color: $primary-orange;
-		}
+	font-family:"WhitneyCondensed-Semibold";
+	letter-spacing:0.05em;
+	&:hover {
+		color: $primary-orange;
 	}
 	.user-log-classification-coin, .user-log-classification-network, .user-log-classification-link, .user-log-classification-whitepaper {
 		background-color:rgba(255,255,255,0.8);
@@ -1264,13 +1277,15 @@ ul.action-links {
 	}
 	margin-top:20px;
 	margin-bottom: 21px !important;
-	.user-log-classification {
-		.user-log-classification-whitepaper {
-			img {
-				padding: 0;
+	a {
+		.user-log-classification {
+			.user-log-classification-whitepaper {
+				img {
+					padding: 0;
+				}
 			}
 		}
-	}
+	}	
 }
 
 span.log-data {

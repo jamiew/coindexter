@@ -3,12 +3,16 @@
 		<% if show_tag %>
 			<div class="col-md-4">
 	    		<% unless log.networks.nil? %>
-		    		<div class="user-log-classification">
-						<div class="user-log-classification-network">
-							<%= image_tag(log.networks.logo.small.url, size: "20x20") if log.networks.logo? %>
-							<%= link_to truncate(log.networks.name, length: 18), log.networks %>
+			    	<%= link_to log.networks, class: "user-log-classification-anchor" do %>
+			    		<div class="user-log-classification">
+							<div class="user-log-classification-network">
+								<%= image_tag(log.networks.logo.small.url, size: "20x20") if log.networks.logo? %>
+								<%= truncate(log.networks.name, length: 18) %>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
 						</div>
-					</div>
+					<% end %>
 				<% end %>
 			</div>
 			<div class="col-md-8 log-inner-block">

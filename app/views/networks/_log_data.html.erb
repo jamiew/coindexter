@@ -41,18 +41,18 @@
 								<% if change[:change_type] == "added" %>
 									Added URL: <%= change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed URL from <%= change[:change].first.capitalize %> to <%= change[:change].second.capitalize %>
+									Changed URL from <%= change[:change].first %> to <%= change[:change].second %>
 								<% end %>
 							<% when "Created" %>
 								Created 
 									<%= link_to log.networks.name, log.networks %>
-							<% when "Logo" %>
-								New logo						
-							<% else %>
-								<% if change[:change_type] == "added" %>
-									Added <%= change[:change_attr] %>: <%= change[:change].second.capitalize %>
+							<% when "logo" %>
+								<% if change[:change_type] == "added" or change[:change].first == "/assets/fallback/default.png" %>
+									Added <%= change[:change_attr] %>: <%= image_tag log.networks.logo, size: '16x16', id: 'network-logo-inline' %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <%= change[:change_attr] %> from <%= change[:change].first %>" to "<%= change[:change].second.capitalize %>
+									Changed <%= change[:change_attr] %> from 
+
+										<%= image_tag change[:change].first, size: '16x16', id: 'network-logo-inline' %> to <%=  %> <%= image_tag log.networks.logo, size: '16x16', id: 'network-logo-inline' %>
 								<% end %>
 						<% end %>
 					</li>
