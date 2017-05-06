@@ -89,18 +89,23 @@ class UsersController < ApplicationController
     
       links = []
       logs = []
-      
+      whitepapers = []
+
       if user_id.nil?
         if since.nil?
           link_query = Link.all.limit(20)
+          whitepaper_query = Whitepaper.all.limit(20)
         else
           link_query = Link.all.limit(20).where("created_at > ?", since.day.ago)
+          whitepaper_query = Whitepaper.all.limit(20).where("created_at > ?", since.day.ago)
         end
       else
         if since.nil?
           link_query = User.find(user_id).links
+          whitepaper_query = User.find(user_id).whitepapers
         else
           link_query = User.find(user_id).links.where("created_at > ?", since.day.ago)
+          whitepaper_query = User.find(user_id).whitepapers.where("created_at > ?", since.day.ago)
         end
       end
       
@@ -108,9 +113,16 @@ class UsersController < ApplicationController
         log = LogService.new
         log.data = link
         log.set_metadata(user: link.user, created_at: link.created_at, feed_type: "link")
-        puts "log is #{log.inspect}"
         add_networks_and_coins(log, link.networks, link.coins)
         links << log
+      end
+
+      whitepaper_query.each do |whitepaper| 
+        log = LogService.new
+        log.data = whitepaper
+        log.set_metadata(user: whitepaper.user, created_at: whitepaper.created_at, feed_type: "whitepaper")
+        add_networks_and_coins(log, whitepaper.network, nil)
+        whitepapers << log
       end
 
       network_logs = NetworkService.new
@@ -128,22 +140,30 @@ class UsersController < ApplicationController
     
 
     def add_networks_and_coins(log, networks, coins)
-      if networks.any?
-        log.networks = networks
-        if coins.any?  
-          network_names = [] 
-          networks.each do |network|
-            network_names << network.name
-          end
-          coins.each do |coin|
-            if network_names.index coin.name
-              coin_to_delete = coin
-              log.coins = coins.reject {|coin| coin = coin_to_delete}
+      if log.feed_type = 'whitepaper'
+        wp_networks = []
+        wp_networks << log.networks
+        log.networks = wp_networks
+        puts "whitepaper log is #{log}"
+        return log
+      else
+        if networks.any?
+          log.networks = networks
+          if coins.any?  
+            network_names = [] 
+            networks.each do |network|
+              network_names << network.name
+            end
+            coins.each do |coin|
+              if network_names.index coin.name
+                coin_to_delete = coin
+                log.coins = coins.reject {|coin| coin = coin_to_delete}
+              end
             end
           end
         end
+        return log
       end
-      return log
     end
 
 end

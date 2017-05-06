@@ -14,6 +14,7 @@ class User < ApplicationRecord
 
   has_many :coins
   has_many :links
+  has_many :whitepapers
   has_many :comments
   has_many :networks
   has_many :logs, :foreign_key => 'whodunnit', :class_name => "Version"

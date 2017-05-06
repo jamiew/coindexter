@@ -6,6 +6,8 @@
 			<%= render(partial: 'coins/log', locals: {log: log, show_tag: true}) %>	
 		<% elsif log.feed_type == "link" %>
 			<%= render(partial: 'links/show_all_links', locals: {link: log.data, coins: log.coins, networks: log.networks, user: log.user, show_tag: true}) %>
+		<% elsif log.feed_type == "whitepaper" %>
+			hey
 		<% end %>
 	<% end %>
 <% end %>

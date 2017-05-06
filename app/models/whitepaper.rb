@@ -1,6 +1,7 @@
 class Whitepaper < ApplicationRecord
 	mount_uploader :whitepaper, WhitepaperUploader
 	belongs_to :network
+	belongs_to :user
 	extend FriendlyId
 	friendly_id :whitepaper_title, use: [:slugged, :history]
 	include PgSearch

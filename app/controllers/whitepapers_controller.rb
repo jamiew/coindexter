@@ -72,6 +72,6 @@ class WhitepapersController < ApplicationController
     end
 
     def whitepaper_params
-      params.require(:whitepaper).permit(:network, :network_id, :whitepaper_title, :whitepaper)
+      params.require(:whitepaper).permit(:network, :network_id, :whitepaper_title, :whitepaper, :user_id)
     end
 end
