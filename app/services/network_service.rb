@@ -42,6 +42,7 @@ class NetworkService < LogService
 		log_set = []
 
 		versions.each do |version|
+			version.inspect
 			unless version.changeset == {}
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
 		      	convert_changeset(version)
