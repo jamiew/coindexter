@@ -58,21 +58,21 @@ body {
 p.notice, p.alert {
 	text-align:center;
 	display: block;
-	padding: 18px 0 16px 0;
+	padding: 7px 0 7px 0;
 	display:none;
 	color: white;
+	margin-top: -3px;
+	border: none;
+	font-family: "WhitneyHTF-MediumSC";
+	text-transform: lowercase;
 }
 
 p.notice {
 	background: $secondary-green;
-	border-top: 2px solid $primary-green;
-	border-bottom: 2px solid $primary-green;
 }
 
 p.alert {
 	background: $concept-inner;
-	border-top: 2px solid $concept-outer;
-	border-bottom: 2px solid $concept-outer;
 	border-radius: 0px;
 }
 p, li, a {
@@ -996,7 +996,8 @@ h1.list-name {
 				div.logo-cnt {
 					img {
 						border: 3px solid $border-orange;
-						padding: 8px;
+						padding: 3px;
+						background-color: #fff;
 					}
 				}
 			}

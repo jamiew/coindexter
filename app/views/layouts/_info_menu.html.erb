@@ -1,7 +1,7 @@
 <ul class="info-menu">
 	<li <%= "class=active-item" if active_item == "details" %> id="details"><%= link_to "Details", network %></li>
 	<li <%= "class=active-item"  if active_item == "whitepapers" %> id="whitepapers">
-		<%= link_to network.whitepapers.count == 0 ? "Whitepapers" : network.whitepapers.count.to_s + " Whitepapers" , network_whitepapers_path(network)  %>
+		<%= link_to network.whitepapers.count == 0 ? "Whitepapers" : network.whitepapers.count == 1 ? network.whitepapers.count.to_s + " Whitepaper" : network.whitepapers.count.to_s + " Whitepapers", network_whitepapers_path(network)  %>
 	</li>
 	<li <%= "class=active-item"  if active_item == "links" %> id="links">
 		<%= link_to "Links", network_links_path(network) %>
