@@ -39,6 +39,7 @@ class WhitepapersController < ApplicationController
         puts "saved wp is #{@whitepaper.inspect}"
       else
         format.html { render :new }
+        format.js  { render :new, @whitepaper.errors, status: :unprocessable_entity }
         format.json { render json: @whitepaper.errors, status: :unprocessable_entity }
       end
     end
@@ -70,8 +71,7 @@ class WhitepapersController < ApplicationController
       @whitepaper = Whitepaper.friendly.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def whitepaper_params
-      params.require(:whitepaper).permit(:network, :network_id, :title, :whitepaper)
+      params.require(:whitepaper).permit(:network, :network_id, :whitepaper_title, :whitepaper)
     end
 end

@@ -11,7 +11,7 @@
 			<%= render 'whitepaper_list', locals: {whitepapers: @whitepapers} %>
 			<ul class="action-links">
 				<li>
-					<%= link_to(new_whitepaper_url(network_id: @network), class: "action-link", accesskey: 'A') do %>
+					<%= link_to new_network_whitepaper_path, class: "action-link", remote: true, accesskey: 'A' do %>
 						Add new whitepaper
 					<% end %>
 				</li>

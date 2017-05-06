@@ -6,5 +6,6 @@ class Whitepaper < ApplicationRecord
 	include PgSearch
 	multisearchable :against => [:whitepaper_title, :fulltext]
 	pg_search_scope :search, :against => :fulltext, :using => { :tsearch => { :prefix => true }}
-	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at]
+	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :fulltext, :whitepaper_title]
+	validates_presence_of :whitepaper_title
 end

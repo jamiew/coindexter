@@ -43,9 +43,12 @@ class CoinsController < ApplicationController
 
 	def new
 		@use_ajax = true
-		@network = Network.friendly.find(params[:network_id])
-		@coin = @network.coins.new
-		puts "the network is #{@coin.network.inspect}"
+		if defined?(@network) 
+			@network = Network.friendly.find(params[:network_id])		
+			@coin = @network.coins.new
+		else 
+			@coin = Coin.new
+		end
 		@coin.build_repository
 	end
 
@@ -64,15 +67,22 @@ class CoinsController < ApplicationController
 	end
 
 	def create
-		@network = Network.friendly.find(params[:network_id])
-		@coin = Coin.new(coin_params)
+		if defined?(@network) 
+			@network = Network.friendly.find(params[:network_id])
+		end
+			@coin = Coin.new(coin_params)
 	    if @coin.save
 	    	@coin.category_id = 2 ? @coin.category_id.nil? : @coin.category_id
 	    	@coin.update_prices
-	    	@coin.network = @network
+	    	if defined?(@network) 	
+	    		@coin.network = @network
+	    	end
 	    	@coin.save
-	    	puts "the coin is #{@coin.inspect}"
-			redirect_to network_coin_path(@network, @coin)
+	    	if defined?(@network) 
+				redirect_to network_coin_path(@network, @coin)
+			else 
+				redirect_to coin_path(@coin)
+			end
 		else
 	        render 'new'
 	    end

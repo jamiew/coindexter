@@ -452,7 +452,7 @@ form.new_comment {
 		margin-bottom:6px;
 		.title-row > h6 {
 			margin-bottom:9px !important;
-			margin-top:34px !important;
+			margin-top:32px !important;
 		}
 	}
 }
@@ -992,6 +992,14 @@ h1.list-name {
 				margin-top:16px;
 				margin-bottom:11px;
 			}
+			div.row {
+				div.logo-cnt {
+					img {
+						border: 3px solid $border-orange;
+						padding: 8px;
+					}
+				}
+			}
 		}
 	}
 	h1 {
@@ -1245,7 +1253,8 @@ ul.action-links {
 			display:none;
 		}
 		img {
-			border-width:3px;
+			border:3px solid $border-orange;
+			background-color: #fff;
 		}
 	}
 	.whitepaper-metadata {

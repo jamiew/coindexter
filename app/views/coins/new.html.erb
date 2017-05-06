@@ -4,7 +4,11 @@
 		<div class="info-header">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
-					<h1>Add a new coin to <%= @network.name %></h1>
+					<% if defined?(@network) %>
+						<h1>Add a new coin to <%= @network.name %></h1>
+					<% else %>
+						<h1>Add a new coin</h1>
+					<% end %>
 				</div>
 			</div>
 			<%= render 'form' %>
