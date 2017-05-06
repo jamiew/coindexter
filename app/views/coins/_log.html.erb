@@ -3,7 +3,7 @@
 		<% if show_tag %>
 			<div class="col-md-4">
 				<% if defined?(log.coins) && !log.coins.nil? %>
-			    	<% if defined?(log.coins.network) %>
+			    	<% if defined?(log.coins.network) && !log.coins.network.nil?  %>
 			    		<a href=<%= network_coin_path(log.coins.network, log.coins) %> class="user-log-classification-anchor">
 			    	<% else %>
 			    		<a href=<%= log.coins %> class="user-log-classification-anchor">

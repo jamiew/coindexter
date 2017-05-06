@@ -63,7 +63,7 @@
 						<h6>Founders</h6>
 					</div>
 					<div class="col-md-8 col-xs-12">
-						<% if @network.founders.empty? or @network.founders.blank? or @network.founders = "" %>
+						<% if @network.founders.empty? or @network.founders.blank? or @network.founders == "" %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add founders from desktop.
 							<% else %>
@@ -82,10 +82,10 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-xs-12 label">
-						<h6>Owner</h6>
+						<h6>Organization</h6>
 					</div>
 					<div class="col-md-8 col-xs-12">
-						<% if @network.founders.empty? or @network.founders.blank? or @network.founders = "" %>
+						<% if @network.team.nil? or @network.team.empty? or @network.team.blank? %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add an owner from desktop.
 							<% else %>

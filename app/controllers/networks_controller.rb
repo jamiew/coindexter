@@ -50,6 +50,7 @@ class NetworksController < ApplicationController
 	def show
 		@network = Network.friendly.find(params[:id])
 		@whitepapers = @network.whitepapers.all
+		puts "network founders are #{@network.founders}"
 		if current_user && current_user.following?(@network)
 			@following = true
 		else 
