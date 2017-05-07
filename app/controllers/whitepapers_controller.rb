@@ -1,10 +1,11 @@
 class WhitepapersController < ApplicationController
-  before_action :set_whitepaper, only: [:show, :edit, :update, :destroy]
+  
+  before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
   def index
     if defined?(params[:network_id])
       @network = Network.friendly.find(params[:network_id])
-      @whitepapers = @network.whitepapers
+      @whitepapers = @network.whitepapers.reverse
     else
       @whitepapers = Whitepaper.all
     end
@@ -28,7 +29,7 @@ class WhitepapersController < ApplicationController
 
   def create
     @network = Network.friendly.find(params[:network_id])
-    @whitepaper = Whitepaper.new(whitepaper_params)
+    @whitepaper = current_user.whitepapers.new(whitepaper_params) 
 
     respond_to do |format|
       if @whitepaper.save
@@ -36,7 +37,6 @@ class WhitepapersController < ApplicationController
         @whitepaper.save
         format.html { redirect_to network_whitepapers_path, notice: 'Whitepaper attachment was successfully created.' }
         format.json { render :show, status: :created, location: @whitepaper }
-        puts "saved wp is #{@whitepaper.inspect}"
       else
         format.html { render :new }
         format.js  { render :new, @whitepaper.errors, status: :unprocessable_entity }

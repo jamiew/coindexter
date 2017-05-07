@@ -36,9 +36,15 @@ class NetworkService < LogService
 	
 	end
 
-	def get_all_the_logs
-		versions = PaperTrail::Version.all.limit(5).order("created_at DESC")
+	def get_all_the_logs(user_id=nil)
 		
+		puts "tannehill is #{user_id}"
+		if user_id.nil?
+			versions = PaperTrail::Version.all.limit(5).order("created_at DESC")
+		else
+			versions = PaperTrail::Version.all.where(:whodunnit => user_id).limit(5).order("created_at DESC")
+		end
+		puts "versions are #{versions.inspect}"
 		log_set = []
 
 		versions.each do |version|

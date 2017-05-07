@@ -1,5 +1,6 @@
 <% @logs.each do |log| %>
 	<% cache log do %>
+		<% puts "log type is #{log.feed_type}" %>
 		<% if log.feed_type == "network_log" %>
 			<%= render(partial: 'networks/log', locals: {log: log, show_tag: true}) %>
 		<% elsif log.feed_type == "coin_log" %>
@@ -7,9 +8,7 @@
 		<% elsif log.feed_type == "link" %>
 			<%= render(partial: 'links/show_all_links', locals: {link: log.data, coins: log.coins, networks: log.networks, user: log.user, show_tag: true}) %>
 		<% elsif log.feed_type == "whitepaper" %>
-			<!--
-				hey
-			-->
+			<%= render(partial: 'whitepapers/single_whitepaper', locals: {wp: log.data, network: log.networks, user: log.user, show_tag: false}) %>
 		<% end %>
 	<% end %>
 <% end %>

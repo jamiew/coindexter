@@ -4,21 +4,23 @@
 			<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
 		<% end %>
 	</div>
-	<div class="col-md-7 col-xs-7 col-md-offset-0 col-xs-offset-0 whitepaper-metadata">
+	<div class="col-md-8 col-xs-8 col-md-offset-0 col-xs-offset-0 whitepaper-metadata">
 		<% if defined?(wp.network) && !wp.network.nil? %>
-    		<%= link_to network_whitepapers_path(wp) do %>
+    		<%= link_to network_whitepaper_path(network, wp) do %>
 				<p class="whitepaper-title"><%= wp.whitepaper_title %></p>
 			<% end %>
-    		<div class="user-log-classification">
-				<div class="user-log-classification-whitepaper">
-					<% if !wp.network.logo.nil? %>
-						<%= image_tag(wp.network.logo.small.url, size: "20x20") unless wp.network.logo.blank? %>
-					<% end %>
-					<%= link_to wp.network.name, wp.network %>
+	    	<% if show_tag %>
+	    		<div class="user-log-classification">
+					<div class="user-log-classification-whitepaper">
+						<% if !wp.network.logo.nil? %>
+							<%= image_tag(wp.network.logo.small.url, size: "20x20") unless wp.network.logo.blank? %>
+						<% end %>
+						<%= link_to wp.network.name, wp.network %>
+					</div>
 				</div>
-			</div>
+			<% end %>
 		<% end %>
-		<h6 class="when-posted"><%= time_ago_in_words(wp.created_at) %></h6>
+		<%= render partial: '/shared/who_posted', locals: {user: wp.user, created_at: wp.created_at} %>
 	</div>
 </div>
 <div class="row">

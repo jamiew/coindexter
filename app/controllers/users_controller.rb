@@ -49,7 +49,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.friendly.find(params[:username])
+    if params[:id].nil?
+      @user = User.friendly.find(params[:username])
+    else 
+      @user = User.friendly.find(params[:id])
+    end
     @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
     all_follows = @user.all_follows
     @networks_following = []
@@ -69,7 +73,7 @@ class UsersController < ApplicationController
   end
 
   def activity
-    @user = User.friendly.find(params[:username])
+    @user = User.friendly.find(params[:user_id])
     @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
     respond_to do |format|
       format.html
@@ -85,26 +89,26 @@ class UsersController < ApplicationController
     end
 
     def get_all_logs(user_id=nil, since=nil)
-    
+
       links = []
       logs = []
       whitepapers = []
 
       if user_id.nil?
         if since.nil?
-          link_query = Link.all.limit(20)
-          whitepaper_query = Whitepaper.all.limit(20)
+          link_query = Link.all.order("created_at DESC").limit(5)
+          whitepaper_query = Whitepaper.all.order("created_at DESC").limit(5)
         else
-          link_query = Link.all.limit(20).where("created_at > ?", since.day.ago)
-          whitepaper_query = Whitepaper.all.limit(20).where("created_at > ?", since.day.ago)
+          link_query = Link.all.limit(20).where("created_at > ?", since.day.ago).order("created_at DESC")
+          whitepaper_query = Whitepaper.all.limit(20).where("created_at > ?", since.day.ago).order("created_at DESC")
         end
       else
         if since.nil?
-          link_query = User.find(user_id).links
-          whitepaper_query = User.find(user_id).whitepapers
+          link_query = User.find(user_id).links.order("created_at DESC")
+          whitepaper_query = User.find(user_id).whitepapers.order("created_at DESC")
         else
-          link_query = User.find(user_id).links.where("created_at > ?", since.day.ago)
-          whitepaper_query = User.find(user_id).whitepapers.where("created_at > ?", since.day.ago)
+          link_query = User.find(user_id).links.where("created_at > ?", since.day.ago).order("created_at DESC")
+          whitepaper_query = User.find(user_id).whitepapers.where("created_at > ?", since.day.ago).order("created_at DESC")
         end
       end
       
@@ -120,49 +124,38 @@ class UsersController < ApplicationController
         log = LogService.new
         log.data = whitepaper
         log.set_metadata(user: whitepaper.user, created_at: whitepaper.created_at, feed_type: "whitepaper")
-        add_networks_and_coins(log, whitepaper.network, nil)
+        log.networks = whitepaper.network
         whitepapers << log
       end
 
       network_logs = NetworkService.new
-      net_logs = network_logs.get_all_the_logs
+      net_logs = network_logs.get_all_the_logs(user_id)
       net_logs.each do |log|
         logs << log
       end
       logs += links
-      temp_logs = logs.sort_by{|log| log.created_at}.reverse
-      temp_logs.each do |tl|
-        puts tl.inspect
-      end
+      logs += whitepapers
       @logs = logs.sort_by{|log| log.created_at}.reverse
     end
     
 
     def add_networks_and_coins(log, networks, coins)
-      if log.feed_type = 'whitepaper'
-        wp_networks = []
-        wp_networks << log.networks
-        log.networks = wp_networks
-        puts "whitepaper log is #{log}"
-        return log
-      else
-        if networks.any?
-          log.networks = networks
-          if coins.any?  
-            network_names = [] 
-            networks.each do |network|
-              network_names << network.name
-            end
-            coins.each do |coin|
-              if network_names.index coin.name
-                coin_to_delete = coin
-                log.coins = coins.reject {|coin| coin = coin_to_delete}
-              end
+      if networks.any?
+        log.networks = networks
+        if coins.any?  
+          network_names = [] 
+          networks.each do |network|
+            network_names << network.name
+          end
+          coins.each do |coin|
+            if network_names.index coin.name
+              coin_to_delete = coin
+              log.coins = coins.reject {|coin| coin = coin_to_delete}
             end
           end
         end
-        return log
       end
+      return log
     end
 
 end

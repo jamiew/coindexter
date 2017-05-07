@@ -1,12 +1,13 @@
-<% provide(:title, 'Add new whitepaper') %> 
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-2 col-md-offset-1 left-nav">
+		<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "whitepapers"}) %>
+	</div>
+	<%= render partial: '/networks/related_dropdown', locals: { network: @network } %>
+	<div class="col-md-9 col-xs-12 main">
 		<div class="info-header">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-					<h1>Add a new whitepaper to <%= @network.name %></h1>
-				</div>
-			</div>
+			<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
+		</div>
+		<div class="content">
 			<%= render 'form' %>
 		</div>
 	</div>

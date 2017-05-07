@@ -1,19 +1,19 @@
 <ul class="info-menu">
 	<li class="active-item" id="following">
 		<p>
-			<%= link_to "Following", current_user_path(current_user.username) %>
+			<%= link_to "Following", user_path(@user) %>
 		</p>
 	</li>
-	<% if !@user.nil? %>
+	<% if @user == current_user %>
 		<li id="account">
 			<p>
-				<%= link_to "Account", edit_current_user_path(current_user.username), remote: true %>
+				<%= link_to "Account", edit_user_path(@user), remote: true %>
 			</p>
 		</li>
 	<% end %>
 	<li id="activity">
 		<p>
-			<%= link_to "Activity", current_user_activity_path(current_user.username), remote: true %>
+			<%= link_to "Activity", user_activity_path(@user), remote: true %>
 		</p>
 	</li>
 </ul>

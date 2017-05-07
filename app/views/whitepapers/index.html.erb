@@ -11,8 +11,14 @@
 			<%= render 'whitepaper_list', locals: {whitepapers: @whitepapers} %>
 			<ul class="action-links">
 				<li>
-					<%= link_to new_network_whitepaper_path, class: "action-link", remote: true, accesskey: 'A' do %>
-						Add new whitepaper
+					<% if current_user %>
+						<%= link_to new_network_whitepaper_path, class: "action-link", remote: true, accesskey: 'A' do %>
+							Add new whitepaper
+						<% end %>
+					<% else %>
+						<%= link_to new_network_whitepaper_path, class: "action-link", accesskey: 'A' do %>
+							Add new whitepaper
+						<% end %>
 					<% end %>
 				</li>
 			</ul>
