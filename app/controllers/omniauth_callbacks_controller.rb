@@ -15,6 +15,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def generic_callback( provider )
     @identity = Identity.find_for_oauth env["omniauth.auth"]
 
+    puts "identity is #{@identity.inspect}"
+
     @user = @identity.user || current_user
     if @user.nil?
       @existing_user = User.find_by_email(@identity.email) unless @identity.email.blank?
