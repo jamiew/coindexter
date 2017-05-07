@@ -36,7 +36,7 @@
 									<% if browser.platform.ios? or browser.platform.android? %>
 										<p>None added yet. Add an exchange from desktop.</p>
 									<% else %>
-										<p><%= link_to "Add an exchange", defined?(@coin.network) ? defined?(@coin.network) ? edit_network_coin_url : edit_coin_url : edit_coin_url, class: "add-missing-field" %></p>
+										<p><%= link_to "Add an exchange", defined?(@coin.network) ? edit_network_coin_url : edit_coin_url, class: "add-missing-field" %></p>
 									<% end %>
 								<% end %>
 							<% else %>
@@ -122,7 +122,7 @@
 								<% if browser.platform.ios? or browser.platform.android? %>
 									<p>None added yet. Add a sale date from desktop.</p>
 								<% else %>
-									<p><%= link_to "When does #{@coin.name} go on sale?", defined?(@coin.network) ? defined?(@coin.network) ? edit_network_coin_url : edit_coin_url : edit_coin_url, class: "add-missing-field" %></p>
+									<p><%= link_to "When does #{@coin.name} go on sale?", defined?(@coin.network) ?  edit_network_coin_url : edit_coin_url, class: "add-missing-field" %></p>
 								<% end %>
 							<% end %>
 						<% end %>
@@ -236,7 +236,7 @@
 								<% if browser.platform.ios? or browser.platform.android? %>
 									<p>None added yet. Add a coin type from desktop.
 								<% else %>
-									<p><%= link_to "Add a type", defined?(@coin.network) ? defined?(@coin.network) ? edit_network_coin_url : edit_coin_url : edit_coin_url, class: "add-missing-field" %>
+									<p><%= link_to "Add a type", defined?(@coin.network) ? edit_network_coin_url : edit_coin_url, class: "add-missing-field" %>
 								<% end %>
 							<% end %>
 						<% else %>
