@@ -5,3 +5,4 @@
 $ ->
 	width = $('#header-link-account').width() + 16
 	$('#header-link-account').css 'min-width', width
+
