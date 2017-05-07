@@ -21,7 +21,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.nil?
       @existing_user = User.find_by_email(@identity.email) unless @identity.email.blank?
       if @existing_user.nil?
-        @user = User.create( email: @identity.email || nil, first_name: first_name(@identity.name) || nil, last_name: last_name(@identity.name) || nil, remote_avatar_url: @identity.image || nil )
+        @user = User.create( email: @identity.email || nil, first_name: first_name(@identity.name) || nil, last_name: last_name(@identity.name) || nil, remote_avatar_url: @identity.image || nil, username: @identity.nickname )
       else
         @user = @existing_user
         if @user.email.blank? && @identity.email
