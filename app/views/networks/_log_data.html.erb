@@ -4,7 +4,7 @@
 	<ul class="log-list">
 <% end %>
 		<% log.changes.each do |change| %>
-			<% unless change[:change].empty? || change[:change] == "" || change[:change].nil? || change[:change].second == "" || change[:change].second == [""] %> 
+			<% unless change[:change].blank? || change[:change].empty? || change[:change] == "" || change[:change].nil? || change[:change].second == "" || change[:change].second == [""] %> 
 				<% if defined?(email) %> 
 					<li style="padding: 0; margin: 0; text-indent: 0; list-style-type: 0;"> 
 				<% else %>
