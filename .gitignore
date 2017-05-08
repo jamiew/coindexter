@@ -4,8 +4,8 @@ log
 /tmp
 config/database.yml
 .DS_Store
-public/assets/**
-public/uploads/**
-public/javascripts/**
+public/assets
+public/uploads
+public/javascripts
 .env
 Procfile

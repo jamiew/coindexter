@@ -6,7 +6,7 @@
 	</div>
 	<div class="col-md-8 col-xs-8 col-md-offset-0 col-xs-offset-0 whitepaper-metadata">
 		<% if defined?(wp.network) && !wp.network.nil? %>
-    		<%= link_to network_whitepaper_path(network.name, wp) do %>
+    		<%= link_to network_whitepaper_path(wp.network.name, wp) do %>
 				<p class="whitepaper-title"><%= wp.whitepaper_title %></p>
 			<% end %>
 	    	<% if show_tag %>
