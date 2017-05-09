@@ -2,7 +2,5 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-	width = $('#header-link-account').width() + 20
-	$('#header-link-account').css 'min-width', width
+
 
