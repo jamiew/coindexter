@@ -75,14 +75,16 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         puts "tannehill 23"
       end
       puts "tannehill 24"
-      sign_in_and_redirect @user, event: :authentication
+      @user.skip_confirmation!
+      sign_in_and_redirect @user
+      
       puts "tannehill 25"
       set_flash_message(:notice, :success, kind: provider.capitalize) if is_navigational_format?
     else
       puts "tannehill 26"
       session["devise.#{provider}_data"] = env["omniauth.auth"]
       puts "tannehill 27"
-      @user.skip_confirmation!
+      
       puts "tannehill 28"
       redirect_to new_user_registration_url
       puts "tannehill 29"
