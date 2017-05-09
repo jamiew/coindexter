@@ -1,6 +1,6 @@
 <div class="col-md-2 col-md-offset-1 left-nav">
 	<ul class="info-menu" id="status-info-menu">
-		<li id="status-show-all" class="active-item">
+		<li id="status-show-all" class="status-link active-item" data-status="all">
 			<p>All statuses</p>
 		</li>
 		<li class="status-link" data-status="live">
@@ -14,7 +14,9 @@
 		</li>
 	</ul>
 	<ul class="info-menu" id="category-info-menu">
-		<li id="category-show-all" class="active-item"><p>All categories</p></li>
+		<li data-category="all" id="category-show-all" class="active-item category-link">
+			<p>All categories</p>
+		</li>
 		<% @categories.each do |category| %>
 			<% unless category.networks.nil? %>
 				<li class="category-link" data-category=<%= category.name.gsub(/\s+/, "").downcase %>><p><%= category.name.capitalize %></p></li>
@@ -28,7 +30,7 @@
     	<span class="caret"></span>
   	</button>
 	<ul class="dropdown-menu top-nav" aria-labelledby="dropdownMenuDivider">
-		<li>all categories</li>
+		<li data-category="all">all categories</li>
 		<li role="separator" class="divider"></li>
 		<% @categories.each do |category| %>
 			<% unless category.networks.nil? %>

@@ -1253,6 +1253,9 @@ ul.action-links {
 		img {
 			border:3px solid $border-orange;
 			background-color: #fff;
+			&:hover {
+				border:3px solid $primary-orange;
+			}
 		}
 	}
 	.whitepaper-metadata {
@@ -1348,4 +1351,7 @@ a.who-posted {
 		margin-right:2px;
 		margin-top:-2px;
 	};
+}
+p#none-matching {
+	margin-top:25px !important;
 }
