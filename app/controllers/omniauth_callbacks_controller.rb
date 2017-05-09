@@ -22,6 +22,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       @existing_user = User.find_by_email(@identity.email) unless @identity.email.blank?
       if @existing_user.nil?
         @user = User.create( email: @identity.email || nil, first_name: first_name(@identity.name) || nil, last_name: last_name(@identity.name) || nil, remote_avatar_url: @identity.image || nil, username: @identity.nickname )
+        @user.skip_confirmation!
       else
         @user = @existing_user
         if @user.email.blank? && @identity.email
@@ -33,7 +34,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         @user.update_attribute( :remote_avatar_url, @identity.image)
       end
       @identity.update_attribute( :user_id, @user.id )
-      redirect_to root_url
     end
 
     if @user.persisted?
