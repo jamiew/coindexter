@@ -35,23 +35,32 @@
 										</p>
 									<% end %>
 								<% else %>
-									<% if browser.platform.ios? or browser.platform.android? %>
-										<p>None added yet. Add an exchange from desktop.</p>
-									<% else %>
-										<p>
-											<%= link_to "Add an exchange", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
-										</p>
-									<% end %>
+									<p>
+										<%= link_to "Add an exchange", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+									</p>
 								<% end %>
 							<% else %>
 								<ul>
 									<% @coin.exchanges.each_with_index do |exchange, i| %>
-										<li>
-											<p>
-												
+										<% if exchange.url == "" or exchange.name = "" %>
+											<% if browser.platform.ios? or browser.platform.android? %>
+												<li>
+													<p>None added yet. Add an exchange from desktop.</p>
+												</li>
+											<% else %>
+												<li>
+													<p>
+														<%= link_to "Where can one buy #{@coin.name}?",edit_coin_url, class: "add-missing-field" %>
+													</p>
+												</li>
+											<% end %>
+										<% else %>
+											<li>
+												<p>
 													<%= link_to exchange.name, exchange.url %>
-											</p>
-										</li>
+												</p>
+											</li>
+										<% end %>
 									<% end %>
 								</ul>
 							<% end %>
@@ -150,7 +159,7 @@
 				</div>
 			</li>
 			<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
-				<li class="coin-price-info @coin-info-block block">
+				<li class="coin-price-info coin-info-block block">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-4 title-row">
 							<h6>financials</h6>
@@ -169,7 +178,10 @@
 							<h6>1d</h6>
 						</div>
 						<div class="col-md-8 col-xs-12 data">
-							<p><span class=<%= @one_day_up %>><%= @coin.one_day_price_change unless @coin.one_day_price_change.nil? %>%</span></p>
+							<p>
+								<span class=<%= !@coin.one_day_price_change.nil? && @coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= @coin.one_day_price_change unless @coin.one_day_price_change.nil? %>%
+								</span>
+							</p>
 						</div>
 					</div>
 					<div class="row">
@@ -177,7 +189,10 @@
 							<h6>1h</h6>
 						</div>
 						<div class="col-md-8 col-xs-12 data">
-							<p><span class=<%= @one_hour_up %>><%= @coin.one_hour_price_change unless @coin.one_hour_price_change.nil? %>%</span></p>
+							<p>
+								<span class=<%= !@coin.one_hour_price_change.nil? && @coin.one_hour_price_change > 0 ? 'up' : 'down' %>><%= @coin.one_hour_price_change unless @coin.one_hour_price_change.nil? %>%
+								</span>
+							</p>
 						</div>
 					</div>
 					<div class="row">

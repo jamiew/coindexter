@@ -134,6 +134,10 @@ $background-orange: rgb(254,247,245);
 		height: 190px;
 	}
 
+	#coin-related-dropdwon {
+		height: 122px;
+	}
+
 	div[class*='user-log-classification'] {
 		float:left;
 		margin-left: 0px;
@@ -160,6 +164,9 @@ $background-orange: rgb(254,247,245);
 	}
 	.info-header {
 		text-align:center;
+		border-bottom: 3px solid $border-orange;
+		padding-bottom: 8px;
+		margin-bottom:16px;
 	}
 
 	.label {
@@ -175,11 +182,12 @@ $background-orange: rgb(254,247,245);
 		h6 {
 			font-family: "WhitneyHTF-SemiboldSC" !important;
 		}
-		margin-bottom: -20px;
+		border-bottom: 1px solid $border-orange;
+		margin-bottom: 0px;
 	}
 
 	.data, .symbol, .status {
-		margin-bottom: 1em;
+		margin-bottom: 6px;
 	}
 
 	.status {
