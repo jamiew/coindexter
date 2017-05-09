@@ -1,13 +1,17 @@
 <% if @matching_coin.blank? %>
+<%#
 	$("label").css('opacity', 1.0);
 	$("textarea").prop('disabled', false);
 	$("select").prop('disabled', false);
 	$("input").prop('disabled', false);
+%>
 	$('.quick-search-results').html("");
 <% else %>
+<%#
 	$("label").css('opacity', 0.5);
 	$("textarea").prop('disabled', true);
 	$("select").prop('disabled', true);
 	$("input").not("#coin_name").prop('disabled', true);
+%>
 	$('.quick-search-results').html('<%= escape_javascript(render partial: "networks/network_match") %>');
 <% end %>

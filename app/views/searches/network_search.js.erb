@@ -1,14 +1,17 @@
-$('.quick-search-results').html("");
 <% if @network_results.blank? %>
+<%#
 	$("label").css('opacity', 1.0);
 	$("textarea").prop('disabled', false);
 	$("select").prop('disabled', false);
 	$(".new_network > input").prop('disabled', false);
+%>
 	$('.quick-search-results').html("");
 <% else %>
+<%#
 	$("label").not("#name-label").css('opacity', 0.5);
 	$("textarea").prop('disabled', true);
 	$("select").prop('disabled', true);
 	$(".new_network > input").not("#network_name").prop('disabled', true);
+%>	
 	$('.quick-search-results').html('<%= escape_javascript(render partial: "networks/network_search", locals: { network_results: @network_results }) %>');
 <% end %>
