@@ -19,20 +19,33 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @user = @identity.user || current_user
     if @user.nil?
+      puts "tannehill 1"
       @existing_user = User.find_by_email(@identity.email) unless @identity.email.blank?
+      puts "tannehill 2"
       if @existing_user.nil?
+        puts "tannehill 3" 
         @user = User.create( email: @identity.email || nil, first_name: first_name(@identity.name) || nil, last_name: last_name(@identity.name) || nil, remote_avatar_url: @identity.image || nil, username: @identity.nickname )
+        puts "tannehill 4" 
         @user.skip_confirmation!
+        puts "tannehill 5" 
       else
         @user = @existing_user
+        puts "tannehill 6" 
         if @user.email.blank? && @identity.email
+          puts "tannehill 7" 
           @user.update_attribute( :email, @identity.email)
+          puts "tannehill 8" 
         end
         if @user.first_name.blank?
+          puts "tannehill 9" 
           @user.update_attributes( :first_name => first_name(@identity.name), :last_name => last_name(@identity.name))
+          puts "tannehill 10" 
         end
+        puts "tannehill 11" 
         @user.update_attribute( :remote_avatar_url, @identity.image)
+        puts "tannehill 12" 
       end
+      puts "tannehill 13"
       @identity.update_attribute( :user_id, @user.id )
     end
 
