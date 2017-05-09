@@ -33,6 +33,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         @user.update_attribute( :remote_avatar_url, @identity.image)
       end
       @identity.update_attribute( :user_id, @user.id )
+      redirect_to root_url
     end
 
     if @user.persisted?

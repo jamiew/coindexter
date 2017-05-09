@@ -3,6 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	width = $('#header-link-account').width() + 16
+	width = $('#header-link-account').width() + 20
 	$('#header-link-account').css 'min-width', width
 
