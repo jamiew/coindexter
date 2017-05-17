@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_paper_trail_whodunnit
 
+  before_action :store_current_location, :unless => :devise_controller?
+
   require "browser"
   browser = Browser.new("Some User Agent", accept_language: "en-us")
 
@@ -12,14 +14,18 @@ class ApplicationController < ActionController::Base
     render 'layouts/about'
   end
 
-  def after_sign_in_path_for(resource)
-    super resource
-  end
-
   private
 
 	def user_params 
 		devise_parameter_sanitizer.permit( :sign_up, keys: [:first_name, :last_name, :email, :password, :password_confirmation, :avatar, :username])
 	end
+
+  def store_current_location
+    store_location_for(:user, request.url)
+  end
+
+  def after_sign_out_path_for(resource)
+    request.referrer || root_path
+  end
   
 end

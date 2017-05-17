@@ -1,5 +1,5 @@
 <% if(network_results.length > 1) %>
-	<p>Heads up! The networks
+	<p class="heads-up">Heads up! The 
 	<% network_results.each do |network| %>
 		<% if network == network_results.last %>
 			and <%= link_to(network.name, network) %>
@@ -9,6 +9,8 @@
 			<%= link_to(network.name, network) %>,
 		<% end %>
 	<% end %>
-	already exist.
+	networks already exist.</p>
+<% else %>
+	<p class="heads-up">Heads up! The <%= link_to(network_results.first.name, network_results.first) %> network already exists.</p>
 <% end %>
-<p>If you're adding a new network, continue typing.</p>
+<p>If that's not what you're adding, ignore this.</p>

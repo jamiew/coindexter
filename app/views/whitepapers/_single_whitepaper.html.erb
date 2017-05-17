@@ -2,13 +2,13 @@
 	<div class="col-md-3 col-md-offset-1 col-xs-4 col-md-offset-0 whitepaper-thumb-cnt">
 		<% puts wp.inspect %>
 		<% puts wp.network.inspect %>
-		<%= link_to network_whitepaper_path(wp.network.name, wp) do %>
+		<%= link_to network_whitepaper_path(wp.network.name.downcase, wp) do %>
 			<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
 		<% end %>
 	</div>
 	<div class="col-md-8 col-xs-8 col-md-offset-0 col-xs-offset-0 whitepaper-metadata">
 		<% if defined?(wp.network) && !wp.network.nil? %>
-    		<%= link_to network_whitepaper_path(wp.network.name, wp) do %>
+    		<%= link_to network_whitepaper_path(wp.network.name.downcase, wp) do %>
 				<p class="whitepaper-title"><%= wp.whitepaper_title %></p>
 			<% end %>
 	    	<% if show_tag %>
@@ -24,8 +24,9 @@
 		<% end %>
 		<%= render partial: '/shared/who_posted', locals: {user: wp.user, created_at: wp.created_at} %>
 	</div>
+	<div class="clear"></div>
 </div>
 <div class="row">
-	<div class="whitepaper-divider col-md-12 col-xs-12">&nbsp;
+	<div class="whitepaper-divider col-md-8 col-md-offset-4 col-xs-12">&nbsp;
 	</div>
 </div>

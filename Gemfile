@@ -95,6 +95,9 @@ gem 'browser'
 # retina images
 gem 'retina_tag'
 
+# production logs
+gem 'newrelic_rpm'
+
 group :production do 
   gem 'rails_12factor'
 end

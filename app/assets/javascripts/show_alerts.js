@@ -15,5 +15,9 @@ $(document).ready(function() {
 		}, function() {
 			$(this).find("a.user-activity > p").show();
 			$(this).find("a.header-link-account-glyphicon").hide();
-		});
+	});
+
+	width = $('#header-link-account').width() + 20;
+	$('#header-link-account').css('min-width', width);
+
 });
