@@ -1,6 +1,5 @@
 task :save_text_from_pdfs => :environment do
 	Whitepaper.all.each do |wp|
-		binding.pry
 		if wp.fulltext.nil?
 			binding.pry
 			io = open(wp.whitepaper.current_path)
