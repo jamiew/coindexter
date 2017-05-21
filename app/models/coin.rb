@@ -1,11 +1,13 @@
 class Coin < ApplicationRecord
   belongs_to :category, optional: true
-  belongs_to :network, optional: true
+  belongs_to :network
   mount_uploader :logo, LogoUploader
   extend FriendlyId
   include PgSearch
   multisearchable :against => [:name]
   pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
+
+  validates :network_id, presence: true
 
   validates_uniqueness_of :name
 

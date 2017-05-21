@@ -16,6 +16,19 @@ $(document).on 'turbolinks:load', ->
 			$(selector).addClass 'full-category-cnt-active'
 			window.scrollTo(0, 0)
 
+	$('ul#search-filter-categories > li').click ->
+		cat = $(this).attr 'data-group'
+		$('ul#search-filter-categories > li').removeClass 'active-item'
+		$(this).addClass 'active-item'
+		if cat == 'all'
+			$('li.sale-block').show()
+		else
+			selector = 'li[data-group="' + cat + '"]'
+			alert selector
+			$('li.sale-block').hide()
+			$(selector).show()
+			window.scrollTo(0, 0)
+
 	$('ul#category-dropdown > li').click ->
 		cat = $(this).attr 'data-category'
 		selector = 'ul[data-category="' + cat + '"]'

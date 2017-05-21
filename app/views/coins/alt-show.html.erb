@@ -15,7 +15,7 @@
 	</div>
 	<ul class="action-links">
 		<% if current_user %>
-			<li><%= link_to("Edit #{@coin.name}", edit_coin_path, class: "action-link", accesskey: 'E') %></li>
+			<li><%= link_to("Edit #{@coin.name}", edit_network_coin_path(@coin.network, @coin, class: "action-link", accesskey: 'E') %></li>
 		<% else %>
 			<li><%= link_to("Edit #{@coin.name}", '/signin', class: "action-link", accesskey: 'E') %></li>
 		<% end %>
