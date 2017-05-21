@@ -97,9 +97,9 @@
 					<div class="col-md-4 col-xs-12 label">
 						<h6>Symbol</h6>
 					</div>
-					<div class="col-md-8 col-xs-12 symbol">
-						<% if @coin.symbol.nil? || @coin.symbol.blank? || @coin.symbol.empty? %>
-							<%= @coin.symbol %>
+					<div class="col-md-8 col-xs-12 symbol data">
+						<% unless @coin.symbol.nil? || @coin.symbol.blank? || @coin.symbol.empty? %>
+							<p><%= @coin.symbol %></p>
 						<% else %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								<p>None added yet. Add a symbol from desktop.</p>

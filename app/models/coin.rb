@@ -7,7 +7,7 @@ class Coin < ApplicationRecord
   multisearchable :against => [:name]
   pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
 
-  validates :network_id, presence: true
+  
 
   validates_uniqueness_of :name
 
