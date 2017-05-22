@@ -248,9 +248,7 @@
 							<% end %>
 						<% else %>
 							<% @coin.repositories.each_with_index do |repository, i| %>
-								<div class="col-md-8 <%= "col-md-offset-4" unless i==0 %>">
-									<p><%= link_to repository.name, repository.url %>
-								</div>
+								<p><%= link_to repository.name, repository.url %>
 							<% end %>
 						<% end %>	
 					</div>	
