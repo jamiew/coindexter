@@ -70,7 +70,7 @@ class CoinsController < ApplicationController
 		if defined?(@network) 
 			@network = Network.friendly.find(params[:network_id])
 		end
-			@coin = Coin.new(coin_params)
+		@coin = Coin.new(coin_params)
 	    if @coin.save
 	    	@coin.category_id = 2 ? @coin.category_id.nil? : @coin.category_id
 	    	@coin.update_prices
