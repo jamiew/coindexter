@@ -99,17 +99,10 @@ class CoinsController < ApplicationController
 	def update
 		@coin = Coin.friendly.find(params[:id])
 	  	if @coin.update_attributes(coin_params)
-	  		params[:coin].each do |cp|
-	  			puts "is cp permitted? #{cp.permitted?}"
-	  		end
-	    	if defined?(params[:coin][:network_id]) && !params[:coin][:network_id].nil? && !params[:coin][:network_id] == [""]
-	    		@network = Network.find(coin_params[:network_id].second)
-	    		@coin.network = @network
-	    		@coin.save
-	    		redirect_to network_coin_path(@network, @coin)
-	    	else 
-	    		redirect_to coin_path(@coin)
-	    	end
+    		@network = Network.find(coin_params[:network_id].second)
+    		@coin.network = @network
+    		@coin.save
+    		redirect_to network_coin_path(@network, @coin)
 		else
 	    	render 'edit'
 	  	end
