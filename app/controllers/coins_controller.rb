@@ -99,8 +99,9 @@ class CoinsController < ApplicationController
 	def update
 		@coin = Coin.friendly.find(params[:id])
 	  	if @coin.update_attributes(coin_params)
-	  		puts "params are #{params[:coin].inspect}"
-	  		binding.pry
+	  		params[:coin].each do |cp|
+	  			puts "is cp permitted? #{cp.permitted?}"
+	  		end
 	    	if defined?(params[:coin][:network_id]) && !params[:coin][:network_id].nil? && !params[:coin][:network_id] == [""]
 	    		@network = Network.find(coin_params[:network_id].second)
 	    		@coin.network = @network
