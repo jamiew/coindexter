@@ -38,7 +38,6 @@ class NetworkService < LogService
 
 	def get_all_the_logs(user_id=nil)
 		
-		puts "tannehill is #{user_id}"
 		if user_id.nil?
 			versions = PaperTrail::Version.all.limit(5).order("created_at DESC")
 		else
@@ -73,9 +72,7 @@ class NetworkService < LogService
 					return true
 				end
 			when "Coin"
-				puts "item type is #{item_type}"
-				puts "item id is #{item_id}"
-				unless Coin.all.where("id", item_id).nil?
+				unless Coin.find(item_id).nil?
 					return true
 				end
 			when "Network"
@@ -95,7 +92,7 @@ class NetworkService < LogService
 			self.feed_type = "network_log"
 			self.networks = network
 		else 
-			coins = Coin.all.where("id", item_id)
+			coins = Coin.find(item_id)
 			self.feed_type = "coin_log"
 			self.coins = coins
 		end
