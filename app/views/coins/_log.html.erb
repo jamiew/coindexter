@@ -2,8 +2,6 @@
 	<div class="row">
 		<% if show_tag %>
 			<div class="col-md-4">
-				<% puts "log coins is #{log.coins.inspect}" %>
-				<% puts "log coins is #{log.coins}" %>
 				<% if defined?(log.coins) && !log.coins.nil? %>
 			    	<a href=<%= network_coin_path(log.coins.network, log.coins) %> class="user-log-classification-anchor">
 			    		<div class="user-log-classification">

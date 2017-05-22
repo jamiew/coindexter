@@ -73,6 +73,8 @@ class NetworkService < LogService
 					return true
 				end
 			when "Coin"
+				puts "item type is #{item_type}"
+				puts "item id is #{item_id}"
 				unless Coin.all.where("id", item_id).nil?
 					return true
 				end
