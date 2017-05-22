@@ -73,7 +73,7 @@ class NetworkService < LogService
 					return true
 				end
 			when "Coin"
-				unless Coin.find(item_id).nil?
+				unless Coin.all.where("id", item_id).nil?
 					return true
 				end
 			when "Network"
@@ -93,7 +93,7 @@ class NetworkService < LogService
 			self.feed_type = "network_log"
 			self.networks = network
 		else 
-			coins = Coin.find(item_id)
+			coins = Coin.all.where("id", item_id)
 			self.feed_type = "coin_log"
 			self.coins = coins
 		end

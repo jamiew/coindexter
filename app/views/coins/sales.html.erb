@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
-		<ul class="info-menu" class="search-filter-categories">
-			<li id="show-all" class="active-item"><p>All sales</p></li>
-			<li id="upcoming" class="category-link"><p>Upcoming</p></li>
-			<li id="previous" class="category-link"><p>Past</p></li>
+		<ul class="info-menu" id="search-filter-categories">
+			<li id="show-all" class="category-link active-item" data-group="all"><p>All sales</p></li>
+			<li id="upcoming" class="category-link" data-group="upcoming"><p>Upcoming</p></li>
+			<li id="previous" class="category-link" data-group="previous"><p>Past</p></li>
 		</ul>
 	</div>
 	<div class="col-xs-12 dropdown-navigator" id="sales-dropdown">
@@ -12,15 +12,15 @@
 	    	<span class="caret"></span>
 	  	</button>
 		<ul class="dropdown-menu top-nav" aria-labelledby="dropdownMenuDivider">
-			<li id="show-all" class="active-item"><p>all sales</p></li>
+			<li id="show-all" class="active-item" data-group="all"><p>all sales</p></li>
 			<li role="separator" class="divider"></li>
-			<li id="upcoming" class="category-link"><p>upcoming sales</p></li>
-			<li id="previous" class="category-link"><p>past sales</p></li>
+			<li id="upcoming" class="category-link" data-group="upcoming"><p>upcoming sales</p></li>
+			<li id="previous" class="category-link" data-group="previous"><p>past sales</p></li>
 		</ul>
 	</div>
 	<div class="col-md-6 main col-xs-12">
 		<ul>
-			<li class="sale-block block">
+			<li class="sale-block block" data-group="upcoming">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2 col-xs-12 col-xs-offset-0 upcoming">
 						<% @upcoming_sales.each do |group| %>
@@ -36,7 +36,7 @@
 					</div>
 				</div>
 			</li>
-			<li class="sale-block block">
+			<li class="sale-block block previous" data-group="previous">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-2 col-xs-12 col-xs-offset-0 previous">
 						<% @previous_sales.each do |group| %>

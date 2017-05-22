@@ -54,10 +54,8 @@ class CoinsController < ApplicationController
 
 	def edit
 		@use_ajax = false
+		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.friendly.find(params[:id])
-		unless params[:network_id].nil?
-			@network = Network.friendly.find(params[:network_id])		
-		end
 		if @coin.repositories.empty?
 			@coin.build_repository
 		end
@@ -78,11 +76,7 @@ class CoinsController < ApplicationController
 	    		@coin.network = @network
 	    	end
 	    	@coin.save
-	    	if defined?(@network) 
-				redirect_to network_coin_path(@network, @coin)
-			else 
-				redirect_to coin_path(@coin)
-			end
+	    	redirect_to network_coin_path(@network, @coin)
 		else
 	        render 'new'
 	    end
@@ -98,6 +92,8 @@ class CoinsController < ApplicationController
 
 	def update
 		@coin = Coin.friendly.find(params[:id])
+		@network = Network.friendly.find(params[:network_id])
+		puts "coin_params are #{coin_params.inspect}"
 	  	if @coin.update_attributes(coin_params)
     		@network = Network.find(coin_params[:network_id].second)
     		@coin.network = @network

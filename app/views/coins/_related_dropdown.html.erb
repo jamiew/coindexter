@@ -4,8 +4,8 @@
     	<span class="caret"></span>
   	</button>
 	<ul class="dropdown-menu top-nav" id="coin-related-dropdown" aria-labelledby="dropdownMenuDivider">
-		<li data-link=<%= @coin.network.nil? ? coin_path : network_coin_path %>>details</li>
-		<li data-link=<%= @coin.network.nil? ? coin_path : "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase.split(' ').join('-')}/logs" %>>logs</li>
+		<li data-link=<%= network_coin_path %>>details</li>
+		<li data-link="/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase.split(' ').join('-')}/logs" %>>logs</li>
 		</li>
 	</ul>
 </div>

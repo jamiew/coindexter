@@ -4,18 +4,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'networks#index'
+  
   resources :categories
+  
   resources :users do
     get :following
     get :activity
-  end
-
-  resources :coins do
-    member do
-      put :follow
-      put :unfollow
-      get :logs
-    end
   end
 
   resources :comments do
@@ -23,16 +17,24 @@ Rails.application.routes.draw do
   end
 
   resources :searches
+
   resources :networks do
     member do
       get :follow
       put :unfollow
       get :logs
     end
+
     resources :whitepapers
+
     resources :coins do
-      get :logs
+      member do
+        put :follow
+        put :unfollow
+        get :logs
+      end
     end
+
     resources :links do 
       resources :comments do
         resources :comments

@@ -14,9 +14,9 @@
 	<ul class="action-links">
 		<% if current_user %>
 			<% if @following %>
-				<li><%= link_to("Unfollow #{@coin.name}", unfollow_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "unfollow-network", accesskey: 'F') %></li>
+				<li><%= link_to("Unfollow #{@coin.name}", unfollow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "unfollow-network", accesskey: 'F') %></li>
 			<% else %>
-				<li><%= link_to("Follow #{@coin.name}", follow_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "follow-coin", accesskey: 'F') %></li>
+				<li><%= link_to("Follow #{@coin.name}", follow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "follow-coin", accesskey: 'F') %></li>
 			<% end %>
 		<% else %>
 			<li>
@@ -24,11 +24,7 @@
 			</li>
 		<% end %>
 		<li>
-			<% unless @coin.network.nil? %>	
-				<%= link_to("Edit #{@coin.name}", edit_network_coin_path, class: "action-link", accesskey: 'E') %>	
-			<% else %>
-				<%= link_to("Edit #{@coin.name}", edit_coin_path, class: "action-link", accesskey: 'E') %>
-			<% end %>
+			<%= link_to("Edit #{@coin.name}", edit_network_coin_path, class: "action-link", accesskey: 'E') %>
 		</li>
 	</ul>
 </div>

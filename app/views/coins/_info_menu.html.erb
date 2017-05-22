@@ -1,10 +1,6 @@
 <ul class="info-menu">
 	<li <%= "class=active-item" if active_item == "details" %> class="active-item" id="details">
-		<% unless coin.network.nil? %>
-			<%= link_to "Details", network_coin_path %>		
-		<% else %>
-			<%= link_to "Details", coin_path %>		
-		<% end %>
+		<%= link_to "Details", network_coin_path %>
 	</li>
 	<li <%= "class=active-item" if active_item == "log" %> id="log">
 		<% unless coin.network.nil? %>
@@ -27,7 +23,7 @@
 				<div class="clear"></div>
 			<% end %>
 		<% else %>
-			<%= link_to "Add one?", edit_coin_url, class: "add-one" %>
+			<%= link_to "Add one?", new_network_coin_url, class: "add-one" %>
 		<% end %>
 	</li>
 </ul>

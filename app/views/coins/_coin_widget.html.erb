@@ -1,35 +1,16 @@
-<% unless coin.network.nil? %>
-	<%= link_to network_coin_path(coin.network, coin), class: 'coin-widget widget' do %>
-		<div class="col-md-3 col-xs-5 <%= "col-md-offset-1 col-xs-offset-0" unless i == 0 || i % 3 == 0 %> <%= "col-xs-offset-1 col-md-offset-0" unless i == 0 || i % 2 == 0 %> coin-in-categories">
-			<% if coin.logo.nil? || coin.logo.blank? %>
-				<%= image_tag "fallback/default.png", size: '60x60', class: 'coin-logo' %>
-			<% else %>
-				<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
-			<% end %>
-			<h6><%= coin.name.downcase[0..15] %></h6>
-			<% if coin.saledate && coin.saledate > Time.now %>
-				<p class="sale-date">Sale: <%= coin.saledate.strftime('%b %d, %Y') %></p>
-			<% elsif coin.market_cap && coin.one_day_price_change %>
-				<p class="market-cap"><%= '$' + number_to_human(coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless coin.market_cap.nil? %></p>
-				<p><span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= '1d ' + coin.one_day_price_change.to_s + '%' unless coin.one_day_price_change.nil? %></span></p>
-			<% end %>
-		</div>
-	<% end %>
-<% else %>
-	<%= link_to coin, class: 'coin-widget widget' do %>
-		<div class="col-md-3 col-xs-5 <%= "col-md-offset-1 col-xs-offset-0" unless i == 0 || i % 3 == 0 %> <%= "col-xs-offset-1 col-md-offset-0" unless i == 0 || i % 2 == 0 %> coin-in-categories">
-			<% if coin.logo.nil? || coin.logo.blank? %>
-				<%= image_tag "fallback/default.png", size: '60x60', class: 'coin-logo' %>
-			<% else %>
-				<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
-			<% end %>
-			<h6><%= coin.name.downcase[0..15] %></h6>
-			<% if coin.saledate && coin.saledate > Time.now %>
-				<p class="sale-date">Sale: <%= coin.saledate.strftime('%b %d, %Y') %></p>
-			<% elsif coin.market_cap && coin.one_day_price_change %>
-				<p class="market-cap"><%= '$' + number_to_human(coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless coin.market_cap.nil? %></p>
-				<p class="one-day-change"><span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= '1d ' + coin.one_day_price_change.to_s + '%' unless coin.one_day_price_change.nil? %></span></p>
-			<% end %>
-		</div>
-	<% end %>
+<%= link_to network_coin_path(coin.network, coin), class: 'coin-widget widget' do %>
+	<div class="col-md-3 col-xs-5 <%= "col-md-offset-1 col-xs-offset-0" unless i == 0 || i % 3 == 0 %> <%= "col-xs-offset-1 col-md-offset-0" unless i == 0 || i % 2 == 0 %> coin-in-categories">
+		<% if coin.logo.nil? || coin.logo.blank? %>
+			<%= image_tag "fallback/default.png", size: '60x60', class: 'coin-logo' %>
+		<% else %>
+			<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
+		<% end %>
+		<h6><%= coin.name.downcase[0..15] %></h6>
+		<% if coin.saledate && coin.saledate > Time.now %>
+			<p class="sale-date">Sale: <%= coin.saledate.strftime('%b %d, %Y') %></p>
+		<% elsif coin.market_cap && coin.one_day_price_change %>
+			<p class="market-cap"><%= '$' + number_to_human(coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless coin.market_cap.nil? %></p>
+			<p><span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>><%= '1d ' + coin.one_day_price_change.to_s + '%' unless coin.one_day_price_change.nil? %></span></p>
+		<% end %>
+	</div>
 <% end %>

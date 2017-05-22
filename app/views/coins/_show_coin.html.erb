@@ -11,7 +11,7 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								<p>None added yet. Add its status from desktop.</p>
 							<% else %>
-								<p><%= link_to "Add its status", defined?(@coin.network) ? edit_network_coin_url : edit_coin_url, class: "add-missing-field" %></p>
+								<p><%= link_to "Add its status", edit_network_coin_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
 							<div class="status-icon <%= @coin.coin_status.downcase %>-icon"></div>
@@ -26,14 +26,8 @@
 						</div>
 						<div class="col-md-8 col-xs-12 data">
 							<% if @coin.exchanges.nil? || @coin.exchanges == "" || @coin.exchanges.empty? %>
-								<% if @coin.network.nil? %>	
-									<% if browser.platform.ios? or browser.platform.android? %>
-										<p>None added yet. Add an exchange from desktop.</p>
-									<% else %>
-										<p>
-											<%= link_to "Add an exchange",edit_coin_url, class: "add-missing-field" %>
-										</p>
-									<% end %>
+								<% if browser.platform.ios? or browser.platform.android? %>
+									<p>None added yet. Add an exchange from desktop.</p>
 								<% else %>
 									<p>
 										<%= link_to "Add an exchange", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
@@ -50,7 +44,7 @@
 											<% else %>
 												<li>
 													<p>
-														<%= link_to "Where can one buy #{@coin.name}?",edit_coin_url, class: "add-missing-field" %>
+														<%= link_to "Where can one buy #{@coin.name}?",edit_network_coin_url, class: "add-missing-field" %>
 													</p>
 												</li>
 											<% end %>
@@ -73,22 +67,12 @@
 					</div>
 					<div class="col-md-8 col-xs-12 data">
 						<% if @coin.application_description.nil? || @coin.application_description == "" %>
-							<% if @coin.network.nil? %>	
-								<% if browser.platform.ios? or browser.platform.android? %>
-										<p>None added yet. Add a description from desktop.</p>
-								<% else %>
-									<p>
-										<%= link_to "What's a basic summary for #{@coin.name}?", edit_coin_url, class: "add-missing-field" %>
-									</p>
-								<% end %>
-							<% else %>
-								<% if browser.platform.ios? or browser.platform.android? %>
+							<% if browser.platform.ios? or browser.platform.android? %>
 									<p>None added yet. Add a description from desktop.</p>
-								<% else %>
-									<p>
-										<%= link_to "What's a basic summary for #{@coin.name}?", edit_network_coin_url(@coin.network, @coin), class: "add-missing-field" %>
-									</p>
-								<% end %>
+							<% else %>
+								<p>
+									<%= link_to "What's a basic summary for #{@coin.name}?", edit_network_coin_url(@coin.network, @coin), class: "add-missing-field" %>
+								</p>
 							<% end %>
 						<% else %>
 							<p><%= @coin.coin_info %></p>
@@ -100,17 +84,11 @@
 						<h6>Networks</h6>
 					</div>
 					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.network.nil? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add a network from desktop.</p>
-							<% else %>
-								<p>
-									<%= link_to "Does #{@coin.name} belong to a network?", edit_coin_path(@coin), class: "add-missing-field" %>
-								</p>
-							<% end %>
+						<% if browser.platform.ios? or browser.platform.android? %>
+							<p>None added yet. Add a network from desktop.</p>
 						<% else %>
 							<p>
-								<%= link_to @coin.network.name, @coin.network %>
+								<%= link_to "Does #{@coin.name} belong to a network?", edit_network_coin_path(@coin), class: "add-missing-field" %>
 							</p>
 						<% end %>
 					</div>
@@ -119,15 +97,15 @@
 					<div class="col-md-4 col-xs-12 label">
 						<h6>Symbol</h6>
 					</div>
-					<div class="col-md-8 col-xs-12 symbol">
-						<% if @coin.symbol.nil? || @coin.symbol.blank? || @coin.symbol.empty? %>
-							<%= @coin.symbol %>
+					<div class="col-md-8 col-xs-12 symbol data">
+						<% unless @coin.symbol.nil? || @coin.symbol.blank? || @coin.symbol.empty? %>
+							<p><%= @coin.symbol %></p>
 						<% else %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								<p>None added yet. Add a symbol from desktop.</p>
 							<% else %>
 								<p>
-									<%= link_to "Do you know the symbol for #{@coin.name}?", defined?(@coin.networks) ? edit_network_coin_url(@coin.network.name, @coin) : edit_coin_url, class: "add-missing-field" %>
+									<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
 								</p>
 							<% end %>
 						<% end %>
@@ -141,18 +119,10 @@
 						<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
 							<%= @coin.saledate.strftime('%b %d, %Y') %>
 						<% else %>
-							<% if @coin.network.nil? %>	
-								<% if browser.platform.ios? or browser.platform.android? %>
-									<p>None added yet. Add a sale date from desktop.</p>
-								<% else %>
-									<p><%= link_to "When does #{@coin.name} go on sale?", edit_coin_url, class: "add-missing-field" %></p>
-								<% end %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add a sale date from desktop.</p>
 							<% else %>
-								<% if browser.platform.ios? or browser.platform.android? %>
-									<p>None added yet. Add a sale date from desktop.</p>
-								<% else %>
-									<p><%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %></p>
-								<% end %>
+								<p><%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% end %>
 					</div>
@@ -233,18 +203,10 @@
 					</div>
 					<div class="col-md-8 col-xs-12 data">
 						<% if @coin.repositories.empty? || @coin.repositories.first.name == ""  %>
-							<% if @coin.network.nil? %>	
-								<% if browser.platform.ios? or browser.platform.android? %>
-									<p>None added yet. Add a repository from desktop.
-								<% else %>
-									<p><%= link_to "What's the repository for #{@coin.name}", edit_coin_url, class: "add-missing-field" %></p>
-								<% end %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add a repository from desktop.
 							<% else %>
-								<% if browser.platform.ios? or browser.platform.android? %>
-									<p>None added yet. Add a repository from desktop.
-								<% else %>
-									<p><%= link_to "Add a repository", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %></p>
-								<% end %>
+								<p><%= link_to "Add a repository", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
 							<% @coin.repositories.each_with_index do |repository, i| %>
@@ -259,22 +221,12 @@
 					</div>
 					<div class="col-md-8 col-xs-12 data">
 						<% if @coin.coin_type.nil? || @coin.coin_type == "" %>
-							<% if @coin.network.nil? %>	
-								<% if browser.platform.ios? or browser.platform.android? %>
-									<p>None added yet. Add a coin type from desktop.
-								<% else %>
-									<p>
-										<%= link_to "Add a type", edit_coin_url, class: "add-missing-field" %>
-									</p>
-								<% end %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add a coin type from desktop.
 							<% else %>
-								<% if browser.platform.ios? or browser.platform.android? %>
-									<p>None added yet. Add a coin type from desktop.
-								<% else %>
-									<p>
-										<%= link_to "Add a type", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
-									</p>
-								<% end %>
+								<p>
+									<%= link_to "Add a type", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
+								</p>
 							<% end %>
 						<% else %>
 							<p><%= @coin.coin_type.capitalize %></p>
