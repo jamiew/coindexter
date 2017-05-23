@@ -72,10 +72,6 @@ GEM
     buftok (0.2.0)
     builder (3.2.3)
     byebug (9.0.6)
-    carrierwave_direct (0.0.15)
-      carrierwave
-      fog
-      uuidtools
     chronic (0.10.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
@@ -470,7 +466,6 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    uuidtools (2.1.5)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.4.0)
@@ -496,7 +491,6 @@ DEPENDENCIES
   browser
   byebug
   carrierwave!
-  carrierwave_direct
   coffee-rails (~> 4.2)
   devise
   dotenv-rails

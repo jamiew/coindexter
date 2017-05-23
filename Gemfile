@@ -36,7 +36,7 @@ gem 'bootstrap-switch-rails', '~> 3.0.0'
 
 # Image uploads
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'carrierwave_direct'
+# gem 'carrierwave_direct'
 gem 'mini_magick'
 gem 'fog'
 
