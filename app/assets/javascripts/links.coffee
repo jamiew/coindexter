@@ -31,8 +31,8 @@ $ ->
 
 	$('.network-option').each ->
 		url = $(this).data 'icon'
-		$(this).css 'background-image', "url('http://coindexter.io" + url + "')"
+		$(this).css 'background-image', "url('" + url + "')"
 
 	$('.coin-option').each ->
 		url = $(this).data 'icon'
-		$(this).css 'background-image', "url('http://coindexter.io" + url + "')"
+		$(this).css 'background-image', "url('" + url + "')"

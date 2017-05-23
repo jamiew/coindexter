@@ -28,7 +28,7 @@ $ ->
 
 	$('.network-option').each ->
 		url = $(this).data 'icon'
-		$(this).css 'background-image', "url('http://coindexter.io" + url + "')"
+		$(this).css 'background-image', "url('" + url + "')"
 
 	$(window).on "scroll", ->
 		$scroll_height = $('body').prop 'scrollHeight'

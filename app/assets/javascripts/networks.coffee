@@ -27,6 +27,10 @@ $ ->
 
 	$prev_scroll_top = 0
 
+	$('.coin-option').each ->
+		url = $(this).data 'icon'
+		$(this).css 'background-image', "url('" + url + "')"
+
 	$(window).on "scroll", ->
 		$scroll_height = $('body').prop 'scrollHeight'
 		$scroll_top = $('body').scrollTop()
