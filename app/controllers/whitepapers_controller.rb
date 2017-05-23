@@ -16,12 +16,8 @@ class WhitepapersController < ApplicationController
   end
 
   def new
-    if defined?(params[:network_id])
-      @network = Network.friendly.find(params[:network_id])
-      @whitepaper = @network.whitepapers.new
-    else
-      @whitepaper = @network.whitepapers.new
-    end
+    @network = Network.friendly.find(params[:network_id])
+    @whitepaper = @network.whitepapers.new
   end
 
   def edit

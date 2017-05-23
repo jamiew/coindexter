@@ -245,6 +245,8 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    foreman (0.84.0)
+      thor (~> 0.19.1)
     formatador (0.2.5)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
@@ -499,6 +501,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   fog
+  foreman
   friendly_id (~> 5.1.0)
   fullcalendar-rails
   httparty

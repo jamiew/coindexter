@@ -103,6 +103,8 @@ gem 'pry'
 
 gem 'sidekiq'
 
+gem 'foreman'
+
 group :production do 
   gem 'rails_12factor'
 end

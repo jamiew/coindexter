@@ -1,6 +1,6 @@
 <div class="col-md-8 col-xs-12">
   <div class="row">
-    <%= form_for [@network, @whitepaper] do |f| %>
+    <%= direct_upload_form_for [@network, @whitepaper] do |f| %>
       <% if @whitepaper.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@whitepaper.errors.count, "error") %> prohibited this whitepaper from being saved:</h2>

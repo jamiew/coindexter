@@ -81,20 +81,6 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 col-xs-12 label">
-						<h6>Networks</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if browser.platform.ios? or browser.platform.android? %>
-							<p>None added yet. Add a network from desktop.</p>
-						<% else %>
-							<p>
-								<%= link_to "Does #{@coin.name} belong to a network?", edit_network_coin_path(@coin), class: "add-missing-field" %>
-							</p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
 						<h6>Symbol</h6>
 					</div>
 					<div class="col-md-8 col-xs-12 symbol data">

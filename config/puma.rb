@@ -4,8 +4,13 @@
 # the maximum value specified for Puma. Default is set to 5 threads for minimum
 # and maximum, this matches the default thread size of Active Record.
 #
-threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }.to_i
+workers Integer(ENV['WEB_CONCURRENCY'] || 2)  
+threads_count = Integer(ENV['MAX_THREADS'] || 1)
 threads threads_count, threads_count
+
+preload_app!
+
+rackup      DefaultRackup
 
 # Specifies the `port` that Puma will listen on to receive requests, default is 3000.
 #
@@ -45,3 +50,14 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+before_fork do  
+  puts "Puma master process about to fork. Closing existing Active record connections."
+  ActiveRecord::Base.connection.disconnect!
+end
+
+on_worker_boot do  
+  # Worker specific setup for Rails 4.1+
+  # See: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
+  ActiveRecord::Base.establish_connection
+end  
