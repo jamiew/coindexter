@@ -44,6 +44,7 @@ class DailyDigestWorker
 
       UserMailer.daily_digest(@user, @network_logs, @coin_logs).deliver_now
       
+  	end
   end
 
   DailyDigestWorker.perform_async
