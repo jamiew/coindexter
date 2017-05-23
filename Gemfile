@@ -36,6 +36,7 @@ gem 'bootstrap-switch-rails', '~> 3.0.0'
 
 # Image uploads
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'carrierwave_direct'
 gem 'mini_magick'
 gem 'fog'
 
@@ -99,6 +100,8 @@ gem 'retina_tag'
 gem 'newrelic_rpm'
 
 gem 'pry'
+
+gem 'sidekiq'
 
 group :production do 
   gem 'rails_12factor'

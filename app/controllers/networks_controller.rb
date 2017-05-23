@@ -82,6 +82,7 @@ class NetworksController < ApplicationController
 	def create
 		@network = Network.new(network_params)
 		@network.user = current_user
+		@network.founders = params[:founders] 
 	    if @network.save
 			redirect_to @network
 		else
