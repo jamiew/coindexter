@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', -> 
+
 	$('ul#category-info-menu > li').click ->
 		cat = $(this).attr 'data-category'
 		$('ul#category-info-menu > li').removeClass 'active-item'
@@ -29,7 +30,7 @@ $(document).on 'turbolinks:load', ->
 			$(selector).show()
 			window.scrollTo(0, 0)
 
-	$('ul#category-dropdown > li').click ->
+	$('div#category-dropdown > ul > li').click ->
 		cat = $(this).attr 'data-category'
 		selector = 'ul[data-category="' + cat + '"]'
 		$('ul.full-category-cnt').hide()

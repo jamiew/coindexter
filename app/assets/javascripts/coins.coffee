@@ -48,7 +48,7 @@ $ ->
 			$('.action-links').css 'bottom', 30
 
 
-	$('ul#related-dropdown > li').click ->
+	$('ul#coin-related-dropdown > li').click ->
 		selector = $(this).attr 'data-link'
 		$.get selector, (data) ->
   			$('body').html data

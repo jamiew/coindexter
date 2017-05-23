@@ -62,7 +62,7 @@ $ ->
 			$.get '/network_search',
 		      query: $inputVal
 
-	$('ul#related-dropdown > li').click ->
+	$('ul#network-related-dropdown > li').click ->
 		selector = $(this).attr 'data-link'
 		$(location).attr 'href', selector
   		
