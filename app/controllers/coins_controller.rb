@@ -43,12 +43,8 @@ class CoinsController < ApplicationController
 
 	def new
 		@use_ajax = true
-		if defined?(@network) 
-			@network = Network.friendly.find(params[:network_id])		
-			@coin = @network.coins.new
-		else 
-			@coin = Coin.new
-		end
+		@network = Network.friendly.find(params[:network_id])		
+		@coin = @network.coins.new
 		@coin.build_repository
 	end
 
