@@ -147,6 +147,8 @@ $background-orange: rgb(254,247,245);
 	a.user-log-classification-anchor {
 		float: left;
 		margin-right: 6px !important;
+		margin-bottom:8px !important;
+
 	}
 	.link-data {
 		clear:both;
@@ -164,7 +166,8 @@ $background-orange: rgb(254,247,245);
 		} 
 	}
 	h6.when-posted {
-		margin-top: 13px !important;
+		margin-top: 0px !important;
+		line-height: 24px;
 	}
 	.info-header {
 		text-align:center;
@@ -196,6 +199,9 @@ $background-orange: rgb(254,247,245);
 
 	.status {
 		margin-bottom: 0;
+	}
+	.link-association {
+		overflow:hidden;
 	}
 		
 }
