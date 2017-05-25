@@ -3,7 +3,11 @@
 		<% puts wp.inspect %>
 		<% puts wp.network.inspect %>
 		<%= link_to network_whitepaper_path(wp.network.name.downcase, wp) do %>
-			<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+			<% if browser.platform.ios? or browser.platform.android? %>
+				<%= image_tag "fallback/default-whitepaper.png", class: "whitepaper-thumbnail" %>
+			<% else %>
+				<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+			<% end %>
 		<% end %>
 	</div>
 	<div class="col-md-8 col-xs-8 col-md-offset-0 col-xs-offset-0 whitepaper-metadata">
