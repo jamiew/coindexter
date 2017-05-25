@@ -1,31 +1,11 @@
-require 'sidekiq'
-
 if Rails.env.production?
 
   Sidekiq.configure_client do |config|
-    config.redis = { url: ENV['REDISTOGO_URL']}
+    config.redis = { url: ENV['REDIS_URL'] }
   end
 
   Sidekiq.configure_server do |config|
     config.redis = { url: ENV['REDIS_URL']}
-
-    database_url = ENV['DATABASE_URL']
-
-    Rails.logger.info("database_url is #{database_url}")
-
-    if database_url
-      concurrency = Sidekiq.options[:concurrency].to_i
-      # This will be the case on Heroku deployed environments
-      uri = URI.parse(database_url)
-      puts "Original DATABASE_URL => #{uri}"
-      pool_size = (concurrency * 1.6).round(0)
-      params = {}
-      params['pool'] = pool_size
-      uri.query = "#{params.to_query}"
-      ENV['DATABASE_URL'] = uri.to_s
-      puts "Sidekiq Server is reconnecting with new pool size: #{params['pool']} - DATABASE_URL => #{uri}"
-      ActiveRecord::Base.establish_connection
-    end
 
     Rails.application.config.after_initialize do
       Rails.logger.info("DB Connection Pool size for Sidekiq Server before disconnect is: #{ActiveRecord::Base.connection.pool.instance_variable_get('@size')}")
