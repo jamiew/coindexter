@@ -40,9 +40,7 @@ class DailyDigestWorker
         coins_following.index coin.first.coins
       end
 
-      @user = user
-
-      UserMailer.daily_digest(@user, @network_logs, @coin_logs).deliver_now
+      UserMailer.daily_digest(user, @network_logs, @coin_logs).deliver_now
       
   	end
   end
