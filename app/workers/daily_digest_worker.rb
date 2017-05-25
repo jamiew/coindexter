@@ -2,6 +2,9 @@ class DailyDigestWorker
   include Sidekiq::Worker
 
   def perform
+
+    logger.info "digest running"
+
     network_logs_in_past_day = []
     Network.all.each do |network| 
       network_logs = NetworkService.new
