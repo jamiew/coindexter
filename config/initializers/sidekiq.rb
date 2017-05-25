@@ -8,8 +8,12 @@ if Rails.env.production?
     config.redis = { url: ENV['REDIS_URL']}
 
     database_url = ENV['DATABASE_URL']
+
+    Rails.logger.info("database_url is #{database_url}")
+
     if database_url
       ENV['DATABASE_URL'] = "#{database_url}?pool=30s"
+      Rails.logger.info("2 database_url is #{database_url}")
       ActiveRecord::Base.establish_connection
     end
 
