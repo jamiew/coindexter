@@ -9,7 +9,7 @@ if Rails.env.production?
 
     database_url = ENV['DATABASE_URL']
     if database_url
-      ENV['DATABASE_URL'] = "#{database_url}?pool=30"
+      ENV['DATABASE_URL'] = "#{database_url}?pool=30s"
       ActiveRecord::Base.establish_connection
     end
 
