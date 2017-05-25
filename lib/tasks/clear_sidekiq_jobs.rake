@@ -1,5 +1,7 @@
 task :clear_sidekiq_jobs => :environment do
 
+	require 'sidekiq/api'
+
 	queue = Sidekiq::Queue.new
 
 	def remove_jobs(queue)
