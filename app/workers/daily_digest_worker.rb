@@ -2,6 +2,9 @@ class DailyDigestWorker
   include Sidekiq::Worker
 
   def perform
+=begin
+    logger.info "digest running"
+
     network_logs_in_past_day = []
     Network.all.each do |network| 
       network_logs = NetworkService.new
@@ -40,12 +43,13 @@ class DailyDigestWorker
         coins_following.index coin.first.coins
       end
 
-      @user = user
-
-      UserMailer.daily_digest(@user, @network_logs, @coin_logs).deliver_now
+      UserMailer.daily_digest(user, @network_logs, @coin_logs).deliver_now
       
   	end
+    puts 'hey'
+=end
   end
+
 
   DailyDigestWorker.perform_async
   

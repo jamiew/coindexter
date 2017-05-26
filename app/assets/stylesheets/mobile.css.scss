@@ -203,6 +203,14 @@ $background-orange: rgb(254,247,245);
 	.link-association {
 		overflow:hidden;
 	}
+
+	.whitepaper-thumb-cnt {
+		a {
+			.whitepaper-thumbnail-default {
+				border: none;
+			}
+		}
+	}
 		
 }
 
