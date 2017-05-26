@@ -4,7 +4,7 @@ class WhitepaperUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
@@ -13,8 +13,6 @@ class WhitepaperUploader < CarrierWave::Uploader::Base
     storage :file
   end
   # storage :fog
-
-  include CarrierWave::MiniMagick
 
   version :thumb do
     process :cover    

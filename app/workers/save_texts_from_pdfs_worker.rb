@@ -8,7 +8,8 @@ class SaveTextsFromPdfsWorker
 			reader = PDF::Reader.new(io)
 			wp.fulltext = ""
 			reader.pages.each do |page|
-				wp.fulltext += page.text
+				text = page.text.delete "\0"
+				wp.fulltext += text
 			end
 			wp.save
 		end
