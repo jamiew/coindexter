@@ -1,7 +1,15 @@
 <div class="row whitepaper-list-cnt">
 	<div class="col-md-3 col-xs-4 whitepaper-thumb-cnt">
 		<%= link_to network_whitepaper_path(network, wp) do %>
-			<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+			<% if browser.platform.ios? or browser.platform.android? %>
+				<%= image_tag "fallback/default-whitepaper.png", :height => '130', :class => "whitepaper-thumbnail-default"	 %>
+			<% else %>
+				<% if wp.width && wp.width > wp.height %>
+					<%= image_tag wp.whitepaper.thumb, :width => wp.width, :height => wp.height, :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+				<% else %>
+					<%= image_tag wp.whitepaper.thumb, :size => '100x145', :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+				<% end %>
+			<% end %>
 		<% end %>
 	</div>
 	<div class="col-md-7 col-xs-7 col-md-offset-1 col-xs-offset-0 whitepaper-metadata">
