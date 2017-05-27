@@ -2,9 +2,13 @@
 	<div class="col-md-3 col-md-offset-1 col-xs-4 col-md-offset-0 whitepaper-thumb-cnt">
 		<%= link_to network_whitepaper_path(wp.network.name.downcase, wp) do %>
 			<% if browser.platform.ios? or browser.platform.android? %>
-				<%= image_tag "/assets/fallback/default-whitepaper.png", class: "whitepaper-thumbnail-default"	 %>
+				<%= image_tag "fallback/default-whitepaper.png", :height => '130', :class => "whitepaper-thumbnail-default"	 %>
 			<% else %>
-				<%= image_tag wp.whitepaper.thumb, class: "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+				<% if wp.width && wp.width > wp.height %>
+					<%= image_tag wp.whitepaper.thumb, :width => wp.width, :height => wp.height, :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+				<% else %>
+					<%= image_tag wp.whitepaper.thumb, :size => '145x100', :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+				<% end %>
 			<% end %>
 		<% end %>
 	</div>

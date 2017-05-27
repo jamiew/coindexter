@@ -15,7 +15,8 @@ class WhitepaperUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   version :thumb do
-    process :cover    
+    process :cover
+    process :store_dimensions    
   end
 
   def cover 
@@ -24,6 +25,14 @@ class WhitepaperUploader < CarrierWave::Uploader::Base
       img.resize("100x130")
       img = yield(img) if block_given?
       img
+    end
+  end
+
+  private
+
+  def store_dimensions
+    if file && model
+      model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
     end
   end
 

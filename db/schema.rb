@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506231125) do
+ActiveRecord::Schema.define(version: 20170527134714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "fuzzystrmatch"
   enable_extension "pg_trgm"
+  enable_extension "fuzzystrmatch"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -220,6 +220,8 @@ ActiveRecord::Schema.define(version: 20170506231125) do
     t.text     "text"
     t.text     "fulltext"
     t.integer  "user_id"
+    t.integer  "width"
+    t.integer  "height"
   end
 
   add_foreign_key "coins", "categories"
