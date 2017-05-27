@@ -7,7 +7,7 @@
 				<% if wp.width && wp.width > wp.height %>
 					<%= image_tag wp.whitepaper.thumb, :width => wp.width, :height => wp.height, :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
 				<% else %>
-					<%= image_tag wp.whitepaper.thumb, :size => '145x100', :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<%= image_tag wp.whitepaper.thumb, :size => '100x145', :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
 				<% end %>
 			<% end %>
 		<% end %>
