@@ -38,7 +38,7 @@ gem 'bootstrap-switch-rails', '~> 3.0.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # gem 'carrierwave_direct'
 gem 'mini_magick'
-gem 'fog'
+gem 'fog-aws'
 
 # url slugs
 gem 'friendly_id', '~> 5.1.0'
