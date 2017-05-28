@@ -1,3 +1,4 @@
+<%= render(partial: 'shared/metadata', locals: { title: @network.name, description: @network.description, path: request.url, og_image: @network.logo }) %>
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
 		<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "details"}) %>

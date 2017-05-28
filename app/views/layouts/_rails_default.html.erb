@@ -1,6 +1,43 @@
 <%= csrf_meta_tags %>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<meta property="fb:app_id" content="645659335584220" />
+<meta name="title" content ="<%= full_title(yield(:title)) %>" />
+<meta name="description" content ='<%= page_description(yield(:description)) %>' />
+<link rel="canonical" href='<%= canonical_url(yield(:url)) %>' />
+<meta name="keywords" content="Coindexter blockchain decentralized coin network whitepaper news follow" />
+<meta property="og:site_name" content="Coindexter" />
+<meta property="og:description" content="<%= page_description(yield(:description)) %>" />
+<meta property="og:url" content="<%= canonical_url(yield(:url)) %>"/>
+<meta property="og:image" content="<%= og_image(yield(:og_image)) %>" />
+<meta property="og:title" content="<%= full_title(yield(:title)) %>" />
+<meta property="og:type" content="website" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="google-site-verification" content="gL22SSnIaKN3mnsirena_ireCxtAbnq5_PI9c9WJ-Z0" />
+<link rel="icon" sizes="180x180" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-180x180.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png?" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png?" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="Coindexter">
+<meta name="application-name" content="Coindexter">
+<meta name="msapplication-TileColor" content="#eb6b33">
+<meta name="theme-color" content="#eb6b33">
+<title><%= full_title(yield(:title)) %></title>
+<%= favicon_link_tag 'favicon.ico' %>
+<%= content_for :head %>
+<%= render 'layouts/shim' %>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -9,5 +46,4 @@
 
     ga('create', 'UA-4227199-8', 'auto');
     ga('send', 'pageview');
-
 </script>
