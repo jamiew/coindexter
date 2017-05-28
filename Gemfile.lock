@@ -425,6 +425,8 @@ GEM
       rack-protection (>= 1.5.0)
       redis (~> 3.3, >= 3.3.3)
     simple_oauth (0.3.1)
+    sitemap_generator (5.3.1)
+      builder (~> 3.0)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -520,6 +522,7 @@ DEPENDENCIES
   retina_tag
   sass-rails (~> 5.0)
   sidekiq
+  sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

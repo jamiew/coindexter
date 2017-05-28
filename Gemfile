@@ -99,6 +99,8 @@ gem 'sidekiq'
 
 gem 'foreman'
 
+gem 'sitemap_generator'
+
 group :production do 
   gem 'rails_12factor'
 end
