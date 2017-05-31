@@ -68,15 +68,15 @@ class NetworkService < LogService
 	def still_exists(item_type, item_id)
 		case item_type 
 			when "Network"
-				unless Network.find(item_id).nil?
+				unless Network.exists?(:id => item_id)
 					return true
 				end
 			when "Coin"
-				unless Coin.find(item_id).nil?
-					return true
+				if Coin.exists?(:id => item_id)
+					return false
 				end
 			when "Network"
-				unless Whitepaper.find(item_id).nil?
+				unless Whitepaper.find(:id => item_id)
 					return true
 				end
 		end
