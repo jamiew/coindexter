@@ -6,11 +6,22 @@
   <body>
     <p>Hi <%= @user.username %>,</p>
     <p>Here are the changes amongst networks and coins you follow:
-    <% @logs.each do |log| %>
-		<%= image_tag log.first.networks.logo, alt: log.first.networks.name  %>
-		<h1><%= log.first.networks.name %></h1>
-		<%= render(partial: '/networks/log', collection: log, as: :log, locals: {show_tag: false}) %>
-	<% end %>
+    <% if network_logs.count > 0 %>
+      <h6>Networks</h6>
+      <% @network_logs.each do |log| %>
+  		  <%= image_tag log.first.networks.logo, alt: log.first.networks.name  %>
+  		  <h1><%= log.first.networks.name %></h1>
+  		  <%= render(partial: '/networks/log', collection: log, as: :log, locals: {show_tag: false}) %>
+  	  <% end %>
+    <% end %>
+    <% if coin_logs.count > 0 %>
+      <h6>Coins</h6>
+      <% @coin_logs.each do |log| %>
+        <%= image_tag log.first.coins.logo, alt: log.first.coins.name  %>
+        <h1><%= log.first.coins.name %></h1>
+        <%= render(partial: '/coins/log', collection: log, as: :log, locals: {show_tag: false}) %>
+      <% end %>
+    <% end %>
   </body>
 </html>
 
