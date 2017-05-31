@@ -47,8 +47,9 @@ class DailyDigestWorker
       unless @network_logs.count + @coin_logs.count == 0
         UserMailer.daily_digest(user, @network_logs.count, @coin_logs.count).deliver_now
       end
-      
+=begin
   	end
+=end
   
   end
 
