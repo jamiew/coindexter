@@ -197,7 +197,7 @@
 								<p><%= link_to "Does #{@network.name} have a Reddit?", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
-							<p><%= link_to @network.reddit.delete("https://www.reddit.com"), @network.reddit %></p>
+							<p><%= link_to @network.reddit.gsub("https://www.reddit.com/",""), @network.reddit %></p>
 						<% end %>
 					</div>
 				</div>
