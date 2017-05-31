@@ -61,16 +61,13 @@ class CoinsController < ApplicationController
 	end
 
 	def create
-		if defined?(@network) 
-			@network = Network.friendly.find(params[:network_id])
-		end
+		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.new(coin_params)
+		@coin.network = @network
+		puts "landry networks is #{@coin.network}"
 	    if @coin.save
 	    	@coin.category_id = 2 ? @coin.category_id.nil? : @coin.category_id
 	    	@coin.update_prices
-	    	if defined?(@network) 	
-	    		@coin.network = @network
-	    	end
 	    	@coin.save
 	    	redirect_to network_coin_path(@network, @coin)
 		else
@@ -145,7 +142,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :proof_algorithm, :network_id, networks: [], network_id: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :differentiator, :proof_algorithm, :network_id, networks: [], network_id: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
 		def up_or_down(value)
