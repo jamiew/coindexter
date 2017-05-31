@@ -66,7 +66,7 @@ class CoinsController < ApplicationController
 		@coin.network = @network
 		puts "landry networks is #{@coin.network}"
 	    if @coin.save
-	    	@coin.category_id = 2 ? @coin.category_id.nil? : @coin.category_id
+	    	@coin.category_id == 2 ? @coin.category_id.nil? : @coin.category_id
 	    	# @coin.update_prices
 	    	@coin.save
 	    	redirect_to network_coin_path(@network, @coin)
