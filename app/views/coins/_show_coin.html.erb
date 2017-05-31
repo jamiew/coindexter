@@ -63,7 +63,7 @@
 				<% end %>
 				<div class="row">
 					<div class="col-md-4 col-xs-12 label">
-						<h6>additional</h6>
+						<h6>Utility</h6>
 					</div>
 					<div class="col-md-8 col-xs-12 data">
 						<% if @coin.coin_info,.nil? || @coin.coin_info, == "" %>
@@ -71,7 +71,7 @@
 									<p>None added yet. Add a description from desktop.</p>
 							<% else %>
 								<p>
-									<%= link_to "What's a basic summary for #{@coin.name}?", edit_network_coin_url(@coin.network, @coin), class: "add-missing-field" %>
+									<%= link_to "What's is #{@coin.name} useful for?", edit_network_coin_url(@coin.network, @coin), class: "add-missing-field" %>
 								</p>
 							<% end %>
 						<% else %>
