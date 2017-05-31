@@ -47,6 +47,9 @@ class Coin < ApplicationRecord
   end
 
   def update_prices
+    if name == 'gnosis'
+      name = 'gnosis-gno' 
+    end
     response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + name.delete(" ").downcase)
     if response[0].nil?
       puts name
