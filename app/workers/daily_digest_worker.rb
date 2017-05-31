@@ -24,7 +24,7 @@ class DailyDigestWorker
 =begin    
     @user = User.all.each do |user|
 =end
-    user = User.find(1)
+    user = User.first
       networks_following = []
       coins_following = []
 
