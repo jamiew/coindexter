@@ -66,7 +66,7 @@
 						<h6>additional</h6>
 					</div>
 					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.application_description.nil? || @coin.application_description == "" %>
+						<% if @coin.coin_info,.nil? || @coin.coin_info, == "" %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 									<p>None added yet. Add a description from desktop.</p>
 							<% else %>
@@ -213,14 +213,32 @@
 					<div class="col-md-8 col-xs-12 data">
 						<% if @coin.coin_type.nil? || @coin.coin_type == "" %>
 							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add a coin type from desktop.
+								<p>None added yet. Add the coin type from desktop.
 							<% else %>
 								<p>
-									<%= link_to "Add a type", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
+									<%= link_to "Add the type", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
 								</p>
 							<% end %>
 						<% else %>
 							<p><%= @coin.coin_type.capitalize %></p>
+						<% end %>
+					</div>
+				</div>	
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Type</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<% if @coin.proof_algorithm.nil? || @coin.proof_algorithm == "" %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add the proof_algorithm from desktop.
+							<% else %>
+								<p>
+									<%= link_to "Add the proof_algorithm", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
+								</p>
+							<% end %>
+						<% else %>
+							<p><%= @coin.proof_algorithm.capitalize %></p>
 						<% end %>
 					</div>
 				</div>	
