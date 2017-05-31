@@ -5,7 +5,7 @@ class UserMailer < Devise::Mailer
 
 	default from: 'jonathan@coindexter.io'
 
-	def daily_digest(user, network_logs, coin_logs)
+	def daily_digest(user, network_logs_count, coin_logs_count)
 		@user = user
 		@network_logs = network_logs
 		@coin_logs = coin_logs
