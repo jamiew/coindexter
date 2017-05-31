@@ -185,6 +185,22 @@
 						<% end %>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>reddit</h6>
+					</div>
+					<div class="col-md-8 col-xs-12">
+						<% if @network.reddit.nil? || @network.reddit.empty?  %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								None added yet. Add the link from desktop.
+							<% else %>
+								<p><%= link_to "Does #{@network.name} have a Reddit?", edit_network_url, class: "add-missing-field" %></p>
+							<% end %>
+						<% else %>
+							<p><%= link_to @network.reddit, @network.reddit %></p>
+						<% end %>
+					</div>
+				</div>
 			</li>
 		</ul>
 	</div>
