@@ -44,7 +44,7 @@
 						<% when "Created" %>
 							<p>
 								Created 
-								<%= link_to log.coins.name, log.coins %>
+								<%= link_to log.coins.name, network_coins_path(log.coins.second, log.coins) %>
 							</p>
 						<% when "logo" %>
 							<p>
