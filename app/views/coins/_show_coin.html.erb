@@ -36,7 +36,7 @@
 							<% else %>
 								<ul>
 									<% @coin.exchanges.each_with_index do |exchange, i| %>
-										<% if exchange.url == "" or exchange.name = "" %>
+										<% if exchange.url == "" or exchange.name == "" %>
 											<% if browser.platform.ios? or browser.platform.android? %>
 												<li>
 													<p>None added yet. Add an exchange from desktop.</p>
