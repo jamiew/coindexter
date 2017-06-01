@@ -165,7 +165,7 @@
 								<p><%= link_to "Does #{@network.name} have a Slack group?", edit_network_url, class: "add-missing-field" %></p>
 							<% end %>
 						<% else %>
-							<p><%= link_to @network.link, @network.link %></p>
+							<p><%= link_to @network.slack, @network.slack %></p>
 						<% end %>
 					</div>
 				</div>
