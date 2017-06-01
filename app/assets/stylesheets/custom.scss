@@ -269,6 +269,7 @@ nav, .navbar {
 .left-nav {
 	padding-bottom:163px;
 	padding-right:40px;
+	padding-left:0;
 	border-right: 3px solid $border-orange;
 	ul.info-menu:last-child {
 		margin-top: 60px;
@@ -1176,6 +1177,7 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 	&:hover {
 		color: $primary-orange;
 	}
+	padding-left: 0;
 	.user-log-classification-coin, .user-log-classification-network, .user-log-classification-link, .user-log-classification-whitepaper {
 		background-color:rgba(255,255,255,0.8);
 		border: 3px solid $border-orange;
