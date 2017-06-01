@@ -46,19 +46,33 @@ $(document).on 'turbolinks:load', ->
 		$('.first-network-widget').removeClass 'col-md-offset-1'
 		if cat == 'all'	
 			$('a.network-widget').show()
+			$('ul.full-category-cnt').each ->
+				networksShown = $(@).find('a.network-widget')
+				networksShown.each (index, element) -> 
+					if index == 0 || index % 3 == 0
+						$(@).find('div').removeClass 'col-md-offset-1'
+						$(@).find('div').addClass 'col-md-offset-0'
+					else 
+						$(@).find('div').removeClass 'col-md-offset-0'
+						$(@).find('div').addClass 'col-md-offset-1'
 		else
 			selector = 'a[data-status="' + cat + '"]'
 			$('a.network-widget').hide()
 			$(selector).show()
-			networksShown = $('ul.full-category-cnt-active').find('a.network-widget').filter(->
-				$(this).css('display') != 'none'
-			)
-			if networksShown.length == 0
-				$('ul.full-category-cnt-active').find('h1').after '<p id="none-matching">None</p>'
-			else
-				firstNetwork = networksShown.first().find('div.network-in-categories')
-				firstNetwork.removeClass 'col-md-offset-1'
-				firstNetwork.addClass 'offset-removed'
+			$('ul.full-category-cnt').each ->
+				networksShown = $(@).find('a.network-widget').filter(->
+					$(this).css('display') != 'none'
+				)
+				if networksShown.length == 0
+					$(@).find('h1').after '<p id="none-matching">None are ' + cat + '</p>'
+				else
+					networksShown.each (index, element) -> 
+						if index == 0 || index % 3 == 0
+							$(@).find('div').removeClass 'col-md-offset-1'
+							$(@).find('div').addClass 'col-md-offset-0'
+						else 
+							$(@).find('div').removeClass 'col-md-offset-0'
+							$(@).find('div').addClass 'col-md-offset-1'
 
 
 
