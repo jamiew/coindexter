@@ -22,6 +22,7 @@
 		<ul>
 			<li class="sale-block block" data-group="upcoming">
 				<div class="row">
+					<div class="col-md-12 col-xs-12">
 						<% @upcoming_sales.each do |group| %>
 							<h1 class="list-name"><%= group[0] %></h1>
 								<div class="row results">
@@ -37,6 +38,7 @@
 			</li>
 			<li class="sale-block block previous" data-group="previous">
 				<div class="row">
+					<div class="col-md-12 col-xs-12">
 						<% @previous_sales.each do |group| %>
 							<div class="row results">
 								<div class="col-md-12 col-xs-12">
