@@ -46,9 +46,9 @@
 								<% end %>
 							<% when "Description" %>
 								<% if change[:change_type] == "added" %>
-									Added a description: <%= change[:change].second %>
+									Added a description: "<%= change[:change].second %>"
 								<% elsif change[:change_type] == "edited" %>
-									Changed description from <%= change[:change].first %> to <%= change[:change].second %>
+									Changed description from "<%= change[:change].first %>" to "<%= change[:change].second %>"
 								<% end %>	
 							<% when "slack" %>
 								<% if change[:change_type] == "added" %>
