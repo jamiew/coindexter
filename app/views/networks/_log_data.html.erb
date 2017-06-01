@@ -34,7 +34,7 @@
 								<% end %>
 							<% when "Status" %>
 								<% if change[:change_type] == "added" %>
-									Set to <%= change[:change_attr].downcase %>: <%= change[:change].second.capitalize %>
+									Set <%= change[:change_attr].downcase %>: <%= change[:change].second.capitalize %>
 								<% elsif change[:change_type] == "edited" %>
 									Changed <%= change[:change_attr].downcase %> from <%= change[:change].first.capitalize %> to <%= change[:change].second.capitalize %>
 								<% end %>
@@ -44,6 +44,12 @@
 								<% elsif change[:change_type] == "edited" %>
 									Changed homepage from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
 								<% end %>
+							<% when "Description" %>
+								<% if change[:change_type] == "added" %>
+									Added a description: <%= link_to change[:change].second,  change[:change].second %>
+								<% elsif change[:change_type] == "edited" %>
+									Changed description from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+								<% end %>	
 							<% when "slack" %>
 								<% if change[:change_type] == "added" %>
 									Added Slack: <%= link_to change[:change].second,  change[:change].second %>
@@ -62,7 +68,7 @@
 								<% elsif change[:change_type] == "edited" %>
 									Changed Reddit from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
 								<% end %>		
-							<% when "repository" %>
+							<% when "github" %>
 								<% if change[:change_type] == "added" %>
 									Added repository: <%= link_to change[:change].second,  change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
