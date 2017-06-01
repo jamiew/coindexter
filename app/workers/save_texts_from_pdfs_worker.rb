@@ -1,5 +1,6 @@
 class SaveTextsFromPdfsWorker
   include Sidekiq::Worker
+  sidekiq_options :retry => 1
 
   def perform
     Whitepaper.all.each do |wp|
