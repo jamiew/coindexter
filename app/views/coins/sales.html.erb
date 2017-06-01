@@ -18,11 +18,10 @@
 			<li id="previous" class="category-link" data-group="previous"><p>past sales</p></li>
 		</ul>
 	</div>
-	<div class="col-md-6 main col-xs-12">
+	<div class="col-md-6 col-md-offset-1 main col-xs-12">
 		<ul>
 			<li class="sale-block block" data-group="upcoming">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-2 col-xs-12 col-xs-offset-0 upcoming">
 						<% @upcoming_sales.each do |group| %>
 							<h1 class="list-name"><%= group[0] %></h1>
 								<div class="row results">
@@ -38,7 +37,6 @@
 			</li>
 			<li class="sale-block block previous" data-group="previous">
 				<div class="row">
-					<div class="col-md-10 col-md-offset-2 col-xs-12 col-xs-offset-0 previous">
 						<% @previous_sales.each do |group| %>
 							<div class="row results">
 								<div class="col-md-12 col-xs-12">
