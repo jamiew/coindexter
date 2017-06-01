@@ -64,8 +64,10 @@ class CoinsController < ApplicationController
 		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.new(coin_params)
 		@coin.network = @network
-		puts "landry networks is #{@coin.network}"
 	    if @coin.save
+	    	if @coin.coin_status == "Live"
+	    		UpdateSingleCoinPriceWorker.perform_async(@coin.id)
+	    	end
 	    	redirect_to network_coin_path(@network, @coin)
 		else
 	        render 'new'
@@ -87,6 +89,11 @@ class CoinsController < ApplicationController
     		@network = Network.find(coin_params[:network_id].second)
     		@coin.network = @network
     		@coin.save
+    		puts "suh #{@coin.coin_status}"
+    		if @coin.coin_status == "live"
+    			puts 'working'
+    			UpdateSingleCoinPriceWorker.perform_async(@coin.id)
+    		end
     		redirect_to network_coin_path(@network, @coin)
 		else
 	    	render 'edit'

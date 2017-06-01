@@ -46,6 +46,10 @@ class Coin < ApplicationRecord
     end
   end
 
+=begin
+
+  # Moved to Sidekiq worker 
+  
   def update_prices
     response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + name.delete(" ").downcase)
     if response[0].nil?
@@ -61,6 +65,7 @@ class Coin < ApplicationRecord
       update_attributes(:price => price,:one_day_price_change => one_day_price_change, :one_hour_price_change => one_hour_price_change, :available_supply => available_supply, :total_supply => total_supply, :market_cap => market_cap)
     end
   end
+=end
 
   def repositories
     read_attribute(:repositories).map {|v| Repository.new(v) }
