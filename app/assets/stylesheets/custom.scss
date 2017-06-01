@@ -269,6 +269,7 @@ nav, .navbar {
 .left-nav {
 	padding-bottom:163px;
 	padding-right:40px;
+	padding-left:0;
 	border-right: 3px solid $border-orange;
 	ul.info-menu:last-child {
 		margin-top: 60px;
@@ -1181,7 +1182,7 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 		border: 3px solid $border-orange;
 		border-radius: 4px;
 		float:right; 
-		padding: 3px 10px 2px 10px;
+		padding: 3px 10px px 10px;
 		height:37px;
 		img {
 			margin-top:2px;
@@ -1193,6 +1194,9 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 		&:hover {
 			border-color: $primary-orange;
 		}
+	}
+	.user-log-classification-coin {
+		padding-left: 0px;
 	}
 	.user-log-classification-whitepaper {
 		float:left;
