@@ -8,7 +8,7 @@ class UpdateSingleCoinPriceWorker
     logger.info coin.inspect
 	response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.delete(" ").downcase)
     if response[0].nil?
-      puts name
+      puts coin.name
     else
       price = response[0]["price_usd"]
       one_hour_price_change = response[0]["percent_change_1h"]
@@ -22,6 +22,6 @@ class UpdateSingleCoinPriceWorker
     end
   end
 
-  UpdateSingleCoinPriceWorker.perform_async
+  UpdateSingleCoinPriceWorker.perform_async(coin_id)
   
 end

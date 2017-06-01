@@ -66,6 +66,9 @@ class CoinsController < ApplicationController
 		@coin.network = @network
 	    if @coin.save
 	    	if @coin.coin_status == "Live"
+	    		if @coin.price.nil?
+	    			@fetching_price = true
+	    		end
 	    		UpdateSingleCoinPriceWorker.perform_async(@coin.id)
 	    	end
 	    	redirect_to network_coin_path(@network, @coin)
@@ -91,7 +94,9 @@ class CoinsController < ApplicationController
     		@coin.save
     		puts "suh #{@coin.coin_status}"
     		if @coin.coin_status == "live"
-    			puts 'working'
+    			if @coin.price.nil?
+	    			@fetching_price = true
+	    		end
     			UpdateSingleCoinPriceWorker.perform_async(@coin.id)
     		end
     		redirect_to network_coin_path(@network, @coin)

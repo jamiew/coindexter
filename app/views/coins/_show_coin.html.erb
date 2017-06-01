@@ -36,25 +36,11 @@
 							<% else %>
 								<ul>
 									<% @coin.exchanges.each_with_index do |exchange, i| %>
-										<% if exchange.url == "" or exchange.name == "" %>
-											<% if browser.platform.ios? or browser.platform.android? %>
-												<li>
-													<p>None added yet. Add an exchange from desktop.</p>
-												</li>
-											<% else %>
-												<li>
-													<p>
-														<%= link_to "Where can one buy #{@coin.name}?",edit_network_coin_url, class: "add-missing-field" %>
-													</p>
-												</li>
-											<% end %>
-										<% else %>
-											<li>
-												<p>
-													<%= link_to exchange.name, exchange.url %>
-												</p>
-											</li>
-										<% end %>
+										<li>
+											<p>
+												<%= link_to exchange.name, exchange.url %>
+											</p>
+										</li>
 									<% end %>
 								</ul>
 							<% end %>
@@ -114,6 +100,23 @@
 					</div>
 				</div>
 			</li>
+			<% unless @fetching_price %>
+				<li class="coin-price-info coin-info-block block">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-4 title-row">
+							<h6>financials</h6>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col-md-4 col-xs-12 label">
+							<h6>price (usd)</h6>
+						</div>
+						<div class="col-md-8 col-xs-12 data">
+							<p>Fetching. Refresh page for update.</p>
+						</div>
+					</div>
+				</li>
+			<% end %>
 			<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
 				<li class="coin-price-info coin-info-block block">
 					<div class="row">
