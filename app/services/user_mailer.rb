@@ -5,9 +5,9 @@ class UserMailer < Devise::Mailer
 
 	default from: 'jonathan@coindexter.io'
 
-	def daily_digest(user, network_logs_count, coin_logs_count)
+	def daily_digest(user, network_logs, coin_logs)
 		@user = user
-		update_sum = network_logs_count + coin_logs_count == 1 ? "1 update" : "#{network_logs_count + coin_logs_count} updates" 
+		update_sum = network_logs.count + coin_logs.count == 1 ? "1 update" : "#{network_logs_count + coin_logs_count} updates" 
 		mail(to: @user.email, subject: "Coindexter Daily Digest: #{update_sum}")
 	end
 
