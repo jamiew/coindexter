@@ -5,9 +5,10 @@ class UpdateAllCoinPricesWorker
   def perform
     Coin.all.each do |coin|
     	if coin.coin_status == "live"
+    		puts coin.name
 	    	response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.delete(" ").downcase)
 		    if response[0].nil?
-		      puts name
+		      puts coin.name
 		    else
 		      coin.price = response[0]["price_usd"]
 		      coin.one_hour_price_change = response[0]["percent_change_1h"]
