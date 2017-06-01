@@ -3,9 +3,9 @@ class UpdateSingleCoinPriceWorker
 
   def perform(coin_id)
   	logger.info "things are happening"
-    logger.info "coin_id"
+    logger.info coin_id
   	coin = Coin.find(coin_id)
-    logger.info coin
+    logger.info coin.inspect
 	response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.delete(" ").downcase)
     if response[0].nil?
       puts name
