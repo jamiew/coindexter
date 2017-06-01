@@ -22,6 +22,6 @@ class UpdateSingleCoinPriceWorker
     end
   end
 
-  UpdateSingleCoinPriceWorker.perform_async(coin_id)
+  UpdateSingleCoinPriceWorker.perform_async
   
 end
