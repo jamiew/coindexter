@@ -1177,6 +1177,7 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 	&:hover {
 		color: $primary-orange;
 	}
+	padding-left: 0;
 	.user-log-classification-coin, .user-log-classification-network, .user-log-classification-link, .user-log-classification-whitepaper {
 		background-color:rgba(255,255,255,0.8);
 		border: 3px solid $border-orange;
@@ -1194,9 +1195,6 @@ form.edit_coin, form.new_coin, .sign-in-up, .new_user {
 		&:hover {
 			border-color: $primary-orange;
 		}
-	}
-	.user-log-classification-coin {
-		padding-left: 0;
 	}
 	.user-log-classification-whitepaper {
 		float:left;
