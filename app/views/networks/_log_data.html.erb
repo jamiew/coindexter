@@ -10,6 +10,7 @@
 				<% else %>
 					<li>
 				<% end %>
+						<% puts "change is #{change.inspect}" %>
 						<% case change[:change_attr] %>
 							<% when "whitepapers" %>
 								<% if change[:change_type] == "added" || change[:change_type] == "edited" %>
