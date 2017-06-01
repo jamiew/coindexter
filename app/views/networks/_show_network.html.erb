@@ -126,7 +126,7 @@
 						<h6>url</h6>
 					</div>
 					<div class="col-md-8 col-xs-12">
-						<% if @network.link.empty? %>
+						<% if @network.link.nil? || @network.link.empty? %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add the link from desktop.
 							<% else %>
@@ -158,7 +158,7 @@
 						<h6>slack</h6>
 					</div>
 					<div class="col-md-8 col-xs-12">
-						<% if @network.slack.empty? %>
+						<% if @network.slack.nil? || @network.slack.empty? %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add the link from desktop.
 							<% else %>
@@ -174,7 +174,7 @@
 						<h6>forum</h6>
 					</div>
 					<div class="col-md-8 col-xs-12">
-						<% if @network.forum.empty? %>
+						<% if @network.forum.nil? || @network.forum.empty? %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								None added yet. Add the link from desktop.
 							<% else %>
