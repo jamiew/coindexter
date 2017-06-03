@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
 	def index
-		@categories = Category.all.order('name')
+		@categories = Category.find_each.order('name')
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-		@categories = Category.all.order('name')
+		@categories = Category.find_each.order('name')
 		@category = Category.friendly.find(params[:id])
 		respond_to do |format|
 		    format.html

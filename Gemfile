@@ -52,7 +52,6 @@ gem 'devise'
 gem 'omniauth-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem 'twitter'
 gem 'omniauth-google-oauth2'
 
 #environmental variables
