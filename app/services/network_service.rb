@@ -73,10 +73,10 @@ class NetworkService < LogService
 				end
 			when "Coin"
 				if Coin.exists?(:id => item_id)
-					return false
+					return true
 				end
 			when "Whitepaper"
-				if Whitepaper.find(:id => item_id)
+				if Whitepaper.exists?(:id => item_id)
 					return true
 				end
 		end
