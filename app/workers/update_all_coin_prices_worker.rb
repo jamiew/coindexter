@@ -3,7 +3,7 @@ class UpdateAllCoinPricesWorker
   sidekiq_options :retry => 1
 
   def perform
-    Coin.all.each do |coin|
+    Coin.find_each do |coin|
     	if coin.coin_status == "live"
     		puts coin.name
 	    	response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.delete(" ").downcase)

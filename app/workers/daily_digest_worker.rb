@@ -5,7 +5,7 @@ class DailyDigestWorker
   def perform
 
     network_logs_in_past_day = []
-    Network.all.each do |network| 
+    Network.find_each do |network| 
       network_logs = NetworkService.new
       logs = network_logs.get_logs(network, "Network",nil,nil,1).reverse
       unless logs.empty?
@@ -14,7 +14,7 @@ class DailyDigestWorker
     end
 
     coin_logs_in_past_day = []
-    Coin.all.each do |coin| 
+    Coin.find_each do |coin| 
       coin_logs = NetworkService.new
       logs = coin_logs.get_logs(coin, "Coin",nil,nil,1).reverse
       unless logs.empty?

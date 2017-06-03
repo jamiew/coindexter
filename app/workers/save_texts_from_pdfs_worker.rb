@@ -3,7 +3,7 @@ class SaveTextsFromPdfsWorker
   sidekiq_options :retry => 1
 
   def perform
-    Whitepaper.all.each do |wp|
+    Whitepaper.find_each do |wp|
 		if wp.fulltext.nil?
 			io = open('https://s3.amazonaws.com/coindexter/' + wp.whitepaper.current_path)
 			reader = PDF::Reader.new(io)
