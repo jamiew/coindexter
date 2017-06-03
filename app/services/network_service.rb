@@ -43,7 +43,6 @@ class NetworkService < LogService
 		else
 			versions = PaperTrail::Version.all.where(:whodunnit => user_id).limit(5).order("created_at DESC")
 		end
-		puts "versions are #{versions.inspect}"
 		log_set = []
 
 		versions.each do |version|
@@ -54,6 +53,9 @@ class NetworkService < LogService
 		      	unless version.whodunnit.nil? 
 		      		self.user = User.find(version.whodunnit)
 		      	end
+		      	puts "version.item_type is #{version.item_type}"
+		      	puts "version.item_id is #{version.item_id}"
+		      	puts still_exists(version.item_type, version.item_id)
 				if still_exists(version.item_type, version.item_id)
 					set_coins_and_networks(version.item_type, version.item_id)
 					log_set << self.dup
