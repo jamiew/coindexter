@@ -21,13 +21,21 @@ class NetworkService < LogService
 		log_set = []
 
 		versions.each do |version|
+			puts "version 1 is #{version}"
 			unless version.changeset == {}
+				puts "version 2 is #{version.created_at}"
+				puts "version 2 is #{version.feed_type}"
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
+		      	puts "version 3 is #{version.created_at}"
+				puts "version 3 is #{version.feed_type}"
 		      	convert_changeset(version)
+		      	puts "versions 4 is #{version}"
 		      	if defined?(version.user) && !version.user.nil?
 	    			self.user = version.user
+	    			puts "versions 5 is #{version}"
 	  			end
 				set_coins_and_networks(feed_type, object)
+				puts "versions 5 is #{version}"
 				log_set << self.dup
 			end
 	    end
@@ -178,7 +186,11 @@ class NetworkService < LogService
 				if abort_log
 			        break
 			    end
+			    puts "change is #{value}"
+			    puts "change_attr is #{change_attr}"
+			    puts "change_type is #{type}"
 				data = set_data(change: value, change_attr: change_attr, change_type: type)
+				puts "dataset is #{data}"
 				dataset << data
 		    end
 	  	end
