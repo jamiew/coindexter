@@ -21,8 +21,13 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  include CarrierWave::MiniMagick
+  # for image size validation
+  # fetching dimensions in uploader, validating it in model
+  # attr_reader :width, :height
+  # before :cache, :capture_size
 
+  include CarrierWave::MiniMagick
+ 
   process resize_to_fill: [400,400]
   process crop: '400x400+0+0'
 
@@ -71,6 +76,7 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
   # end
 
   private
+
 
   def crop(geometry)
     manipulate! do |img|      

@@ -20,6 +20,15 @@ class Network < ApplicationRecord
 	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :category_id]
 
 	enum network_status_options: [:concept, :preproduction, :live, :dead]
+	
+	validate :correct_dimensions?
+
+    def correct_dimensions?
+	  image = MiniMagick::Image.open(logo.path)
+	  unless image[:width] != image[:height]
+	    errors.add :logo, "The dimensions of the logo must be a square" 
+	  end
+  	end
 
 	acts_as_followable
 

@@ -7,7 +7,6 @@ class Coin < ApplicationRecord
   multisearchable :against => [:name]
   pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
 
-  
 
   validates_uniqueness_of :name
 
@@ -21,6 +20,13 @@ class Coin < ApplicationRecord
   enum coin_status_options: [:concept, :preproduction, :live, :dead]
 
   acts_as_followable
+
+  def correct_dimensions?
+    image = MiniMagick::Image.open(logo.path)
+    unless image[:width] != image[:height]
+      errors.add :logo, "The dimensions of the logo must be a square" 
+    end
+  end
 
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?
