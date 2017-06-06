@@ -21,7 +21,7 @@ class Network < ApplicationRecord
 
 	enum network_status_options: [:concept, :preproduction, :live, :dead]
 	
-	validate :correct_dimensions?
+	validate :correct_dimensions?, :if => :logo_changed?
 
     def correct_dimensions?
 	  image = MiniMagick::Image.open(logo.path)

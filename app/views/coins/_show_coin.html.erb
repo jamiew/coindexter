@@ -57,7 +57,7 @@
 									<p>None added yet. Add a description from desktop.</p>
 							<% else %>
 								<p>
-									<%= link_to "What's is #{@coin.name} useful for?", edit_network_coin_url(@coin.network, @coin), class: "add-missing-field" %>
+									<%= link_to "What's is #{@coin.name} useful for?", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
 								</p>
 							<% end %>
 						<% else %>
@@ -77,7 +77,7 @@
 								<p>None added yet. Add a symbol from desktop.</p>
 							<% else %>
 								<p>
-									<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
+									<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
 								</p>
 							<% end %>
 						<% end %>

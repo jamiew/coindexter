@@ -82,7 +82,6 @@ class NetworksController < ApplicationController
 	    if @network.save
 			redirect_to @network
 		else
-			flash[:alert] = @network.errors.messages
 	        render 'new'
 	    end
 	end
@@ -93,7 +92,6 @@ class NetworksController < ApplicationController
 	  	if @network.update_attributes(network_params)
 	    	redirect_to @network
 		else
-			flash[:alert] = @network.errors.messages
 	    	render 'edit'
 	  	end
 	end

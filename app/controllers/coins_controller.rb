@@ -91,6 +91,9 @@ class CoinsController < ApplicationController
 		@coin = Coin.friendly.find(params[:id])
 		@network = Network.friendly.find(params[:network_id])
 	  	if @coin.update_attributes(coin_params)
+	  		if @coin.network.nil?
+	  			@coin.network = @network
+	  		end
     		@coin.save
     		puts "suh #{@coin.coin_status}"
     		if @coin.coin_status == "live"

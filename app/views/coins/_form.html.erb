@@ -16,7 +16,7 @@
 			<% if @coin.errors[:logo].empty? %>
 				<p class="form-guidance">Logo must be square</p>
 			<% else %>
-				<p class="form-alert"><%= @coin.errors[:logo] %></p>
+				<p class="form-error"><%= @coin.errors[:logo].first %></p>
 			<% end %>
 		</div>
 	</div>
