@@ -23,7 +23,7 @@ class Coin < ApplicationRecord
 
   def correct_dimensions?
     image = MiniMagick::Image.open(logo.path)
-    unless image[:width] != image[:height]
+    if image[:width] != image[:height]
       errors.add :logo, "The dimensions of the logo must be a square" 
     end
   end
