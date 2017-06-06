@@ -8,7 +8,7 @@
     <% unless @network_logs.nil? %>
       <p>Here are the changes amongst the networks you follow:</p>
       <% @network_logs.each do |log| %>
-        <%= image_tag log.first.networks.logo, alt: log.first.networks.name, style: "display:inline;"  %>
+        <%= image_tag log.first.networks.logo, alt: log.first.networks.name, style: "display:inline;", size:'60x60'  %>
         <%= link_to log.first.networks, style: "text-decoration: none !important;" do %>
           <h2 style="display:inline; color: rgb(235,107,51);"><%= log.first.networks.name %></h2>
         <% end %>
