@@ -74,6 +74,12 @@
 									Added repository: <%= link_to change[:change].second,  change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
 									Changed repository from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+								<% end %>
+							<% when "team" %>
+								<% if change[:change_type] == "added" %>
+									<p>Added the team: "<%= change[:change].second %>"</p>
+								<% elsif change[:change_type] == "edited" %>
+									<p>Changed team from "<%= change[:change].first %>" to "<%= change[:change].second %>"</p>
 								<% end %>				
 							<% when "Created" %>
 								Created 
