@@ -11,6 +11,7 @@
 					<li>
 				<% end %>
 						<% puts "change is #{change.inspect}" %>
+						<% puts "change is #{change[:change_attr]}" %>
 						<% case change[:change_attr] %>
 							<% when "whitepapers" %>
 								<% if change[:change_type] == "added" || change[:change_type] == "edited" %>
