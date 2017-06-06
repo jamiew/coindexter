@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :authenticate, only: :edit
+  before_action :authenticate_user!, only: [:edit]
 
   caches_action :index, expires_in: 10.minute
 
