@@ -91,8 +91,6 @@ class CoinsController < ApplicationController
 		@coin = Coin.friendly.find(params[:id])
 		@network = Network.friendly.find(params[:network_id])
 	  	if @coin.update_attributes(coin_params)
-    		@network = Network.find(coin_params[:network_id].second)
-    		@coin.network = @network
     		@coin.save
     		puts "suh #{@coin.coin_status}"
     		if @coin.coin_status == "live"
@@ -125,6 +123,7 @@ class CoinsController < ApplicationController
 			unless @coin.network.nil?
 				@user.follow(@coin.network)
 			end
+			flash[:success] = "You will receive updates about this coin and its parent network via email"
 			@success = true
 		end
 		respond_to do |format|

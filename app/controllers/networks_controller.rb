@@ -112,6 +112,7 @@ class NetworksController < ApplicationController
 					@user.follow(coin)
 				end
 			end
+			flash[:success] = "You will receive updates about this network via email"
 			@success = true
 		end
 		respond_to do |format|

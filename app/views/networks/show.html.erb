@@ -15,9 +15,9 @@
 	<ul class="action-links">
 		<% if current_user %>
 			<% if @following %>
-				<li><%= link_to("Unfollow #{@network.name}", unfollow_network_path, remote: true, class: "action-link", id: "unfollow-network", accesskey: 'F') %></li>
+				<li><%= link_to("Unfollow #{@network.name}", unfollow_network_path, remote: true, method: :put, class: "action-link", id: "unfollow-network", accesskey: 'F') %></li>
 			<% else %>
-				<li><%= link_to("Follow #{@network.name}", follow_network_path, remote: true, class: "action-link", id: "follow-network", accesskey: 'F') %></li>
+				<li class="follow-action-link"><%= link_to("Follow #{@network.name}", follow_network_path, remote: true, method: :put, class: "action-link", id: "follow-network", accesskey: 'F') %></li>
 			<% end %>
 		<% else %>
 			<li><%= link_to("Follow #{@network.name}", follow_network_path, class: "action-link", id: "follow-network", accesskey: 'F') %></li>

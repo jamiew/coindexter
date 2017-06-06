@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :networks do
     member do
-      get :follow
+      put :follow
       put :unfollow
       get :logs
     end

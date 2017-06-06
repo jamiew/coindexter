@@ -17,7 +17,7 @@
 			<% if @following %>
 				<li><%= link_to("Unfollow #{@coin.name}", unfollow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "unfollow-network", accesskey: 'F') %></li>
 			<% else %>
-				<li><%= link_to("Follow #{@coin.name}", follow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "follow-coin", accesskey: 'F') %></li>
+				<li class="follow-action-link"><%= link_to("Follow #{@coin.name}", follow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "follow-coin", accesskey: 'F') %></li>
 			<% end %>
 		<% else %>
 			<li>
