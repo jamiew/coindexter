@@ -34,9 +34,9 @@
 								<% end %>
 							<% when "Status" %>
 								<% if change[:change_type] == "added" %>
-									Set <%= change[:change_attr].downcase %>: <%= change[:change].second.capitalize %>
+									Set <%= change[:change_attr].downcase %>: <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <%= change[:change_attr].downcase %> from <%= change[:change].first.capitalize %> to <%= change[:change].second.capitalize %>
+									Changed <%= change[:change_attr].downcase %> from <div class="status-icon <%= change[:change].first %>-icon"></div><p class="status <%= change[:change].first %>-status"><%= change[:change].first %></p> to <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
 								<% end %>
 							<% when "Link" %>
 								<% if change[:change_type] == "added" %>

@@ -46,6 +46,12 @@
 								Created 
 								<%= link_to log.coins.name, network_coin_path(log.coins.network, log.coins) %>
 							</p>
+						<% when "team" %>
+								<% if change[:change_type] == "added" %>
+									Added the team: <%= change[:change].second %>
+								<% elsif change[:change_type] == "edited" %>
+									Changed team from <%= change[:change].first %> to <%= change[:change].second %>
+								<% end %>
 						<% when "Status" %>
 							<% if change[:change_type] == "added" %>
 								Set <%= change[:change_attr].downcase %>: <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
