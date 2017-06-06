@@ -20,6 +20,7 @@
     <% unless @coin_logs.nil? %>
       <p>Here are the changes amongst the coins you follow:</p>
       <% @coin_logs.each do |log| %>
+        <% binding.pry %>
         <%= image_tag log.first.coins.logo, alt: log.first.coins.name, style: "display:inline;"  %>
         <%= link_to network_coin_path(log.coins.network, log.coins), style: "text-decoration: none !important;" do %>
           <h2 style="display:inline; color: rgb(235,107,51);"><%= log.first.coins.name %></h2>
