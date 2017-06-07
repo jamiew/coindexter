@@ -112,12 +112,11 @@ class NetworksController < ApplicationController
 					@user.follow(coin)
 				end
 			end
-			flash[:success] = "You will receive updates about this network via email"
 			@success = true
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:notice] = "You will receive updates about this network via email" }
 		    format.json
 		end
 	end
@@ -136,7 +135,7 @@ class NetworksController < ApplicationController
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:alert] = "You will no longer receive updates about this network via email" }
 		    format.json
 		end
 	end

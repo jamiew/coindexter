@@ -125,12 +125,11 @@ class CoinsController < ApplicationController
 			unless @coin.network.nil?
 				@user.follow(@coin.network)
 			end
-			flash[:success] = "You will receive updates about this coin and its parent network via email"
 			@success = true
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:notice] = "You will receive updates about this coin and its parent network via email" }
 		    format.json
 		end
 	end
@@ -147,7 +146,7 @@ class CoinsController < ApplicationController
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:alert] = "You will no receive updates about this coin and its parent network via email" }
 		    format.json
 		end
 	end

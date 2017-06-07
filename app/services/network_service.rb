@@ -21,7 +21,6 @@ class NetworkService < LogService
 		log_set = []
 
 		versions.each do |version|
-			puts "version 1 is #{version}"
 			unless version.changeset == {}
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
 		      	convert_changeset(version)
@@ -175,11 +174,7 @@ class NetworkService < LogService
 				if abort_log
 			        break
 			    end
-			    puts "change is #{value}"
-			    puts "change_attr is #{change_attr}"
-			    puts "change_type is #{type}"
 				data = set_data(change: value, change_attr: change_attr, change_type: type)
-				puts "dataset is #{data}"
 				dataset << data
 		    end
 	  	end
