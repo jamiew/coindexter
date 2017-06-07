@@ -100,8 +100,8 @@
           <h2 style="display:inline; color: rgb(235,107,51);"><%= log.coins.name %></h2>
         <% end %>
         <br>
-        <%= render(partial: 'coins/log_data', locals: {log: log.first}) %>
-        <%= render partial: '/shared/who_posted', locals: { email: true, user: log.first.user, created_at: log.first.created_at } %>
+        <%= render(partial: 'coins/log_data', locals: {log: log}) %>
+        <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
         <br />
         <br />
       <% end %>
