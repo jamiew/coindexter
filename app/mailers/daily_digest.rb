@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
     @coins_following = coins_following
     update_sum = network_logs.count + coin_logs.count == 1 ? "1 update" : "#{network_logs.count + coin_logs.count} updates" 
     mail(to: @user.email, subject: "Coindexter Daily Digest: #{update_sum}")
-    puts "mail sent 2 #{@user.email}"
+    puts "mail sent to #{@user.email}"
   end
 
 end
