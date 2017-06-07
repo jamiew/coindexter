@@ -556,23 +556,8 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                 <% end %>
                 <br />
               <% end %>
-              <% unless @network_logs.nil? %>
-                <p>Some changes were made to the networks you follow:</p>
-                <% @network_logs.each do |log| %>
-                  <%= image_tag log.networks.logo, alt: log.networks.name, style: "display:inline;", size:'20x20'  %>        
-                  <%= link_to log.networks, style: "text-decoration: none !important;" do %>
-                    <h3 style="display:inline; color: rgb(235,107,51);"><%= log.networks.name %></h2>
-                  <% end %>
-                  <br>
-                  <%= render(partial: 'networks/log_data', locals: {log: log}) %>
-                  <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
-                  <br />
-                <% end %>
-                <br />
-              <% end %>
-              <br />
               <% unless @coin_logs.nil? %>
-                <p>Some changes were made to the coins you follow:</p>
+                <h2>Other changes to coins you follow:</h2>
                 <% @coin_logs.each do |log| %>
                   <%= image_tag log.coins.logo, alt: log.coins.name, style: "display:inline;", size:'20x20'  %>        
                   <%= link_to network_coin_url(log.coins.network, log.coins), style: "text-decoration: none !important;" do %>
@@ -584,6 +569,21 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                   <br />
                   <br />
                 <% end %>
+              <% end %>
+              <br />
+              <% unless @network_logs.nil? %>
+                <h2>Networks you follow</h2>
+                <% @network_logs.each do |log| %>
+                  <%= image_tag log.networks.logo, alt: log.networks.name, style: "display:inline;", size:'20x20'  %>        
+                  <%= link_to log.networks, style: "text-decoration: none !important;" do %>
+                    <h3 style="display:inline; color: rgb(235,107,51);"><%= log.networks.name %></h2>
+                  <% end %>
+                  <br>
+                  <%= render(partial: 'networks/log_data', locals: {log: log}) %>
+                  <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
+                  <br />
+                <% end %>
+                <br />
               <% end %>
               <br />
             </div>
