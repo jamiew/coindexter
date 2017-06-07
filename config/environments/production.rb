@@ -85,8 +85,8 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.mailgun_settings = {
-    api_key: 'key-84e04576e169545ef111d461049b3385',
-    domain: 'mail.coindexter.io'
+    api_key: ENV['MAILGUN_API_KEY'],
+    domain: ENV['MAILGUN_DOMAIN']
   }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?

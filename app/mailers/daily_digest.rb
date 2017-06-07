@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   
- default from: "jonathan@coindexter.io"
+ default from: "Coindexter <jonathan@coindexter.io>"
 
   def daily_digest(user, network_logs, coin_logs, coins_following)
     @user = user
