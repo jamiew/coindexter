@@ -529,12 +529,65 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
         <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;">
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" style="background-color: #ffffff;"><td style="width: 600px" class="w560"><![endif]-->
           <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
-        
             <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;Margin-bottom: 24px;">
-      
-      
+              <h1>Your daily Coindexter update</h1>
+              <hr>
+              <br>
+              <% unless @coins_following.nil? %>
+                <h2>Price changes</h2>
+                <% @coins_following.each do |coin| %>
+                  <% unless coin.price.nil? %>
+                    <%= image_tag coin.logo, alt: coin.name, style: "display:inline;", size:'20x20'  %>        
+                    <%= link_to network_coin_url(coin.network, coin), style: "text-decoration: none !important;" do %>
+                      <h2 style="display:inline; color: rgb(235,107,51);"><%= coin.name %></h2>
+                    <% end %>
+                    <br>
+                    <ul>
+                      <li>
+                        <p><%= number_to_currency(coin.price, :unit => '$') %></p>
+                      </li>
+                      <li>
+                        <p>1d price change: <span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>>
+                          <%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? '+' : '' %><%= coin.one_day_price_change unless coin.one_day_price_change.nil? %>%
+                        </span></p>
+                      </li>
+                    </ul>
+                    <br />
+                  <% end %>
+                <% end %>
+                <br />
+              <% end %>
+              <% unless @network_logs.nil? %>
+                <p>Some changes were made to the networks you follow:</p>
+                <% @network_logs.each do |log| %>
+                  <%= image_tag log.networks.logo, alt: log.networks.name, style: "display:inline;", size:'20x20'  %>        
+                  <%= link_to log.networks, style: "text-decoration: none !important;" do %>
+                    <h2 style="display:inline; color: rgb(235,107,51);"><%= log.networks.name %></h2>
+                  <% end %>
+                  <br>
+                  <%= render(partial: 'networks/log_data', locals: {log: log}) %>
+                  <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
+                  <br />
+                <% end %>
+                <br />
+              <% end %>
+              <br />
+              <% unless @coin_logs.nil? %>
+                <p>Some changes were made to the coins you follow:</p>
+                <% @coin_logs.each do |log| %>
+                  <%= image_tag log.coins.logo, alt: log.coins.name, style: "display:inline;", size:'20x20'  %>        
+                  <%= link_to network_coin_url(log.coins.network, log.coins), style: "text-decoration: none !important;" do %>
+                    <h2 style="display:inline; color: rgb(235,107,51);"><%= log.coins.name %></h2>
+                  <% end %>
+                  <br>
+                  <%= render(partial: 'coins/log_data', locals: {log: log}) %>
+                  <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
+                  <br />
+                  <br />
+                <% end %>
+              <% end %>
+              <br />
             </div>
-        
           </div>
         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
         </div>
@@ -542,63 +595,6 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
   
       <div style="line-height:20px;font-size:20px;">&nbsp;</div>
   
-      <h1>Your daily Coindexter update</h1>
-      <hr>
-      <br>
-      <% unless @coins_following.nil? %>
-        <h2>Price changes</h2>
-        <% @coins_following.each do |coin| %>
-          <% unless coin.price.nil? %>
-            <%= image_tag coin.logo, alt: coin.name, style: "display:inline;", size:'20x20'  %>        
-            <%= link_to network_coin_url(coin.network, coin), style: "text-decoration: none !important;" do %>
-              <h2 style="display:inline; color: rgb(235,107,51);"><%= coin.name %></h2>
-            <% end %>
-            <br>
-            <ul>
-              <li>
-                <p><%= number_to_currency(coin.price, :unit => '$') %></p>
-              </li>
-              <li>
-                <p>1d price change: <span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>>
-                  <%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? '+' : '' %><%= coin.one_day_price_change unless coin.one_day_price_change.nil? %>%
-                </span></p>
-              </li>
-            </ul>
-            <br />
-          <% end %>
-        <% end %>
-        <br />
-      <% end %>
-      <% unless @network_logs.nil? %>
-        <p>Some changes were made to the networks you follow:</p>
-        <% @network_logs.each do |log| %>
-          <%= image_tag log.networks.logo, alt: log.networks.name, style: "display:inline;", size:'20x20'  %>        
-          <%= link_to log.networks, style: "text-decoration: none !important;" do %>
-            <h2 style="display:inline; color: rgb(235,107,51);"><%= log.networks.name %></h2>
-          <% end %>
-          <br>
-          <%= render(partial: 'networks/log_data', locals: {log: log}) %>
-          <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
-          <br />
-        <% end %>
-        <br />
-      <% end %>
-      <br />
-      <% unless @coin_logs.nil? %>
-        <p>Some changes were made to the coins you follow:</p>
-        <% @coin_logs.each do |log| %>
-          <%= image_tag log.coins.logo, alt: log.coins.name, style: "display:inline;", size:'20x20'  %>        
-          <%= link_to network_coin_url(log.coins.network, log.coins), style: "text-decoration: none !important;" do %>
-            <h2 style="display:inline; color: rgb(235,107,51);"><%= log.coins.name %></h2>
-          <% end %>
-          <br>
-          <%= render(partial: 'coins/log_data', locals: {log: log}) %>
-          <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
-          <br />
-          <br />
-        <% end %>
-      <% end %>
-      <br />
       
       <div role="contentinfo">
         <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
