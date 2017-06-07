@@ -25,7 +25,7 @@
 							<h6>Exchange</h6>
 						</div>
 						<div class="col-md-8 col-xs-12 data">
-							<% if @coin.exchanges.nil? || @coin.exchanges == "" || @coin.exchanges.empty? %>
+							<% if @coin.exchanges.nil? || @coin.exchanges == "" || @coin.exchanges.empty? || @coin.exchanges.first.name == "" || @coin.exchanges.first.url == "" %>
 								<% if browser.platform.ios? or browser.platform.android? %>
 									<p>None added yet. Add an exchange from desktop.</p>
 								<% else %>

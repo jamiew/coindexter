@@ -2,29 +2,110 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+      body {
+        font-family: "SF UI Text", "Helvetica Neue", "Helvetica", "Arial";
+      }
+      h6 {
+        display: inline;
+        padding-left: 4px;
+      }
+      a {
+        color: rgb(235,107,51);
+        text-decoration: none;
+      }
+      h6, a.who-posted {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+      img.avatar {
+        height: 14px;
+        width: 14px;
+      }
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        -webkit-margin-before: 0em;
+        margin-bottom: 1em;
+      }
+      li {
+        text-indent: none;
+      }
+      h2 {
+        font-size:18px;
+        margin-top:0.5em;
+      }
+      span.up {
+        color: rgb(35,160,109);
+      }
+      span.down {
+        color: #EB3333;
+      }
+      p {
+        margin-top: 0.5em;
+        margin-bottom: 0.8em;
+      }
+    </style>
   </head>
   <body>
-    <p>Hi <%= @user.username %>,</p>
-    <p>Here are the changes amongst networks and coins you follow:
-    <% if network_logs.count > 0 %>
-      <h6>Networks</h6>
-      <% @network_logs.each do |log| %>
-  		  <%= image_tag log.first.networks.logo, alt: log.first.networks.name  %>
-  		  <h1><%= log.first.networks.name %></h1>
-  		  <%= render(partial: '/networks/log', collection: log, as: :log, locals: {show_tag: false}) %>
-  	  <% end %>
+    <h1>Your daily Coindexter update</h1>
+    <hr>
+    <br>
+    <% unless @coins_following.nil? %>
+      <h2>Price changes</h2>
+      <% @coins_following.each do |coin| %>
+        <% unless coin.price.nil? %>
+          <%= image_tag coin.logo, alt: coin.name, style: "display:inline;", size:'20x20'  %>        
+          <%= link_to network_coin_url(coin.network, coin), style: "text-decoration: none !important;" do %>
+            <h2 style="display:inline; color: rgb(235,107,51);"><%= coin.name %></h2>
+          <% end %>
+          <br>
+          <ul>
+            <li>
+              <p><%= number_to_currency(coin.price, :unit => '$') %></p>
+            </li>
+            <li>
+              <p>1d price change: <span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>>
+                <%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? '+' : '' %><%= coin.one_day_price_change unless coin.one_day_price_change.nil? %>%
+              </span></p>
+            </li>
+          </ul>
+          <br />
+        <% end %>
+      <% end %>
+      <br />
     <% end %>
-    <% if coin_logs.count > 0 %>
-      <h6>Coins</h6>
+    <% unless @network_logs.nil? %>
+      <p>Some changes were made to the networks you follow:</p>
+      <% @network_logs.each do |log| %>
+        <%= image_tag log.networks.logo, alt: log.networks.name, style: "display:inline;", size:'20x20'  %>        
+        <%= link_to log.networks, style: "text-decoration: none !important;" do %>
+          <h2 style="display:inline; color: rgb(235,107,51);"><%= log.networks.name %></h2>
+        <% end %>
+        <br>
+        <%= render(partial: 'networks/log_data', locals: {log: log}) %>
+        <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
+        <br />
+      <% end %>
+      <br />
+    <% end %>
+    <br />
+    <% unless @coin_logs.nil? %>
+      <p>Some changes were made to the coins you follow:</p>
       <% @coin_logs.each do |log| %>
-        <%= image_tag log.first.coins.logo, alt: log.first.coins.name  %>
-        <h1><%= log.first.coins.name %></h1>
-        <%= render(partial: '/coins/log', collection: log, as: :log, locals: {show_tag: false}) %>
+        <%= image_tag log.first.coins.logo, alt: log.first.coins.name, style: "display:inline;", size:'20x20'  %>        
+        <%= link_to network_coin_url(log.first.coins.network, log.first.coins), style: "text-decoration: none !important;" do %>
+          <h2 style="display:inline; color: rgb(235,107,51);"><%= log.first.coins.name %></h2>
+        <% end %>
+        <br>
+        <%= render(partial: 'coins/log_data', locals: {log: log.first}) %>
+        <%= render partial: '/shared/who_posted', locals: { email: true, user: log.first.user, created_at: log.first.created_at } %>
+        <br />
+        <br />
       <% end %>
     <% end %>
+    <br />
   </body>
 </html>
-
-
-
-

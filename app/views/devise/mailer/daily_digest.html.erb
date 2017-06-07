@@ -8,11 +8,12 @@
     <% unless @network_logs.nil? %>
       <p>Here are the changes amongst the networks you follow:</p>
       <% @network_logs.each do |log| %>
-        <%= image_tag log.first.networks.logo, alt: log.first.networks.name, style: "display:inline;", size:'60x60'  %>
+        <%= image_tag log.first.networks.logo, alt: log.first.networks.name, style: "display:inline;", size:'20x60'  %>
         <%= link_to log.first.networks, style: "text-decoration: none !important;" do %>
           <h2 style="display:inline; color: rgb(235,107,51);"><%= log.first.networks.name %></h2>
         <% end %>
         <%= render(partial: '/networks/log_data', collection: log, as: :log, locals: { email: true }) %>
+        <br>
         <%= render partial: '/shared/who_posted', locals: { email: true, user: log.first.user, created_at: log.first.created_at } %>
       <% end %>
     <% end %>
@@ -21,6 +22,7 @@
       <p>Here are the changes amongst the coins you follow:</p>
       <% @coin_logs.each do |log| %>
         <%= log.inspect %>
+        <br><br>
       <% end %>
     <% end %>
   </body>

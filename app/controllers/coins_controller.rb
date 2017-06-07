@@ -29,6 +29,7 @@ class CoinsController < ApplicationController
 
 	def show
 		@coin = Coin.friendly.find(params[:id])
+		@network = Network.friendly.find(params[:network_id])
 		if current_user && current_user.following?(@coin)
 			@following = true
 		else 
@@ -52,6 +53,7 @@ class CoinsController < ApplicationController
 		@use_ajax = false
 		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.friendly.find(params[:id])
+		puts "coin.network #{@coin.network}"
 		if @coin.repositories.empty?
 			@coin.build_repository
 		end
@@ -63,7 +65,6 @@ class CoinsController < ApplicationController
 	def create
 		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.new(coin_params)
-		@coin.network = @network
 	    if @coin.save
 	    	if @coin.coin_status == "Live"
 	    		if @coin.price.nil?
@@ -91,16 +92,14 @@ class CoinsController < ApplicationController
 		@coin = Coin.friendly.find(params[:id])
 		@network = Network.friendly.find(params[:network_id])
 	  	if @coin.update_attributes(coin_params)
-	  		if @coin.network.nil?
-	  			@coin.network = @network
-	  		end
+	  		@coin.network = @network
     		@coin.save
     		puts "suh #{@coin.coin_status}"
     		if @coin.coin_status == "live"
     			if @coin.price.nil?
 	    			@fetching_price = true
 	    		end
-    			UpdateSingleCoinPriceWorker.perform_async(@coin.id)
+    			# UpdateSingleCoinPriceWorker.perform_async(@coin.id)
     		end
     		redirect_to network_coin_path(@network, @coin)
 		else
