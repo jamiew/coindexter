@@ -501,6 +501,7 @@ DEPENDENCIES
   mini_magick
   momentjs-rails
   newrelic_rpm
+  nokogiri
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-oauth2

@@ -100,6 +100,8 @@ gem 'scout_apm'
 
 gem 'newrelic_rpm'
 
+gem 'nokogiri'
+
 group :production do 
   gem 'rails_12factor'
 end

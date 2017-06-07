@@ -31,7 +31,7 @@ class WhitepapersController < ApplicationController
       if @whitepaper.save
         @whitepaper.network = @network
         @whitepaper.save
-        format.html { redirect_to network_whitepapers_path, notice: 'Whitepaper attachment was successfully created.' }
+        format.html { redirect_to network_whitepapers_path, notice: 'Whitepaper was successfully created.' }
         format.json { render :show, status: :created, location: @whitepaper }
       else
         format.html { render :new }
@@ -68,6 +68,6 @@ class WhitepapersController < ApplicationController
     end
 
     def whitepaper_params
-      params.require(:whitepaper).permit(:network, :network_id, :whitepaper_title, :whitepaper, :user_id)
+      params.require(:whitepaper).permit(:network, :network_id, :whitepaper_title, :whitepaper, :user_id, :url)
     end
 end
