@@ -95,9 +95,9 @@
     <% unless @coin_logs.nil? %>
       <p>Some changes were made to the coins you follow:</p>
       <% @coin_logs.each do |log| %>
-        <%= image_tag log.first.coins.logo, alt: log.first.coins.name, style: "display:inline;", size:'20x20'  %>        
-        <%= link_to network_coin_url(log.first.coins.network, log.first.coins), style: "text-decoration: none !important;" do %>
-          <h2 style="display:inline; color: rgb(235,107,51);"><%= log.first.coins.name %></h2>
+        <%= image_tag log.coins.logo, alt: log.coins.name, style: "display:inline;", size:'20x20'  %>        
+        <%= link_to network_coin_url(log.coins.network, log.coins), style: "text-decoration: none !important;" do %>
+          <h2 style="display:inline; color: rgb(235,107,51);"><%= log.coins.name %></h2>
         <% end %>
         <br>
         <%= render(partial: 'coins/log_data', locals: {log: log.first}) %>
