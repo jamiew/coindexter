@@ -15,7 +15,7 @@ class SaveTextsFromPdfsWorker
 					text = page.text.delete "\0"
 					wp.fulltext += text
 				end
-			elsif !url.nil? 
+			elsif !wp.url.nil? 
 				if URI.parse(url).host == 'github.com'
 					puts 'host is github'
 					if url.include? 'Documentation'
