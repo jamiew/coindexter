@@ -18,7 +18,7 @@ class SaveTextsFromPdfsWorker
 			elsif !wp.external_url.nil? 
 				if URI.parse(wp.external_url).host == 'github.com'
 					puts 'host is github'
-					if external_url.include? 'Documentation'
+					if wp.external_url.include? 'Documentation'
 						puts 'host includes Documentation'
 						raw_url = external_url.gsub('https://github.com/','https://raw.githubusercontent.com/')
 						puts 'raw url is #{raw_url}'
