@@ -1302,6 +1302,15 @@ ul.action-links {
 			/* height:145px; */
 			margin:0;
 		}
+		.whitepaper-thumbnail-default {
+			border: none;
+			a {
+				border: none;
+			}
+			&:hover {
+				border: none;
+			}
+		}
 		&:first {
 			display:none;
 		}
