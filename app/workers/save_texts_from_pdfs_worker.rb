@@ -16,11 +16,11 @@ class SaveTextsFromPdfsWorker
 					wp.fulltext += text
 				end
 			elsif !wp.external_url.nil? 
-				if URI.parse(external_url).host == 'github.com'
+				if URI.parse(wp.external_url).host == 'github.com'
 					puts 'host is github'
-					if url.include? 'Documentation'
+					if external_url.include? 'Documentation'
 						puts 'host includes Documentation'
-						raw_url = url.gsub('https://github.com/','https://raw.githubusercontent.com/')
+						raw_url = external_url.gsub('https://github.com/','https://raw.githubusercontent.com/')
 						puts 'raw url is #{raw_url}'
 						raw_url = raw_url.gsub('blob/master','master')
 						puts 'raw url is now #{raw_url}'
