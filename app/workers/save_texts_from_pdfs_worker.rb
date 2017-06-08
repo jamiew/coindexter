@@ -29,8 +29,8 @@ class SaveTextsFromPdfsWorker
 						text = doc.children[1].children[0].children[0].children[0].text
 						puts 'text is #{text}'
 						wp.fulltext = text
-					elsif url.include? 'wiki'
-						doc = Nokogiri::HTML(open(url))
+					elsif wp.external_url.include? 'wiki'
+						doc = Nokogiri::HTML(open(wp.external_url))
 						puts 'doc 2 is #{doc}'
 						text = doc.css('div#wiki-body').text
 						puts 'text 2 is #{text}'
