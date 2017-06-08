@@ -44,8 +44,13 @@ class DailyDigestWorker
       coins_following.index coin.first.coins
     end
 
-    network_logs = network_logs.first.sort_by{|log| log.created_at}.reverse
-    coin_logs = coin_logs.first.sort_by{|log.first| log.first.created_at}.reverse
+    unless network_logs.first.nil?
+      network_logs = network_logs.first.sort_by{|log| log.created_at}.reverse
+    end
+
+    unless coin_logs.first.nil?
+      coin_logs = coin_logs.first.sort_by{|log| log.first.created_at}.reverse
+    end
 
     UserMailer.daily_digest(user, network_logs, coin_logs, coins_following).deliver_now
   
