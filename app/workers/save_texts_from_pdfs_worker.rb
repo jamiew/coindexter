@@ -2,7 +2,10 @@ class SaveTextsFromPdfsWorker
   include Sidekiq::Worker
   require 'nokogiri'
   require 'open-uri'
-  sidekiq_options :retry => 1
+  sidekiq_options({
+    unique: :all,
+    expiration: 24 * 60 * 60
+  })
 
   def perform
     Whitepaper.find_each do |wp|

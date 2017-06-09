@@ -1,6 +1,10 @@
 class DailyDigestWorker
   include Sidekiq::Worker
-  sidekiq_options unique: :while_executing
+  
+  sidekiq_options({
+    unique: :all,
+    expiration: 24 * 60 * 60
+  })
 
   def perform
 

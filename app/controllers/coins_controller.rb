@@ -65,12 +65,14 @@ class CoinsController < ApplicationController
 	def create
 		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.new(coin_params)
+		@coin.network = @network
 	    if @coin.save
 	    	if @coin.coin_status == "Live"
 	    		if @coin.price.nil?
 	    			@fetching_price = true
 	    		end
 	    		c = Coin.friendly.find(@coin.name)
+	    		puts "c is #{@coin.name}"
 	    		UpdateSingleCoinPriceWorker.perform_async(c.id)
 	    	end
 	    	redirect_to network_coin_path(@network, @coin)
@@ -94,7 +96,6 @@ class CoinsController < ApplicationController
 	  	if @coin.update_attributes(coin_params)
 	  		@coin.network = @network
     		@coin.save
-    		puts "suh #{@coin.coin_status}"
     		if @coin.coin_status == "live"
     			if @coin.price.nil?
 	    			@fetching_price = true
