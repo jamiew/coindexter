@@ -50,6 +50,10 @@ Rails.application.routes.draw do
   end
 
   resources :whitepapers
+
+  require 'sidekiq/web'
+  
+  mount Sidekiq::Web => '/sidekiq'
   
   get '/account/', to:"users#edit"
   

@@ -12,4 +12,16 @@ class UserMailer < ActionMailer::Base
     puts "mail sent to #{@user.email}"
   end
 
+  def confirmation_instructions(user, confirmation_instructions, opts={})
+    @user = user
+    @confirmation_instructions = confirmation_instructions
+    mail(to: @user.email, subject: "Confirm your email address").deliver
+  end
+
+  def reset_password_instructions(user, reset_password_token, opts={})
+    @user = user
+    @reset_password_token = reset_password_token
+    mail(to:@user.email, subject: "Reset your password").deliver
+  end
+
 end

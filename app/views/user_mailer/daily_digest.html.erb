@@ -474,6 +474,7 @@ ul {
 }
 li {
   text-indent: none;
+  margin-left: 0;
 }
 h2 {
   font-size:18px;
@@ -562,8 +563,8 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                 <% end %>
                 <br />
               <% end %>
-              <% unless @coin_logs.nil? %>
-                <h3>Other changes to coins you follow:</h3>
+              <% unless @coin_logs.nil? or @coin_logs.count == 0 %>
+                <h3>Coins you follow</h3>
                 <% @coin_logs.each do |log| %>
                   <%= image_tag log.first.coins.logo, alt: log.first.coins.name, style: "display:inline;", size:'20x20'  %>        
                   <%= link_to network_coin_url(log.first.coins.network, log.first.coins), style: "text-decoration: none !important;" do %>
@@ -577,7 +578,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                 <% end %>
               <% end %>
               <br />
-              <% unless @network_logs.nil? %>
+              <% unless @network_logs.nil? or @network_logs.count == 0  %>
                 <h3>Networks you follow</h3>
                 <% @network_logs.each do |log| %>
                   <%= image_tag log.networks.logo, alt: log.networks.name, style: "display:inline;", size:'20x20'  %>        

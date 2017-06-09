@@ -18,4 +18,8 @@ task :clear_sidekiq_jobs => :environment do
 	  puts "removed #{rem_count}"
 	end
 
+	Sidekiq::ScheduledSet.new.clear
+
+	Sidekiq::Queue.new.clear
+
 end

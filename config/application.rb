@@ -16,6 +16,8 @@ module App
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+
+	config.action_mailer.asset_host = 'https://coindexter.io'
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join("app", "services")
 

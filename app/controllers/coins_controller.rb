@@ -99,6 +99,7 @@ class CoinsController < ApplicationController
     			if @coin.price.nil?
 	    			@fetching_price = true
 	    		end
+	    		puts "@coin.id is #{@coin.id}"
     			UpdateSingleCoinPriceWorker.perform_async(@coin.id)
     		end
     		redirect_to network_coin_path(@network, @coin)

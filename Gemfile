@@ -91,6 +91,7 @@ gem 'browser'
 gem 'retina_tag'
 
 gem 'sidekiq'
+gem 'sidekiq-unique-jobs'
 
 gem 'sitemap_generator'
 

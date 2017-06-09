@@ -1,6 +1,6 @@
 class DailyDigestWorker
   include Sidekiq::Worker
-  sidekiq_options :retry => 2
+  sidekiq_options unique: :while_executing
 
   def perform
 
