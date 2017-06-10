@@ -2,6 +2,7 @@ class CoinsController < ApplicationController
 
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
+
 	def index
 		page_title = "Coins"
 		coins = Coin.all.order("market_cap DESC")
@@ -70,10 +71,7 @@ class CoinsController < ApplicationController
 	    	if @coin.coin_status == "Live"
 	    		if @coin.price.nil?
 	    			@fetching_price = true
-	    		end
-	    		c = Coin.friendly.find(@coin.name)
-	    		puts "c is #{@coin.name}"
-	    		UpdateSingleCoinPriceWorker.perform_async(c.id)
+	    		end    		
 	    	end
 	    	redirect_to network_coin_path(@network, @coin)
 		else
@@ -100,8 +98,8 @@ class CoinsController < ApplicationController
     			if @coin.price.nil?
 	    			@fetching_price = true
 	    		end
-	    		puts "@coin.id is #{@coin.id}"
-    			UpdateSingleCoinPriceWorker.perform_async(@coin.id)
+	    		id = @coin.id
+	    		UpdateSingleCoinPriceWorker.perform_async(id)
     		end
     		redirect_to network_coin_path(@network, @coin)
 		else

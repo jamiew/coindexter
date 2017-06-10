@@ -6,6 +6,7 @@ class SaveTextsFromPdfsWorker
     unique: :all,
     expiration: 24 * 60 * 60
   })
+  sidekiq_options :retry => false
 
   def perform
     Whitepaper.find_each do |wp|

@@ -4,6 +4,7 @@ class UploadWhitepaperWorker
     unique: :all,
     expiration: 24 * 60 * 60
   })
+  sidekiq_options :retry => false
 
   def perform(*args)
 	whitepaper = Whitepaper.find(whitepaper_id)

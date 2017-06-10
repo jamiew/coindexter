@@ -44,14 +44,14 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # or connections that may have been created at application boot, Ruby
 # cannot share connections between processes.
 #
-# on_worker_boot do
-#   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
-# end
+
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
 
 before_fork do  
+  require 'puma_worker_killer'
+  PumaWorkerKiller.enable_rolling_restart
   puts "Puma master process about to fork. Closing existing Active record connections."
   ActiveRecord::Base.connection.disconnect!
 end

@@ -4,6 +4,7 @@ class UpdateSingleCoinPriceWorker
     unique: :all,
     expiration: 24 * 60 * 60
   })
+  sidekiq_options :retry => false
 
   def perform(coin_id)
   	coin = Coin.find(coin_id)

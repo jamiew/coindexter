@@ -6,6 +6,7 @@ class Coin < ApplicationRecord
   include PgSearch
   multisearchable :against => [:name]
   pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
+  after_commit :update_coin_price, :on => :create
 
 
   validates_uniqueness_of :name
@@ -20,6 +21,11 @@ class Coin < ApplicationRecord
   enum coin_status_options: [:concept, :preproduction, :live, :dead]
 
   acts_as_followable
+
+
+  def update_coin_price
+    UpdateSingleCoinPriceWorker.perform_async(self.id)
+  end
 
   def correct_dimensions?
     image = MiniMagick::Image.open(logo.path)

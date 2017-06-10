@@ -103,6 +103,8 @@ gem 'newrelic_rpm'
 
 gem 'nokogiri'
 
+gem 'puma_worker_killer'
+
 group :production do 
   gem 'rails_12factor'
 end
