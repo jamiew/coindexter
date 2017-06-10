@@ -2,6 +2,8 @@ class NetworksController < ApplicationController
 
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
+	caches_action :index, expires_in: 10.minute
+
 	def index
 		@networks = Network.all
 		@categories = Category.all.order("name ASC")
@@ -114,7 +116,7 @@ class NetworksController < ApplicationController
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:notice] = "You will receive updates about this network via email" }
 		    format.json
 		end
 	end
@@ -133,7 +135,7 @@ class NetworksController < ApplicationController
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:alert] = "You will no longer receive updates about this network via email" }
 		    format.json
 		end
 	end

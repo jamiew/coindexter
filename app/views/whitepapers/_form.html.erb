@@ -19,12 +19,25 @@
           <%= f.text_field :whitepaper_title %>
         </div>
       </div>
-      <div class="row">
+      <div class="row first-in-form_group">
         <div class="col-md-4 label">
           <%= f.label "PDF" %>
         </div>
         <div class="col-md-8">
           <%= f.file_field :whitepaper, class: 'filestyle' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-offset-4 col-md-8">
+          <p class="or">— or —</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 label">
+          <%= f.label "URL" %>
+        </div>
+        <div class="col-md-8">
+          <%= f.text_field :external_url %>
         </div>
       </div>
 <!--      

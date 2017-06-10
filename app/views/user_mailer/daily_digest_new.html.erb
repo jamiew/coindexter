@@ -536,63 +536,28 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
           <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
             <div style="Margin-left: 40px;Margin-right: 40px;Margin-top: 48px;Margin-bottom: 48px;">
               <h1 style="border-bottom: 3px solid #545454; padding-bottom: 6px; margin-bottom: 36px;">Daily update</h1>
-              <% unless @coins_following.nil? %>
-                <h3>Price changes</h3>
-                <% @coins_following.each do |coin| %>
-                  <% unless coin.price.nil? %>
-                    <%= image_tag coin.logo, alt: coin.name, style: "display:inline;", size:'20x20'  %>        
-                    <%= link_to network_coin_url(coin.network, coin), style: "text-decoration: none !important;" do %>
-                      <h4 style="display:inline; color: rgb(235,107,51);"><%= coin.name %></h4>
-                    <% end %>
-                    <br>
-                    <ul>
-                      <li>
-                        <p><%= number_to_currency(coin.price, :unit => '$') %></p>
-                      </li>
-                      <li>
-                        <p>
-                          <span class=<%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? 'up' : 'down' %>>
-                            <%= !coin.one_day_price_change.nil? && coin.one_day_price_change > 0 ? '+' : '' %><%= coin.one_day_price_change unless coin.one_day_price_change.nil? %>% 
-                          </span>
-                          (1d)
-                        </p>
-                      </li>
-                    </ul>
+              <h3>Networks and coins you follow</h3>
+              <% @all_network_logs.each do |network| %>
+                <%= image_tag network.second.first[:network].logo, alt: network.second.first[:network].name, style: "display:inline;", size:'20x20'  %>        
+                <%= link_to network.second.first[:network], style: "text-decoration: none !important;" do %>
+                  <h4 style="display:inline; color: rgb(235,107,51);"><%= network.second.first[:network].name %></h4>
+                <% end %>
+                <% unless network.second.first[:network_logs].empty? %>
+                  <h6>Changes to network</h6>
+                  <% network.second.first[:network_logs].each do |log| %>
+                    <%= render(partial: 'networks/log_data', locals: {log: log}) %>
+                    <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
                     <br />
                   <% end %>
                 <% end %>
-                <br />
-              <% end %>
-              <% unless @coin_logs.nil? or @coin_logs.count == 0 %>
-                <h3>Coins you follow</h3>
-                <% @coin_logs.each do |log| %>
-                  <%= image_tag log.first.coins.logo, alt: log.first.coins.name, style: "display:inline;", size:'20x20'  %>        
-                  <%= link_to network_coin_url(log.first.coins.network, log.first.coins), style: "text-decoration: none !important;" do %>
-                    <h4 style="display:inline; color: rgb(235,107,51);"><%= log.first.coins.name %></h4>
+                <% unless network.second.second[:network_coin_logs].first.first.second.first[:logs].each do |coin| %>
+                  <h6>Changes to coins</h6>
+                  <%= image_tag coin.logo, alt: coin.name, style: "display:inline;", size:'20x20'  %>        
+                  <%= link_to network_coin_path(coin.network, coin), style: "text-decoration: none !important;" do %>
+                    <h4 style="display:inline; color: rgb(235,107,51);"><%= coin.name %></h4>
                   <% end %>
-                  <br>
-                  <%= render(partial: 'coins/log_data', locals: {log: log.first}) %>
-                  <%= render partial: '/shared/who_posted', locals: { email: true, user: log.first.user, created_at: log.first.created_at } %>
-                  <br />
-                  <br />
                 <% end %>
               <% end %>
-              <br />
-              <% unless @network_logs.nil? or @network_logs.count == 0  %>
-                <h3>Networks you follow</h3>
-                <% @network_logs.each do |log| %>
-                  <%= image_tag log.networks.logo, alt: log.networks.name, style: "display:inline;", size:'20x20'  %>        
-                  <%= link_to log.networks, style: "text-decoration: none !important;" do %>
-                    <h4 style="display:inline; color: rgb(235,107,51);"><%= log.networks.name %></h4>
-                  <% end %>
-                  <br>
-                  <%= render(partial: 'networks/log_data', locals: {log: log}) %>
-                  <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
-                  <br />
-                <% end %>
-                <br />
-              <% end %>
-              <br />
             </div>
           </div>
         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->

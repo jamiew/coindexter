@@ -33,8 +33,8 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # @config.action_controller.asset_host = 'http://coindexter.io'
-  # config.action_mailer.asset_host = 'http://coindexter.io'
+  config.action_controller.asset_host = 'https://coindexter.io'
+  config.action_mailer.asset_host = 'https://coindexter.io'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -85,8 +85,8 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.mailgun_settings = {
-    api_key: 'key-84e04576e169545ef111d461049b3385',
-    domain: 'mail.coindexter.io'
+    api_key: ENV['MAILGUN_API_KEY'],
+    domain: ENV['MAILGUN_DOMAIN']
   }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?

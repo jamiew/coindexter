@@ -37,6 +37,8 @@ GEM
       rack-test (~> 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionpack-action_caching (1.2.0)
+      actionpack (>= 4.0.0, < 6)
     actionview (5.0.2)
       activesupport (= 5.0.2)
       builder (~> 3.1)
@@ -309,6 +311,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     netrc (0.11.0)
+    newrelic_rpm (4.2.0.334)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -421,11 +424,14 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    scout_apm (2.1.24)
     sidekiq (5.0.0)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
       rack-protection (>= 1.5.0)
       redis (~> 3.3, >= 3.3.3)
+    sidekiq-middleware (0.3.0)
+      sidekiq (>= 2.12.4)
     sitemap_generator (5.3.1)
       builder (~> 3.0)
     slop (3.6.0)
@@ -473,6 +479,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpack-action_caching
   acts_as_follower!
   bootstrap-sass (= 3.3.6)
   bootstrap-switch-rails (~> 3.0.0)
@@ -498,6 +505,8 @@ DEPENDENCIES
   mailgun_rails
   mini_magick
   momentjs-rails
+  newrelic_rpm
+  nokogiri
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-oauth2
@@ -514,7 +523,9 @@ DEPENDENCIES
   redis (~> 3.0)
   retina_tag
   sass-rails (~> 5.0)
+  scout_apm
   sidekiq
+  sidekiq-middleware
   sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)

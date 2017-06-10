@@ -6,8 +6,8 @@ class Coin < ApplicationRecord
   include PgSearch
   multisearchable :against => [:name]
   pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
+  after_commit :update_coin_price, :on => :create
 
-  
 
   validates_uniqueness_of :name
 
@@ -16,11 +16,23 @@ class Coin < ApplicationRecord
   has_and_belongs_to_many  :links
   has_many :comments, through: :links
 
-  has_paper_trail :class_name => 'Version', :ignore => [:price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug, :updated_at, :category_id, :saledate]
+  has_paper_trail :class_name => 'Version', :ignore => [:network, :network_id, :price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug, :updated_at, :category_id, :saledate]
 
   enum coin_status_options: [:concept, :preproduction, :live, :dead]
 
   acts_as_followable
+
+
+  def update_coin_price
+    UpdateSingleCoinPriceWorker.perform_async(self.id)
+  end
+
+  def correct_dimensions?
+    image = MiniMagick::Image.open(logo.path)
+    if image[:width] != image[:height]
+      errors.add :logo, "The dimensions of the logo must be a square" 
+    end
+  end
 
   def should_generate_new_friendly_id?
 	 !has_friendly_id_slug? || name_changed?

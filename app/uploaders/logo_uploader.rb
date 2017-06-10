@@ -61,6 +61,12 @@ class LogoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def validate_dimensions
+    height = image[:height]
+    weight = image[:weight]
+    returns height == weight
+  end
+
   def crop(geometry)
     manipulate! do |img|      
       img.crop(geometry)

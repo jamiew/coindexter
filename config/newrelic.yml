@@ -3,7 +3,7 @@
 # .NET, PHP, Python and Node applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated May 09, 2017
+# Generated June 06, 2017
 #
 # This configuration file is custom generated for app54223486@heroku.com
 #
@@ -30,7 +30,7 @@ common: &default_settings
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: My Application (Development)
+  app_name: Coindexter (Development)
 
 test:
   <<: *default_settings

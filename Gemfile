@@ -54,9 +54,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
-#environmental variables
-gem 'dotenv-rails', :groups => [:development, :test]
-
 #database 
 gem 'pg'
 
@@ -93,13 +90,18 @@ gem 'browser'
 # retina images
 gem 'retina_tag'
 
-gem 'pry'
-
 gem 'sidekiq'
-
-gem 'foreman'
+gem 'sidekiq-middleware'
 
 gem 'sitemap_generator'
+
+gem 'actionpack-action_caching'
+
+gem 'scout_apm'
+
+gem 'newrelic_rpm'
+
+gem 'nokogiri'
 
 gem 'puma_worker_killer'
 
@@ -110,6 +112,8 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+    gem 'dotenv-rails'
+
 end
 
 group :development do
@@ -122,6 +126,8 @@ group :development do
   # Use sqlite3 as the database for Active Record
 	# gem 'sqlite3'
   gem 'derailed'
+  gem 'pry'
+  gem 'foreman'
 end
 
 

@@ -2,7 +2,7 @@
 <%= form_for @network, authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-			<%= image_tag @network.logo, size: "60x60", id: "network-logo" if @network.logo? %>
+			<%= image_tag @network.logo, size: "60x60", id: "network-logo", class: @network.errors[:logo].empty? ? '' : 'error-logo' %>
 		</div>
 	</div>
 	<div class="row">
@@ -11,6 +11,13 @@
 		</div>
 		<div class="col-md-8">
 			<%= f.file_field :logo, class: 'filestyle' %>
+		</div>
+		<div class="col-md-8 col-md-offset-4">
+			<% if @network.errors[:logo].empty? %>
+				<p class="form-guidance">Logo must be square</p>
+			<% else %>
+				<p class="form-error"><%= @network.errors[:logo].first %></p>
+			<% end %>
 		</div>
 	</div>
 	<div class="row">

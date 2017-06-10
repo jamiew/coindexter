@@ -386,6 +386,9 @@ ul.info-menu {
 			h6 {
 				margin-top:0;
 			}
+			p.or {
+				text-align: center;
+			}
 		}
 	}
 }
@@ -708,6 +711,48 @@ form.new_comment {
 			ul.log-list > li, ul.link-list > li {
 				display: block;
 				margin-bottom: 12px;
+				p.status {
+					font-family: 'WhitneyHTF-MediumSC';
+					font-size:18px;
+					line-height:24px;
+					display:inline;
+				}
+				.live-status {
+					color: $primary-green;
+				}
+				.preproduction-status {
+					color: $pre-production-outer;
+				}
+				.concept-status {
+					color: $concept-outer;
+				}
+				div.status-icon {
+					width:12px;
+					height: 12px;
+					border-radius: 12px;
+					text-transform:lowercase;
+					margin: 4px 0 0 0;
+					display:inline-block;
+				}
+
+				div.live-icon {
+					background-color:$secondary-green;
+					box-shadow: inset 0 0 0 3px $primary-green;
+				}
+
+				div.preproduction-icon {
+					background-color:$pre-production-inner;
+					box-shadow: inset 0 0 0 3px $pre-production-outer;
+				}
+				div.dead-icon {
+					background-color:#787878;
+					box-shadow: inset 0 0 0 3px #555;
+				}
+
+				div.concept-icon {
+					background-color:$concept-inner;
+					box-shadow: inset 0 0 0 3px $concept-outer;
+				}
 			}
 			.bootstrap-switch {
 				margin-top:-2px;
@@ -1036,6 +1081,9 @@ h1.list-name {
 		background-color: #fff;
 		padding: 4px;
 	}
+	img.error-logo {
+		border-color: $concept-inner !important;
+	}
 }
 
 ul.link-list {
@@ -1238,6 +1286,9 @@ ul.action-links {
 			padding:0;
 		}
 	}
+	li.follow-action-link {
+		opacity: 1;
+	}
 	li.submit {
 		opacity:1.0;
 	}
@@ -1250,6 +1301,15 @@ ul.action-links {
 		.whitepaper-thumbnail {
 			/* height:145px; */
 			margin:0;
+		}
+		.whitepaper-thumbnail-default {
+			border: none;
+			a {
+				border: none;
+			}
+			&:hover {
+				border: none;
+			}
 		}
 		&:first {
 			display:none;
@@ -1358,4 +1418,20 @@ a.who-posted {
 }
 p#none-matching {
 	margin-top:25px !important;
+}
+
+p.form-guidance, p.form-error {
+	font-family: "WhitneyHTF-MediumSC";
+	text-transform:uppercase;
+	font-size: 12px;
+	letter-spacing: 0.05em;
+	padding-top:4px;
+}
+
+p.form-guidance {
+	color: $text-light;
+}
+
+p.form-error {
+	color: $concept-outer;
 }

@@ -1,5 +1,10 @@
 class UploadWhitepaperWorker
   include Sidekiq::Worker
+  sidekiq_options({
+    unique: :all,
+    expiration: 24 * 60 * 60
+  })
+  sidekiq_options :retry => false
 
   def perform(*args)
 	whitepaper = Whitepaper.find(whitepaper_id)
@@ -7,4 +12,5 @@ class UploadWhitepaperWorker
 	whitepaper.whitepaper_url = whitepaper.whitepaper.direct_fog_url(:with_path => true)
 	user.save!
   end
+  
 end

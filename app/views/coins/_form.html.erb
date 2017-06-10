@@ -12,6 +12,13 @@
 		<div class="col-md-8">
 			<%= f.file_field :logo, class: 'filestyle' %>
 		</div>
+		<div class="col-md-8 col-md-offset-4">
+			<% if @coin.errors[:logo].empty? %>
+				<p class="form-guidance">Logo must be square</p>
+			<% else %>
+				<p class="form-error"><%= @coin.errors[:logo].first %></p>
+			<% end %>
+		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4 label">

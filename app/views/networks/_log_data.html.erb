@@ -11,6 +11,7 @@
 					<li>
 				<% end %>
 						<% puts "change is #{change.inspect}" %>
+						<% puts "change is #{change[:change_attr]}" %>
 						<% case change[:change_attr] %>
 							<% when "whitepapers" %>
 								<% if change[:change_type] == "added" || change[:change_type] == "edited" %>
@@ -34,9 +35,9 @@
 								<% end %>
 							<% when "Status" %>
 								<% if change[:change_type] == "added" %>
-									Set <%= change[:change_attr].downcase %>: <%= change[:change].second.capitalize %>
+									Set <%= change[:change_attr].downcase %>: <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <%= change[:change_attr].downcase %> from <%= change[:change].first.capitalize %> to <%= change[:change].second.capitalize %>
+									Changed <%= change[:change_attr].downcase %> from <div class="status-icon <%= change[:change].first %>-icon"></div><p class="status <%= change[:change].first %>-status"><%= change[:change].first %></p> to <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
 								<% end %>
 							<% when "Link" %>
 								<% if change[:change_type] == "added" %>
@@ -73,6 +74,12 @@
 									Added repository: <%= link_to change[:change].second,  change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
 									Changed repository from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+								<% end %>
+							<% when "team" %>
+								<% if change[:change_type] == "added" %>
+									<p>Added the team: "<%= change[:change].second %>"</p>
+								<% elsif change[:change_type] == "edited" %>
+									<p>Changed team from "<%= change[:change].first %>" to "<%= change[:change].second %>"</p>
 								<% end %>				
 							<% when "Created" %>
 								Created 

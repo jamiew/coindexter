@@ -7,7 +7,7 @@
 						<% if browser.platform.ios? or browser.platform.android? %>
 							Add one from desktop.
 						<% else %>
-							 <%= link_to "Add one?", new_whitepaper_url(network_id: @network), remote: true %>
+							 <%= link_to "Add one?", new_network_whitepaper_path, remote: true %>
 						<% end %>
 					</p>
 				</div>

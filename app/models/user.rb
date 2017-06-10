@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   acts_as_follower
 
+  def should_generate_new_friendly_id?
+    slug.blank? || username_changed?
+  end
+
   def email_required?
     super && provider.blank?
   end

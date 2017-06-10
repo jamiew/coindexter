@@ -2,6 +2,7 @@ class CoinsController < ApplicationController
 
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
+
 	def index
 		page_title = "Coins"
 		coins = Coin.all.order("market_cap DESC")
@@ -29,6 +30,7 @@ class CoinsController < ApplicationController
 
 	def show
 		@coin = Coin.friendly.find(params[:id])
+		@network = Network.friendly.find(params[:network_id])
 		if current_user && current_user.following?(@coin)
 			@following = true
 		else 
@@ -52,6 +54,7 @@ class CoinsController < ApplicationController
 		@use_ajax = false
 		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.friendly.find(params[:id])
+		puts "coin.network #{@coin.network}"
 		if @coin.repositories.empty?
 			@coin.build_repository
 		end
@@ -68,12 +71,11 @@ class CoinsController < ApplicationController
 	    	if @coin.coin_status == "Live"
 	    		if @coin.price.nil?
 	    			@fetching_price = true
-	    		end
-	    		c = Coin.friendly.find(@coin.name)
-	    		UpdateSingleCoinPriceWorker.perform_async(c.id)
+	    		end    		
 	    	end
 	    	redirect_to network_coin_path(@network, @coin)
 		else
+	       	flash[:alert] = @coin.errors.messages
 	        render 'new'
 	    end
 	end
@@ -90,18 +92,18 @@ class CoinsController < ApplicationController
 		@coin = Coin.friendly.find(params[:id])
 		@network = Network.friendly.find(params[:network_id])
 	  	if @coin.update_attributes(coin_params)
-    		@network = Network.find(coin_params[:network_id].second)
-    		@coin.network = @network
+	  		@coin.network = @network
     		@coin.save
-    		puts "suh #{@coin.coin_status}"
     		if @coin.coin_status == "live"
     			if @coin.price.nil?
 	    			@fetching_price = true
 	    		end
-    			UpdateSingleCoinPriceWorker.perform_async(@coin.id)
+	    		id = @coin.id
+	    		UpdateSingleCoinPriceWorker.perform_async(id)
     		end
     		redirect_to network_coin_path(@network, @coin)
 		else
+	    	flash[:alert] = @coin.errors.messages
 	    	render 'edit'
 	  	end
 	end
@@ -127,7 +129,7 @@ class CoinsController < ApplicationController
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:notice] = "You will receive updates about this coin and its parent network via email" }
 		    format.json
 		end
 	end
@@ -144,7 +146,7 @@ class CoinsController < ApplicationController
 		end
 		respond_to do |format|
 		    format.html
-		    format.js
+		    format.js { flash.now[:alert] = "You will no receive updates about this coin and its parent network via email" }
 		    format.json
 		end
 	end
