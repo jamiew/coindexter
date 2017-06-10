@@ -8,7 +8,7 @@ class UpdateSingleCoinPriceWorker
 
   def perform(coin_id)
   	coin = Coin.find(coin_id)
-	  response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.delete(" ").downcase)
+	  response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.gsub(" ","-").downcase)
     if response[0].nil?
       puts coin.name
     else

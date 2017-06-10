@@ -9,10 +9,9 @@ class UpdateAllCoinPricesWorker
   def perform
     Coin.find_each do |coin|
     	if coin.coin_status == "live"
-    		puts coin.name
-	    	response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.delete(" ").downcase)
+	    	response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.gsub(" ","-").downcase)
 		    if response[0].nil?
-		      puts coin.name
+		      puts "#{coin.name} didn't run"
 		    else
 		      price = response[0]["price_usd"]
 		      one_hour_price_change = response[0]["percent_change_1h"]
