@@ -101,6 +101,8 @@ gem 'foreman'
 
 gem 'sitemap_generator'
 
+gem 'puma_worker_killer'
+
 group :production do 
   gem 'rails_12factor'
 end
@@ -118,7 +120,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
+	# gem 'sqlite3'
   gem 'derailed'
 end
 
