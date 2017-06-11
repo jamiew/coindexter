@@ -535,7 +535,6 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" style="background-color: #ffffff;"><td style="width: 600px" class="w560"><![endif]-->
           <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
             <div style="Margin-left: 40px;Margin-right: 40px;Margin-top: 48px;Margin-bottom: 48px;">
-              <h1 style="border-bottom: 3px solid #545454; padding-bottom: 6px; margin-bottom: 36px;">Daily update</h1>
               <h3>Networks and coins you follow</h3>
               <% @all_network_logs.each do |network| %>
                 <%= image_tag network[:network].logo, alt: network[:network].name, style: "display:inline;", size:'20x20'  %>        
@@ -544,7 +543,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                 <% end %>
                 <br />
                 <% if !network[:logs].empty? %>
-                  <h6>Changes to network</h6>
+                  <h4>Changes to network</h4>
                   <% network[:logs].each do |log| %>
                     <%= render(partial: 'networks/log_data', locals: {log: log}) %>
                     <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
@@ -561,8 +560,8 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                         <h4 style="display:inline; color: rgb(235,107,51);"><%= coin[:coin].name %></h4>
                       <% end %>
                       <br />
-                      <%= coin %>
-                      <%= coin[:coin].price %> <%= coin[:coin].one_day_price_change %>% (1d)
+                      $<%= coin[:coin].price %> <%= coin[:coin].one_day_price_change %>% (1d)
+                      <br />
                       <% if !coin[:logs].empty? %>
                          <h6>Changes to coins</h6>
                         <% coin[:logs].each do |log| %>
