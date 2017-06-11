@@ -88,7 +88,4 @@ Rails.application.routes.draw do
   
   get ':username/activity', to: 'users#activity', :as => :current_user_activity
 
-
- 
-
 end

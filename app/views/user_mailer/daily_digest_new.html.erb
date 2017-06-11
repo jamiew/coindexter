@@ -538,26 +538,44 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
               <h1 style="border-bottom: 3px solid #545454; padding-bottom: 6px; margin-bottom: 36px;">Daily update</h1>
               <h3>Networks and coins you follow</h3>
               <% @all_network_logs.each do |network| %>
-                <%= image_tag network.second.first[:network].logo, alt: network.second.first[:network].name, style: "display:inline;", size:'20x20'  %>        
-                <%= link_to network.second.first[:network], style: "text-decoration: none !important;" do %>
-                  <h4 style="display:inline; color: rgb(235,107,51);"><%= network.second.first[:network].name %></h4>
+                <%= image_tag network[:network].logo, alt: network[:network].name, style: "display:inline;", size:'20x20'  %>        
+                <%= link_to network_url(network[:network]), style: "text-decoration: none !important;" do %>
+                  <h4 style="display:inline; color: rgb(235,107,51);"><%= network[:network].name %></h4>
                 <% end %>
-                <% unless network.second.first[:network_logs].empty? %>
+                <br />
+                <% if !network[:logs].empty? %>
                   <h6>Changes to network</h6>
-                  <% network.second.first[:network_logs].each do |log| %>
+                  <% network[:logs].each do |log| %>
                     <%= render(partial: 'networks/log_data', locals: {log: log}) %>
                     <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
                     <br />
                   <% end %>
                 <% end %>
-                <% unless network.second.second[:network_coin_logs].first.first.second.first[:logs].each do |coin| %>
-                  <h6>Changes to coins</h6>
-                  <%= image_tag coin.logo, alt: coin.name, style: "display:inline;", size:'20x20'  %>        
-                  <%= link_to network_coin_path(coin.network, coin), style: "text-decoration: none !important;" do %>
-                    <h4 style="display:inline; color: rgb(235,107,51);"><%= coin.name %></h4>
+                <br />
+                  <% network[:coins].each do |coin| %>               
+                    <h6>Coins</h6>
+                    <br />
+                    <% if !coin.nil? %>
+                      <%= image_tag coin[:coin].logo, alt: 'hey', style: "display:inline;", size:'20x20'  %>
+                      <%= link_to network_coin_url(coin[:coin].network, coin[:coin]), style: "text-decoration: none !important;" do %>
+                        <h4 style="display:inline; color: rgb(235,107,51);"><%= coin[:coin].name %></h4>
+                      <% end %>
+                      <br />
+                      <%= coin %>
+                      <%= coin[:coin].price %> <%= coin[:coin].one_day_price_change %>% (1d)
+                      <% if !coin[:logs].empty? %>
+                         <h6>Changes to coins</h6>
+                        <% coin[:logs].each do |log| %>
+                          <%#= render(partial: 'coins/log_data', locals: {log: log}) %>
+                          <%#= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
+                          <br />
+                        <% end %>
+                      <% end %>
+                    <% end %>
                   <% end %>
-                <% end %>
+                <br /><br />
               <% end %>
+              <br /><br />
             </div>
           </div>
         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->

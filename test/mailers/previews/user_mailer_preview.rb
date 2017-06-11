@@ -18,21 +18,19 @@ class UserMailerPreview < ActionMailer::Preview
 		Network.find_each do |network| 
 			network_logs = NetworkService.new
 			fetched_network_logs = network_logs.get_logs(network, "Network",nil,nil,1).reverse
-			logs = {network.name => []}
-			logs[network.name] << {:network_logs => fetched_network_logs, :network => network }
-			network.coins.each do |coin|
-				coin_logs = NetworkService.new
-				fetched_coin_logs = coin_logs.get_logs(coin, "Coin",nil,nil,1).reverse
-				network_coin_logs = []
-				unless fetched_coin_logs.empty?	&& coin.price.nil?
-					network_coin_logs << {coin.name => [:logs => fetched_coin_logs, :price => coin.price]}
-				end 
-				logs[network.name] << {:network_coin_logs => network_coin_logs}
-			end
+			logs = { network: network, logs: fetched_network_logs, coins: [] }
+			if !network.coins.nil?
+				network.coins.each do |coin|
+					coin_logs = NetworkService.new
+					fetched_coin_logs = coin_logs.get_logs(coin, "Coin",nil,nil,1).reverse
+					unless fetched_coin_logs.empty?	&& coin.price.nil?
+						network_coin_logs =  { :coin => coin, :logs => fetched_coin_logs }
+					end 
+					logs[:coins] << network_coin_logs
+				end
+			end 
 
-			logs.each do |log|
-				all_network_logs << log unless log.second.first[:network_logs].empty? && (log.second.second.nil? or log.second.second[:network_coin_logs].empty?)
-			end
+			all_network_logs << logs unless logs[:logs].empty? && (logs[:coins].nil? or logs[:coins].empty?)
 
 		end
 
@@ -47,7 +45,7 @@ class UserMailerPreview < ActionMailer::Preview
 		end
 
 		all_network_logs = all_network_logs.select do |network|
-			networks_following.index network.first
+			networks_following.index network[:network].name
 		end
 
 	    # mail(to: @user.email, subject: "Coindexter Daily Digest").deliver
