@@ -10,7 +10,7 @@ class UpdateSingleCoinPriceWorker
   	coin = Coin.find(coin_id)
 	  response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.gsub(" ","-").downcase)
     if response[0].nil?
-      puts coin.name
+      puts "cannot fetch #{coin.name}"
     else
       price = response[0]["price_usd"]
       one_hour_price_change = response[0]["percent_change_1h"]

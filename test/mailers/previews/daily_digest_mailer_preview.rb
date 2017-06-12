@@ -1,56 +1,43 @@
 class DailyDigestMailerPreview < ActionMailer::Preview
 	
 	def daily_digest
-	  network_logs_in_past_day = []
-	  coin_logs_in_past_day = []
-	  
-	  Network.find_each do |network| 
-	    network_logs = NetworkService.new
-	    logs = network_logs.get_logs(network, "Network",nil,nil,1).reverse
-	    unless logs.empty?
-	      network_logs_in_past_day << logs
-	    end
-	  end
+	  all_network_logs = []
 
-	  Coin.find_each do |coin| 
-	    coin_logs = NetworkService.new
-	    logs = coin_logs.get_logs(coin, "Coin",nil,nil,1).reverse
-	    unless logs.empty?
-	      coin_logs_in_past_day << logs
-	    end
-	  end
+		Network.find_each do |network| 
+			network_logs = NetworkService.new
+			fetched_network_logs = network_logs.get_logs(network, "Network",nil,nil,1).reverse
+			logs = {network.name => []}
+			unless fetched_network_logs.empty?
+				logs[network.name] << {:network_logs => fetched_network_logs}
+			end
 
-	  user = User.first
-	  networks_following = []
-	  coins_following = []
+			network.coins.each do |coin|
+				coin_logs = NetworkService.new
+				fetched_coin_logs = coin_logs.get_logs(coin, "Coin",nil,nil,1).reverse
+				network_coin_logs = {coin.name => {}}
+				unless fetched_coin_logs.empty?	
+					network_coin_logs[coin.name] = {:logs => fetched_coin_logs, :price => coin.price}
+				end 
+				logs[network.name] << {:network_coin_logs => network_coin_logs}
+			end
+				
+			all_network_logs << logs
 
-	  user.all_follows.each do |follow|
-	    if follow.followable_type == "Network"
-	      networks_following << Network.find(follow.followable_id)
-	    elsif follow.followable_type == "Coin"
-	      coins_following << Coin.find(follow.followable_id)
-	    end
-	  end
+		end
 
-	  network_logs = network_logs_in_past_day.select do |network|
-	    networks_following.index network.first.networks
-	  end
+		networks_following = []
 
-	  puts "coin_logs_in_past_day are #{coin_logs_in_past_day}"
+		user = User.first
 
-	  coin_logs = coin_logs_in_past_day.select do |coin|
-	    coins_following.index coin.first.coins
-	  end
+		user.all_follows.each do |follow|
+			if follow.followable_type == "Network"
+			  networks_following << Network.find(follow.followable_id).name
+			end
+		end
 
-	  coin_prices = []
-	  coins_following.each do |coin|
-	  	coin_prices << {coin: coin, price: coin.price, one_day_price_change: coin.one_day_price_change}
-	  end
-
-	  network_logs = network_logs.first.sort_by{|log| log.created_at}.reverse
-
-
-	  UserMailer.daily_digest(User.first, network_logs, coin_logs, coins_following)
+		all_network_logs = all_network_logs.select do |network|
+			networks_following.index network.keys.first
+		end
 	end
 
 end

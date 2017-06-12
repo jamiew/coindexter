@@ -13,11 +13,9 @@ task :mix_logs => :environment do
 		network.coins.each do |coin|
 			coin_logs = NetworkService.new
 			fetched_coin_logs = coin_logs.get_logs(coin, "Coin",nil,nil,1).reverse
-			network_coin_logs = {coin.name => []}
-			unless fetched_coin_logs.empty?
-				network_coin_logs[coin.name] = coin.name
-				network_coin_logs[coin.name][:logs] = fetched_coin_logs
-				network_coin_logs[coin.name][:price] = coin.price unless coin.price.nil? 
+			network_coin_logs = {coin.name => {}}
+			unless fetched_coin_logs.empty?	
+				network_coin_logs[coin.name] = {:logs => fetched_coin_logs, :price => coin.price}
 			end 
 			logs[network.name] << {:network_coin_logs => network_coin_logs}
 		end
@@ -26,6 +24,18 @@ task :mix_logs => :environment do
 
 	end
 
-	puts all_network_logs
+	networks_following = []
+
+	user = User.first
+
+	user.all_follows.each do |follow|
+		if follow.followable_type == "Network"
+		  networks_following << Network.find(follow.followable_id).name
+		end
+	end
+
+	all_network_logs = all_network_logs.select do |network|
+		networks_following.index network.keys.first
+	end
 
 end
