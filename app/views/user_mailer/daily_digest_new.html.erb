@@ -65,10 +65,10 @@ div.preheader {
   width: 100% !important;
 }
 .main-column {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 48px;
+  margin-bottom: 48px;
 }
 .fixed-width.has-border {
   max-width: 402px !important;
@@ -552,7 +552,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
               <% all_network_logs = JSON.parse(@all_network_logs) %>
               <% i = 0 %>
               <% for network in all_network_logs do %>
-                <%= image_tag image_url network['network']['logo'], alt: network['network']['name'], style: "text-decoration: none !important; text-transform:uppercase; font-weight:bold; font-size: 12px; color: rgb(235,107,51);", size:'20x20'  %>        
+                <%= image_tag network['network']['logo']['url'], alt: network['network']['name'], style: "text-decoration: none !important; text-transform:uppercase; font-weight:bold; font-size: 12px; color: rgb(235,107,51);", size:'20x20'  %>        
                 <%= link_to network_url(network['network']['name'].downcase), style: "text-decoration: none !important;" do %>
                   <h3 style="display:inline; color: rgb(235,107,51);"><%= network['network']['name'] %></h3>
                 <% end %>
@@ -574,8 +574,8 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                 <% unless network['coins'].empty? %>
                   <h6>Coins</h6>
                   <div style="padding-left: 10px; margin-bottom: 8px; border-left: 3px solid #cfcfcf;">
-                    <% network['coins'].each do |coin| %>               
-                      <%= image_tag image_url coin['coin']['logo'], alt: coin['coin']['name'], style: "display:inline;", size:'14x14'  %>        
+                    <% network['coins'].each do |coin| %> 
+                      <%= image_tag coin['coin']['logo']['url'], alt: coin['coin']['name'], style: "display:inline;", size:'14x14'  %>        
                       <%= link_to network_coin_url(network['network']['name'].downcase, coin['coin']['name'].downcase), style: "text-decoration: none !important;" do %>
                           <h4 style="display:inline; color: rgb(235,107,51);"><%= coin['coin']['name'] %></h4>
                       <% end %>
