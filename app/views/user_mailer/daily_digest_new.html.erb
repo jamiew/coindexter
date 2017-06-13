@@ -478,11 +478,18 @@ h2 {
   font-size:18px;
   margin-top:0.5em;
 }
+span.up, span.down {
+  color: #fff;
+  border-radius: 4px;
+  padding: 3px 3px 2px 5px;
+}
+  
 span.up {
-  color: rgb(35,160,109);
+  background-color: rgb(35,160,109);
+
 }
 span.down {
-  color: #EB3333;
+  background-color: #EB3333;
 }
 p {
   margin-top: 0.1em;
@@ -539,7 +546,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
               <% all_network_logs = JSON.parse(@all_network_logs) %>
               <% i = 0 %>
               <% for network in all_network_logs do %>
-                <%= image_tag network['network']['logo'], alt: network['network']['name'], style: "display:inline;", size:'20x20'  %>        
+                <%= image_tag network['network']['logo'], alt: network['network']['name'], style: "text-decoration: none !important; text-transform:uppercase; font-weight:bold; font-size: 12px; color: rgb(235,107,51);", size:'20x20'  %>        
                 <%= link_to network_url(network['network']['name'].downcase), style: "text-decoration: none !important;" do %>
                   <h3 style="display:inline; color: rgb(235,107,51);"><%= network['network']['name'] %></h3>
                 <% end %>
@@ -548,8 +555,11 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                   <h6>Changes</h6>
                   <div style="padding-left: 10px; margin-bottom: 14px; border-left: 3px solid #cfcfcf;">
                     <% for log in network['logs'] do %>
-                      <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %> made by 
-                      <%= link_to user_url(log['user']['username'].downcase), style: "text-decoration: none !important; text-transform:uppercase; font-weight:bold; font-size: 12px;" do %>
+                      <%= link_to network_url(network['network']['name'].downcase) + '/logs', style: "text-decoration: none !important; color: rgb(235,107,51);" do %>  
+                        <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %>
+                      <% end %> 
+                      made by 
+                      <%= link_to user_url(log['user']['username'].downcase), style: "text-decoration: none !important; color: rgb(235,107,51);" do %>
                         <%= image_tag log['user']['avatar'], alt: log['user']['username'], style: "display:inline;", size:'14x14'  %> <%= log['user']['username'] %>
                       <% end %>
                     <% end %>
@@ -565,11 +575,10 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                       <% end %>
                       <br />
                       <% unless coin['coin']['price'].nil? %>
-                        <span style="font-weight:bold; text-transform:uppercase;">Price</span>&nbsp;
-                        <%= number_to_currency(coin['coin']['price'], :unit => '$') %> 
-                        <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %>>
+                        <b><p style="display:inline; padding-top:4px; font-size: 11px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>
+                        <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %> style="font-size: 11px;">
                           <%= coin['coin']['one_day_price_change'] unless coin['coin']['one_day_price_change'].nil? %>%
-                        </span> (1d)
+                        </span> &nbsp;<span style="font-size: 11px;">(1d)</span>
                       <% end %>
                       <% unless coin['logs'].empty? %>
                         <h6>Changes</h6>
