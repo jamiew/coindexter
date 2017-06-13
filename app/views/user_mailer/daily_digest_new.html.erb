@@ -486,8 +486,8 @@ h2 {
 }
 span.up, span.down {
   color: #fff;
-  border-radius: 4px;
-  padding: 3px 3px 2px 5px;
+  border-radius: 3px;
+  padding: 3px 4px 2px 4px;
 }
   
 span.up {
@@ -546,7 +546,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
       <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
         <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;">
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" style="background-color: #ffffff;"><td style="width: 600px" class="w560"><![endif]-->
-          <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
+          <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px); border: 2px solid #fbe2d8;">
             <div class="main-column">
               <h2>Networks and coins you follow</h2>
               <% all_network_logs = JSON.parse(@all_network_logs) %>
@@ -584,7 +584,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                         <b><p style="display:inline; padding-top:4px; font-size: 11px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>
                         <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %> style="font-size: 11px;">
                           <%= coin['coin']['one_day_price_change'] unless coin['coin']['one_day_price_change'].nil? %>%
-                        </span> &nbsp;<span style="font-size: 11px;">(1d)</span>
+                        </span>
                       <% end %>
                       <% unless coin['logs'].empty? %>
                         <h6>Changes</h6>
