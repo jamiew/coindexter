@@ -581,8 +581,8 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                       <% end %>
                       <br />
                       <% unless coin['coin']['price'].nil? %>
-                        <b><p style="display:inline; padding-top:4px; font-size: 11px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>
-                        <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %> style="font-size: 11px;">
+                        <b><p style="display:inline; padding-top:4px; font-size: 12px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>
+                        <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %> style="font-size: 12px;">
                           <%= coin['coin']['one_day_price_change'] unless coin['coin']['one_day_price_change'].nil? %>%
                         </span>
                       <% end %>
