@@ -3,9 +3,9 @@ class DailyDigestWorker
   
   sidekiq_options({
     unique: :all,
-    expiration: 24 * 60 * 60
+    expiration: 24 * 60 * 60,
+    :retry => false
   })
-  sidekiq_options :retry => false
 
   def perform
 
