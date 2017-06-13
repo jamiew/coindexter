@@ -3,7 +3,7 @@
 	<div class="col-md-6 col-md-offset-1 col-xs-12 main">
 		<ul>
 			<li class="search-block block">
-					<div class="row results">
+					<div class="row results network-results">
 						<div class="col-md-12 col-xs-12">
 							<h1 class="list-name">Networks matching '<%= @query %>'</h1>
 							<% if @network_results.empty? %>
@@ -15,7 +15,7 @@
 							<% end %>
 						</div>
 					</div>
-					<div class="row results">
+					<div class="row results coin-results">
 						<div class="col-md-12 col-xs-12">
 							<h1 class="list-name">Coins matching '<%= @query.downcase %>'</h1>
 							<% if @coin_results.empty? %>

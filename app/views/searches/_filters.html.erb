@@ -1,6 +1,6 @@
 <div class="col-md-2 col-md-offset-1 left-nav">
 	<ul class="info-menu" id="status-info-menu">
-		<li id="status-show-all" class="active-item">
+		<li id="status-show-all" data-status="all" class="active-item">
 			<p>All statuses</p>
 		</li>
 		<li class="status-link" data-status="live">
@@ -14,10 +14,10 @@
 		</li>
 	</ul>	
 	<ul class="info-menu" id="category-info-menu" class="search-filter-categories">
-		<li id="category-show-all" class="active-item"><p>All categories</p></li>
+		<li id="category-show-all" class="active-item" data-category="all"><p>All categories</p></li>
 		<% @result_categories.each do |category| %>
 			<% unless category.nil? %>
-				<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %>>
+				<li class="category-link" id=<%= category.name.gsub(/\s+/, "").downcase %> data-category=<%= category.name.gsub(/\s+/, "").downcase %>>
 						<p><%= category.name.capitalize %></p>
 				</li>
 			<% end %>

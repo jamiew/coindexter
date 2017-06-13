@@ -884,48 +884,6 @@ form.new_comment {
 				}
 			}
 		}
-		.coin-widget, .widget {
-			text-align:center;
-			.network-in-categories {
-				min-height: 145px;
-			}
-			.coin-in-categories, .network-in-categories {
-				margin-bottom:22px;
-				background-color: rgba(255,255,255,0.8);
-				border: 3px solid $border-orange;
-				padding: 20px 0 2px 0;
-				h6 {
-					font-size:16px;
-					font-family: 'WhitneyCondensed-SemiBold';
-					letter-spacing: 0.01em;
-					margin-bottom:5px;
-				}
-				img, .coin-logo {
-					margin: 2px auto 10px auto;
-					text-align:center;
-					border-radius: 2px;
-					border-width: 3px;
-				}
-				border-radius: 4px;
-				p {
-					font-size:14px;
-					margin-top:3px;
-				}
-				p.market-cap {
-					margin-bottom: 4px;
-				}
-				p.one-day-change {
-					line-height: 15px;
-				}
-				color: $text;
-				&:hover {
-					border: 3px solid $primary-orange;
-				}
-			}
-			.coin-in-categories {
-				min-height: 181px;
-			}
-		}
 		.status {
 			p.status {
 				font-family: 'WhitneyHTF-MediumSC';
@@ -1005,6 +963,54 @@ form.new_comment {
 	.first-in-form-group {
 		margin-top: 48px;
 		margin-bottom: 11px;
+	}
+}
+
+.coin-widget, .widget, .network-widget {
+	text-align:center;
+	.network-in-categories {
+		min-height: 145px;
+	}
+	.coin-in-categories, .network-in-categories {
+		margin-bottom:22px;
+		background-color: rgba(255,255,255,0.8);
+		border: 3px solid $border-orange;
+		padding: 20px 0 2px 0;
+		h6 {
+			font-size:16px;
+			font-family: 'WhitneyCondensed-SemiBold' !important;
+			letter-spacing: 0.01em;
+			margin-bottom:5px;
+			text-transform:none;
+			font-size: 16px !important;
+		}
+		img, .coin-logo {
+			margin: 2px auto 10px auto;
+			text-align:center;
+			border-radius: 2px;
+			border-width: 3px;
+		}
+		border-radius: 4px;
+		p {
+			font-size:14px;
+			margin-top:3px;
+		}
+		p.market-cap {
+			margin-bottom: 0px !important;
+		}
+		p.one-day-change {
+			line-height: 15px;
+		}
+		color: $text;
+		&:hover {
+			border: 3px solid $primary-orange;
+		}
+	}
+	.coin-in-info-menu {
+		float:right;
+	}
+	.coin-in-categories {
+		min-height: 181px;
 	}
 }
 

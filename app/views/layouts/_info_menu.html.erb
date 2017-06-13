@@ -12,18 +12,8 @@
 		<% if network.coins.empty? %>
 			<%= link_to "None. Add one?", new_network_coin_path(network), class:"add-another", target: "_blank" %>
 		<% else %>
-			<% network.coins.each do |coin| %>
-				<%= link_to network_coin_path(network,coin), class: "user-log-classification-anchor" do %>
-					<div class="user-log-classification">
-						<div class="user-log-classification-coin">
-							<%= image_tag(coin.logo.small.url, size: "20x20") if coin.logo? %>
-							<%= truncate(coin.name, length: 17) %>
-							<div style="clear:both;"></div>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-					<div style="clear:both;"></div>
-				<% end %>
+			<% network.coins.each_with_index do |coin, i| %>
+				<%= render 'coins/coin_widget', :coin => coin, :i => i, :info_menu => true %>
 			<% end %>
 			<%= link_to new_network_coin_path(network), :class => 'add-coin' do %>
 				Add a coin 

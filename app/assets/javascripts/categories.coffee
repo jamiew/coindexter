@@ -13,6 +13,9 @@ $(document).on 'turbolinks:load', ->
 		else
 			selector = 'ul[data-category="' + cat + '"]'
 			$('ul.full-category-cnt').hide()
+			$('.results > div > .widget').hide()
+			search_selector = 'a[data-category="' + cat + '"]'
+			$(search_selector).show()
 			$(selector).show()
 			$(selector).addClass 'full-category-cnt-active'
 			window.scrollTo(0, 0)
@@ -37,17 +40,21 @@ $(document).on 'turbolinks:load', ->
 		$('button.dropdown-toggle').text $(this).text()
 		$(selector).show()
 
-	$('ul#status-info-menu > li').click ->
+	$('ul#status-info-menu > li,ul#category-info-menu > li').click ->
 		cat = $(this).attr 'data-status'
+		cat2 = $(this).attr 'data-category'
 		$('ul#status-info-menu > li').removeClass 'active-item'
-		$(this).addClass 'active-item'
+		$('ul#status-info-menu > li#status-show-all, ul#categoryinfo-menu > li#category-show-all').addClass 'active-item'
 		$('.offset-removed').addClass 'col-md-offset-1'
 		$('#none-matching').remove()
 		$('.first-network-widget').removeClass 'col-md-offset-1'
 		if cat == 'all'	
-			$('a.network-widget').show()
-			$('ul.full-category-cnt').each ->
-				networksShown = $(@).find('a.network-widget')
+			$('p#none-matching').remove()
+			$('li.status-show-all').addClass 'active-item'
+			$('.widget').show()
+			$('.results > div > .widget').show()
+			$('ul.full-category-cnt, .network-results, .coin-results').each ->
+				networksShown = $(@).find('a.network-widget, a.coin-widget')
 				networksShown.each (index, element) -> 
 					if index == 0 || index % 3 == 0
 						$(@).find('div').removeClass 'col-md-offset-1'
@@ -57,14 +64,19 @@ $(document).on 'turbolinks:load', ->
 						$(@).find('div').addClass 'col-md-offset-1'
 		else
 			selector = 'a[data-status="' + cat + '"]'
-			$('a.network-widget').hide()
+			$('a.widget').hide()
 			$(selector).show()
-			$('ul.full-category-cnt').each ->
-				networksShown = $(@).find('a.network-widget').filter(->
+			$('ul.full-category-cnt, .network-results, .coin-results').each ->
+				networksShown = $(@).find('a.network-widget, a.coin-widget').filter(->
 					$(this).css('display') != 'none'
 				)
 				if networksShown.length == 0
-					$(@).find('h1').after '<p id="none-matching">None are ' + cat + '</p>'
+					if cat == null
+						alert 'hey'
+						$(@).find('h1').after '<p id="none-matching">None match ' + cat2 + '</p>'
+					else
+						alert 'hey'
+						$(@).find('h1').after '<p id="none-matching">None match ' + cat + '</p>'
 				else
 					networksShown.each (index, element) -> 
 						if index == 0 || index % 3 == 0

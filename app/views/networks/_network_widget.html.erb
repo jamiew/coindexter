@@ -1,4 +1,4 @@
-<%= link_to network, "class" => "network-widget widget #{network.category.name.downcase unless network.category.nil?}", "data-status" => "#{network.status unless network.status.nil?}" do %>
+<%= link_to network, class: "network-widget widget #{network.category.name.downcase unless network.category.nil?}", "data-status" => "#{network.status unless network.status.nil?}", :data => { :category => network.category.name.downcase.gsub(" ","") } do %>
 	<div class="col-md-3 col-xs-5 <%= network.category.name.downcase unless network.category.nil? %>  
 		<%= i == 0 ? 'first-network-widget' : '' %> 
 		<%= i != 0 && i % 3 != 0 ? "col-md-offset-1" : "col-md-offset-0" %>
