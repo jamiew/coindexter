@@ -26,8 +26,6 @@ class DailyDigestWorker
         end
       end 
 
-
-
       all_network_logs << logs unless logs[:logs].empty? && (logs[:coins].nil? or logs[:coins] == [nil] or logs[:coins].empty?)
 
     end
