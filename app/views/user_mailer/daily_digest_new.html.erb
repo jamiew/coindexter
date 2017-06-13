@@ -5,7 +5,7 @@
     <title>Coindexter</title>
     <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
     <meta name="viewport" content="width=device-width"><style type="text/css">
-@media only screen and (min-width: 620px){.wrapper{min-width:600px !important}.wrapper h1{}.wrapper h1{font-size:36px !important;line-height:48px !important}.wrapper h2{}.wrapper h2{font-size:30px !important;line-height:38px !important}.wrapper h3{}.wrapper h3{font-size:22px !important;line-height:31px !important}.column{}.wrapper .size-8{font-size:8px !important;line-height:14px !important}.wrapper .size-9{font-size:9px !important;line-height:16px !important}.wrapper .size-10{font-size:10px !important;line-height:18px !important}.wrapper .size-11{font-size:11px !important;line-height:19px !important}.wrapper .size-12{font-size:12px !important;line-height:19px !important}.wrapper .size-13{font-size:13px !important;line-height:21px !important}.wrapper .size-14{font-size:14px !important;line-height:21px !important}.wrapper .size-15{font-size:15px !important;line-height:23px 
+@media only screen and (min-width: 620px){.wrapper{min-width:600px !important}.wrapper h1{}.wrapper h1{font-size:36px !important;line-height:48px !important}.wrapper h2{}.wrapper h2{font-size:30px !important;line-height:38px !important}.wrapper h3{}.wrapper h3{font-size:22px !important;line-height:31px !important}.column{ margin-left: 20px;margin-right: 20px;margin-top: 24px;margin-bottom: 24px;}.wrapper .size-8{font-size:8px !important;line-height:14px !important}.wrapper .size-9{font-size:9px !important;line-height:16px !important}.wrapper .size-10{font-size:10px !important;line-height:18px !important}.wrapper .size-11{font-size:11px !important;line-height:19px !important}.wrapper .size-12{font-size:12px !important;line-height:19px !important}.wrapper .size-13{font-size:13px !important;line-height:21px !important}.wrapper .size-14{font-size:14px !important;line-height:21px !important}.wrapper .size-15{font-size:15px !important;line-height:23px 
 !important}.wrapper .size-16{font-size:16px !important;line-height:24px !important}.wrapper .size-17{font-size:17px !important;line-height:26px !important}.wrapper .size-18{font-size:18px !important;line-height:26px !important}.wrapper .size-20{font-size:20px !important;line-height:28px !important}.wrapper .size-22{font-size:22px !important;line-height:31px !important}.wrapper .size-24{font-size:24px !important;line-height:32px !important}.wrapper .size-26{font-size:26px !important;line-height:34px !important}.wrapper .size-28{font-size:28px !important;line-height:36px !important}.wrapper .size-30{font-size:30px !important;line-height:38px !important}.wrapper .size-32{font-size:32px !important;line-height:40px !important}.wrapper .size-34{font-size:34px !important;line-height:43px !important}.wrapper .size-36{font-size:36px !important;line-height:43px !important}.wrapper 
 .size-40{font-size:40px !important;line-height:47px !important}.wrapper .size-44{font-size:44px !important;line-height:50px !important}.wrapper .size-48{font-size:48px !important;line-height:54px !important}.wrapper .size-56{font-size:56px !important;line-height:60px !important}.wrapper .size-64{font-size:64px !important;line-height:63px !important}}
 </style>
@@ -541,61 +541,59 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
         <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;">
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" style="background-color: #ffffff;"><td style="width: 600px" class="w560"><![endif]-->
           <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
-            <div style="Margin-left: 40px;Margin-right: 40px;Margin-top: 48px;Margin-bottom: 48px;">
-              <h2>Networks and coins you follow</h2>
-              <% all_network_logs = JSON.parse(@all_network_logs) %>
-              <% i = 0 %>
-              <% for network in all_network_logs do %>
-                <%= image_tag network['network']['logo'], alt: network['network']['name'], style: "text-decoration: none !important; text-transform:uppercase; font-weight:bold; font-size: 12px; color: rgb(235,107,51);", size:'20x20'  %>        
-                <%= link_to network_url(network['network']['name'].downcase), style: "text-decoration: none !important;" do %>
-                  <h3 style="display:inline; color: rgb(235,107,51);"><%= network['network']['name'] %></h3>
-                <% end %>
-                <br />
-                <% unless network['logs'].empty? %>
-                  <h6>Changes</h6>
-                  <div style="padding-left: 10px; margin-bottom: 14px; border-left: 3px solid #cfcfcf;">
-                    <% for log in network['logs'] do %>
-                      <%= link_to network_url(network['network']['name'].downcase) + '/logs', style: "text-decoration: none !important; color: rgb(235,107,51);" do %>  
-                        <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %>
-                      <% end %> 
-                      made by 
-                      <%= link_to user_url(log['user']['username'].downcase), style: "text-decoration: none !important; color: rgb(235,107,51);" do %>
-                        <%= image_tag log['user']['avatar'], alt: log['user']['username'], style: "display:inline;", size:'14x14'  %> <%= log['user']['username'] %>
-                      <% end %>
-                    <% end %>
-                  </div>
-                <% end %>
-                <% unless network['coins'].empty? %>
-                  <h6>Coins</h6>
-                  <div style="padding-left: 10px; margin-bottom: 8px; border-left: 3px solid #cfcfcf;">
-                    <% network['coins'].each do |coin| %>               
-                      <%= image_tag coin['coin']['logo'], alt: coin['coin']['name'], style: "display:inline;", size:'14x14'  %>        
-                      <%= link_to network_coin_url(network['network']['name'].downcase, coin['coin']['name'].downcase), style: "text-decoration: none !important;" do %>
-                          <h4 style="display:inline; color: rgb(235,107,51);"><%= coin['coin']['name'] %></h4>
-                      <% end %>
-                      <br />
-                      <% unless coin['coin']['price'].nil? %>
-                        <b><p style="display:inline; padding-top:4px; font-size: 11px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>
-                        <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %> style="font-size: 11px;">
-                          <%= coin['coin']['one_day_price_change'] unless coin['coin']['one_day_price_change'].nil? %>%
-                        </span> &nbsp;<span style="font-size: 11px;">(1d)</span>
-                      <% end %>
-                      <% unless coin['logs'].empty? %>
-                        <h6>Changes</h6>
-                          <% for log in coin['logs'] do %>
-                            <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %> made by
-                            <%= image_tag log['user']['avatar'], alt: log['user']['username'], style: "display:inline;", size:'14x14'  %> 
-                            <h6><%= log['user']['username'] %></h6>
-                            <br />
-                          <% end %>
-                      <% end %>
-                    <% end %>
-                  </div>
-                <% end %>
-                <br />
-                <br />
+            <h2>Networks and coins you follow</h2>
+            <% all_network_logs = JSON.parse(@all_network_logs) %>
+            <% i = 0 %>
+            <% for network in all_network_logs do %>
+              <%= image_tag network['network']['logo'], alt: network['network']['name'], style: "text-decoration: none !important; text-transform:uppercase; font-weight:bold; font-size: 12px; color: rgb(235,107,51);", size:'20x20'  %>        
+              <%= link_to network_url(network['network']['name'].downcase), style: "text-decoration: none !important;" do %>
+                <h3 style="display:inline; color: rgb(235,107,51);"><%= network['network']['name'] %></h3>
               <% end %>
-            </div>
+              <br />
+              <% unless network['logs'].empty? %>
+                <h6>Changes</h6>
+                <div style="padding-left: 10px; margin-bottom: 14px; border-left: 3px solid #cfcfcf;">
+                  <% for log in network['logs'] do %>
+                    <%= link_to network_url(network['network']['name'].downcase) + '/logs', style: "text-decoration: none !important; color: rgb(235,107,51);" do %>  
+                      <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %>
+                    <% end %> 
+                    made by 
+                    <%= link_to user_url(log['user']['username'].downcase), style: "text-decoration: none !important; color: rgb(235,107,51);" do %>
+                      <%= image_tag log['user']['avatar'], alt: log['user']['username'], style: "display:inline;", size:'14x14'  %> <%= log['user']['username'] %>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+              <% unless network['coins'].empty? %>
+                <h6>Coins</h6>
+                <div style="padding-left: 10px; margin-bottom: 8px; border-left: 3px solid #cfcfcf;">
+                  <% network['coins'].each do |coin| %>               
+                    <%= image_tag coin['coin']['logo'], alt: coin['coin']['name'], style: "display:inline;", size:'14x14'  %>        
+                    <%= link_to network_coin_url(network['network']['name'].downcase, coin['coin']['name'].downcase), style: "text-decoration: none !important;" do %>
+                        <h4 style="display:inline; color: rgb(235,107,51);"><%= coin['coin']['name'] %></h4>
+                    <% end %>
+                    <br />
+                    <% unless coin['coin']['price'].nil? %>
+                      <b><p style="display:inline; padding-top:4px; font-size: 11px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>
+                      <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %> style="font-size: 11px;">
+                        <%= coin['coin']['one_day_price_change'] unless coin['coin']['one_day_price_change'].nil? %>%
+                      </span> &nbsp;<span style="font-size: 11px;">(1d)</span>
+                    <% end %>
+                    <% unless coin['logs'].empty? %>
+                      <h6>Changes</h6>
+                        <% for log in coin['logs'] do %>
+                          <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %> made by
+                          <%= image_tag log['user']['avatar'], alt: log['user']['username'], style: "display:inline;", size:'14x14'  %> 
+                          <h6><%= log['user']['username'] %></h6>
+                          <br />
+                        <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+              <br />
+              <br />
+            <% end %>
           </div>
         <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
         </div>
