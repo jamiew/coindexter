@@ -448,18 +448,16 @@ div.preheader {
 body {
   font-family: "SF UI Text", "Helvetica Neue", "Helvetica", "Arial";
 }
-h6 {
-  display: inline;
-  padding-left: 4px;
-}
 a {
   color: rgb(235,107,51);
   text-decoration: none;
 }
-h6, a.who-posted {
+h6 {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 12px;
+  margin-top: 8px;
+  margin-bottom: 2px;
 }
 img.avatar {
   height: 14px;
@@ -489,6 +487,9 @@ span.down {
 p {
   margin-top: 0.1em;
   margin-bottom: 0.3em;
+}
+h4 {
+  padding-bottom: 6px;
 }
 </style>
     
@@ -535,44 +536,55 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
           <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
             <div style="Margin-left: 40px;Margin-right: 40px;Margin-top: 48px;Margin-bottom: 48px;">
               <h2>Networks and coins you follow</h2>
-              <% @all_network_logs.each do |network| %>
-                <%= image_tag network[:network].logo, alt: network[:network].name, style: "display:inline;", size:'20x20'  %>        
-                <%= link_to network_url(network[:network]), style: "text-decoration: none !important;" do %>
-                  <h3 style="display:inline; color: rgb(235,107,51);"><%= network[:network].name %></h3>
+              <% all_network_logs = JSON.parse(@all_network_logs) %>
+              <% i = 0 %>
+              <% for network in all_network_logs do %>
+                <%= image_tag network['network']['logo'], alt: network['network']['name'], style: "display:inline;", size:'20x20'  %>        
+                <%= link_to network_url(network['network']['name'].downcase), style: "text-decoration: none !important;" do %>
+                  <h3 style="display:inline; color: rgb(235,107,51);"><%= network['network']['name'] %></h3>
                 <% end %>
                 <br />
-                <% if !network[:logs].empty? %>
-                  <h4>Changes to network</h4>
-                  <% network[:logs].each do |log| %>
-                    <%= render(partial: 'networks/log_data', locals: {log: log}) %>
-                    <%= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
-                    <br />
-                  <% end %>
-                <% end %>
-                <br />
-                  <div style="padding-left: 10px; border-left: 3px solid #cfcfcf;">
-                    <% network[:coins].each do |coin| %>               
-                      <h6>Coins</h6>
-                      <br />
-                      <% if !coin.nil? %>
-                        <%= image_tag coin[:coin].logo, alt: 'hey', style: "display:inline;", size:'20x20'  %>
-                        <%= link_to network_coin_url(coin[:coin].network, coin[:coin]), style: "text-decoration: none !important;" do %>
-                          <h4 style="display:inline; color: rgb(235,107,51);"><%= coin[:coin].name %></h4>
-                        <% end %>
-                        <br />
-                        $<%= coin[:coin].price %> <%= coin[:coin].one_day_price_change %>% (1d)
-                        <br />
-                        <% if !coin[:logs].empty? %>
-                           <h6>Changes to coins</h6>
-                          <% coin[:logs].each do |log| %>
-                            <%#= render(partial: 'coins/log_data', locals: {log: log}) %>
-                            <%#= render partial: '/shared/who_posted', locals: { email: true, user: log.user, created_at: log.created_at } %>
-                            <br />
-                          <% end %>
-                        <% end %>
+                <% unless network['logs'].empty? %>
+                  <h6>Changes</h6>
+                  <div style="padding-left: 10px; margin-bottom: 14px; border-left: 3px solid #cfcfcf;">
+                    <% for log in network['logs'] do %>
+                      <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %> made by 
+                      <%= link_to user_url(log['user']['username'].downcase), style: "text-decoration: none !important; text-transform:uppercase; font-weight:bold; font-size: 12px;" do %>
+                        <%= image_tag log['user']['avatar'], alt: log['user']['username'], style: "display:inline;", size:'14x14'  %> <%= log['user']['username'] %>
                       <% end %>
                     <% end %>
                   </div>
+                <% end %>
+                <% unless network['coins'].empty? %>
+                  <h6>Coins</h6>
+                  <div style="padding-left: 10px; margin-bottom: 8px; border-left: 3px solid #cfcfcf;">
+                    <% network['coins'].each do |coin| %>               
+                      <%= image_tag coin['coin']['logo'], alt: coin['coin']['name'], style: "display:inline;", size:'14x14'  %>        
+                      <%= link_to network_coin_url(network['network']['name'].downcase, coin['coin']['name'].downcase), style: "text-decoration: none !important;" do %>
+                          <h4 style="display:inline; color: rgb(235,107,51);"><%= coin['coin']['name'] %></h4>
+                      <% end %>
+                      <br />
+                      <% unless coin['coin']['price'].nil? %>
+                        <span style="font-weight:bold; text-transform:uppercase;">Price</span>&nbsp;
+                        <%= number_to_currency(coin['coin']['price'], :unit => '$') %> 
+                        <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %>>
+                          <%= coin['coin']['one_day_price_change'] unless coin['coin']['one_day_price_change'].nil? %>%
+                        </span> (1d)
+                      <% end %>
+                      <% unless coin['logs'].empty? %>
+                        <h6>Changes</h6>
+                          <% for log in coin['logs'] do %>
+                            <%= log['changes'].length %> <%= log['changes'].length == 1 ? "change" : "changes" %> made by
+                            <%= image_tag log['user']['avatar'], alt: log['user']['username'], style: "display:inline;", size:'14x14'  %> 
+                            <h6><%= log['user']['username'] %></h6>
+                            <br />
+                          <% end %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+                <br />
+                <br />
               <% end %>
             </div>
           </div>
@@ -584,32 +596,34 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
   
       
       <div role="contentinfo">
-        <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-          <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;">
-          <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-email-footer"><td style="width: 400px;" valign="top" class="w360"><![endif]-->
-            <div class="column wide" style="text-align: left;font-size: 12px;line-height: 19px;color: #cfcfcf;font-family: 'SF UI Text', sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);">
-              <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
-                
-                <div style="font-size: 12px;line-height: 19px;">
-                  <div>455 W. 23rd St.<br>
-Apt. 15C<br>
-New York, NY 10011</div>
+        <footer>
+          <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+            <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;">
+            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-email-footer"><td style="width: 400px;" valign="top" class="w360"><![endif]-->
+              <div class="column wide" style="text-align: left;font-size: 12px;line-height: 19px;color: #cfcfcf;font-family: 'SF UI Text', sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);">
+                <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
+                  
+                  <div style="font-size: 12px;line-height: 19px;">
+                    <div>455 W. 23rd St.<br>
+  Apt. 15C<br>
+  New York, NY 10011</div>
+                  </div>
+                  <div style="font-size: 12px;line-height: 19px;Margin-top: 18px;">
+                    
+                  </div>
+                  <!--[if mso]>&nbsp;<![endif]-->
                 </div>
-                <div style="font-size: 12px;line-height: 19px;Margin-top: 18px;">
+              </div>
+            <!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" class="w160"><![endif]-->
+              <div class="column narrow" style="text-align: left;font-size: 12px;line-height: 19px;color: #cfcfcf;font-family: 'SF UI Text', sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);">
+                <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
                   
                 </div>
-                <!--[if mso]>&nbsp;<![endif]-->
               </div>
+            <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
             </div>
-          <!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" class="w160"><![endif]-->
-            <div class="column narrow" style="text-align: left;font-size: 12px;line-height: 19px;color: #cfcfcf;font-family: 'SF UI Text', sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);">
-              <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
-                
-              </div>
-            </div>
-          <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
           </div>
-        </div>
+        </footer>
       </div>
       <div style="line-height:40px;font-size:40px;">&nbsp;</div>
     </div></td></tr></tbody></table>

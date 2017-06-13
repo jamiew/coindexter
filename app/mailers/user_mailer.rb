@@ -17,7 +17,7 @@ class UserMailer < ActionMailer::Base
 
   def daily_digest_new(user, all_network_logs)
     @user = user
-    @all_network_logs = all_network_logs
+    @all_network_logs = all_network_logs.to_json
     mail(to: @user.email, subject: "Coindexter Daily Digest")
   end
 

@@ -535,7 +535,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
           <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);">
             <div style="Margin-left: 40px;Margin-right: 40px;Margin-top: 48px;Margin-bottom: 48px;">
 	            <p>Hi <%= @user.username %>,</p>
-    			    <p>Thanks for registering. Before you can create or edit networks and coins on Coindexter, we need you to confirm your electronic mail address. You can do so by clicking on this uniform resource locator: <%= confirm_email_user_url(@user.confirm_token) %></p>
+    			    <p>Thanks for registering. Before you can create or edit networks and coins on Coindexter, we need you to confirm your electronic mail address: <%= confirm_email_user_url(@user.confirm_token) %></p>
     			    <p>- Jonathan from Coindexter</p>
             </div>
           </div>
