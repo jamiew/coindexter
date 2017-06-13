@@ -62,6 +62,8 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8"
 
+  config.active_job.queue_adapter = :sidekiq
+
   config.action_mailer.mailgun_settings = {
     api_key: 'key-84e04576e169545ef111d461049b3385',
     domain: 'mail.coindexter.io'

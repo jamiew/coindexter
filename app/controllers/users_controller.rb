@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.confirmation_instructions(@user, @user.confirmation_token).deliver_now
+      UserMailer.confirmation_instructions(@user, @user.confirmation_token).deliver_later
       flash[:success] = "Please check your email to confirm your email address"
     else
       render 'new'
