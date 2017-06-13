@@ -20,6 +20,7 @@ module App
 	config.action_mailer.asset_host = 'https://coindexter.io'
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     config.assets.paths << Rails.root.join("app", "services")
+    config.active_job.queue_adapter = :sidekiq
 
   end
 end
