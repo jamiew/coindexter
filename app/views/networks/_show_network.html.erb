@@ -49,22 +49,6 @@
 						<% end %>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>differentiator</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.differentiator.blank? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add a differentiator from desktop.
-							<% else %>
-								<p><%= link_to "What makes #{@network.name} unique?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @network.differentiator %></p>
-						<% end %>
-					</div>
-				</div>
 			</li>
 		</ul>
 		<ul>

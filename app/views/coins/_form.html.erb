@@ -114,6 +114,14 @@
 			<%= f.select :proof_algorithm, options_for_select([["Proof of work","proof-of-work"],["Proof of stake","proof-of-stake"],["Proof of burn","proof-of-burn"],["X11","x11"],["X13","x13"]], :selected => @coin.proof_algorithm), include_blank: true %>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-4 label">
+			<%= f.label "Monetary policy", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_area :monetary_policy, rows: 6, class: "form-input" %>
+		</div>
+	</div>
 	<ul class="action-links">
 		<li class="submit">
 			<%= f.submit "Submit", class: "form-submit" %> 

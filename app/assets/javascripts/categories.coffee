@@ -4,55 +4,37 @@
 
 $(document).on 'turbolinks:load', -> 
 
-	$('ul#category-info-menu > li').click ->
-		cat = $(this).attr 'data-category'
-		$('ul#category-info-menu > li').removeClass 'active-item'
-		$(this).addClass 'active-item'
-		if cat == 'all'
-			$('ul.full-category-cnt').show()
-		else
-			selector = 'ul[data-category="' + cat + '"]'
-			$('ul.full-category-cnt').hide()
-			$('.results > div > .widget').hide()
-			search_selector = 'a[data-category="' + cat + '"]'
-			$(search_selector).show()
-			$(selector).show()
-			$(selector).addClass 'full-category-cnt-active'
-			window.scrollTo(0, 0)
+	$('ul#network-category-info-menu > li').click ->
+		set_menu($(this), 'category')	
+		value = $(this).attr 'data-category'
+		hide_show_matching_groups(value, 'category')
 
-	$('ul#search-filter-categories > li').click ->
-		cat = $(this).attr 'data-group'
-		$('ul#search-filter-categories > li').removeClass 'active-item'
-		$(this).addClass 'active-item'
-		if cat == 'all'
-			$('li.sale-block').show()
-		else
-			selector = 'li[data-group="' + cat + '"]'
-			alert selector
-			$('li.sale-block').hide()
-			$(selector).show()
-			window.scrollTo(0, 0)
+	$('ul#network-status-info-menu > li').click ->
+		set_menu($(this), 'status')	
+		value = $(this).attr 'data-status'
+		hide_show_matching_items(value, 'status')	
 
-	$('div#category-dropdown > ul > li').click ->
-		cat = $(this).attr 'data-category'
-		selector = 'ul[data-category="' + cat + '"]'
-		$('ul.full-category-cnt').hide()
-		$('button.dropdown-toggle').text $(this).text()
-		$(selector).show()
+	$('ul#search-category-info-menu > li').click ->
+		set_menu($(this), 'category')	
+		value = $(this).attr 'data-category'
+		hide_show_matching_items(value, 'category')
 
-	$('ul#status-info-menu > li,ul#category-info-menu > li').click ->
-		cat = $(this).attr 'data-status'
-		cat2 = $(this).attr 'data-category'
-		$('ul#status-info-menu > li').removeClass 'active-item'
-		$('ul#status-info-menu > li#status-show-all, ul#categoryinfo-menu > li#category-show-all').addClass 'active-item'
-		$('.offset-removed').addClass 'col-md-offset-1'
-		$('#none-matching').remove()
+	$('ul#search-status-info-menu > li').click ->
+		set_menu($(this), 'status')	
+		value = $(this).attr 'data-status'
+		hide_show_matching_items(value, 'status')
+		
+	set_menu = (selected, type) ->
+		selector = 'ul.' + type + '-info-menu > li'	
+		$(selector).removeClass 'active-item'
+		selected.addClass 'active-item'
+
+	hide_show_matching_items = (value, type) ->
 		$('.first-network-widget').removeClass 'col-md-offset-1'
-		if cat == 'all'	
-			$('p#none-matching').remove()
-			$('li.status-show-all').addClass 'active-item'
-			$('.widget').show()
-			$('.results > div > .widget').show()
+		$('.offset-removed').addClass 'col-md-offset-1'
+		$('p#none-matching').remove()
+		if value == 'all'
+			$('a.widget').show()
 			$('ul.full-category-cnt, .network-results, .coin-results').each ->
 				networksShown = $(@).find('a.network-widget, a.coin-widget')
 				networksShown.each (index, element) -> 
@@ -63,20 +45,15 @@ $(document).on 'turbolinks:load', ->
 						$(@).find('div').removeClass 'col-md-offset-0'
 						$(@).find('div').addClass 'col-md-offset-1'
 		else
-			selector = 'a[data-status="' + cat + '"]'
 			$('a.widget').hide()
-			$(selector).show()
+			$('a[data-' + type + '="' + value + '"]').show()
 			$('ul.full-category-cnt, .network-results, .coin-results').each ->
 				networksShown = $(@).find('a.network-widget, a.coin-widget').filter(->
 					$(this).css('display') != 'none'
 				)
 				if networksShown.length == 0
-					if cat == null
-						alert 'hey'
-						$(@).find('h1').after '<p id="none-matching">None match ' + cat2 + '</p>'
-					else
-						alert 'hey'
-						$(@).find('h1').after '<p id="none-matching">None match ' + cat + '</p>'
+					if !$(@).find('p').length > 0
+						$(@).find('h1').after '<p id="none-matching">None match ' + value.substr(0,1).toUpperCase()+value.substr(1) + '</p>'					
 				else
 					networksShown.each (index, element) -> 
 						if index == 0 || index % 3 == 0
@@ -85,6 +62,15 @@ $(document).on 'turbolinks:load', ->
 						else 
 							$(@).find('div').removeClass 'col-md-offset-0'
 							$(@).find('div').addClass 'col-md-offset-1'
+
+
+	hide_show_matching_groups = (value, type) ->
+		if value == 'all'
+			$('ul.full-category-cnt').show()
+		else
+			$('ul.full-category-cnt').hide()
+			$('ul[data-' + type + '="' + value + '"]').show()
+
 
 
 

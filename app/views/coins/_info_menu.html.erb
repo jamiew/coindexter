@@ -11,17 +11,7 @@
 	</li>
 	<li class="menu-title" id="network">networks<br>
 		<% unless coin.network.nil? %>
-			<%= link_to coin.network, class: "user-log-classification-anchor" do %>
-				<div class="user-log-classification">
-					<div class="user-log-classification-network">
-						<%= image_tag(coin.network.logo.small.url, size: "20x20") if coin.logo? %>
-						<%= truncate(coin.network.name, length: 16) %>
-						<div class="clear"></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="clear"></div>
-			<% end %>
+			<%= render '/networks/network_widget', :network => coin.network, :info_menu => true %>
 		<% else %>
 			<%= link_to "Add one?", new_network_coin_url, class: "add-one" %>
 		<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607225941) do
+ActiveRecord::Schema.define(version: 20170614041549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170607225941) do
     t.string   "coin_type"
     t.jsonb    "exchanges",               default: {}, null: false
     t.datetime "saledate"
+    t.text     "monetary_policy"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
     t.index ["links_id"], name: "index_coins_on_links_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
@@ -147,18 +148,17 @@ ActiveRecord::Schema.define(version: 20170607225941) do
     t.string   "link"
     t.string   "status"
     t.string   "team"
-    t.string   "founders",       default: [],              array: true
+    t.string   "founders",    default: [],              array: true
     t.string   "slack"
     t.string   "forum"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "slug"
     t.string   "logo"
     t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "coin_id"
     t.string   "github"
-    t.text     "differentiator"
     t.string   "reddit"
     t.index ["category_id"], name: "index_networks_on_category_id", using: :btree
     t.index ["coin_id"], name: "index_networks_on_coin_id", using: :btree

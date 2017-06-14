@@ -24,7 +24,7 @@
 				</li>
 			<% end %>
 		<% else %>
-			<li><%= link_to("Follow #{@network.name}", follow_network_path, remote: true, method: :put, class: "action-link", id: "follow-network", accesskey: 'F') %></li>
+			<li class="follow-action-link"><%= link_to("Follow #{@network.name}", follow_network_path, remote: true, method: :put, class: "action-link", id: "follow-network", accesskey: 'F') %></li>
 		<% end %>
 		<li><%= link_to("Edit #{@network.name}", edit_network_path, class: "action-link", accesskey: 'E') %></li>
 	</ul>

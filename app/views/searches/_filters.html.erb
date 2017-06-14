@@ -1,5 +1,5 @@
 <div class="col-md-2 col-md-offset-1 left-nav">
-	<ul class="info-menu" id="status-info-menu">
+	<ul class="info-menu status-info-menu" id="search-status-info-menu">
 		<li id="status-show-all" data-status="all" class="active-item">
 			<p>All statuses</p>
 		</li>
@@ -13,7 +13,7 @@
 			<p>Concept</p>
 		</li>
 	</ul>	
-	<ul class="info-menu" id="category-info-menu" class="search-filter-categories">
+	<ul class="info-menu category-info-menu" id="search-category-info-menu">
 		<li id="category-show-all" class="active-item" data-category="all"><p>All categories</p></li>
 		<% @result_categories.each do |category| %>
 			<% unless category.nil? %>

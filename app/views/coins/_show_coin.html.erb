@@ -180,35 +180,12 @@
 					</div>
 				</li>
 			<% end %>
-
 			<li class="coin-info-block block">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-4 col-xs-12 col-xs-offset-0 title-row">
 						<h6>technical</h6>
 					</div>
-				</div>
-<% 
-=begin %>				
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Repo</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.repositories.empty? || @coin.repositories.first.name == ""  %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add a repository from desktop.
-							<% else %>
-								<p><%= link_to "Add a repository", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<% @coin.repositories.each_with_index do |repository, i| %>
-								<p><%= link_to repository.name, repository.url %>
-							<% end %>
-						<% end %>	
-					</div>	
 				</div>	
-<% 
-=end %>			
 				<div class="row">
 					<div class="col-md-4 col-xs-12 label">
 						<h6>Type</h6>
@@ -244,7 +221,25 @@
 							<p><%= @coin.proof_algorithm.capitalize %></p>
 						<% end %>
 					</div>
-				</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Monetary policy</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<% if @coin.monetary_policy.nil? || @coin.monetary_policy == "" %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add the monetary_policy from desktop.
+							<% else %>
+								<p>
+									<%= link_to "Add the monetary policy", edit_network_coin_url(@coin.network.name, @coin), class: "add-missing-field" %>
+								</p>
+							<% end %>
+						<% else %>
+							<p><%= @coin.monetary_policy %></p>
+						<% end %>
+					</div>
+				</div>		
 			</li>
 		</ul>
 	</div>

@@ -966,12 +966,23 @@ form.new_comment {
 	}
 }
 
+li#coins {
+	
+}
+.info {
+	.coin-widget {
+		.coin_has_price {
+
+		}
+	}
+}
+
 .coin-widget, .widget, .network-widget {
 	text-align:center;
-	.network-in-categories {
+	.network-in-categories, .coin-in-categories {
 		min-height: 145px;
 	}
-	.coin-in-categories, .network-in-categories {
+	.coin-in-categories, .coin-in-info-menu, .network-in-categories {
 		margin-bottom:22px;
 		background-color: rgba(255,255,255,0.8);
 		border: 3px solid $border-orange;
@@ -1006,11 +1017,8 @@ form.new_comment {
 			border: 3px solid $primary-orange;
 		}
 	}
-	.coin-in-info-menu {
+	.widget-in-info-menu {
 		float:right;
-	}
-	.coin-in-categories {
-		min-height: 181px;
 	}
 }
 
@@ -1035,7 +1043,7 @@ h1.list-name {
 	padding-top:7px;
 	padding-bottom: 2px;
 }
-.network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .whitepapers, .results, .about, .info-header, form {
+.network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .coin-in-categories, .whitepapers, .results, .about, .info-header, form {
 	margin-bottom:24px;
 	div {
 		div {

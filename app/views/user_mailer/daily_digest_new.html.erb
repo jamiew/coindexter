@@ -5,7 +5,7 @@
     <title>Coindexter</title>
     <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
     <meta name="viewport" content="width=device-width"><style type="text/css">
-@media only screen and (min-width: 620px){.wrapper{min-width:600px !important}.wrapper h1{}.wrapper h1{font-size:36px !important;line-height:48px !important}.wrapper h2{}.wrapper h2{font-size:30px !important;line-height:38px !important}.wrapper h3{}.wrapper h3{font-size:22px !important;line-height:31px !important}.main-column{margin-left: 10px;margin-right: 10px;margin-top: 16px;margin-bottom: 16px;}.wrapper .size-8{font-size:8px !important;line-height:14px !important}.wrapper .size-9{font-size:9px !important;line-height:16px !important}.wrapper .size-10{font-size:10px !important;line-height:18px !important}.wrapper .size-11{font-size:11px !important;line-height:19px !important}.wrapper .size-12{font-size:12px !important;line-height:19px !important}.wrapper .size-13{font-size:13px !important;line-height:21px !important}.wrapper .size-14{font-size:14px !important;line-height:21px !important}.wrapper .size-15{font-size:15px !important;line-height:23px 
+@media only screen and (min-width: 620px){.wrapper{min-width:600px !important}.wrapper h1{}.wrapper h1{font-size:36px !important;line-height:48px !important}.wrapper h2{}.wrapper h2{font-size:30px !important;line-height:38px !important}.wrapper h3{}.wrapper h3{font-size:22px !important;line-height:31px !important}.main-column{}.wrapper .size-8{font-size:8px !important;line-height:14px !important}.wrapper .size-9{font-size:9px !important;line-height:16px !important}.wrapper .size-10{font-size:10px !important;line-height:18px !important}.wrapper .size-11{font-size:11px !important;line-height:19px !important}.wrapper .size-12{font-size:12px !important;line-height:19px !important}.wrapper .size-13{font-size:13px !important;line-height:21px !important}.wrapper .size-14{font-size:14px !important;line-height:21px !important}.wrapper .size-15{font-size:15px !important;line-height:23px 
 !important}.wrapper .size-16{font-size:16px !important;line-height:24px !important}.wrapper .size-17{font-size:17px !important;line-height:26px !important}.wrapper .size-18{font-size:18px !important;line-height:26px !important}.wrapper .size-20{font-size:20px !important;line-height:28px !important}.wrapper .size-22{font-size:22px !important;line-height:31px !important}.wrapper .size-24{font-size:24px !important;line-height:32px !important}.wrapper .size-26{font-size:26px !important;line-height:34px !important}.wrapper .size-28{font-size:28px !important;line-height:36px !important}.wrapper .size-30{font-size:30px !important;line-height:38px !important}.wrapper .size-32{font-size:32px !important;line-height:40px !important}.wrapper .size-34{font-size:34px !important;line-height:43px !important}.wrapper .size-36{font-size:36px !important;line-height:43px !important}.wrapper 
 .size-40{font-size:40px !important;line-height:47px !important}.wrapper .size-44{font-size:44px !important;line-height:50px !important}.wrapper .size-48{font-size:48px !important;line-height:54px !important}.wrapper .size-56{font-size:56px !important;line-height:60px !important}.wrapper .size-64{font-size:64px !important;line-height:63px !important}}
 </style>
@@ -287,6 +287,14 @@ div.preheader {
   }
   .border {
     display: none;
+  }
+  .main-column {
+    margin-left: 10px;margin-right: 10px;margin-top: 16px;margin-bottom: 16px;
+  }
+}
+@media (max-width: 376px) {
+  .main-column {
+    margin-left: 30px;margin-right: 30px;margin-top: 40px;margin-bottom: 40px;
   }
 }
 .mso div {
@@ -581,7 +589,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                       <% end %>
                       <br />
                       <% unless coin['coin']['price'].nil? %>
-                        <b><p style="display:inline; padding-top:4px; font-size: 12px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>
+                        <b><p style="display:inline; padding-top:4px; font-size: 12px;"><%= number_to_currency(coin['coin']['price'], :unit => '$') %></p></b>&nbsp; 
                         <span class=<%= !coin['coin']['one_day_price_change'].nil? && coin['coin']['one_day_price_change'].to_i > 0 ? 'up' : 'down' %> style="font-size: 12px;">
                           <%= coin['coin']['one_day_price_change'] unless coin['coin']['one_day_price_change'].nil? %>%
                         </span>
@@ -625,7 +633,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                           New York, NY 10011</div>
                   </div>
                   <div style="font-size: 12px;line-height: 19px;Margin-top: 18px;">
-                    %unsubscribe_url%
+                    <a href=%unsubscribe_url%>Unsubscribe</a>
                   </div>
                   <!--[if mso]>&nbsp;<![endif]-->
                 </div>
