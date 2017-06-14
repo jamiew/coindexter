@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
     else 
       @all_network_logs = all_network_logs.to_json
     end
-    mail(to: @user.email, subject: "Coindexter Daily Digest")
+    mail(to: @user.email, subject: "Coindexter Daily Digest").deliver_now
   end
 
   def confirmation_instructions(user, confirmation_instructions, opts={})
