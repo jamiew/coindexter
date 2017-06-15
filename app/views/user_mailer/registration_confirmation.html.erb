@@ -548,8 +548,8 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
         <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0" role="presentation"><tr class="layout-fixed-width" style="background-color: #ffffff;"><td style="width: 600px" class="w560"><![endif]-->
           <div class="column" style="text-align: left;color: #545454;font-size: 14px;line-height: 21px;font-family: 'SF UI Text', sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px); border: 2px solid #fbe2d8;">
             <div class="main-column">
-	            <p>Hi <%= @user.username %>,</p>
-    			    <p>Thanks for registering. Before you can create or edit networks and coins on Coindexter, we need you to confirm your electronic mail address: <%= confirm_email_user_url(@user.confirm_token) %></p>
+	            <p>Hi <%= @user.username %>,</p><br />
+    			    <p>Thanks for registering. Before you can create or edit networks and coins on Coindexter, we need you to confirm your electronic mail address: <%= confirm_email_user_url(@user.confirm_token) %></p><br />
     			    <p>- Jonathan from Coindexter</p>
             </div>
           </div>
