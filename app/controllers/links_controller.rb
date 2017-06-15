@@ -16,7 +16,7 @@ class LinksController < ApplicationController
 		if !params[:network_id].nil?
       		@network = Network.friendly.find(params[:network_id])
       	end
-		@links = Link.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+		@links = Link.all.paginate(:page => params[:page], :per_page => 10)
 		respond_to do |format|
 		    format.html
 		    format.js
@@ -26,12 +26,14 @@ class LinksController < ApplicationController
 
 	def show
 		@link = Link.friendly.find(params[:id])
+		@network = @link.networks.first
 		respond_to do |format|
 		    format.html
 		    format.js
 		    format.json
 		end
 	end
+
 
 	def new
 		@use_ajax = true
@@ -61,7 +63,12 @@ class LinksController < ApplicationController
 	def create
 		@link = current_user.links.new(link_params)
 		if @link.save
-	    	redirect_to @link
+	    	if @link.networks.nil?
+	    		redirect_to @link
+	    	else 
+	    		@network = @link.networks.first
+	    		redirect_to network_links_path(@link.networks.first)
+	    	end
 		else
 	        puts 'not working'
 	    end

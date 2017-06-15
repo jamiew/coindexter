@@ -24,9 +24,14 @@ class DailyDigestWorker
           end 
           logs[:coins] << network_coin_logs
         end
+        network.links.each do |link|
+          if link.created_at < Datetime.now - 1.day
+            logs[:links] << link
+          end
+        end
       end 
 
-      all_network_logs << logs unless logs[:logs].empty? && (logs[:coins].nil? or logs[:coins] == [nil] or logs[:coins].empty?)
+      all_network_logs << logs unless logs[:logs].empty? && (logs[:coins].nil? or logs[:coins] == [nil] or logs[:coins].empty?) && logs[:links].empty?
 
     end
 

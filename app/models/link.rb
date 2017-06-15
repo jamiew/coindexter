@@ -11,6 +11,8 @@ class Link < ApplicationRecord
   multisearchable :against => [:title]
   pg_search_scope :search, :against => :title, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.3 } }
 
+  default_scope { order('created_at DESC') }
+
 	def should_generate_new_friendly_id?
 		!has_friendly_id_slug? || title_changed?
   	end

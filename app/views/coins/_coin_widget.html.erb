@@ -1,4 +1,4 @@
-<%= link_to network_coin_path(coin.network, coin), class: 'coin-widget widget', :data => { :category => coin.network.category.name.downcase.gsub(" ",""), status: coin.coin_status.downcase } do %>
+<%= link_to network_coin_path(coin.network, coin), class: 'coin-widget widget', :data => { :category => coin.network.category.nil? ? 'none' : coin.network.category.name.downcase.gsub(" ",""), status: coin.coin_status.nil? ? 'none' : coin.coin_status.downcase } do %>
 	<% if defined? info_menu %>
 		<div class="col-md-9 coin-in-categories widget-in-info-menu">
 			<% if coin.logo.nil? || coin.logo.blank? %>

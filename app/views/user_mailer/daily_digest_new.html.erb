@@ -579,6 +579,20 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                     <% end %>
                   </div>
                 <% end %>
+                <% unless network['links'].empty? %>
+                  <h6>Q&amp;A</h6>
+                  <div style="padding-left: 10px; margin-bottom: 14px; border-left: 3px solid #cfcfcf;">
+                    <% for link in network['links'] do %>
+                      <%= link_to network_link_url(network['network']['name'].downcase, link) + '/questions', style: "text-decoration: none !important; color: rgb(235,107,51);" do %>  
+                        <%= link.title %>
+                      <% end %> 
+                      asked by 
+                      <%= link_to user_url(link['user']['username'].downcase), style: "text-decoration: none !important; color: rgb(235,107,51);" do %>
+                        <%= image_tag link['user']['avatar'], alt: link['user']['username'], style: "display:inline;", size:'14x14'  %> <%= link['user']['username'] %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
                 <% unless network['coins'].empty? %>
                   <h6>Coins</h6>
                   <div style="padding-left: 10px; margin-bottom: 8px; border-left: 3px solid #cfcfcf;">

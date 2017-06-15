@@ -1,7 +1,16 @@
 <div class="row">
-	<div class="col-md-6 col-md-offset-3 col-xs-12 main">
-		<%= render 'show_link', locals: {link: @link} %>
-	</div>
+	<% if @network.nil? %>
+		<div class="col-md-6 col-md-offset-3 col-xs-12 main">
+			<%= render 'show_link', locals: {link: @link} %>
+		</div>
+	<% else %>
+		<div class="col-md-2 col-md-offset-1 left-nav">
+			<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "questions"}) %>
+		</div>
+		<div class="col-md-6 col-md-offset-1 col-xs-12 main">
+			<%= render 'show_link', locals: {link: @link} %>
+		</div>
+	<% end %>
 	<ul class="action-links">
 		<% if current_user && current_user.id == @link.user_id %>
 			<li><%= link_to(edit_link_path, remote: true, class: "action-link", accesskey: 'E') do %>

@@ -26,6 +26,7 @@ class SearchesController < ApplicationController
 
 	def network_search
 		@query = params[:query]
+		puts "query is #{@query}"
 		@network_results = Network.search(params[:query])
 		respond_to do |format|
 	        format.js 

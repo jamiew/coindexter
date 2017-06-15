@@ -1,4 +1,4 @@
-<%= link_to network, class: "network-widget widget #{network.category.name.downcase unless network.category.nil?}", :data => { :status => network.status.downcase, :category => network.category.name.downcase.gsub(" ","") } do %>
+<%= link_to network, class: "network-widget widget #{network.category.name.downcase unless network.category.nil?}", :data => { :status => network.status.downcase, :category => network.category.nil? ? 'none' : network.category.name.downcase.gsub(" ","") } do %>
 	<% if defined? info_menu %>
 		<div class="col-md-9 <%= network.category.name.downcase unless network.category.nil? %>  network-in-categories widget-in-info-menu">
 			<% if network.logo.nil? || network.logo.blank? %>
