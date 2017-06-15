@@ -17,12 +17,8 @@ class UserMailer < ActionMailer::Base
 
   def daily_digest_new(user, all_network_logs)
     @user = user
-    if Rails.env.production?
-      @all_network_logs = all_network_logs
-    else 
-      @all_network_logs = all_network_logs.to_json
-    end
-    mail(to: @user.email, subject: "Coindexter Daily Digest").deliver_now
+    @all_network_logs = all_network_logs
+    mail(to: @user.email, subject: "Coindexter Daily Digest")
   end
 
   def confirmation_instructions(user, confirmation_instructions, opts={})

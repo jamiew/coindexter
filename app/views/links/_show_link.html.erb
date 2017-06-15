@@ -2,8 +2,14 @@
 	<li class="link-block block">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0" id="show-single-link">
-				<h3 class="link-title"><%= link_to @link.title, @link.link %></h3>
-				<p class="link-body">Hey this is such a good link thank you for sharing you are the best what would I do without you.<%= @link.body %></h3>
+				<h3 class="link-title">
+					<% if @link.link.nil? || @link.link == "" %>
+						<%= @link.title %>
+					<% else %>
+						<%= link_to @link.title, @link.link %>	
+					<% end %>
+				</h3>
+				<p class="link-body"><%= @link.body %></h3>
 				<h6 class="when-posted">posted <%= time_ago_in_words(@link.created_at) %></h6>
 				<div class="who-posted-cnt">
 					<%= link_to @link.user, class: "who-posted" do %>

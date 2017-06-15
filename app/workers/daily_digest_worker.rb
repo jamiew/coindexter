@@ -46,7 +46,7 @@ class DailyDigestWorker
 
     all_network_logs = all_network_logs.to_json
 
-    UserMailer.daily_digest_new(user, all_network_logs)
+    UserMailer.daily_digest_new(user, all_network_logs).deliver_later
   
   end
 

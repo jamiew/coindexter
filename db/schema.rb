@@ -14,8 +14,9 @@ ActiveRecord::Schema.define(version: 20170614041549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_trgm"
   enable_extension "fuzzystrmatch"
+  enable_extension "pg_stat_statements"
+  enable_extension "pg_trgm"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -220,7 +221,6 @@ ActiveRecord::Schema.define(version: 20170614041549) do
     t.datetime "updated_at",       null: false
     t.string   "whitepaper_title"
     t.string   "slug"
-    t.text     "text"
     t.text     "fulltext"
     t.integer  "user_id"
     t.integer  "width"

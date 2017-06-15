@@ -1,5 +1,9 @@
 $(document).ready(function() {
   prev_scroll_top = 0;
+  body_height = $('body').height();
+  if (body_height > 1200) {
+    $('.action-links').css('bottom',body_height - (body_height - 80));
+  }
   $(window).scroll(function() {
     if(window.pagination_loading) {
       return;
