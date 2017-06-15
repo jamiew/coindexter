@@ -4,7 +4,7 @@
 		<%= link_to network.whitepapers.count == 0 ? "Whitepapers" : network.whitepapers.count == 1 ? network.whitepapers.count.to_s + " Whitepaper" : network.whitepapers.count.to_s + " Whitepapers", network_whitepapers_path(network)  %>
 	</li>
 	<li <%= "class=active-item"  if active_item == "links" %> id="links">
-		<%= link_to "Links", network_links_path(network) %>
+		<%= link_to link_to network.links.count == 0 ? "Questions" : network.links.count == 1 ? network.links.count.to_s + " question" : network.links.count.to_s + " questions", network_links_path(network) %>
 	</li>
 	<li <%= "class=active-item"  if active_item == "log" %> id="log"><%= link_to "Logs", "/networks/#{@network.name.downcase.split(' ').join('-')}/logs" %>
 	</li>

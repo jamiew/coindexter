@@ -3,39 +3,21 @@
 <%= form_for [@network, @link], authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-4 label">
-			<%= f.label "Title", class: "form-label" %>
+			<%= f.label "Question", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :title, class: 'filestyle' %>
+			<%= f.text_area :title, rows: 6, class: 'filestyle' %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4 label">
-			<%= f.label "URL", class: "form-input" %>
+			<%= f.label "URL", class: "form-input", class: "form-label optional-field" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :link, class: "form-input" %>
+			<a class="optional-toggle">Add link (optional)</a>
+			<%= f.text_field :link, class: "form-input optional-field" %>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-4 label">
-			<%= f.label "Add your take", class: "form-label optional-field" %>
-		</div>
-		<div class="col-md-8">
-			<a class="optional-toggle">Add your take (optional)</a>
-			<%= f.text_area :body, rows: 6, class: "optional-field" %>
-		</div>
-	</div>
-<!--	
-	<div class="row">
-		<div class="col-md-4 label">
-			<%= f.label "Coins", class: "form-input" %>
-		</div>
-		<div class="col-md-8">
-			<%= f.collection_select :coin_ids, Coin.all.order("market_cap DESC").where("market_cap > ?", 0).map { |c| [c.id, c.name, {'data-icon' => c.logo}, {class: 'coin-option'}]}, :first, :second, @coin.nil? ? {} : {selected: @coin.id}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
-		</div>
-	</div>
--->
 	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Networks", class: "form-input" %>

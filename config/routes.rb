@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :links do 
+    resources :links, path: :questions do 
       resources :comments do
         resources :comments
       end
@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   end
 
-  resources :links do 
+  resources :links, path: :questions do 
     resources :comments do
       resources :comments
     end
@@ -75,7 +75,7 @@ Rails.application.routes.draw do
 
   get 'networks/:network_id/coin/:id/add_network', to: 'coins#add_network', :as => :add_network_to_coin
 
-  get 'daily_digest', to: 'users#daily_digest', :as => :daily_digest
+  get 'questions', to: 'links#index', :as => :questions
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
