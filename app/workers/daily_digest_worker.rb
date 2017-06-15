@@ -1,4 +1,5 @@
 class DailyDigestWorker
+
   include Sidekiq::Worker
   
   sidekiq_options({
@@ -14,7 +15,7 @@ class DailyDigestWorker
     Network.find_each do |network| 
       network_logs = NetworkService.new
       fetched_network_logs = network_logs.get_logs(network, "Network",nil,nil,1).reverse
-      logs = { network: network, logs: fetched_network_logs, coins: [] }
+      logs = { network: network, logs: fetched_network_logs, coins: [], links: [] }
       if !network.coins.nil?
         network.coins.each do |coin|
           coin_logs = NetworkService.new
@@ -25,13 +26,14 @@ class DailyDigestWorker
           logs[:coins] << network_coin_logs
         end
         network.links.each do |link|
-          if link.created_at < Datetime.now - 1.day
+          current_datetime = DateTime.now
+          if link.created_at > current_datetime - 1.day
             logs[:links] << link
           end
         end
       end 
 
-      all_network_logs << logs unless logs[:logs].empty? && (logs[:coins].nil? or logs[:coins] == [nil] or logs[:coins].empty?) && logs[:links].empty?
+      all_network_logs << logs unless logs[:logs].empty? && (logs[:coins].nil? or logs[:coins] == [nil] or logs[:coins].empty?) && (logs[:links].nil? or logs[:links].empty?)
 
     end
 

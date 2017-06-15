@@ -565,7 +565,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                   <h3 style="display:inline; color: rgb(235,107,51);"><%= network['network']['name'] %></h3>
                 <% end %>
                 <br />
-                <% unless network['logs'].empty? %>
+                <% unless network['logs'].nil? or network['logs'].empty? %>
                   <h6>Changes</h6>
                   <div style="padding-left: 10px; margin-bottom: 14px; border-left: 3px solid #cfcfcf;">
                     <% for log in network['logs'] do %>
@@ -579,7 +579,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                     <% end %>
                   </div>
                 <% end %>
-                <% unless network['links'].empty? %>
+                <% unless network['links'].nil? or network['links'].empty? %>
                   <h6>Q&amp;A</h6>
                   <div style="padding-left: 10px; margin-bottom: 14px; border-left: 3px solid #cfcfcf;">
                     <% for link in network['links'] do %>
