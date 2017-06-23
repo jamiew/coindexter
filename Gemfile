@@ -105,6 +105,8 @@ gem 'nokogiri'
 
 gem 'puma_worker_killer'
 
+# gem "sidekiq-cron", "~> 0.4.0"
+
 group :production do 
   gem 'rails_12factor'
 end

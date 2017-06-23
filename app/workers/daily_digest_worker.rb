@@ -57,6 +57,8 @@ class DailyDigestWorker
   
   end
 
-  DailyDigestWorker.perform_async
+  # Sidekiq::Cron::Job.create(name: 'Daily Digest worker - every 1day', cron: '00 03 10 * *', class: 'DailyDigestWorker')
+
+  # DailyDigestWorker.perform_async
   
 end
