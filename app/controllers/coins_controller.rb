@@ -54,7 +54,6 @@ class CoinsController < ApplicationController
 		@use_ajax = false
 		@network = Network.friendly.find(params[:network_id])
 		@coin = Coin.friendly.find(params[:id])
-		puts "coin.network #{@coin.network}"
 		if @coin.repositories.empty?
 			@coin.build_repository
 		end
@@ -68,7 +67,7 @@ class CoinsController < ApplicationController
 		@coin = Coin.new(coin_params)
 		@coin.network = @network
 	    if @coin.save
-	    	if @coin.coin_status == "Live"
+	    	if @coin.coin_status == "live"
 	    		if @coin.price.nil?
 	    			@fetching_price = true
 	    		end    		
@@ -97,8 +96,10 @@ class CoinsController < ApplicationController
     		if @coin.coin_status == "live"
     			if @coin.price.nil?
 	    			@fetching_price = true
+	    			puts "@fetching price #{@fetching_price}"
 	    		end
 	    		id = @coin.id
+	    		puts "id is #{id}"
 	    		UpdateSingleCoinPriceWorker.perform_async(id)
     		end
     		redirect_to network_coin_path(@network, @coin)

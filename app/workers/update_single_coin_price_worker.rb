@@ -23,6 +23,6 @@ class UpdateSingleCoinPriceWorker
     end
   end
 
-  UpdateSingleCoinPriceWorker.perform_async
+  # UpdateSingleCoinPriceWorker.perform_async
   
 end
