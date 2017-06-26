@@ -143,7 +143,7 @@ class NetworksController < ApplicationController
 	private
 
 	    def network_params
-	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :reddit, :coin_id, :logo, :founders, :github, :differentiator, :coin, whitepapers_attributes: [:id, :network_id, :whitepaper_title, :whitepaper, :slug], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
+	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :reddit, :coin_id, :logo, :founders, :github, :differentiator, :coin, :team_location, :blockchain, whitepapers_attributes: [:id, :network_id, :whitepaper_title, :whitepaper, :slug], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
 	    end
 
 end

@@ -155,7 +155,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :differentiator, :proof_algorithm, :network_id, networks: [], network_id: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :differentiator, :proof_algorithm, :network_id, :capital_raised, :ico_use_of_proceeds, :ico_token_sale_structure, :ico_pricing, :ico_amount_sold, :ico_allocation, :ico_lockup, :ico_buyer_lockup, :ico_founder_lockup, :ico_min_investment_cap, :ico_type_of_min_cap, :ico_max_investment_cap, :ico_currency_accepted, :ico_additional_notes, :ico_planned_end_date, :ico_actual_end_date, networks: [], network_id: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
 		def up_or_down(value)
