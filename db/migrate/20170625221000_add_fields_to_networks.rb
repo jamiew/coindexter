@@ -13,6 +13,7 @@ class AddFieldsToNetworks < ActiveRecord::Migration[5.0]
   	add_column :coins, :ico_founder_lockup, :text
   	add_column :coins, :ico_min_investment_cap, :string
   	add_column :coins, :ico_type_of_min_cap, :string
+    add_column :coins, :ico_type_of_max_cap, :string
   	add_column :coins, :ico_max_investment_cap, :string
   	add_column :coins, :ico_currency_accepted, :string
   	add_column :coins, :ico_additional_notes, :text

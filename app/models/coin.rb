@@ -20,9 +20,9 @@ class Coin < ApplicationRecord
 
   enum coin_status_options: [:concept, :preproduction, :live, :dead]
 
-  enum ico_type_of_min_cap: [:disclosed, :hidden, :mixed, :soft_cap, :other], _prefix: true
+  enum ico_type_of_min_cap: [:disclosed, :hidden, :goal, :soft_cap, :mixed, :none, :other], _prefix: true
 
-  enum ico_type_of_max_cap: [:disclosed, :hidden, :mixed, :soft_cap, :other], _prefix: true
+  enum ico_type_of_max_cap: [:disclosed, :hidden, :goal, :soft_cap, :mixed, :none, :other], _prefix: true
 
   acts_as_followable
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625233557) do
+ActiveRecord::Schema.define(version: 20170626132145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20170625233557) do
     t.datetime "ico_actual_end_date"
     t.integer  "capital_raised"
     t.text     "ico_token_sale_structure"
+    t.string   "ico_type_of_max_cap"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
     t.index ["links_id"], name: "index_coins_on_links_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
