@@ -47,6 +47,6 @@ class SaveTextsFromPdfsWorker
 	end
   end
 
-  SaveTextsFromPdfsWorker.perform_async
+  # SaveTextsFromPdfsWorker.perform_async
   
 end

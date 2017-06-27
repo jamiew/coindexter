@@ -3,9 +3,11 @@ log
 /db/*.sqlite3
 /tmp
 config/database.yml
+/.DS_Store
 .DS_Store
 public/assets
 public/uploads
 public/javascripts
 .env
-dump.rdb
+/.env
+/dump.rdb

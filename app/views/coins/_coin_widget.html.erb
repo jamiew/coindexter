@@ -6,7 +6,11 @@
 			<% else %>
 				<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
 			<% end %>
-			<h6><%= coin.name.downcase[0..15] %></h6>
+			<% unless coin.symbol.nil? %>
+				<h6><%= coin.symbol %></h6>
+			<% else %>
+				<h6><%= coin.name[0..15] %></h6>
+			<% end %>
 			<% if coin.saledate && coin.saledate > Time.now %>
 				<p class="sale-date">Sale: <%= coin.saledate.strftime('%b %d, %Y') %></p>
 			<% elsif coin.market_cap && coin.one_day_price_change %>
@@ -21,7 +25,11 @@
 			<% else %>
 				<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
 			<% end %>
-			<h6><%= coin.name.downcase[0..15] %></h6>
+			<% unless coin.symbol.nil? %>
+				<h6><%= coin.symbol %></h6>
+			<% else %>
+				<h6><%= coin.name[0..15] %></h6>
+			<% end %>
 			<% if coin.saledate && coin.saledate > Time.now %>
 				<p class="sale-date">Sale: <%= coin.saledate.strftime('%b %d, %Y') %></p>
 			<% elsif coin.market_cap && coin.one_day_price_change %>

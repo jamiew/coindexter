@@ -32,6 +32,6 @@ class UpdateAllCoinPricesWorker
     end
   end
 
-  UpdateAllCoinPricesWorker.perform_async
+  # UpdateAllCoinPricesWorker.perform_async
   
 end

@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614041549) do
+ActiveRecord::Schema.define(version: 20170626132145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "fuzzystrmatch"
-  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
+  enable_extension "fuzzystrmatch"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -37,8 +36,8 @@ ActiveRecord::Schema.define(version: 20170614041549) do
     t.bigint   "market_cap"
     t.text     "application_description"
     t.integer  "category_id"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "logo"
     t.string   "slug"
     t.string   "coinmarketcap_url"
@@ -50,14 +49,31 @@ ActiveRecord::Schema.define(version: 20170614041549) do
     t.integer  "user_id"
     t.integer  "network_id"
     t.integer  "links_id"
-    t.jsonb    "repositories",            default: {}, null: false
+    t.jsonb    "repositories",             default: {}, null: false
     t.string   "code_license"
     t.string   "technology"
     t.string   "proof_algorithm"
     t.string   "coin_type"
-    t.jsonb    "exchanges",               default: {}, null: false
+    t.jsonb    "exchanges",                default: {}, null: false
     t.datetime "saledate"
     t.text     "monetary_policy"
+    t.text     "ico_use_of_proceeds"
+    t.string   "ico_pricing"
+    t.string   "ico_amount_sold"
+    t.text     "ico_allocation"
+    t.text     "ico_lockup"
+    t.text     "ico_buyer_lockup"
+    t.text     "ico_founder_lockup"
+    t.string   "ico_min_investment_cap"
+    t.string   "ico_type_of_min_cap"
+    t.string   "ico_max_investment_cap"
+    t.string   "ico_currency_accepted"
+    t.text     "ico_additional_notes"
+    t.datetime "ico_planned_end_date"
+    t.datetime "ico_actual_end_date"
+    t.integer  "capital_raised"
+    t.text     "ico_token_sale_structure"
+    t.string   "ico_type_of_max_cap"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
     t.index ["links_id"], name: "index_coins_on_links_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
@@ -149,11 +165,11 @@ ActiveRecord::Schema.define(version: 20170614041549) do
     t.string   "link"
     t.string   "status"
     t.string   "team"
-    t.string   "founders",    default: [],              array: true
+    t.string   "founders",      default: [],              array: true
     t.string   "slack"
     t.string   "forum"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "slug"
     t.string   "logo"
     t.integer  "user_id"
@@ -161,6 +177,8 @@ ActiveRecord::Schema.define(version: 20170614041549) do
     t.integer  "coin_id"
     t.string   "github"
     t.string   "reddit"
+    t.string   "team_location"
+    t.string   "blockchain"
     t.index ["category_id"], name: "index_networks_on_category_id", using: :btree
     t.index ["coin_id"], name: "index_networks_on_coin_id", using: :btree
     t.index ["slug"], name: "index_networks_on_slug", unique: true, using: :btree
@@ -221,6 +239,7 @@ ActiveRecord::Schema.define(version: 20170614041549) do
     t.datetime "updated_at",       null: false
     t.string   "whitepaper_title"
     t.string   "slug"
+    t.text     "text"
     t.text     "fulltext"
     t.integer  "user_id"
     t.integer  "width"
