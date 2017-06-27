@@ -40,7 +40,6 @@ class LinksController < ApplicationController
 		if params.has_key?(:network_id)
 			@network = Network.friendly.find(params[:network_id])
 			@link = @network.links.new
-			@link.networks << @network
 		else
 			@link = Link.new
 		end
@@ -63,7 +62,7 @@ class LinksController < ApplicationController
 
 	def create
 		@link = current_user.links.new(link_params)
-		puts "link_params are #{link_params.inspect}"
+		puts "link_params are #{link_params}"
 		if @link.save
 	    	if @link.networks.nil?
 	    		redirect_to @link
