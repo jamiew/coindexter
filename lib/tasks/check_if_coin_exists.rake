@@ -4,7 +4,6 @@ task :check_if_coin_exists => :environment do
 				{name: "Civic", location: "San Francisco, CA", category: "14", description: "On-demand, secure and low-cost access to identity verification via the blockchain", blockchain: "Ethereum"} ,
 				{name: "Status", location: "Switzerland", category: "24", description: "An open source consumer mobile messaging app to interact with decentralized applications that run on the Ethereum Network."}, 
 				{name: "Bancor", location: "Tel Aviv, Israel", category: "12", description: "Ethereum-based token conversion protocol that uses reserve tokens to support trading liquidity and to back the creation of new tokens.", blockchain: "Ethereum"} ,
-				{name: "Basic Attention Token", location: "San Francisco, CA", category: "28", description: "A network browser that automatically blocks ads and trackers while providing a payment system for advertisers to pay user to view their content, and users to donate to publishers to view theirs.", blockchain: "Ethereum"} ,
 				{name: "Mysterium", location: "Lithuania", category: "34", description: "A decentralized, peer to peer based, serverless VPN network built using Ethereum contracts.", blockchain: "Ethereum"} ,
 				{name: "Storj", location: "British Virgin Islands", category: "25", description: "A network for peer-to-peer sale of decentralized cloud storage.", blockchain: "Ethereum"} ,
 				{name: "Aragon", category: "13", blockchain: "Ethereum"} ,
@@ -248,23 +247,34 @@ task :check_if_coin_exists => :environment do
 		{name: "Internet of Coins",symbol: "HYBRID",sale_date: "2017-03-21",ico_actual_end_date: "2017-06-21",coin_status: "concept"}
 	]
 
+	user_id = 37
+
 	networks.each do |network|  
 		puts "#{network[:name]} — #{Network.friendly.exists? network[:name].downcase.gsub(".",-").gsub(" ",-")}"
-		network_exists = Network.friendly.exists? network[:name].downcase.gsub(".",-").gsub(" ",-")
+		network_exists = Network.friendly.exists? network[:name].downcase.gsub(".","-").gsub(" ","-")
 		if network_exists
-			n = Network.friendly.find(network[:name].downcase.gsub(".",-").gsub(" ",-"))
+			n = Network.friendly.find(network[:name].downcase.gsub(".","-").gsub(" ","-"))
 			add_network_fields(n, network)
 			puts "updating #{network[:name]}"
-			n.save
+			if n.save
+				nv = n.versions.last
+				nv.whodunnit = user_id
+				nv.save
+			else
+				puts 'problem saving #{network[:name]}'
+			end
 		else 
 			n = Network.new
 			n.name = network[:name]
 			n.status = "concept"
 			add_network_fields(n, network)	
 			puts "adding #{network[:name]}"
-			n.save
-			n.versions.each do |version|
-				version.whodunnit = 37
+			if n.save
+				nv = n.versions.last
+				nv.whodunnit = user_id
+				nv.save
+			else
+				puts 'problem saving #{network[:name]}'
 			end
 		end
 	end
@@ -275,35 +285,55 @@ task :check_if_coin_exists => :environment do
 		if coin_exists
 			c = Coin.friendly.find(coin[:name].downcase.gsub(".","-").gsub(" ","-"))
 			add_coin_fields(c, coin)
-			c.versions.each do |version|
-				version.whodunnit = 37
-			end
 			puts "updating #{coin[:name]}"
-			c.save
+			if c.save
+				cv = c.versions.last
+				puts "cv is #{cv.inspect}"
+				cv.whodunnit = user_id
+				cv.save
+			else 
+				puts 'problem saving #{coin[:name]}'
+			end
 		else 
 			c = Coin.new
+			c.name = coin[:name]
+			puts c.name
+			unless coin[:ico_planned_end_date].nil?
+				puts is_date(coin[:ico_planned_end_date])
+			end
+			if !coin[:ico_planned_end_date].nil? && !is_date(coin[:ico_planned_end_date]).nil? && coin[:ico_planned_end_date].to_date < Date.today
+				c.coin_status = "live"
+			else
+				c.coin_status = "preproduction"
+			end
 			add_coin_fields(c, coin)
 			n = Network.friendly.find(coin[:name].downcase.gsub(".","-").gsub(" ","-"))
 			c.network = n
 			puts "adding #{coin[:name]}"
-			c.save
-			c.versions.each do |version|
-				version.whodunnit = 37
+			if c.save
+				cv = c.versions.last
+				puts "cv is #{cv.inspect}"
+				cv.whodunnit = user_id
+				cv.save
+			else
+				puts 'problem saving #{coin[:name]}'
 			end
 		end
 	end
 end
 
+def is_date(string)
+	return DateTime.parse "Ends when token supply runs out" rescue nil
+end
+
 def add_network_fields(n, network)
-	unless network[:location].nil?
+	unless network[:location].nil? 
 		n.team_location = network[:location]
 	end
-	unless n.description.nil?
-		unless network[:description].nil?
-			n.description = network[:description]
-		end
+	if n.description.nil? and !network[:description].nil?
+		n.description = network[:description]
 	end
-	unless n.category.nil?
+	if n.category.nil?
 		n.category_id = network[:category]
 	end
 	unless network[:blockchain].nil?
@@ -313,6 +343,9 @@ def add_network_fields(n, network)
 end
 
 def add_coin_fields(c, coin)
+	if c.symbol.nil? and !coin[:capital_raised].nil? 
+		c.symbol = coin[:symbol]
+	end
 	unless coin[:capital_raised].nil?
 		c.capital_raised = coin[:capital_raised]
 	end
@@ -358,11 +391,17 @@ def add_coin_fields(c, coin)
 	unless coin[:ico_additional_notes].nil?
 		c.ico_additional_notes = coin[:ico_additional_notes]
 	end
-	unless coin[:ico_planned_end_date].nil?
-		c.ico_planned_end_date = coin[:ico_planned_end_date]
+	if c.saledate.nil? and !coin[:sale_date].nil?
+		c.saledate = coin[:sale_date].to_date
 	end
-	unless coin[:ico_actual_end_date].nil?
-		c.ico_actual_end_date = coin[:ico_actual_end_date]
+	if c.coin_info.nil? and !coin[:coin_info].nil?
+		c.coin_info = coin[:coin_info]
+	end
+	if !coin[:ico_planned_end_date].nil? and !is_date(coin[:ico_planned_end_date]).nil?
+		c.ico_planned_end_date = coin[:ico_planned_end_date].to_date
+	end
+	if !coin[:ico_actual_end_date].nil? and !is_date(coin[:ico_actual_end_date]).nil?
+		c.ico_actual_end_date = coin[:ico_actual_end_date].to_date
 	end
 	return c
 end
