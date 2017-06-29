@@ -5,7 +5,7 @@
 			<%= current_user == user ? "Me" : user.username %>
 		<% end %>
 	<% elsif defined?(user) && !user.nil? %>
-		<%= link_to '/' + user.username, class: "who-posted" do %>
+		<%= link_to '/' + user.slug, class: "who-posted" do %>
 			<%= image_tag(user.avatar, size: '16x16', class: 'avatar') %>
 			<%= user.username %>
 		<% end %>
