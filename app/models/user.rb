@@ -21,6 +21,8 @@ class User < ApplicationRecord
 
   acts_as_follower
 
+  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+
   def should_generate_new_friendly_id?
     slug.blank? || username_changed?
   end
