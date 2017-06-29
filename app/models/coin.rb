@@ -62,27 +62,6 @@ class Coin < ApplicationRecord
     end
   end
 
-=begin
-
-  # Moved to Sidekiq worker 
-  
-  def update_prices
-    response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + name.delete(" ").downcase)
-    if response[0].nil?
-      puts name
-      update_attributes(:coin_status => 'concept')
-    else
-      price = response[0]["price_usd"]
-      one_hour_price_change = response[0]["percent_change_1h"]
-      one_day_price_change = response[0]["percent_change_24h"]
-      available_supply = response[0]["available_supply"]
-      total_supply = response[0]["total_supply"]
-      market_cap = response[0]["market_cap_usd"]
-      update_attributes(:price => price,:one_day_price_change => one_day_price_change, :one_hour_price_change => one_hour_price_change, :available_supply => available_supply, :total_supply => total_supply, :market_cap => market_cap)
-    end
-  end
-=end
-
   def repositories
     read_attribute(:repositories).map {|v| Repository.new(v) }
   end
