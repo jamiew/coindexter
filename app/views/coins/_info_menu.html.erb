@@ -2,6 +2,9 @@
 	<li <%= "class=active-item" if active_item == "details" %> class="active-item" id="details">
 		<%= link_to "Details", network_coin_path %>
 	</li>
+	<li <%= "class=active-item" if active_item == "ico" %> id="ico">
+		<%= link_to "ICO terms", ico_network_coin_path, remote:true %>
+	</li>
 	<li <%= "class=active-item" if active_item == "log" %> id="log">
 		<% unless coin.network.nil? %>
 			<%= link_to "Logs", "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase.split(' ').join('-')}/logs", remote: true %>

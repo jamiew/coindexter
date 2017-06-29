@@ -1,0 +1,29 @@
+<%= javascript_include_tag "add_another" %>
+<%= form_for [@network, @coin], authenticity_token: true,  html: { multipart: true } do |f| %>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<%= image_tag @coin.logo, size: "60x60", id: "coin-logo" if @coin.logo? %>
+		</div>
+	</div>
+	<div class="row first-in-form-group">
+		<div class="col-md-4 label">
+			<%= f.label "Capital", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :capital_raised, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row first-in-form-group">
+		<div class="col-md-4 label">
+			<%= f.label "Use of proceeds", class: "form-label select-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_area :ico_use_of_proceeds, rows: 6, class: "form-input" %>
+		</div>
+	</div>
+	<ul class="action-links">
+		<li class="submit">
+			<%= f.submit "Submit", class: "form-submit" %> 
+		</li>
+	</ul>
+<% end %>

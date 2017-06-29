@@ -1,122 +1,4 @@
-task :check_if_coin_exists => :environment do
-
-	networks = [
-				{name: "Civic", location: "San Francisco, CA", category: "14", description: "On-demand, secure and low-cost access to identity verification via the blockchain", blockchain: "Ethereum"} ,
-				{name: "Status", location: "Switzerland", category: "24", description: "An open source consumer mobile messaging app to interact with decentralized applications that run on the Ethereum Network."}, 
-				{name: "Bancor", location: "Tel Aviv, Israel", category: "12", description: "Ethereum-based token conversion protocol that uses reserve tokens to support trading liquidity and to back the creation of new tokens.", blockchain: "Ethereum"} ,
-				{name: "Mysterium", location: "Lithuania", category: "34", description: "A decentralized, peer to peer based, serverless VPN network built using Ethereum contracts.", blockchain: "Ethereum"} ,
-				{name: "Storj", location: "British Virgin Islands", category: "25", description: "A network for peer-to-peer sale of decentralized cloud storage.", blockchain: "Ethereum"} ,
-				{name: "Aragon", category: "13", blockchain: "Ethereum"} ,
-				{name: "TokenCard", category: "20", blockchain: "Ethereum"} ,
-				{name: "MobileGo", location: "Dispersed", category: "35", description: "A mobile gaming platform to buy in-game content and create gamer profiles to compete in live tournaments, gain early access to games' private betas and achieve gaming social status", blockchain: "Ethereum & Waves"} ,
-				{name: "Gnosis", category: "21", blockchain: "Ethereum"} ,
-				{name: "IEX.EC", location: "Lyon, France", category: "4", description: "A decentralized marketplace for computing resources", blockchain: "Ethereum"} ,
-				{name: "Cosmos", category: "16"}, 
-				{name: "Humaniq", location: "Novosibirsk, Russia", category: "12", description: "Provides a financial banking app with biometric technology in the hopes of expanding banking services to those in undeveloped countries that are underbanked.", blockchain: "Ethereum"} ,
-				{name: "Aeternity", location: "Liechtenstein", category: "23", description: "A smart contract platform that stores contracts off chain to increase efficiency. Aeternity uses a native oracle machine to read off chain data."}, 
-				{name: "Qtum", location: "Singapore", category: "23", description: "A proof-of-stake, smart-contract compatible protocol that works with both Ethereum and Bitcoin dapps.", blockchain: "Bitcoin & Ethereum"} ,
-				{name: "Chronobank", location: "Australia", category: "29", description: "A platform for people to buy and sell labor. Labor Hour tokens (LH) are backed by people-hours.", blockchain: "Ethereum"} ,
-				{name: "Golem", location: "Poland", category: "4", description: "A peer-to-peer network for the sale of computing resources", blockchain: "Ethereum"} ,
-				{name: "SingularDTV", location: "Switzerland", category: "19", description: "Along with producing original content in the form of documentaries, SingularDTV is a blockchain-based content management platform where artists can sell their work and the company will post other original content after acquiring their rights", blockchain: "Ethereum"} ,
-				{name: "FirstBlood", location: "Boston, MA", category: "35", description: "FirstBlood is a decentralized app, built on top of Ethereum, that allows eSports enthusiasts to compete in their favorite games through a decentralized, automated platform", blockchain: "Ethereum"} ,
-				{name: "ICONOMI", location: "Slovenia", category: "12", description: "ICONOMI is a decentralized crypto-fund platform, providing an index fund and hedge fund for cryptocurrencies.", blockchain: "Ethereum"} ,
-				{name: "Waves", location: "Russia", category: "23", description: "WAVES is a crypto-platform for asset/custom token issuance, transfer, and trading on blockchain. It's a cryptocurrency platform with emphasis on custom token creation, transfer and decentralized trading, with deep fiat integration and focus on community-backed projects.", blockchain: "Waves"} ,
-				{name: "Lisk", location: "Berlin, Germany", category: "2", description: "A decentralized application platform allows the deployment, distribution and monetisation of decentralized applications and custom blockchains onto the Lisk blockchain.", blockchain: "Ethereum"} ,
-				{name: "Augur", category: "38", blockchain: "Ethereum"} ,
-				{name: "Ethereum", category: "23"}, 
-				{name: "Cofound.it", category: "5"}, 
-				{name: "Patientory", category: "8"}, 
-				{name: "Metal", category: "6"}, 
-				{name: "Aira", category: "24"}, 
-				{name: "BidLend", category: "12", blockchain: "ethereum"} ,
-				{name: "Monaco", category: "20"}, 
-				{name: "Suretly", category: "12"}, 
-				{name: "Minexcoin", category: "20"}, 
-				{name: "Zrcoin", category: "1"}, 
-				{name: "BOScoin", category: "23"}, 
-				{name: "VOISE", category: "19"}, 
-				{name: "Embermine", category: "19"}, 
-				{name: "Quantum Resistant Ledger", category: "1"}, 
-				{name: "Viva Coin", category: "6"}, 
-				{name: "Adel", category: "7"}, 
-				{name: "Back to Earth", category: "1"}, 
-				{name: "Sikoba", category: "12"}, 
-				{name: "Veritaseum", category: "12"}, 
-				{name: "Exscudo", category: "12"}, 
-				{name: "Ethbits", category: "12"}, 
-				{name: "Rchain", category: "34"}, 
-				{name: "MetaGold", category: "35"}, 
-				{name: "Lunyr", category: "19", blockchain: "ethereum"} ,
-				{name: "Creativechain", category: "19"}, 
-				{name: "Edgeless", category: "35", blockchain: "ethereum"} ,
-				{name: "Apptrade", category: "12"}, 
-				{name: "Chain of Points", category: "1", blockchain: "ethereum"} ,
-				{name: "Peerplays", category: "21"}, 
-				{name: "Melon", category: "12", blockchain: "ethereum"} ,
-				{name: "Dfinity", category: "4"}, 
-				{name: "Lykke", category: "12", blockchain: "bitcoin"} ,
-				{name: "Equibit", category: "12"}, 
-				{name: "Augmentors", category: "35"}, 
-				{name: "Wings", category: "21"}, 
-				{name: "vDice", category: "38"}, 
-				{name: "Ark", category: "16"}, 
-				{name: "Komodo", category: "6"}, 
-				{name: "Bitgirls", category: "1"}, 
-				{name: "DarkSilk", category: "6"}, 
-				{name: "Decent", category: "19"}, 
-				{name: "Antshares", location: "Shanghai, China", category: "12", description: "Antshares is a decentralized network protocol based on blockchain technology. People can use it to digitalize assets or shares, and accomplish financial business such as registration and issuing, transactions, settlement and payment through a peer-to-peer network."}, 
-				{name: "Kibo", category: "38", blockchain: "ethereum"} ,
-				{name: "Synereo", category: "4"}, 
-				{name: "DeClouds", category: "12"}, 
-				{name: "BlockPay", category: "20"}, 
-				{name: "Metaverse", category: "14"}, 
-				{name: "Incent", category: "37"}, 
-				{name: "Tao Network", category: "19"}, 
-				{name: "Plimst", category: "39"}, 
-				{name: "CryptoChip", category: "1"}, 
-				{name: "0x", category: "12", blockchain: "ethereum"} ,
-				{name: "Indorse", category: "24"}, 
-				{name: "OneGram", category: "12"}, 
-				{name: "Hive Project", category: "12", blockchain: "ethereum"} ,
-				{name: "district0x Network", category: "18"}, 
-				{name: "onG.social", category: "24"}, 
-				{name: "MyBit", category: "12"}, 
-				{name: "Populous", category: "12"}, 
-				{name: "Agrello", category: "23", blockchain: "ethereum"} ,
-				{name: "Starbase", category: "5"}, 
-				{name: "Tezos", category: "23"}, 
-				{name: "XinFin Foundation", category: "11"}, 
-				{name: "Stremio Adex", category: "39"}, 
-				{name: "SunContract", category: "10", blockchain: "ethereum"} ,
-				{name: "Dao.Casino", category: "38"}, 
-				{name: "OmiseGO", category: "11"}, 
-				{name: "Nimiq", category: "28"}, 
-				{name: "TenX", category: "20"}, 
-				{name: "SkinCoin", category: "35"}, 
-				{name: "SilverCoin", category: "24"}, 
-				{name: "Gilgam", category: "35", blockchain: "ethereum"} ,
-				{name: "Xarcade", category: "35"}, 
-				{name: "Corion Platform", category: "20"}, 
-				{name: "SONM", category: "4", blockchain: "ethereum"} ,
-				{name: "CompCoin", category: "12"}, 
-				{name: "Orocrypt", category: "1"}, 
-				{name: "Honestis Network", category: "14"}, 
-				{name: "SuperDAO", category: "7"}, 
-				{name: "FundYourselfNow", category: "5"}, 
-				{name: "Gene-ChainCoin", category: "8"}, 
-				{name: "Prospectors", category: "35"}, 
-				{name: "Air", category: "14"}, 
-				{name: "DCORP", category: "11"}, 
-				{name: "Wagerr", category: "38"}, 
-				{name: "Polybius", category: "12"}, 
-				{name: "Moeda", category: "12"}, 
-				{name: "Octanox", category: "6"}, 
-				{name: "FootballCoin", category: "35"}, 
-				{name: "MaskNetwork", category: "24"}, 
-				{name: "Crypviser", category: "24"}, 
-				{name: "LeviarCoin", category: "35"}, 
-				{name: "Internet of Coins", category: "12"}
-	]
+task :fix_coin_import_mistake => :environment do
 
 	coins = [
 		{name: "Civic",symbol: "CVC",sale_date: "2017-06-21",ico_actual_end_date: "2017-06-21",ico_planned_end_date: "2017-06-28",capital_raised: "33000000",coin_info: "Validators and users receive CVC for data. CVCs can purchase identity-related products and services",coin_status: "concept",ico_use_of_proceeds: "No specific breakdown of use of funds",ico_token_sale_structure: "Two capped sales (pre-sale & public) with fixed prices",coin_pricing: "1 CVC = $0.10",ico_amount_sold: "1000000000",ico_allocation: "11% to public sale, 22% to pre-sale, 33% to partners, 33% to team, 1% to token costs",ico_founder_lockup: "3 years, 1/3 to be released every year",ico_min_investment_cap: "None",ico_type_of_min_cap: "None",ico_max_investment_cap: "33000000",ico_type_of_max_cap: "Disclosed",ico_currency_accepted: "ETH & BTC"},
@@ -248,42 +130,21 @@ task :check_if_coin_exists => :environment do
 
 	user_id = 39
 
-	networks.each do |network|  
-		puts "#{network[:name]} — #{Network.friendly.exists? network[:name].downcase.gsub(".",-").gsub(" ",-")}"
-		network_exists = Network.friendly.exists? network[:name].downcase.gsub(".","-").gsub(" ","-")
-		if network_exists
-			n = Network.friendly.find(network[:name].downcase.gsub(".","-").gsub(" ","-"))
-			add_network_fields(n, network)
-			puts "updating #{network[:name]}"
-			if n.save
-				nv = n.versions.last
-				nv.whodunnit = user_id
-				nv.save
-			else
-				puts 'problem saving #{network[:name]}'
-			end
-		else 
-			n = Network.new
-			n.name = network[:name]
-			n.status = "concept"
-			add_network_fields(n, network)	
-			puts "adding #{network[:name]}"
-			if n.save
-				nv = n.versions.last
-				nv.whodunnit = user_id
-				nv.save
-			else
-				puts 'problem saving #{network[:name]}'
-			end
-		end
-	end
-
 	coins.each do |coin| 
 		puts "#{coin[:name]} — #{Coin.friendly.exists? coin[:name].downcase.gsub(".","-").gsub(" ","-")}"
 		coin_exists = Coin.friendly.exists? coin[:name].downcase.gsub(".","-").gsub(" ","-")
 		if coin_exists
 			c = Coin.friendly.find(coin[:name].downcase.gsub(".","-").gsub(" ","-"))
 			add_coin_fields(c, coin)
+			if (!coin[:ico_planned_end_date].nil? && !is_date(coin[:ico_planned_end_date]).nil? && coin[:ico_planned_end_date].to_date < Date.today)
+				c.coin_status = "live"
+			else
+				if coin[:sale_date] && coin[:sale_date].to_date < Date.today
+					c.coin_status = "live"
+				else 
+					c.coin_status = "preproduction"
+				end
+			end
 			puts "updating #{coin[:name]}"
 			if c.save
 				cv = c.versions.last
@@ -300,10 +161,14 @@ task :check_if_coin_exists => :environment do
 			unless coin[:ico_planned_end_date].nil?
 				puts is_date(coin[:ico_planned_end_date])
 			end
-			if !coin[:ico_planned_end_date].nil? && !is_date(coin[:ico_planned_end_date]).nil? && coin[:ico_planned_end_date].to_date < Date.today
+			if (!coin[:ico_planned_end_date].nil? && !is_date(coin[:ico_planned_end_date]).nil? && coin[:ico_planned_end_date].to_date < Date.today)
 				c.coin_status = "live"
 			else
-				c.coin_status = "preproduction"
+				if coin[:ico_start_date].to_date < Date.today
+					c.coin_status = "live"
+				else 
+					c.coin_status = "preproduction"
+				end
 			end
 			add_coin_fields(c, coin)
 			n = Network.friendly.find(coin[:name].downcase.gsub(".","-").gsub(" ","-"))
@@ -325,82 +190,12 @@ def is_date(string)
 	return DateTime.parse "Ends when token supply runs out" rescue nil
 end
 
-def add_network_fields(n, network)
-	unless network[:location].nil? 
-		n.team_location = network[:location]
-	end
-	if n.description.nil? and !network[:description].nil?
-		n.description = network[:description]
-	end
-	if n.category.nil?
-		n.category_id = network[:category]
-	end
-	unless network[:blockchain].nil?
-		n.blockchain = network[:blockchain]
-	end	
-	return n
-end
-
 def add_coin_fields(c, coin)
-	if c.symbol.nil? and !coin[:capital_raised].nil? 
-		c.symbol = coin[:symbol]
-	end
 	unless coin[:capital_raised].nil?
 		c.capital_raised = coin[:capital_raised]
 	end
-	unless coin[:ico_use_of_proceeds].nil?
-		c.ico_use_of_proceeds = coin[:ico_use_of_proceeds]
-	end
-	unless coin[:ico_token_sale_structure].nil?
-		c.ico_token_sale_structure = coin[:ico_token_sale_structure]
-	end
 	unless coin[:ico_pricing].nil?
 		c.ico_pricing = coin[:ico_pricing]
-	end
-	unless coin[:ico_amount_sold].nil?
-		c.ico_amount_sold = coin[:ico_amount_sold]
-	end
-	unless coin[:ico_allocation].nil?
-		c.ico_allocation = coin[:ico_allocation]
-	end
-	unless coin[:ico_lockup].nil?
-		c.ico_lockup = coin[:ico_lockup]
-	end
-	unless coin[:ico_buyer_lockup].nil?
-		c.ico_buyer_lockup = coin[:ico_buyer_lockup]
-	end
-	unless coin[:ico_founder_lockup].nil?
-		c.ico_founder_lockup = coin[:ico_founder_lockup]
-	end
-	unless coin[:ico_min_investment_cap].nil?
-		c.ico_min_investment_cap = coin[:ico_min_investment_cap]
-	end
-	unless coin[:ico_type_of_min_cap].nil?
-		c.ico_type_of_min_cap = coin[:ico_type_of_min_cap].downcase
-	end
-	unless coin[:ico_type_of_max_cap].nil?
-		c.ico_type_of_max_cap = coin[:ico_type_of_max_cap].downcase
-	end
-	unless coin[:ico_max_investment_cap].nil?
-		c.ico_max_investment_cap = coin[:ico_max_investment_cap]
-	end
-	unless coin[:ico_currency_accepted].nil?
-		c.ico_currency_accepted = coin[:ico_currency_accepted]
-	end
-	unless coin[:ico_additional_notes].nil?
-		c.ico_additional_notes = coin[:ico_additional_notes]
-	end
-	if c.saledate.nil? and !coin[:sale_date].nil?
-		c.saledate = coin[:sale_date].to_date
-	end
-	if c.coin_info.nil? and !coin[:coin_info].nil?
-		c.coin_info = coin[:coin_info]
-	end
-	if !coin[:ico_planned_end_date].nil? and !is_date(coin[:ico_planned_end_date]).nil?
-		c.ico_planned_end_date = coin[:ico_planned_end_date].to_date
-	end
-	if !coin[:ico_actual_end_date].nil? and !is_date(coin[:ico_actual_end_date]).nil?
-		c.ico_actual_end_date = coin[:ico_actual_end_date].to_date
 	end
 	return c
 end

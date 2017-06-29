@@ -50,6 +50,28 @@ class CoinsController < ApplicationController
 		@coin.build_repository
 	end
 
+	def ico
+		@coin = Coin.friendly.find(params[:id])
+		@network = Network.friendly.find(params[:network_id])
+		if current_user && current_user.following?(@coin)
+			@following = true
+		else 
+			@following = false
+		end
+		respond_to do |format|
+		    format.html
+		    format.js
+		    format.json
+		end
+	end
+
+	def edit_ico
+		@use_ajax = false
+		@network = Network.friendly.find(params[:network_id])
+		@coin = Coin.friendly.find(params[:id])
+	end
+
+
 	def edit
 		@use_ajax = false
 		@network = Network.friendly.find(params[:network_id])

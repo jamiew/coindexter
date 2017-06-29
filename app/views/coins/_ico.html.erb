@@ -1,0 +1,24 @@
+<div class="row">
+	<div class="col-md-8 col-xs-12">
+		<ul id="<%= @coin.name %> show-coin">
+			<li class="coin-main-info coin-info-block block">
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Capital</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<% if @coin.capital_raised.nil? || @coin.capital_raised == "" %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add the amount of capital raised from desktop.</p>
+							<% else %>
+								<p><%= link_to "Add the amount of capital raised", edit_network_coin_url, class: "add-missing-field" %></p>
+							<% end %>
+						<% else %>
+							<p>$<%= number_to_human(@coin.capital_raised, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.capital_raised.nil? %>
+						<% end %>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>

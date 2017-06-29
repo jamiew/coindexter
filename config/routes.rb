@@ -32,6 +32,8 @@ Rails.application.routes.draw do
         put :follow
         put :unfollow
         get :logs
+        get :ico
+        get :edit_ico
       end
     end
 
