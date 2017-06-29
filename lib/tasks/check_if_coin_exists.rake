@@ -247,7 +247,7 @@ task :check_if_coin_exists => :environment do
 		{name: "Internet of Coins",symbol: "HYBRID",sale_date: "2017-03-21",ico_actual_end_date: "2017-06-21",coin_status: "concept"}
 	]
 
-	user_id = 37
+	user_id = 39
 
 	networks.each do |network|  
 		puts "#{network[:name]} — #{Network.friendly.exists? network[:name].downcase.gsub(".",-").gsub(" ",-")}"

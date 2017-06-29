@@ -7,7 +7,11 @@
 				<% else %>
 					<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
 				<% end %>
-				<h1 id="coin-name"><%= @coin.name %></h1>
+				<% unless coin.symbol.nil? %>
+					<h1><%= coin.symbol %></h1>
+				<% else %>
+					<h1><%= coin.name[0..15] %></h1>
+				<% end %>
 			</div>
 		</div>
 	</div>
