@@ -186,8 +186,8 @@ task :fix_coin_import_mistake => :environment do
 	end
 end
 
-def is_date(string)
-	return DateTime.parse "Ends when token supply runs out" rescue nil
+def is_date(the_string)
+	return DateTime.parse the_string rescue nil
 end
 
 def add_coin_fields(c, coin)

@@ -1,3 +1,4 @@
 $('.content').html("<%= j (render 'ico') %>");
 $('.info-menu > li').removeClass("active-item");
 $('#ico').addClass("active-item");
+$('.action-links').html('<% if current_user %><% if @following %><li><%= link_to("Unfollow #{@coin.name}", unfollow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "unfollow-network", accesskey: 'F') %></li><% else %><li class="follow-action-link"><%= link_to("Follow #{@coin.name}", follow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "follow-coin", accesskey: 'F') %></li><% end %><% else %><li><%= link_to("Follow #{@coin.name}", follow_network_coin_path(@coin), class: "action-link", method: :put, id: "follow-coin", accesskey: 'F') %></li><% end %><li><%= link_to("Edit #{@coin.name}\'s ICO terms", edit_ico_network_coin_path, class: "action-link", accesskey: 'E') %></li>');

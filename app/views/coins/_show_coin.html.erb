@@ -83,22 +83,6 @@
 						<% end %>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Saledate</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 saledate data">
-						<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
-							<%= @coin.saledate.strftime('%b %d, %Y') %>
-						<% else %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add a sale date from desktop.</p>
-							<% else %>
-								<p><%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% end %>
-					</div>
-				</div>
 			</li>
 			<% if defined? fetching_price %>
 				<%= fetching_price %>

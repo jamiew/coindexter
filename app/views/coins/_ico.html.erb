@@ -4,10 +4,10 @@
 			<li class="coin-main-info coin-info-block block">
 				<div class="row">
 					<div class="col-md-4 col-xs-12 label">
-						<h6>Capital</h6>
+						<h6>Raised</h6>
 					</div>
 					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.capital_raised.nil? || @coin.capital_raised == "" %>
+						<% if @coin.capital_raised.nil? || @coin.capital_raised == "" || @coin.capital_raised == 0 %>
 							<% if browser.platform.ios? or browser.platform.android? %>
 								<p>None added yet. Add the amount of capital raised from desktop.</p>
 							<% else %>
@@ -79,6 +79,65 @@
 							<% end %>
 						<% else %>
 							<p><%= @coin.ico_allocation %></p>
+						<% end %>
+					</div>
+				</div>
+			</li>
+		</ul>
+		<ul id="<%= @coin.name %> show-coin">
+			<li class="coin-main-info coin-info-block block">
+				<div class="row">
+					<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
+						<h6>dates</h6>
+					</div>
+				</div>
+			</li>
+			<li class="coin-main-info coin-info-block block">
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Start of sale</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 saledate data">
+						<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
+							<p><%= @coin.saledate.strftime('%b %d, %Y') %></p>
+						<% else %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add a sale start date from desktop.</p>
+							<% else %>
+								<p><%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %></p>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Planned end date</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 saledate data">
+						<% unless @coin.ico_planned_end_date.nil? || @coin.ico_planned_end_date.blank? %>
+							<%= @coin.saledate.strftime('%b %d, %Y') %>
+						<% else %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add a planned end date for the sale from desktop.</p>
+							<% else %>
+								<p><%= link_to "When was the planned end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Actual end date</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 saledate data">
+						<% unless @coin.ico_actual_end_date.nil? || @coin.ico_actual_end_date.blank? %>
+							<%= @coin.saledate.strftime('%b %d, %Y') %>
+						<% else %>
+							<% if browser.platform.ios? or browser.platform.android? %>
+								<p>None added yet. Add a actual end date for the sale from desktop.</p>
+							<% else %>
+								<p><%= link_to "When was the actual end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
+							<% end %>
 						<% end %>
 					</div>
 				</div>
