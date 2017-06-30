@@ -10,6 +10,7 @@ class Coin < ApplicationRecord
 
 
   validates_uniqueness_of :name
+  validates_uniqueness_of :symbol
 
   friendly_id :name, use: [:slugged, :history]
 

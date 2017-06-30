@@ -6,11 +6,7 @@
 		<%= link_to "ICO terms", ico_network_coin_path, remote:true %>
 	</li>
 	<li <%= "class=active-item" if active_item == "log" %> id="log">
-		<% unless coin.network.nil? %>
-			<%= link_to "Logs", "/networks/#{@coin.network.name.downcase}/coins/#{@coin.name.downcase.split(' ').join('-')}/logs", remote: true %>
-		<% else %>
-			<%= link_to "Logs", "/coins/#{@coin.name.downcase.split(' ').join('-')}/logs", remote: true %>
-		<% end %>	
+		<%= link_to "Logs", logs_network_coin_path, remote: true %>
 	</li>
 	<li class="menu-title" id="network">networks<br>
 		<% unless coin.network.nil? %>
