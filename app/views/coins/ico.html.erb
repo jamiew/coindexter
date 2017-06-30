@@ -1,0 +1,34 @@
+<%= render(partial: 'shared/metadata', locals: { title: @coin.name, description: @coin.coin_info, path: request.url, og_image: @coin.logo }) %>
+<div class="row">
+	<div class="col-md-2 col-md-offset-1 left-nav">
+		<%= render(partial: 'info_menu', locals: {coin: @coin, active_item: "ico"}) %>
+	</div>
+	<%= render partial: 'related_dropdown', locals: { network: @coin } %>
+	<div class="col-md-9 col-xs-12 main ">
+		<div class="info-header">
+			<%= render 'coin_main_info_header', coin: @coin %>
+		</div>
+		<div class="content">
+			<%= render 'ico' %>
+		</div>
+	</div>
+	<ul class="action-links">
+		<% if current_user %>
+			<% if @following %>
+				<li>
+					<%= link_to("Unfollow #{@coin.name}", unfollow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "unfollow-network", accesskey: 'F') %>
+				</li>
+			<% else %>
+				<li class="follow-action-link"><%= link_to("Follow #{@coin.name}", follow_network_coin_path(@coin), remote: true, method: :put, class: "action-link", id: "follow-coin", accesskey: 'F') %>
+				</li>
+			<% end %>
+		<% else %>
+			<li>
+				<%= link_to("Follow #{@coin.name}", follow_network_coin_path(@coin), class: "action-link", method: :put, id: "follow-coin", accesskey: 'F') %>
+			</li>
+		<% end %>
+		<li>
+			<%= link_to("Edit #{@coin.name}\'s ICO terms", edit_ico_network_coin_path, class: "action-link", accesskey: 'E') %>
+		</li>
+	</ul>
+</div>
