@@ -39,21 +39,24 @@ class DailyDigestWorker
 
     networks_following = []
 
-    user = User.first
+    user.find_each do |user|
 
-    user.all_follows.each do |follow|
-      if follow.followable_type == "Network"
-        networks_following << Network.find(follow.followable_id).name
+      user.all_follows.each do |follow|
+        if follow.followable_type == "Network"
+          networks_following << Network.find(follow.followable_id).name
+        end
       end
+
+      all_network_logs = all_network_logs.select do |network|
+        networks_following.index network[:network].name
+      end
+
+      unless all_network_logs.empty?
+        all_network_logs = all_network_logs.to_json
+        UserMailer.daily_digest_new(user, all_network_logs).deliver_later
+      end
+      
     end
-
-    all_network_logs = all_network_logs.select do |network|
-      networks_following.index network[:network].name
-    end
-
-    all_network_logs = all_network_logs.to_json
-
-    UserMailer.daily_digest_new(user, all_network_logs).deliver_later
   
   end
 

@@ -599,7 +599,7 @@ body{background-color:#fef7f5}.logo a:hover,.logo a:focus{color:#859bb1 !importa
                     <% network['coins'].each do |coin| %> 
                       <%= image_tag coin['coin']['logo']['url'], alt: coin['coin']['name'], style: "display:inline;", size:'14x14'  %>        
                       <%= link_to network_coin_url(network['network']['name'].downcase, coin['coin']['name'].downcase), style: "text-decoration: none !important;" do %>
-                          <h4 style="display:inline; color: rgb(235,107,51);"><%= coin['coin']['name'] %></h4>
+                          <h4 style="display:inline; color: rgb(235,107,51);"><%= !coin['coin']['symbol'].nil? && coin['coin']['symbol'] != "" ? coin['coin']['symbol'] : coin['coin']['name'] %></h4>
                       <% end %>
                       <br />
                       <% unless coin['coin']['price'].nil? %>

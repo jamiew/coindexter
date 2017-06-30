@@ -94,7 +94,16 @@ p, li, a {
 footer {
 	background-color: $navbar-orange;
 	border-top: 1px solid $border-orange;
+	h6 {
+		float:left;
+		font-size: 16px;
+		@include small-case;
+		padding:1em 0;
+		color: $text;
+		margin: 4px 0 0 0;
+	}
 	ul {
+		float:right; 
 		li {
 			float:right;
 			padding: 1em 0 1em 1em;
