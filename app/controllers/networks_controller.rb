@@ -2,8 +2,6 @@ class NetworksController < ApplicationController
 
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
-	caches_action :index, expires_in: 10.minute
-
 	def index
 		@networks = Network.all
 		@categories = Category.all.order("name ASC")

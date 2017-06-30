@@ -7,7 +7,7 @@
 				<% else %>
 					<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
 				<% end %>
-				<% unless coin.symbol.nil? %>
+				<% unless coin.symbol.nil? || coin.symbol == "" %>
 					<h1><%= coin.symbol %></h1>
 				<% else %>
 					<h1><%= coin.name[0..15] %></h1>
