@@ -13,6 +13,7 @@ class CoinsController < ApplicationController
 	end
 
 	def logs
+		@active_item = "log"
         coin_logs = NetworkService.new
         if params[:id].nil?
         	@coin = Coin.friendly.find(params[:coin_id]) 
@@ -29,6 +30,7 @@ class CoinsController < ApplicationController
 	end	
 
 	def show
+		@active_item = "details"
 		@coin = Coin.friendly.find(params[:id])
 		@network = Network.friendly.find(params[:network_id])
 		if current_user && current_user.following?(@coin)
@@ -51,6 +53,7 @@ class CoinsController < ApplicationController
 	end
 
 	def ico
+		@active_item = "ico"
 		@coin = Coin.friendly.find(params[:id])
 		@network = Network.friendly.find(params[:network_id])
 		if current_user && current_user.following?(@coin)

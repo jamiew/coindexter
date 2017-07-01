@@ -3,7 +3,7 @@
 	<div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0">
 		<ul class="action-links">
 			<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %> 
-					Add new link 
+					Ask a question
 				<% end %>
 			</li>
 			<li><%= link_to(new_network_path, remote: false, class: "action-link", accesskey: 'N') do %>Add new network<% end %></li>
@@ -13,7 +13,8 @@
 				<div class="row">
 					<div class="col-md-11 col-md-offset-1 col-xs-12 col-xs-offset-0 intro-block">
 						<h1>Welcome to Coindexter</h1>
-						<p>Coindexter is a way to discover up and coming blockchain networks and app coins. You can add and edit blockchain networks and app coins, like a wiki.</p>
+						<p>Why Coindexter? Because fundamentals.</p>
+						<p>Coindexter is a way for long-term investors in blockchain to research <%= link_to "networks", networks_path %> and <%= link_to "coins", sales_path %>. You can contribute to and edit Coindexter, like a wiki, or take a dive into the fundamentals of networks, coins, or ideas that interest you. Feel free to <%= link_to "ask a question", new_link_path %>.</p>
 						<p>Here's some recent activity on Coindexter.</p>
 					</div>
 				</div>

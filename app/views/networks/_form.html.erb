@@ -56,18 +56,20 @@
 			  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Select a category' }, class: 'form-input' %>
 		</div>
 	</div>
-	<div class="row first-in-form-group">
-		<div class="col-md-4 label">
-			<%= f.label "Coins", class: "form-label select-label" %>
-			<h6 class="label-helper">Select one or more</h6>
-		</div>
-		<div class="col-md-8">
-			<%= f.select :coin_ids, options_for_select(Coin.all.order("name ASC").map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}, selected: @network.coins.ids), {}, {multiple: true, size: 8.5, id: "coin-option"} %>
-			<% unless @network.id.nil? %>
-				<%= link_to "Don't see the coin? Add it", new_network_coin_url(@network), class:"add-another", target: "_blank" %>
-			<% end %>
-		</div>
-	</div>	
+	<% unless defined? is_new %>
+		<div class="row first-in-form-group">
+			<div class="col-md-4 label">
+				<%= f.label "Coins", class: "form-label select-label" %>
+				<h6 class="label-helper">Select one or more</h6>
+			</div>
+			<div class="col-md-8">
+				<%= f.select :coin_ids, options_for_select(Coin.all.order("name ASC").map {|c| [c.name, c.id, {'data-icon' => c.logo}, {class: 'coin-option'}]}, selected: @network.coins.ids), {}, {multiple: true, size: 8.5, id: "coin-option"} %>
+				<% unless @network.id.nil? %>
+					<%= link_to "Don't see the coin? Add it", new_network_coin_url(@network), class:"add-another", target: "_blank" %>
+				<% end %>
+			</div>
+		</div>		
+	<% end %>
 	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
 			<%= f.label "Organization", class: "form-label" %>

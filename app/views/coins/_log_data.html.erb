@@ -12,10 +12,9 @@
 					<% case change[:change_attr] %>
 						<% when "Repositories", "Exchanges" %>
 							<p>
-								<%= change[:change_attr].capitalize %>
+								<span class="change_attr"><%= change[:change_attr].capitalize %></span> 
 								<% if change[:change_type] == "added" %>
 									added: 
-										<% puts "log is #{change[:change].second}" %>
 										<%= link_to change[:change].second.first["name"], change[:change].second.first["url"] %>
 								<% elsif change[:change_type] == "edited" %>
 									changed from 
@@ -30,7 +29,7 @@
 							</p>
 						<% when "Network", "Description" %>
 							<p>
-								<%= change[:change_attr].capitalize %>
+								<span class="change_attr"><%= change[:change_attr].capitalize %></span>
 								<% if change[:change_type] == "added" %>
 									added:
 									<%= link_to change[:change].second.name, change[:change].second unless change[:change].nil? %>
@@ -48,9 +47,9 @@
 							</p>
 						<% when "Status" %>
 							<% if change[:change_type] == "added" %>
-								Set <%= change[:change_attr].downcase %>: <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
+								Set <span class="change_attr"><%= change[:change_attr].downcase %></span>: <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
 							<% elsif change[:change_type] == "edited" %>
-								Changed <%= change[:change_attr].downcase %> from <div class="status-icon <%= change[:change].first %>-icon"></div><p class="status <%= change[:change].first %>-status"><%= change[:change].first %></p> to <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
+								Changed <span class="change_attr"><%= change[:change_attr].downcase %></span> from <div class="status-icon <%= change[:change].first %>-icon"></div><p class="status <%= change[:change].first %>-status"><%= change[:change].first %></p> to <div class="status-icon <%= change[:change].second %>-icon"></div><p class="status <%= change[:change].second %>-status"><%= change[:change].second %></p>
 							<% end %>
 						<% when "logo" %>
 							<p>
@@ -58,11 +57,11 @@
 							</p>	
 						<% else %>
 							<p>
-								<%= change[:change_attr].capitalize %>
+								<span class="change_attr"><%= change[:change_attr] %></span>
 								<% if change[:change_type] == "added" %>
 									added: "<%= change[:change].second.capitalize %>"
 								<% elsif change[:change_type] == "edited" %>
-									changed from "<%= change[:change].first %>" to "<%= change[:change].second.capitalize %>"
+									changed from "<%= change[:change].first %>" to "<%= change[:change].second %>"
 								<% end %>
 							</p>
 					<% end %>

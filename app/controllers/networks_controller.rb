@@ -23,6 +23,7 @@ class NetworksController < ApplicationController
 	end
 
 	def logs
+		@active_item = "log"
         network_logs = NetworkService.new
         @network = Network.friendly.find(params[:id]) 
         logs = network_logs.get_logs(@network, "Network").reverse
