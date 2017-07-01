@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625221000) do
+ActiveRecord::Schema.define(version: 20170701191951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "fuzzystrmatch"
-  enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
+  enable_extension "fuzzystrmatch"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -58,9 +57,7 @@ ActiveRecord::Schema.define(version: 20170625221000) do
     t.jsonb    "exchanges",                default: {}, null: false
     t.datetime "saledate"
     t.text     "monetary_policy"
-    t.integer  "capital_raised"
     t.text     "ico_use_of_proceeds"
-    t.text     "ico_token_sale_structure"
     t.string   "ico_pricing"
     t.string   "ico_amount_sold"
     t.text     "ico_allocation"
@@ -69,12 +66,15 @@ ActiveRecord::Schema.define(version: 20170625221000) do
     t.text     "ico_founder_lockup"
     t.string   "ico_min_investment_cap"
     t.string   "ico_type_of_min_cap"
-    t.string   "ico_type_of_max_cap"
     t.string   "ico_max_investment_cap"
     t.string   "ico_currency_accepted"
     t.text     "ico_additional_notes"
     t.datetime "ico_planned_end_date"
     t.datetime "ico_actual_end_date"
+    t.integer  "capital_raised"
+    t.text     "ico_token_sale_structure"
+    t.string   "ico_type_of_max_cap"
+    t.integer  "coin_market_cap_id"
     t.index ["category_id"], name: "index_coins_on_category_id", using: :btree
     t.index ["links_id"], name: "index_coins_on_links_id", using: :btree
     t.index ["name"], name: "index_coins_on_name", unique: true, using: :btree
@@ -240,6 +240,7 @@ ActiveRecord::Schema.define(version: 20170625221000) do
     t.datetime "updated_at",       null: false
     t.string   "whitepaper_title"
     t.string   "slug"
+    t.text     "text"
     t.text     "fulltext"
     t.integer  "user_id"
     t.integer  "width"
