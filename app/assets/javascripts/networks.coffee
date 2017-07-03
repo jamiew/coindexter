@@ -63,6 +63,7 @@ $ ->
 		      query: $inputVal
 
 	$('ul#network-related-dropdown > li').click ->
+		alert $(this).attr 'data-link'
 		selector = $(this).attr 'data-link'
 		$(location).attr 'href', selector
   		

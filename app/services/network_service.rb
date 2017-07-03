@@ -160,7 +160,7 @@ class NetworkService < LogService
 						change_attr = "ICO: Use of proceeds"
 					when "ico_token_sale_structure"
 						change_attr = "ICO: Token sale structure"
-					when "pricing"
+					when "ico_pricing"
 						change_attr = "ICO: Initial pricing"
 					when "ico_amount_sold"
 						change_attr = "ICO: Amount sold"
