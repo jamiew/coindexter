@@ -17,7 +17,7 @@ class Coin < ApplicationRecord
   has_and_belongs_to_many  :links
   has_many :comments, through: :links
 
-  has_paper_trail :class_name => 'Version', :ignore => [:network, :network_id, :price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug, :updated_at, :category_id, :saledate]
+  has_paper_trail :class_name => 'Version', :ignore => [:network, :network_id, :price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug, :updated_at, :category_id, :saledate, :coin_market_cap_id]
 
   enum coin_status_options: [:concept, :preproduction, :live, :dead]
 

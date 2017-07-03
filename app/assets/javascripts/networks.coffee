@@ -5,6 +5,13 @@
 
 $ ->  
 
+	
+	$('ul#network-related-dropdown > li').click ->
+		# alert $(this).attr 'data-link'
+		selector = $(this).attr 'data-link'
+		$(location).attr 'href', selector
+  		
+
 	$whitepaperCount = 0
 	$("#add-another-whitepaper").on "click", ->
 		$parent_id = $(this).parent().attr 'id'
@@ -62,9 +69,4 @@ $ ->
 			$.get '/network_search',
 		      query: $inputVal
 
-	$('ul#network-related-dropdown > li').click ->
-		alert $(this).attr 'data-link'
-		selector = $(this).attr 'data-link'
-		$(location).attr 'href', selector
-  		
 		
