@@ -9,13 +9,9 @@ class UpdateAllCoinPricesWorker
   def perform
     Coin.find_each do |coin|
     	if coin.coin_status == "live"
-    		case "coin.name"
-    			when "golem"
-    				coin.name = "golem-network-tokens"
-    			when "ether"
-    				coin.name = "ethereum"
-    		end
-	    	response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.gsub(" ","-").downcase)
+        if coin.coin_market_cap_id.nil? 
+    		response = JSON.parse(HTTParty.get('https://www.cryptocompare.com/api/data/coinsnapshot/?fsym=' + coin.symbol + '&tsym=USD').body["Data"])
+	    	# response = HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.gsub(" ","-").downcase)
 		    if response[0].nil?
 		      puts "#{coin.name} didn't run"
 		    else
