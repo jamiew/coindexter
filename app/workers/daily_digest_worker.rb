@@ -39,7 +39,7 @@ class DailyDigestWorker
 
     networks_following = []
 
-    user.find_each do |user|
+    User.find_each do |user|
 
       user.all_follows.each do |follow|
         if follow.followable_type == "Network"
@@ -53,7 +53,7 @@ class DailyDigestWorker
 
       unless all_network_logs.empty?
         all_network_logs = all_network_logs.to_json
-        UserMailer.daily_digest_new(user.id, all_network_logs).deliver_later
+        UserMailer.daily_digest_new(user, all_network_logs).deliver_later
       end
       
     end
