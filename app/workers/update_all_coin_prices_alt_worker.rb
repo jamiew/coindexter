@@ -46,10 +46,10 @@ class UpdateAllCoinPricesAltWorker
 				end
 				
 				# Get price and 24h change
-				response = JSON.parse(HTTParty.get('https://min-api.cryptocompare.com/data/pricemultifull?fsym=' + coin.symbol.upcase + '&tsyms=USD').body)	
+				response = JSON.parse(HTTParty.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + coin.symbol.upcase + '&tsyms=USD').body)	
 				unless response["Response"] == "Error"
 					price = response.values.first.values.first.values.first["PRICE"].to_d
-				    one_day_price_change = response.values.first.values.first.values.first["CHANGEPCT24HOUR"].to_d
+				    one_day_price_change = response.values.first.values.first.values.first["CHANGEPCT24HOUR"].to_d.round(2)
 				    market_cap = price * available_supply
 				    coin.update_attributes(:price => price,:one_day_price_change => one_day_price_change, :market_cap => market_cap)
 				end
