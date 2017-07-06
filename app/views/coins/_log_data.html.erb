@@ -59,7 +59,7 @@
 							<p>
 								<span class="change_attr"><%= change[:change_attr].capitalize %></span>
 								<% if change[:change_type] == "added" %>
-									added: "<%= change[:change].second.capitalize %>"
+									added: "<%= change[:change].second %>"
 								<% elsif change[:change_type] == "edited" %>
 									changed from "<%= change[:change].first %>" to "<%= change[:change].second %>"
 								<% end %>

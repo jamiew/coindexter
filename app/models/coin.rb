@@ -8,11 +8,11 @@ class Coin < ApplicationRecord
   pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
   after_commit :update_coin_price, :on => :create
 
-
   validates_uniqueness_of :name
   validates_uniqueness_of :symbol
 
-  friendly_id :name, use: [:slugged, :history]
+
+  friendly_id :symbol_or_name, use: [:slugged, :history]
 
   has_and_belongs_to_many  :links
   has_many :comments, through: :links
@@ -27,6 +27,13 @@ class Coin < ApplicationRecord
 
   acts_as_followable
 
+  def symbol_or_name
+    unless symbol.nil?
+      "#{symbol}"
+    else 
+      "#{name}"
+    end
+  end
 
   def update_coin_price
     UpdateSingleCoinPriceWorker.perform_async(self.id)
@@ -40,7 +47,7 @@ class Coin < ApplicationRecord
   end
 
   def should_generate_new_friendly_id?
-	 !has_friendly_id_slug? || name_changed?
+	 !has_friendly_id_slug? || name_changed? || symbol_changed?
   end
 
   def has_friendly_id_slug?
