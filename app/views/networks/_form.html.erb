@@ -2,7 +2,7 @@
 <%= form_for @network, authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
-			<%= image_tag @network.logo, size: "60x60", id: "network-logo", class: @network.errors[:logo].empty? ? '' : 'error-logo' %>
+			<%= image_tag @network.logo, size: "60x60", id: "network-logo", class: "error-logo" if @network.errors[:logo].any? %>
 		</div>
 	</div>
 	<div class="row">
@@ -10,13 +10,19 @@
 			<%= f.label "Network logo", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.file_field :logo, class: 'filestyle' %>
+			<%= f.file_field :logo, class: @network.errors[:logo].any? ? 'error-field filestyle' : 'filestyle' %>
 		</div>
 		<div class="col-md-8 col-md-offset-4">
-			<% if @network.errors[:logo].empty? %>
-				<p class="form-guidance">Logo must be square</p>
+			<% if @network.errors[:logo].any? %>
+				<ul>
+					<% @network.errors[:logo].each do |error| %>
+						<li>
+							<p class="form-error"><%= error.capitalize %></p>
+						</li>
+					<% end %>
+				</ul>
 			<% else %>
-				<p class="form-error"><%= @network.errors[:logo].first %></p>
+				<p class="form-guidance">Logo must be square</p>
 			<% end %>
 		</div>
 	</div>
@@ -25,10 +31,19 @@
 			<%= f.label "Name", class: "form-label", id: "name-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :name, class: "form-input" %>
+			<%= f.text_field :name, class:  @network.errors[:logo].any? ? 'error-field form-input' : 'form-input' %>
 		</div>
-	</div>
-	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<% if @network.errors[:name].any? %>
+				<ul>
+					<% @network.errors[:name].each do |error| %>
+						<li>
+							<p class="form-error">Name <%= error %></p>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+		</div>
 		<div class="col-md-8 col-md-offset-4 quick-search-results" >
 		</div>
 	</div>

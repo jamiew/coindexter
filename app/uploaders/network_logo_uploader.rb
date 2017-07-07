@@ -42,6 +42,20 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
   def default_url
     "/assets/fallback/" + [version_name, "default.png"].compact.join('_')
   end
+  
+  attr_reader :width, :height
+  before :cache, :capture_size_before_cache # callback, example here: http://goo.gl/9VGHI
+  def capture_size_before_cache(new_file) 
+    if version_name.blank? # Only do this once, to the original version
+      if file.path.nil? # file sometimes is in memory
+        img = ::MiniMagick::Image::read(file.file)
+        @width = img[:width]
+        @height = img[:height]
+      else
+        @width, @height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
+      end
+    end
+  end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url

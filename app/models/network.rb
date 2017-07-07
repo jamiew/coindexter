@@ -13,7 +13,7 @@ class Network < ApplicationRecord
 	multisearchable :against => [:name, :description]
 	pg_search_scope :search, :against => :name, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.1 } }
 
-	validates_uniqueness_of :name
+	validates :name, presence: true, uniqueness:true
 
 	friendly_id :name, use: [:slugged, :history]
 
@@ -21,13 +21,10 @@ class Network < ApplicationRecord
 
 	enum network_status_options: [:concept, :preproduction, :live, :dead]
 	
-	validate :correct_dimensions?, :if => :logo_changed?
+	validate :check_dimensions
 
-    def correct_dimensions?
-	  image = MiniMagick::Image.open(logo.path)
-	  if image[:width] != image[:height]
-	    errors.add :logo, "The dimensions of the logo must be a square" 
-	  end
+    def check_dimensions
+	  errors.add :logo, "Logo must be square" if logo.width != logo.height
   	end
 
 	acts_as_followable

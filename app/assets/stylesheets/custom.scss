@@ -1007,11 +1007,12 @@ li#coins {
 			text-transform:none;
 			font-size: 16px !important;
 		}
-		img, .coin-logo {
+		img, .coin-logo, #coin-logo {
 			margin: 2px auto 10px auto;
 			text-align:center;
 			border-radius: 2px;
 			border-width: 3px;
+			background-color: #fff;
 		}
 		border-radius: 4px;
 		p {
@@ -1101,15 +1102,13 @@ h1.list-name {
 	}
 }
 
-.info-header {
-	img#network-logo, img#user-avatar {
-		border: 3px solid $border-orange;
-		background-color: #fff;
-		padding: 4px;
-	}
-	img.error-logo {
-		border-color: $concept-inner !important;
-	}
+img#network-logo, img#user-avatar, img#coin-logo {
+	border: 3px solid $border-orange;
+	background-color: #fff;
+	padding: 4px;
+}
+img.error-logo {
+	border-color: $concept-inner !important;
 }
 
 ul.link-list {
@@ -1471,4 +1470,14 @@ div.status-cnt {
 }
 .remember-label {
 	text-transform:lowercase;
+}
+.error-field {
+	border-color: $concept-outer !important;
+}
+#coin-logo {
+	margin: 2px auto 10px auto;
+	text-align:center;
+	border-radius: 2px;
+	border-width: 3px;
+	background-color: #fff;
 }

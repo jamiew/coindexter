@@ -99,7 +99,6 @@ class CoinsController < ApplicationController
 	    	end
 	    	redirect_to network_coin_path(@network, @coin)
 		else
-	       	flash[:alert] = @coin.errors.messages
 	        render 'new'
 	    end
 	end
