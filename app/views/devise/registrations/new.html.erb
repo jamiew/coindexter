@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 main">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {:class => 'sign-in-up', :multipart => true }) do |f| %>
-      <%= devise_error_messages! %>
+      <%#= devise_error_messages! %>
       <div class="row">
         <div class="col-md-8 col-md-offset-4">
           <h1>Sign up</h1>
@@ -12,45 +12,111 @@
           <%= f.label "Name" %>
         </div>
         <div class="col-md-4">
-          <%= f.text_field :first_name, autofocus: true, placeholder: "First name" %>
+          <%= f.text_field :first_name, autofocus: true, placeholder: "First name", class: @user.errors[:first_name].any? ? "error-field" : "" %>
         </div>
         <div class="col-md-4">
-          <%= f.text_field :last_name, autofocus: true, placeholder: "Last name" %>
-        </div>        
+          <%= f.text_field :last_name, autofocus: true, placeholder: "Last name", class: @user.errors[:last_name].any? ? "error-field" : "" %>
+        </div> 
+        <div class="col-md-4 col-md-offset-4">
+          <% if @user.errors[:first_name].any? %>
+            <ul>
+              <% @user.errors[:first_name].each do |error| %>
+                <li>
+                  <p class="form-error">First name <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div> 
+        <div class="col-md-4">
+          <% if @user.errors[:last_name].any? %>
+            <ul>
+              <% @user.errors[:last_name].each do |error| %>
+                <li>
+                  <p class="form-error">Last name <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>       
       </div>
       <div class="row">
         <div class="col-md-4 label">
           <%= f.label :username %>
         </div>
         <div class="col-md-8">
-          <%= f.text_field :username %>
+          <%= f.text_field :username, class: @user.errors[:username].any? ? "error-field" : "" %>
         </div>
+        <div class="col-md-8 col-md-offset-4">
+          <% if @user.errors[:username].any? %>
+            <ul>
+              <% @user.errors[:username].each do |error| %>
+                <li>
+                  <p class="form-error">Username <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div> 
       </div>
       <div class="row">
         <div class="col-md-4 label">
           <%= f.label :avatar %>
         </div>
         <div class="col-md-8">
-          <%= f.file_field :avatar %>
+          <%= f.file_field :avatar, class: @user.errors[:avatar].any? ? "error-field" : "" %>
         </div>
+        <div class="col-md-8 col-md-offset-4">
+          <% if @user.errors[:avatar].any? %>
+            <ul>
+              <% @user.errors[:avatar].each do |error| %>
+                <li>
+                  <p class="form-error">Avatar <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>   
       </div>
       <div class="row">
         <div class="col-md-4 label">
           <%= f.label :email %>
         </div>
         <div class="col-md-8">
-          <%= f.email_field :email %>
+          <%= f.email_field :email, class: @user.errors[:email].any? ? "error-field" : "" %>
+        </div>
+        <div class="col-md-8 col-md-offset-4">
+          <% if @user.errors[:email].any? %>
+            <ul>
+              <% @user.errors[:email].each do |error| %>
+                <li>
+                  <p class="form-error">Email <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4 label">
           <%= f.label :password %><br />
           <% if @minimum_password_length %>
-          <em><%= @minimum_password_length %> characters minimum</em>
+            <em><%= @minimum_password_length %> characters minimum</em>
           <% end %>
         </div>
         <div class="col-md-8">
-          <%= f.password_field :password, autocomplete: "off" %>
+          <%= f.password_field :password, autocomplete: "off", class: @user.errors[:password].any? ? "error-field" : "" %>
+        </div>
+        <div class="col-md-8 col-md-offset-4">
+          <% if @user.errors[:password].any? %>
+            <ul>
+              <% @user.errors[:password].each do |error| %>
+                <li>
+                  <p class="form-error">Password <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
       </div>
       <div class="row">
@@ -58,7 +124,18 @@
           <%= f.label 'Confirm password' %><br />
         </div>
         <div class="col-md-8">
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: @user.errors[:password_confirmation].any? ? "error-field" : "" %>
+        </div>
+        <div class="col-md-8 col-md-offset-4">
+          <% if @user.errors[:password_confirmation].any? %>
+            <ul>
+              <% @user.errors[:password_confirmation].each do |error| %>
+                <li>
+                  <p class="form-error">Password <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
       </div>
       <div class="row">

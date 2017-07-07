@@ -9,6 +9,17 @@
               <%= f.file_field :avatar, class: 'filestyle' %>
           </div>
         </div>
+        <div class="col-md-8 col-md-offset-4">
+          <% if @user.errors[:avatar].any? %>
+            <ul>
+              <% @user.errors[:avatar].each do |error| %>
+                <li>
+                  <p class="form-error">Avatar <%= error %></p>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
          <div class="row grouped-row grouped-row-first name-group">
           <div class="col-md-4 label">
             <%= f.label "First name", class: "form-label" %>

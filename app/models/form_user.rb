@@ -7,7 +7,7 @@ class FormUser < User
 
   validates_presence_of     :password, if: :password_required?
   validates_confirmation_of :password, if: :password_required?
-  validates_length_of       :password, within: Devise.password_length, allow_blank: true
+  validates_length_of       :password, within: Devise.password_length, allow_blank: false
 
   validates_presence_of     :first_name, if: :name_required?
   validates_confirmation_of :first_name, if: :name_required?

@@ -38,6 +38,20 @@ class AvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [30, 30]
   end
 
+  attr_reader :width, :height
+  before :cache, :capture_size_before_cache # callback, example here: http://goo.gl/9VGHI
+  def capture_size_before_cache(new_file) 
+    if version_name.blank? # Only do this once, to the original version
+      if file.path.nil? # file sometimes is in memory
+        img = ::MiniMagick::Image::read(file.file)
+        @width = img[:width]
+        @height = img[:height]
+      else
+        @width, @height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
+      end
+    end
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

@@ -21,18 +21,34 @@ class User < ApplicationRecord
 
   acts_as_follower
 
-  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }
+  validates :username, format: { with: /\A[a-zA-Z0-9]+\Z/ }, presence: true, uniqueness: true
+
+  validates :avatar, presence: true
+
+  validates :first_name, presence: true
+
+  validates :last_name, presence: true
+
+  validates_presence_of   :email
+  validates_uniqueness_of :email, allow_blank: true
+  validates_format_of     :email, with: Devise.email_regexp, allow_blank: true
+
+  validates_presence_of     :password, if: :password_required?
+  validates_confirmation_of :password, if: :password_required?
+  validates_length_of       :password, within: Devise.password_length, allow_blank: false
+
+  validate :check_dimensions
+
+  def check_dimensions
+    errors.add :avatar, "must be square" if avatar.width != avatar.height
+  end
 
   def should_generate_new_friendly_id?
     slug.blank? || username_changed?
   end
 
-  def email_required?
-    super && provider.blank?
-  end
-
   def password_required?
-    super && provider.blank?
+    true
   end
 
   protected
