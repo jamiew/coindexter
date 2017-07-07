@@ -126,9 +126,13 @@ class CoinsController < ApplicationController
 	    		puts "id is #{id}"
 	    		UpdateSingleCoinPriceWorker.perform_async(id)
     		end
-    		redirect_to network_coin_path(@network, @coin)
+    		puts "coin params are #{params.inspect}"
+    		if params[:is_ico]
+    			redirect_to ico_network_coin_path(@network, @coin)
+    		else	
+    			redirect_to network_coin_path(@network, @coin)
+    		end
 		else
-	    	flash[:alert] = @coin.errors.messages
 	    	render 'edit'
 	  	end
 	end

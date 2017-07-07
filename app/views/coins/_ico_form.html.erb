@@ -1,5 +1,6 @@
 <%= javascript_include_tag "add_another" %>
 <%= form_for [@network, @coin], authenticity_token: true,  html: { multipart: true } do |f| %>
+	<%= hidden_field_tag :is_ico, true %>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-4">
 			<%= image_tag @coin.logo, size: "60x60", id: "coin-logo" if @coin.logo? %>

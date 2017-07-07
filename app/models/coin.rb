@@ -41,7 +41,7 @@ class Coin < ApplicationRecord
   end
 
   def check_dimensions
-    errors.add :logo, "must be square" if logo.width == logo.height
+    errors.add :logo, "must be square" if logo.width != logo.height
   end
 
   def should_generate_new_friendly_id?
