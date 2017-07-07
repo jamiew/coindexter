@@ -73,11 +73,11 @@
 			<%= f.text_field :symbol, class: @coin.errors[:symbol].any? ? 'error-field form-input' : 'form-input' %>
 		</div>
 		<div class="col-md-8 col-md-offset-4">
-			<% if @coin.errors[:name].any? %>
+			<% if @coin.errors[:symbol].any? %>
 				<ul>
-					<% @coin.errors[:name].each do |error| %>
+					<% @coin.errors[:symbol].each do |error| %>
 						<li>
-							<p class="form-error">Name <%= error %></p>
+							<p class="form-error">Symbol <%= error %></p>
 						</li>
 					<% end %>
 				</ul>

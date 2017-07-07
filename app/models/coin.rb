@@ -9,7 +9,7 @@ class Coin < ApplicationRecord
   after_commit :update_coin_price, :on => :create
 
   validates :name, presence: true, uniqueness: true
-  validates :symbol, presence: true, uniqueness: true
+  validates :symbol, allow_nil: true, allow_blank: false, uniqueness: true
 
   friendly_id :symbol_or_name, use: [:slugged, :history]
 
@@ -29,7 +29,7 @@ class Coin < ApplicationRecord
   validate :check_dimensions
 
   def symbol_or_name
-    unless symbol.nil?
+    unless symbol.nil? or symbol == ""
       "#{symbol}"
     else 
       "#{name}"
