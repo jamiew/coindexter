@@ -49,24 +49,15 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         @user.update_attributes( :first_name => first_name(@identity.name), :last_name => last_name(@identity.name))
       end
       if @user.remote_avatar_url.nil?
-        puts "tannehill 22"
         @user.update_attribute( :remote_avatar_url, @identity.image)
-        puts "tannehill 23"
       end
-      puts "tannehill 24"
       @user.skip_confirmation!
       sign_in_and_redirect @user
       
-      puts "tannehill 25"
       set_flash_message(:notice, :success, kind: provider.capitalize) if is_navigational_format?
     else
-      puts "tannehill 26"
       session["devise.#{provider}_data"] = env["omniauth.auth"]
-      puts "tannehill 27"
-      
-      puts "tannehill 28"
       redirect_to new_user_registration_url
-      puts "tannehill 29"
     end
   end
 

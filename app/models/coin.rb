@@ -8,16 +8,15 @@ class Coin < ApplicationRecord
   pg_search_scope :search, :against => [:name, :symbol] , :using => { :tsearch => { :prefix => true } }
   after_commit :update_coin_price, :on => :create
 
+  validates :name, presence: true, uniqueness: true
+  validates :symbol, allow_nil: true, allow_blank: false, uniqueness: true
 
-  validates_uniqueness_of :name
-  validates_uniqueness_of :symbol
-
-  friendly_id :name, use: [:slugged, :history]
+  friendly_id :symbol_or_name, use: [:slugged, :history]
 
   has_and_belongs_to_many  :links
   has_many :comments, through: :links
 
-  has_paper_trail :class_name => 'Version', :ignore => [:network, :network_id, :price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug, :updated_at, :category_id, :saledate]
+  has_paper_trail :class_name => 'Version', :ignore => [:network, :network_id, :price, :one_hour_price_change, :one_day_price_change, :volume, :market_cap, :available_supply, :total_supply, :link_id, :links_id, :slug, :updated_at, :category_id, :saledate, :coin_market_cap_id]
 
   enum coin_status_options: [:concept, :preproduction, :live, :dead]
 
@@ -27,20 +26,26 @@ class Coin < ApplicationRecord
 
   acts_as_followable
 
+  validate :check_dimensions
+
+  def symbol_or_name
+    unless symbol.nil? or symbol == ""
+      "#{symbol}"
+    else 
+      "#{name}"
+    end
+  end
 
   def update_coin_price
     UpdateSingleCoinPriceWorker.perform_async(self.id)
   end
 
-  def correct_dimensions?
-    image = MiniMagick::Image.open(logo.path)
-    if image[:width] != image[:height]
-      errors.add :logo, "The dimensions of the logo must be a square" 
-    end
+  def check_dimensions
+    errors.add :logo, "must be square" if logo.width != logo.height
   end
 
   def should_generate_new_friendly_id?
-	 !has_friendly_id_slug? || name_changed?
+	 !has_friendly_id_slug? || name_changed? || symbol_changed?
   end
 
   def has_friendly_id_slug?

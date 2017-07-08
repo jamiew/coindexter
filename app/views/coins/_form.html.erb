@@ -10,13 +10,17 @@
 			<%= f.label "Coin logo", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.file_field :logo, class: 'filestyle' %>
+			<%= f.file_field :logo, class: @coin.errors[:logo].any? ? 'error-field filestyle' : 'filestyle' %>
 		</div>
 		<div class="col-md-8 col-md-offset-4">
-			<% if @coin.errors[:logo].empty? %>
-				<p class="form-guidance">Logo must be square</p>
-			<% else %>
-				<p class="form-error"><%= @coin.errors[:logo].first %></p>
+			<% if @coin.errors[:logo].any? %>
+				<ul>
+					<% @coin.errors[:logo].each do |error| %>
+						<li>
+							<p class="form-error">Logo <%= error %></p>
+						</li>
+					<% end %>
+				</ul>
 			<% end %>
 		</div>
 	</div>
@@ -25,13 +29,24 @@
 			<%= f.label "Coin name", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :name, class: "form-input" %>
+			<%= f.text_field :name, class: @coin.errors[:name].any? ? 'error-field form-input' : 'form-input' %>
 		</div>
-			<% unless @coin.network.nil? %>
-				<div class="col-md-8 col-md-offset-4 quick-search-results" data-network-name="<%= @network.name.downcase %>" >
-			<% else %>
-				<div class="col-md-8 col-md-offset-4 quick-search-results">
+		<div class="col-md-8 col-md-offset-4">
+			<% if @coin.errors[:name].any? %>
+				<ul>
+					<% @coin.errors[:name].each do |error| %>
+						<li>
+							<p class="form-error">Name <%= error %></p>
+						</li>
+					<% end %>
+				</ul>
 			<% end %>
+		</div>
+		<% unless @coin.network.nil? %>
+			<div class="col-md-8 col-md-offset-4 quick-search-results" data-network-name="<%= @network.name.downcase %>" >
+		<% else %>
+			<div class="col-md-8 col-md-offset-4 quick-search-results">
+		<% end %>
 		</div>
 	</div>
 	<div class="row">
@@ -55,7 +70,18 @@
 			<%= f.label "Symbol", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.text_field :symbol, class: "form-input" %>
+			<%= f.text_field :symbol, class: @coin.errors[:symbol].any? ? 'error-field form-input' : 'form-input' %>
+		</div>
+		<div class="col-md-8 col-md-offset-4">
+			<% if @coin.errors[:symbol].any? %>
+				<ul>
+					<% @coin.errors[:symbol].each do |error| %>
+						<li>
+							<p class="form-error">Symbol <%= error %></p>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
 		</div>
 	</div>
 	<%= f.fields_for :exchanges do |e| %>

@@ -39,7 +39,7 @@ class DailyDigestWorker
 
     networks_following = []
 
-    user.find_each do |user|
+    User.find_each do |user|
 
       user.all_follows.each do |follow|
         if follow.followable_type == "Network"

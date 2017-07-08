@@ -5,6 +5,22 @@
 
 $prev_scroll_top = 0
 
+$ -> 
+	$('a.reply-to-comment').on 'click', ->
+		$(this).hide()
+		$(this).parent().children("form").toggle()
+	$('a.cancel-form').on 'click', ->
+		$(this).parent().toggle()	
+
+	$('.network-option').each ->
+		url = $(this).data 'icon'
+		$(this).css 'background-image', "url('" + url + "')"
+
+	$('.coin-option').each ->
+		url = $(this).data 'icon'
+		$(this).css 'background-image', "url('" + url + "')"
+	
+
 $(window).on "scroll", ->
 	$scroll_height = $('body').prop 'scrollHeight'
 	$scroll_top = $('body').scrollTop()
@@ -22,17 +38,3 @@ $(window).on "scroll", ->
 	else 
 		$('.action-links').css 'bottom', 30
 
-$ -> 
-	$('a.reply-to-comment').on 'click', ->
-		$(this).hide()
-		$(this).parent().children("form").toggle()
-	$('a.cancel-form').on 'click', ->
-		$(this).parent().toggle()	
-
-	$('.network-option').each ->
-		url = $(this).data 'icon'
-		$(this).css 'background-image', "url('" + url + "')"
-
-	$('.coin-option').each ->
-		url = $(this).data 'icon'
-		$(this).css 'background-image', "url('" + url + "')"

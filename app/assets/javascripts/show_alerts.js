@@ -8,6 +8,10 @@ $(document).ready(function() {
 	}
 	
 	text = $('#header-link-account').find('p').text();
+	
+	width = $('#header-link-account').width();
+	$('#header-link-account').css('min-width', width);
+
 	$('#header-link-account').hover(
 		function() {
 			$(this).find("a.user-activity > p").hide();
@@ -16,8 +20,5 @@ $(document).ready(function() {
 			$(this).find("a.user-activity > p").show();
 			$(this).find("a.header-link-account-glyphicon").hide();
 	});
-
-	width = $('#header-link-account').width() + 20;
-	$('#header-link-account').css('min-width', width);
 
 });
