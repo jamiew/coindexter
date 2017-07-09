@@ -91,11 +91,16 @@ class UpdateAllCoinPricesWorker
 			unless attributes_to_save.empty?
 				if coin.coin_status != "live"
 					attributes_to_save[:coin_status] = "live"
+					puts "saving #{coin.name} to 'live'"
 				end
 				puts "saving #{attributes_to_save} for #{coin.name}"
 				coin.update_attributes(attributes_to_save)
 			else
-				puts "Nothing to save for #{coin.name}"
+				if coin.coin_status == "live"
+					attributes_to_save[:coin_status] = "concept"
+					coin.update_attributes(attributes_to_save)
+				end
+				puts "Nothing to save for #{coin.name}, setting to 'concept'"
 			end
 		end
 
