@@ -59,6 +59,7 @@ class UpdateAllCoinPricesWorker
 			end
 			
 			# Get price and 24h change from cryptocompare
+			puts "symbol for #{coin.name} is #{symbol} #{coin.symbol}"
 			if !symbol.nil?
 				response = JSON.parse(HTTParty.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + symbol.upcase + '&tsyms=USD').body) 
 			elsif !coin.symbol.nil? && coin.symbol != ""
