@@ -8,6 +8,8 @@ class UpdateAllCoinPricesWorker
 
 	def perform
 
+		user = User.find(1)
+
 		Coin.find_each do |coin|
 			
 			# attributes to save
@@ -98,7 +100,8 @@ class UpdateAllCoinPricesWorker
 				coin.update_attributes(attributes_to_save)
 			else
 				if coin.coin_status == "live"
-					attributes_to_save[:coin_status] = "concept"
+					attributes_to_save[:coin_status] = "preproduction"
+					user_for_paper_trail = user
 					coin.update_attributes(attributes_to_save)
 				end
 				puts "Nothing to save for #{coin.name}, setting to 'concept'"

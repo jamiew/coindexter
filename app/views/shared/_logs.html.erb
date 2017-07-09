@@ -1,5 +1,6 @@
 <% @logs.each do |log| %>
-	<% cache log do %>		<% if log.feed_type == "network_log" %>
+	<% cache log do %>		
+		<% if log.feed_type == "network_log" %>
 			<%= render(partial: 'networks/log', locals: {log: log, show_tag: true}) %>
 		<% elsif log.feed_type == "coin_log" %>
 			<%= render(partial: 'coins/log', locals: {log: log, show_tag: true}) %>	
