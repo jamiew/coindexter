@@ -595,6 +595,7 @@ form.new_comment {
 					margin-bottom:4px;
 				} 
 			}
+
 			textarea {
 				padding: 17px 18px 11px;
 
@@ -1489,4 +1490,30 @@ div.status-cnt {
 }
 .following-cnt {
 	margin-top:-10px;
+}
+#card-element {
+	border-radius: 4px;
+	box-shadow:none;
+	border: 1px solid $border-orange;
+	color: $text;
+	font-family: "WhitneyHTF-Medium";
+	letter-spacing: 0.01em;
+	padding: 17px 12px;
+	font-size:16px;
+	width:320px;
+	background-color: #fff;
+	&:active {
+		color:$text;
+	}	
+}
+button {
+	background: $primary-orange;		
+	margin-top:-1px;
+	margin-bottom:0px;
+	color: #fff;
+	border: none;
+	padding: 0;
+	&:hover {
+		outline:none;
+	}
 }

@@ -1,19 +1,24 @@
 <ul class="info-menu">
-	<li class="active-item" id="following">
+	<li <%= "class=active-item" if @active_item == "following" %> id="following">
 		<p>
 			<%= link_to "Following", user_path(@user) %>
 		</p>
 	</li>
 	<% if @user == current_user %>
-		<li id="account">
+		<li <%= "class=active-item" if @active_item == "account" %> id="account">
 			<p>
 				<%= link_to "Account", edit_user_path(@user), remote: true %>
 			</p>
 		</li>
 	<% end %>
-	<li id="activity">
+	<li <%= "class=active-item" if @active_item == "activity" %> id="activity">
 		<p>
 			<%= link_to "Activity", user_activity_path(@user), remote: true %>
+		</p>
+	</li>
+	<li <%= "class=active-item" if @active_item == "subscription" %> id="subscription">
+		<p>
+			<%= link_to "Subscription", new_user_charge_path(@user) %>
 		</p>
 	</li>
 </ul>

@@ -10,12 +10,16 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
+    @active_item = "account"
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       UserMailer.confirmation_instructions(@user, @user.confirmation_token).deliver_later
+      customer = Stripe::Customer.create(
+        :email => user.email,
+      )
       flash[:success] = "Please check your email to confirm your email address"
     else
       render 'new'
@@ -62,6 +66,7 @@ class UsersController < ApplicationController
     all_follows = @user.all_follows
     @networks_following = []
     @coins_following = []
+    @active_item = "following"
     all_follows.each do |follow|
       if follow.followable_type == "Network"
         @networks_following << Network.find(follow.followable_id)
@@ -79,6 +84,7 @@ class UsersController < ApplicationController
   def activity
     @user = User.friendly.find(params[:user_id])
     @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
+    @active_item = "activity"
     respond_to do |format|
       format.html
       format.js

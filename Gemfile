@@ -105,6 +105,8 @@ gem 'nokogiri'
 
 gem 'puma_worker_killer'
 
+gem 'stripe'
+
 group :production do 
   gem 'rails_12factor'
 end

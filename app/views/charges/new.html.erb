@@ -1,0 +1,50 @@
+<%= javascript_include_tag "stripe" %>
+<div class="row">
+  <div class="col-md-2 col-md-offset-1 left-nav">
+    <%= render(partial: '/users/info_menu', object: {user: @user}, locals: {active_item: 'subscription'} ) %>
+  </div>
+  <div class="col-md-9 main">
+    <div class="info-header">
+      <div class="row">
+        <div class="col-md-9 col-xs-12">
+          <%= render(partial: '/users/user_main_info_header') %>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="row">
+        <div class="col-md-9 col-xs-12">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-4">
+              <p>Access to Coindexter is $19.99 per month, though it's free for the month if you contribute a new network, coin, or whitepaper.</p>
+              <p>Credit card details are required</p>
+              <br>
+            </div>
+          </div>
+          <div class="row form-row">
+            <form action="/charge" method="post" id="payment-form">
+              <div class="col-md-4 label">
+                <label class="form-label">credit or debit card</label>
+              </div>
+              <div class="col-md-8">
+                <div id="card-element">
+                  <!-- a Stripe Element will be inserted here. -->
+                </div>
+
+                <!-- Used to display Element errors -->
+                <div id="card-errors" role="alert"></div>
+                <ul class="action-links">
+                  <li class="submit">
+                    <button class="form-submit">submit payment</button>
+                  </li>
+                </ul>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
