@@ -1,4 +1,4 @@
-class ChargesController < ApplicationController
+class SubscriptionsController < ApplicationController
 
 	def new
 		@user = User.friendly.find(params[:user_id])
@@ -6,8 +6,9 @@ class ChargesController < ApplicationController
 	end
 
 	def create
-	  # Amount in cents
-	  @amount = 500
+	  @user = User.friendly.find(params[:user_id])
+
+	  @amount = 1999
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
@@ -22,8 +23,8 @@ class ChargesController < ApplicationController
 	  )
 
 	  rescue Stripe::CardError => e
-	  flash[:error] = e.message
-	  redirect_to new_charge_path
+		  flash[:error] = e.message
+		  redirect_to new_user_path
 	end
 
 	def update 

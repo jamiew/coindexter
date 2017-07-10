@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="row form-row">
-            <form action="/charge" method="post" id="payment-form">
+             <form action=<%= "/users/" + @user.username + "/subscriptions/checkout" %> method="post" id="payment-form">
               <div class="col-md-4 label">
                 <label class="form-label">credit or debit card</label>
               </div>

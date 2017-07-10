@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :users do
     get :following
     get :activity
-    resources :charges
+    resources :subscriptions
   end
 
   resources :comments do
@@ -86,8 +86,8 @@ Rails.application.routes.draw do
   end
 
   get ':username', to: 'users#show', :as => :current_user
-  get '/users/:username/charges/new', to: 'charges#new'
-  get '/users/:username/charge', to: 'charges#new'
+  get '/users/:username/subscriptions/new', to: 'subscriptions#new'
+  post '/users/:username/subscriptions/checkout', to: 'subscriptions#create'
   
   get ':username/edit', to: 'users#edit', :as => :edit_current_user
   
