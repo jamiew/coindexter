@@ -17,12 +17,13 @@
           <div class="row">
             <div class="col-md-8 col-md-offset-4">
               <p>Access to Coindexter is $19.99 per month, though it's free for the month if you contribute a new network, coin, or whitepaper.</p>
-              <p>Credit card details are required</p>
+              <p>Please enter your payment details:</p>
               <br>
+              <%= @plan %>
             </div>
           </div>
           <div class="row form-row">
-             <form action=<%= "/users/" + @user.username + "/subscriptions/checkout" %> method="post" id="payment-form">
+            <%= form_tag create_user_subscription_path(@user), authenticity_token: true,  id: "payment-form" do %>
               <div class="col-md-4 label">
                 <label class="form-label">credit or debit card</label>
               </div>
@@ -39,12 +40,11 @@
                   </li>
                 </ul>
               </div>
-            </form>
+              <%= hidden_field :plan_id, value: @plan.id %>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-

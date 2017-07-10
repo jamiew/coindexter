@@ -86,9 +86,9 @@ Rails.application.routes.draw do
   end
 
   get ':username', to: 'users#show', :as => :current_user
-  get '/users/:username/subscriptions/new', to: 'subscriptions#new'
-  post '/users/:username/subscriptions/checkout', to: 'subscriptions#create'
-  
+  post '/users/:username/subscriptions/checkout', to: 'subscriptions#create', :as => 'create_user_subscription'
+  post 'webhooks' => 'subscriptions#webhooks'
+    
   get ':username/edit', to: 'users#edit', :as => :edit_current_user
   
   get ':username/activity', to: 'users#activity', :as => :current_user_activity
