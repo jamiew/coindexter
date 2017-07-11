@@ -11,7 +11,7 @@ class Whitepaper < ApplicationRecord
 	validates_presence_of :whitepaper_title
 
 	def is_external?
-		!external_url.nil?
+		!external_url.nil? and !external_url.empty?
 	end
 
 end
