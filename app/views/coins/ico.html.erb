@@ -6,10 +6,18 @@
 	<%= render partial: 'related_dropdown', locals: { network: @coin } %>
 	<div class="col-md-9 col-xs-12 main ">
 		<div class="info-header">
-			<%= render 'coin_main_info_header', coin: @coin %>
+			<div class="row">
+				<div class="col-md-9 col-xs-12">
+					<%= render 'coin_main_info_header', coin: @coin %>
+				</div>
+			</div>
 		</div>
 		<div class="content">
-			<%= render 'ico' %>
+			<div class="row">
+				<div class="col-md-9 col-xs-12">
+					<%= render 'ico' %>
+				</div>
+			</div>
 		</div>
 	</div>
 	<ul class="action-links">

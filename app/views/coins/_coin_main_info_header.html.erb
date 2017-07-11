@@ -1,18 +1,14 @@
 <div class="row">
-	<div class="col-md-8">
-		<div class="row">
-			<div class="col-md-8 data col-md-offset-4 logo-cnt">
-				<% if coin.logo.nil? || coin.logo.blank? %>
-					<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
-				<% else %>
-					<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
-				<% end %>
-				<% unless coin.symbol.nil? || coin.symbol == "" %>
-					<h1 id="coin-name"><%= coin.symbol %></h1>
-				<% else %>
-					<h1 id="coin-name"><%= coin.name[0..15] %></h1>
-				<% end %>
-			</div>
-		</div>
+	<div class="col-md-8 data col-md-offset-4 logo-cnt">
+		<% if coin.logo.nil? || coin.logo.blank? %>
+			<%= image_tag "fallback/default.png", size: '60x60', id: 'coin-logo' %>
+		<% else %>
+			<%= image_tag coin.logo, size: '60x60', id: 'coin-logo' %>
+		<% end %>
+		<% unless coin.symbol.nil? || coin.symbol == "" %>
+			<h1 id="coin-name"><%= coin.symbol %></h1>
+		<% else %>
+			<h1 id="coin-name"><%= coin.name[0..15] %></h1>
+		<% end %>
 	</div>
 </div>

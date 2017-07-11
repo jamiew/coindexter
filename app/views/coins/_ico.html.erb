@@ -1,265 +1,262 @@
-<div class="row">
-	<div class="col-md-8 col-xs-12">
-		<ul id="<%= @coin.name %> show-coin">
-			<li class="coin-main-info coin-info-block block">
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Raised</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.capital_raised.nil? || @coin.capital_raised == "" || @coin.capital_raised == 0 %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the amount of capital raised from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the amount of capital raised", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p>$<%= number_to_human(@coin.capital_raised, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.capital_raised.nil? %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Use of proceeds</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_use_of_proceeds.nil? || @coin.ico_use_of_proceeds == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the use of proceeds from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the use of proceeds", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_use_of_proceeds %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Structure</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_token_sale_structure.nil? || @coin.ico_token_sale_structure == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the token sale structure from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the structure of the token sale from desktop", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_token_sale_structure %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Pricing</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_pricing.nil? || @coin.ico_pricing == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the amount of capital raised from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the pricing", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_pricing %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Allocation</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_allocation.nil? || @coin.ico_allocation == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the allocation from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the allocation", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_allocation %></p>
-						<% end %>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<ul id="<%= @coin.name %> show-coin">
-			<li class="coin-main-info coin-info-block block">
-				<div class="row">
-					<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
-						<h6>dates</h6>
-					</div>
-				</div>
-			</li>
-			<li class="coin-main-info coin-info-block block">
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Start of sale</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 saledate data">
-						<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
-							<p><%= @coin.saledate.strftime('%b %d, %Y') %></p>
-						<% else %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add a sale start date from desktop.</p>
-							<% else %>
-								<p><%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Planned end date</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 saledate data">
-						<% unless @coin.ico_planned_end_date.nil? || @coin.ico_planned_end_date.blank? %>
-							<%= @coin.saledate.strftime('%b %d, %Y') %>
-						<% else %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add a planned end date for the sale from desktop.</p>
-							<% else %>
-								<p><%= link_to "When was the planned end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Actual end date</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 saledate data">
-						<% unless @coin.ico_actual_end_date.nil? || @coin.ico_actual_end_date.blank? %>
-							<%= @coin.saledate.strftime('%b %d, %Y') %>
-						<% else %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add a actual end date for the sale from desktop.</p>
-							<% else %>
-								<p><%= link_to "When was the actual end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% end %>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<ul id="<%= @coin.name %> show-coin">
-			<li class="coin-main-info coin-info-block block">
-				<div class="row">
-					<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
-						<h6>lockups</h6>
-					</div>
-				</div>
-			</li>
-			<li class="coin-main-info coin-info-block block">
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Founders</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_founder_lockup.nil? || @coin.ico_founder_lockup == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the founders' lockup from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the founders' lockup", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_founder_lockup %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Buyer</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_buyer_lockup.nil? || @coin.ico_buyer_lockup == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the buyers' lockup from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the buyers' lockup", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_buyer_lockup %></p>
-						<% end %>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<ul id="<%= @coin.name %> show-coin">
-			<li class="coin-main-info coin-info-block block">
-				<div class="row">
-					<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
-						<h6>caps</h6>
-					</div>
-				</div>
-			</li>
-			<li class="coin-main-info coin-info-block block">
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Type of min cap</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_type_of_min_cap.nil? || @coin.ico_type_of_min_cap == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the type of min cap from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the min cap", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_type_of_min_cap %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Min investment cap</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_min_investment_cap.nil? || @coin.ico_min_investment_cap == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the type of min investment cap from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the min investment cap", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_min_investment_cap %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Type of max cap</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_type_of_max_cap.nil? || @coin.ico_type_of_max_cap == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the type of max cap from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the max cap", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_type_of_max_cap %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Max investment cap</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 data">
-						<% if @coin.ico_max_investment_cap.nil? || @coin.ico_max_investment_cap == "" %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								<p>None added yet. Add the type of max investment cap from desktop.</p>
-							<% else %>
-								<p><%= link_to "Add the max investment cap", edit_network_coin_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @coin.ico_max_investment_cap %></p>
-						<% end %>
-					</div>
-				</div>
-			</li>
-		</ul>
-	</div>
-</div>
+
+<ul id="<%= @coin.name %> show-coin">
+	<li class="coin-main-info coin-info-block block">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Raised</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.capital_raised.nil? || @coin.capital_raised == "" || @coin.capital_raised == 0 %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the amount of capital raised from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the amount of capital raised", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p>$<%= number_to_human(@coin.capital_raised, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.capital_raised.nil? %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Use of proceeds</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_use_of_proceeds.nil? || @coin.ico_use_of_proceeds == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the use of proceeds from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the use of proceeds", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_use_of_proceeds %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Structure</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_token_sale_structure.nil? || @coin.ico_token_sale_structure == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the token sale structure from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the structure of the token sale from desktop", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_token_sale_structure %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Pricing</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_pricing.nil? || @coin.ico_pricing == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the amount of capital raised from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the pricing", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_pricing %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Allocation</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_allocation.nil? || @coin.ico_allocation == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the allocation from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the allocation", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_allocation %></p>
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>
+<ul id="<%= @coin.name %> show-coin">
+	<li class="coin-main-info coin-info-block block">
+		<div class="row">
+			<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
+				<h6>dates</h6>
+			</div>
+		</div>
+	</li>
+	<li class="coin-main-info coin-info-block block">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Start of sale</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 saledate data">
+				<% unless @coin.saledate.nil? || @coin.saledate.blank? %>
+					<p><%= @coin.saledate.strftime('%b %d, %Y') %></p>
+				<% else %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add a sale start date from desktop.</p>
+					<% else %>
+						<p><%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Planned end date</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 saledate data">
+				<% unless @coin.ico_planned_end_date.nil? || @coin.ico_planned_end_date.blank? %>
+					<%= @coin.saledate.strftime('%b %d, %Y') %>
+				<% else %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add a planned end date for the sale from desktop.</p>
+					<% else %>
+						<p><%= link_to "When was the planned end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Actual end date</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 saledate data">
+				<% unless @coin.ico_actual_end_date.nil? || @coin.ico_actual_end_date.blank? %>
+					<%= @coin.saledate.strftime('%b %d, %Y') %>
+				<% else %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add a actual end date for the sale from desktop.</p>
+					<% else %>
+						<p><%= link_to "When was the actual end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>
+<ul id="<%= @coin.name %> show-coin">
+	<li class="coin-main-info coin-info-block block">
+		<div class="row">
+			<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
+				<h6>lockups</h6>
+			</div>
+		</div>
+	</li>
+	<li class="coin-main-info coin-info-block block">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Founders</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_founder_lockup.nil? || @coin.ico_founder_lockup == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the founders' lockup from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the founders' lockup", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_founder_lockup %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Buyer</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_buyer_lockup.nil? || @coin.ico_buyer_lockup == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the buyers' lockup from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the buyers' lockup", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_buyer_lockup %></p>
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>
+<ul id="<%= @coin.name %> show-coin">
+	<li class="coin-main-info coin-info-block block">
+		<div class="row">
+			<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
+				<h6>caps</h6>
+			</div>
+		</div>
+	</li>
+	<li class="coin-main-info coin-info-block block">
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Type of min cap</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_type_of_min_cap.nil? || @coin.ico_type_of_min_cap == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the type of min cap from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the min cap", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_type_of_min_cap %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Min investment cap</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_min_investment_cap.nil? || @coin.ico_min_investment_cap == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the type of min investment cap from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the min investment cap", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_min_investment_cap %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Type of max cap</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_type_of_max_cap.nil? || @coin.ico_type_of_max_cap == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the type of max cap from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the max cap", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_type_of_max_cap %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Max investment cap</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 data">
+				<% if @coin.ico_max_investment_cap.nil? || @coin.ico_max_investment_cap == "" %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						<p>None added yet. Add the type of max investment cap from desktop.</p>
+					<% else %>
+						<p><%= link_to "Add the max investment cap", edit_network_coin_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @coin.ico_max_investment_cap %></p>
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>

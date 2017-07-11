@@ -6,11 +6,15 @@
 	<%= render partial: 'related_dropdown', locals: { network: @coin } %>
 	<div class="col-md-9 col-xs-12 main ">
 		<div class="info-header">
-			<%= render 'coin_main_info_header', coin: @coin %>
+			<div class="row">
+				<div class="col-md-9 col-xs-12">
+					<%= render 'coin_main_info_header', coin: @coin %>
+				</div>
+			</div>
 		</div>
 		<div class="content">
 			<div class="row">
-				<div class="col-md-8 col-xs-12 logs-cnt">
+				<div class="col-md-9 col-xs-12 logs-cnt">
 					<div class="row">
 						<ul class="outer-log-list">
 							<%= render(partial: 'log', collection: @logs, as: :log, locals: { show_tag: false }) %>
@@ -19,5 +23,4 @@
 				</div>
 			</div>
 		</div>
-	</div>
 </div>

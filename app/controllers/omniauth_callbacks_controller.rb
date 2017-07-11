@@ -16,6 +16,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @identity = Identity.find_for_oauth env["omniauth.auth"]
 
     puts "identity is #{@identity.inspect}"
+    puts "provider is #{provider}"
 
     @user = @identity.user || current_user
     if @user.nil?
@@ -56,8 +57,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       
       set_flash_message(:notice, :success, kind: provider.capitalize) if is_navigational_format?
     else
-      session["devise.#{provider}_data"] = env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      session["devise.#{provider}_data"] = env["omniauth.auth"].except("extra")
+      sign_in_and_redirect @user
     end
   end
 

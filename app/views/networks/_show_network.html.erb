@@ -1,191 +1,187 @@
-<div class="row">
-	<div class="col-md-8 col-xs-12">
-		<ul>
-			<li class="network-main-info network-info-block block">
-				<% if @network.logo.to_s == "/assets/fallback/default.png" %>
-					<div class="row">
-						<div class="col-md-4 col-xs-12 label">
-							<h6>logo</h6>
-						</div>
-						<div class="col-md-8 col-xs-12 ">
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None yet. Add a logo from desktop.
-							<% else %>
-								<p><%= link_to "Add a logo to #{@network.name}", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						</div>
-					</div>
+<ul>
+	<li class="network-main-info network-info-block block">
+		<% if @network.logo.to_s == "/assets/fallback/default.png" %>
+			<div class="row">
+				<div class="col-md-4 col-xs-12 label">
+					<h6>logo</h6>
+				</div>
+				<div class="col-md-8 col-xs-12 ">
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None yet. Add a logo from desktop.
+					<% else %>
+						<p><%= link_to "Add a logo to #{@network.name}", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>status</h6>
+			</div>
+			<div class="col-md-8 col-xs-12 status">
+				<% unless @network.status.blank? %>
+					<div class="status-icon <%= @network.status.downcase %>-icon"></div>
+					<p class="status <%= @network.status.downcase %>-status"><%= @network.status.downcase %></p>
+				<% else %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add a logo from desktop.
+					<% else %>
+						<p><%= link_to "Is #{@network.name} a concept, in pre-production, or is it live?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
 				<% end %>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>status</h6>
-					</div>
-					<div class="col-md-8 col-xs-12 status">
-						<% unless @network.status.blank? %>
-							<div class="status-icon <%= @network.status.downcase %>-icon"></div>
-							<p class="status <%= @network.status.downcase %>-status"><%= @network.status.downcase %></p>
-						<% else %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add a logo from desktop.
-							<% else %>
-								<p><%= link_to "Is #{@network.name} a concept, in pre-production, or is it live?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>description</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.description.blank? %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add a description from desktop.
+					<% else %>
+						<p><%= link_to "Add a description to #{@network.name}", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @network.description %></p>
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>
+<ul>
+	<li class="network-links network-links-block block">
+		<div class="row">
+			<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
+				<h6>people</h6>
+			</div>
+		</div>		
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Founders</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.founders.empty? or @network.founders.blank? or @network.founders == [""] %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add founders from desktop.
+					<% else %>
+						<p><%= link_to "Who founded #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<ul>
+						<% @network.founders.each do |founder| %>
+							<li>
+								<%= founder %>
+							</li>
 						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>description</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.description.blank? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add a description from desktop.
-							<% else %>
-								<p><%= link_to "Add a description to #{@network.name}", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @network.description %></p>
-						<% end %>
-					</div>
-				</div>
-			</li>
-		</ul>
-		<ul>
-			<li class="network-links network-links-block block">
-				<div class="row">
-					<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
-						<h6>people</h6>
-					</div>
-				</div>		
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Founders</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.founders.empty? or @network.founders.blank? or @network.founders == [""] %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add founders from desktop.
-							<% else %>
-								<p><%= link_to "Who founded #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<ul>
-								<% @network.founders.each do |founder| %>
-									<li>
-										<%= founder %>
-									</li>
-								<% end %>
-							</ul>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>Organization</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.team.nil? or @network.team.empty? or @network.team.blank? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add an owner from desktop.
-							<% else %>
-								<p><%= link_to "Who's running #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= @network.team %></p>
-						<% end %>
-					</div>
-				</div>						
-			</li>
-		</ul>
-		<ul>
-			<li class="network-links network-links-block block">
-				<div class="row">
-					<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
-						<h6>go</h6>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>url</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.link.nil? || @network.link.empty? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add the link from desktop.
-							<% else %>
-								<p><%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= link_to @network.link, @network.link %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>repository</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.github.nil? || @network.github.empty? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add the link from desktop.
-							<% else %>
-								<p><%= link_to "Does #{@network.name} have a public repository?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= link_to @network.github, @network.github %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>slack</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.slack.nil? || @network.slack.empty? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add the link from desktop.
-							<% else %>
-								<p><%= link_to "Does #{@network.name} have a Slack group?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= link_to @network.slack, @network.slack %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>forum</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.forum.nil? || @network.forum.empty? %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add the link from desktop.
-							<% else %>
-								<p><%= link_to "Does #{@network.name} have a forum?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= link_to @network.forum, @network.forum %></p>
-						<% end %>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 col-xs-12 label">
-						<h6>reddit</h6>
-					</div>
-					<div class="col-md-8 col-xs-12">
-						<% if @network.reddit.nil? || @network.reddit.empty?  %>
-							<% if browser.platform.ios? or browser.platform.android? %>
-								None added yet. Add the link from desktop.
-							<% else %>
-								<p><%= link_to "Does #{@network.name} have a Reddit?", edit_network_url, class: "add-missing-field" %></p>
-							<% end %>
-						<% else %>
-							<p><%= link_to @network.reddit.gsub("https://www.reddit.com/",""), @network.reddit %></p>
-						<% end %>
-					</div>
-				</div>
-			</li>
-		</ul>
-	</div>
-</div>
+					</ul>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>Organization</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.team.nil? or @network.team.empty? or @network.team.blank? %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add an owner from desktop.
+					<% else %>
+						<p><%= link_to "Who's running #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= @network.team %></p>
+				<% end %>
+			</div>
+		</div>						
+	</li>
+</ul>
+<ul>
+	<li class="network-links network-links-block block">
+		<div class="row">
+			<div class="col-md-8 col-xs-12 col-md-offset-4 title-row">
+				<h6>go</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>url</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.link.nil? || @network.link.empty? %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add the link from desktop.
+					<% else %>
+						<p><%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= link_to @network.link, @network.link %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>repository</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.github.nil? || @network.github.empty? %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add the link from desktop.
+					<% else %>
+						<p><%= link_to "Does #{@network.name} have a public repository?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= link_to @network.github, @network.github %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>slack</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.slack.nil? || @network.slack.empty? %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add the link from desktop.
+					<% else %>
+						<p><%= link_to "Does #{@network.name} have a Slack group?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= link_to @network.slack, @network.slack %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>forum</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.forum.nil? || @network.forum.empty? %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add the link from desktop.
+					<% else %>
+						<p><%= link_to "Does #{@network.name} have a forum?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= link_to @network.forum, @network.forum %></p>
+				<% end %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 col-xs-12 label">
+				<h6>reddit</h6>
+			</div>
+			<div class="col-md-8 col-xs-12">
+				<% if @network.reddit.nil? || @network.reddit.empty?  %>
+					<% if browser.platform.ios? or browser.platform.android? %>
+						None added yet. Add the link from desktop.
+					<% else %>
+						<p><%= link_to "Does #{@network.name} have a Reddit?", edit_network_url, class: "add-missing-field" %></p>
+					<% end %>
+				<% else %>
+					<p><%= link_to @network.reddit.gsub("https://www.reddit.com/",""), @network.reddit %></p>
+				<% end %>
+			</div>
+		</div>
+	</li>
+</ul>
