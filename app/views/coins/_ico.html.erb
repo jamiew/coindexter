@@ -10,7 +10,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the amount of capital raised from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the amount of capital raised", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the amount of capital raised", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p>$<%= number_to_human(@coin.capital_raised, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.capital_raised.nil? %></p>
@@ -26,7 +26,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the use of proceeds from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the use of proceeds", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the use of proceeds", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_use_of_proceeds %></p>
@@ -42,7 +42,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the token sale structure from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the structure of the token sale from desktop", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the structure of the token sale from desktop", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_token_sale_structure %></p>
@@ -58,7 +58,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the amount of capital raised from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the pricing", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the pricing", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_pricing %></p>
@@ -74,7 +74,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the allocation from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the allocation", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the allocation", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_allocation %></p>
@@ -103,7 +103,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add a sale start date from desktop.</p>
 					<% else %>
-						<p><%= link_to "When does #{@coin.name} go on sale?", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "When does #{@coin.name} go on sale?", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% end %>
 			</div>
@@ -119,7 +119,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add a planned end date for the sale from desktop.</p>
 					<% else %>
-						<p><%= link_to "When was the planned end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "When was the planned end date for the sale of #{@coin.name}?", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% end %>
 			</div>
@@ -135,7 +135,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add a actual end date for the sale from desktop.</p>
 					<% else %>
-						<p><%= link_to "When was the actual end date for the sale of #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "When was the actual end date for the sale of #{@coin.name}?", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% end %>
 			</div>
@@ -160,7 +160,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the founders' lockup from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the founders' lockup", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the founders' lockup", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_founder_lockup %></p>
@@ -176,7 +176,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the buyers' lockup from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the buyers' lockup", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the buyers' lockup", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_buyer_lockup %></p>
@@ -203,7 +203,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the type of min cap from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the min cap", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the min cap", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_type_of_min_cap %></p>
@@ -219,7 +219,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the type of min investment cap from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the min investment cap", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the min investment cap", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_min_investment_cap %></p>
@@ -235,7 +235,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the type of max cap from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the max cap", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the max cap", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_type_of_max_cap %></p>
@@ -251,7 +251,7 @@
 					<% if browser.platform.ios? or browser.platform.android? %>
 						<p>None added yet. Add the type of max investment cap from desktop.</p>
 					<% else %>
-						<p><%= link_to "Add the max investment cap", edit_network_coin_url, class: "add-missing-field" %></p>
+						<p><%= link_to "Add the max investment cap", edit_ico_network_coin_path, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
 					<p><%= @coin.ico_max_investment_cap %></p>

@@ -105,6 +105,8 @@ gem 'nokogiri'
 
 gem 'puma_worker_killer'
 
+gem 'nilify_blanks'
+
 group :production do 
   gem 'rails_12factor'
 end

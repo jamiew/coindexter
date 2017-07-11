@@ -1,26 +1,28 @@
-<li class="log-block block">
-	<div class="row">
-		<% if show_tag %>
-			<div class="col-md-4">
-	    		<% unless log.networks.nil? %>
-			    	<%= link_to log.networks, class: "user-log-classification-anchor" do %>
-			    		<div class="user-log-classification">
-							<div class="user-log-classification-network">
-								<%= image_tag(log.networks.logo.small.url, size: "20x20") if log.networks.logo? %>
-								<%= truncate(log.networks.name, length: 18) %>
+<% unless log.changes.first[:change].second.nil? or log.changes.first[:change].second == "" %>
+	<li class="log-block block">
+		<div class="row">
+			<% if show_tag %>
+				<div class="col-md-4">
+		    		<% unless log.networks.nil? %>
+				    	<%= link_to log.networks, class: "user-log-classification-anchor" do %>
+				    		<div class="user-log-classification">
+								<div class="user-log-classification-network">
+									<%= image_tag(log.networks.logo.small.url, size: "20x20") if log.networks.logo? %>
+									<%= truncate(log.networks.name, length: 18) %>
+									<div class="clear"></div>
+								</div>
 								<div class="clear"></div>
 							</div>
-							<div class="clear"></div>
-						</div>
+						<% end %>
 					<% end %>
-				<% end %>
+				</div>
+				<div class="col-md-8 log-inner-block">
+			<% else %>
+				<div class="col-md-8 col-md-offset-4 log-inner-block">
+			<% end %>
+				<%= render partial: '/networks/log_data', locals: { log: log } %>
+				<%= render partial: '/shared/who_posted', locals: { user: log.user, created_at: log.created_at } %>
 			</div>
-			<div class="col-md-8 log-inner-block">
-		<% else %>
-			<div class="col-md-8 col-md-offset-4 log-inner-block">
-		<% end %>
-			<%= render partial: '/networks/log_data', locals: { log: log } %>
-			<%= render partial: '/shared/who_posted', locals: { user: log.user, created_at: log.created_at } %>
 		</div>
-	</div>
-</li>
+	</li>
+<% end %>

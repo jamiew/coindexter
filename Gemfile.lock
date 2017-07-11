@@ -312,6 +312,9 @@ GEM
     multipart-post (2.0.0)
     netrc (0.11.0)
     newrelic_rpm (4.2.0.334)
+    nilify_blanks (1.2.1)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     nio4r (2.0.0)
     nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
@@ -506,6 +509,7 @@ DEPENDENCIES
   mini_magick
   momentjs-rails
   newrelic_rpm
+  nilify_blanks
   nokogiri
   omniauth-facebook
   omniauth-google-oauth2

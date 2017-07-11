@@ -13,6 +13,8 @@ class Network < ApplicationRecord
 	multisearchable :against => [:name, :description]
 	pg_search_scope :search, :against => :name, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.1 } }
 
+	nilify_blanks
+
 	validates :name, presence: true, uniqueness:true
 
 	friendly_id :name, use: [:slugged, :history]
