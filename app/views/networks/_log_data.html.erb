@@ -39,9 +39,9 @@
 								<% end %>
 							<% when "Link" %>
 								<% if change[:change_type] == "added" %>
-									Added <span class="change_attr">homepage</span>: <%= link_to change[:change].second,  change[:change].second %>
+									Added <span class="change_attr">homepage</span>: <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <span class="change_attr">homepage</span> from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+									Changed <span class="change_attr">homepage</span> from <%= link_to get_host_without_www(change[:change].first), change[:change].first %> to <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% end %>
 							<% when "Description" %>
 								<% if change[:change_type] == "added" %>

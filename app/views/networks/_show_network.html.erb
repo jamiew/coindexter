@@ -115,7 +115,7 @@
 						<p><%= link_to "What's the website for #{@network.name}?", edit_network_url, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
-					<p><%= link_to @network.link, @network.link %></p>
+					<p><%= link_to get_host_without_www(@network.link), @network.link %></p>
 				<% end %>
 			</div>
 		</div>
@@ -131,7 +131,7 @@
 						<p><%= link_to "Does #{@network.name} have a public repository?", edit_network_url, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
-					<p><%= link_to @network.github, @network.github %></p>
+					<p><%= link_to get_host_without_www(@network.github), @network.github %></p>
 				<% end %>
 			</div>
 		</div>
@@ -147,7 +147,7 @@
 						<p><%= link_to "Does #{@network.name} have a Slack group?", edit_network_url, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
-					<p><%= link_to @network.slack, @network.slack %></p>
+					<p><%= link_to get_host_without_www(@network.slack), @network.slack %></p>
 				<% end %>
 			</div>
 		</div>
@@ -163,7 +163,7 @@
 						<p><%= link_to "Does #{@network.name} have a forum?", edit_network_url, class: "add-missing-field" %></p>
 					<% end %>
 				<% else %>
-					<p><%= link_to @network.forum, @network.forum %></p>
+					<p><%= link_to get_host_without_www(@network.forum), @network.forum %></p>
 				<% end %>
 			</div>
 		</div>
