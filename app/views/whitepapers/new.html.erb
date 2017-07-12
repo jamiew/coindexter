@@ -7,8 +7,12 @@
 		<div class="info-header">
 			<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
 		</div>
-		<div class="content">
-			<%= render 'form' %>
+		<div class="row">
+			<div class="col-md-9 col-xs-12">
+				<div class="content">
+					<%= render 'form' %>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

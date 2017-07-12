@@ -1,23 +1,21 @@
 <div class="row">
-	<div class="col-md-9">
-		<% if @network.whitepapers.empty? %>
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-					<p class="add-first">No whitepapers yet.
-						<% if browser.platform.ios? or browser.platform.android? %>
-							Add one from desktop.
-						<% else %>
-							 <%= link_to "Add one?", new_network_whitepaper_path, remote: true %>
-						<% end %>
-					</p>
-				</div>
+	<% if @network.whitepapers.empty? %>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-4">
+				<p class="add-first">No whitepapers yet.
+					<% if browser.platform.ios? or browser.platform.android? %>
+						Add one from desktop.
+					<% else %>
+						 <%= link_to "Add one?", new_network_whitepaper_path, remote: true %>
+					<% end %>
+				</p>
 			</div>
-		<% else %>
-			<% @whitepapers.each do |wp| %>
-				<li class="whitepapers block">
-					<%= render 'single_whitepaper', wp: wp, network: wp.network, show_tag: false %>
-				</li>
-			<% end %>
+		</div>
+	<% else %>
+		<% @whitepapers.each do |wp| %>
+			<li class="whitepapers block">
+				<%= render 'single_whitepaper', wp: wp, network: wp.network, show_tag: false %>
+			</li>
 		<% end %>
-	</div>
+	<% end %>
 </div>
