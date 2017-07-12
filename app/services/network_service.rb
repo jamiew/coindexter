@@ -39,7 +39,7 @@ class NetworkService < LogService
 	def get_all_the_logs(user_id=nil)
 		
 		if user_id.nil?
-			versions = PaperTrail::Version.all.limit(5).order("created_at DESC")
+			versions = PaperTrail::Version.all.where.not(whodunnit: 40).limit(5).order("created_at DESC")
 		else
 			versions = PaperTrail::Version.all.where(:whodunnit => user_id).limit(5).order("created_at DESC")
 		end
