@@ -248,17 +248,13 @@ task :fix_attribution => :environment do
 
 	user_id = 39
 
-	networks.each do |network|  
-		n = Network.friendly.find(network[:name].downcase.gsub(".","-").gsub(" ","-"))
-		n.versions.each do |v|
-			v.update_attributes(whodunnit: user_id)
-		end
-	end
-
 	coins.each do |coin| 
-		c = Coin.friendly.find(coin[:name].downcase.gsub(".","-").gsub(" ","-"))
-		c.versions.each do |v|
-			v.update_attributes(whodunnit: user_id)
+		coin_exists = Coin.friendly.exists? coin[:name].downcase.gsub(".","-").gsub(" ","-")
+		if coin_exists
+			c = Coin.friendly.find(coin[:name].downcase.gsub(".","-").gsub(" ","-"))
+			c.versions.each do |v|
+				v.update_attributes(whodunnit: user_id)
+			end
 		end
 	end
 
