@@ -28,7 +28,9 @@ class NetworkService < LogService
 	    			self.user = version.user
 	  			end
 				set_coins_and_networks(feed_type, object)
-				log_set << self.dup
+				if is_worth_showing(version.changeset)
+					log_set << self.dup
+				end
 			end
 	    end
 
