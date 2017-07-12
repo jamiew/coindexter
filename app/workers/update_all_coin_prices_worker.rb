@@ -59,7 +59,6 @@ class UpdateAllCoinPricesWorker
 			end
 			
 			# Get price and 24h change from cryptocompare
-			puts "symbol for #{coin.name} is #{symbol} #{coin.symbol}"
 			if !symbol.nil?
 				response = JSON.parse(HTTParty.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + symbol.upcase + '&tsyms=USD').body) 
 			elsif !coin.symbol.nil? && coin.symbol != ""
@@ -92,18 +91,21 @@ class UpdateAllCoinPricesWorker
 			unless attributes_to_save.empty?
 				if coin.coin_status != "live"
 					attributes_to_save[:coin_status] = "live"
-					puts "saving #{coin.name} to 'live'"
+					puts "saving #{coin.name} because it's not empty and setting to 'live'"
+				else
+					puts "saving #{coin.name} because it's not empty and leaving status as is"
 				end
-				puts "saving #{attributes_to_save} for #{coin.name}"
 				coin.update_attributes(attributes_to_save)
 				# coin.versions.last.update_attributes(whodunnit: 40)
 			else
 				if coin.coin_status == "live"
+					puts "attributes_to_save for #{coin.name} is empty and status is not live so changing to preproduction"
 					attributes_to_save[:coin_status] = "preproduction"
 					coin.update_attributes(attributes_to_save)
+				else
+					puts "attributes_to_save for #{coin.name} is empty and changing status from live to preproduction"
 					# coin.versions.last.update_attributes(whodunnit: 40)
 				end
-				puts "Nothing to save for #{coin.name}, setting to 'concept'"
 			end
 		end
 

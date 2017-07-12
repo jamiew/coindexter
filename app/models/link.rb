@@ -13,6 +13,8 @@ class Link < ApplicationRecord
 
   default_scope { order('created_at DESC') }
 
+  nilify_blanks
+
 	def should_generate_new_friendly_id?
 		!has_friendly_id_slug? || title_changed?
   	end

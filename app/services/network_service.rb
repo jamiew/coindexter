@@ -52,7 +52,7 @@ class NetworkService < LogService
 		      	unless version.whodunnit.nil? 
 		      		self.user = User.find(version.whodunnit)
 		      	end
-				if still_exists(version.item_type, version.item_id)
+				if still_exists(version.item_type, version.item_id) && is_worth_showing(version.changeset)
 					set_coins_and_networks(version.item_type, version.item_id)
 					log_set << self.dup
 				end
@@ -78,6 +78,20 @@ class NetworkService < LogService
 					return true
 				end
 		end
+	end
+
+	def is_worth_showing(changeset)
+		is_not_empty = false
+		changeset.each do |k,v|
+			puts "v first is nil? #{v.first.nil?}"
+			puts "v first is blank? #{v.first.blank?}"
+			puts "v second is nil? #{v.second.nil?}"
+			puts "v second is blank? #{v.second.blank?}"
+			unless (v.first.nil? or v.first.blank?) and (v.first.nil? or v.first.blank?)
+				is_not_empty = true
+			end
+		end
+		return is_not_empty
 	end
 
 
