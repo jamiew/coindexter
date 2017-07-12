@@ -21,16 +21,14 @@ class NetworkService < LogService
 		log_set = []
 
 		versions.each do |version|
-			unless version.changeset == {}
+			unless version.changeset == {} or !still_exists(version.item_type, version.item_id) or !is_worth_showing(version.changeset)
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
 		      	convert_changeset(version)
 		      	if defined?(version.user) && !version.user.nil?
 	    			self.user = version.user
 	  			end
 				set_coins_and_networks(feed_type, object)
-				if is_worth_showing(version.changeset)
-					log_set << self.dup
-				end
+				log_set << self.dup
 			end
 	    end
 
@@ -48,16 +46,14 @@ class NetworkService < LogService
 		log_set = []
 
 		versions.each do |version|
-			unless version.changeset == {}
+			unless version.changeset == {} or !still_exists(version.item_type, version.item_id) or !is_worth_showing(version.changeset)
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
 		      	convert_changeset(version)
 		      	unless version.whodunnit.nil? 
 		      		self.user = User.find(version.whodunnit)
 		      	end
-				if still_exists(version.item_type, version.item_id) && is_worth_showing(version.changeset)
-					set_coins_and_networks(version.item_type, version.item_id)
-					log_set << self.dup
-				end
+				set_coins_and_networks(version.item_type, version.item_id)
+				log_set << self.dup
 			end
 	    end
 
