@@ -81,11 +81,7 @@ class NetworkService < LogService
 	def is_worth_showing(changeset)
 		is_not_empty = false
 		changeset.each do |k,v|
-			puts "v first is nil? #{v.first.nil?}"
-			puts "v first is blank? #{v.first.blank?}"
-			puts "v second is nil? #{v.second.nil?}"
-			puts "v second is blank? #{v.second.blank?}"
-			unless (v.first.nil? or v.first.blank?) and (v.first.nil? or v.first.blank?)
+			unless (v.first.nil? or v.first.blank?) and (v.second.nil? or v.second.blank?)
 				is_not_empty = true
 			end
 		end
