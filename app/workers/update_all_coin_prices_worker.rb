@@ -91,20 +91,20 @@ class UpdateAllCoinPricesWorker
 			unless attributes_to_save.empty?
 				if coin.coin_status != "live"
 					attributes_to_save[:coin_status] = "live"
+					coin.versions.last.update_attributes(whodunnit: 40)
 					puts "saving #{coin.name} because it's not empty and setting to 'live'"
 				else
 					puts "saving #{coin.name} because it's not empty and leaving status as is"
 				end
 				coin.update_attributes(attributes_to_save)
-				# coin.versions.last.update_attributes(whodunnit: 40)
 			else
 				if coin.coin_status == "live"
-					puts "attributes_to_save for #{coin.name} is empty and status is not live so changing to preproduction"
+					puts "attributes_to_save for #{coin.name} is empty and status is live so changing to preproduction"
 					attributes_to_save[:coin_status] = "preproduction"
 					coin.update_attributes(attributes_to_save)
+					coin.versions.last.update_attributes(whodunnit: 40)
 				else
-					puts "attributes_to_save for #{coin.name} is empty and changing status from live to preproduction"
-					# coin.versions.last.update_attributes(whodunnit: 40)
+					puts "attributes_to_save for #{coin.name} is empty and leaving status as is"
 				end
 			end
 		end
