@@ -35,9 +35,9 @@ class User < ApplicationRecord
 
   validates_presence_of     :password, if: :password_required?
   validates_confirmation_of :password, if: :password_required?
-  validates_length_of       :password, within: Devise.password_length, allow_blank: false
+  validates_length_of       :password, within: Devise.password_length, allow_blank: false, if: :password_required?
 
-  validate :check_dimensions
+  # validate :check_dimensions
 
   def check_dimensions
     errors.add :avatar, "must be square" if avatar.width != avatar.height
@@ -48,7 +48,14 @@ class User < ApplicationRecord
   end
 
   def password_required?
-    true
+    new_record? ? super : false
+  end
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :crop_avatar
+
+  def crop_avatar
+    avatar.recreate_versions! if crop_x.present?
   end
 
   protected

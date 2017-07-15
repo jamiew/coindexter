@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.confirmation_instructions(@user, @user.confirmation_token).deliver_later
       flash[:success] = "Please check your email to confirm your email address"
+      render :crop
     else
       render 'new'
     end
@@ -25,12 +26,14 @@ class UsersController < ApplicationController
   def update
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
-        if get_all_logs(@user.id,nil).empty?
-          redirect_to root_url
+        if params[:user][:avatar].present? and !@user.avatar.validate_dimensions
+          render :crop
         else
-          redirect_to @user
+          redirect_to @user, notice: "Successfully updated user."
         end
+        # redirect_to @user
     else
+        puts @user.errors.inspect
         render 'edit'
     end
   end
@@ -89,7 +92,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username)
+      params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 
     def get_all_logs(user_id=nil, since=nil)

@@ -8,8 +8,7 @@
           <div class="col-md-8">
               <%= f.file_field :avatar, class: 'filestyle' %>
           </div>
-        </div>
-        <div class="col-md-8 col-md-offset-4">
+          <div class="col-md-8 col-md-offset-4">
           <% if @user.errors[:avatar].any? %>
             <ul>
               <% @user.errors[:avatar].each do |error| %>
@@ -21,6 +20,7 @@
           <% else %>
             <p class="form-guidance">Avatar must be square</p>
           <% end %>
+        </div>
         </div>
          <div class="row grouped-row grouped-row-first name-group">
           <div class="col-md-4 label">
