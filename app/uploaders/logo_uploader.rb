@@ -30,6 +30,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   process crop: '400x400+0+0'
 
   version :small do
+    process :crop
     process resize_to_fill: [60,60]
   end
   
@@ -47,6 +48,31 @@ class LogoUploader < CarrierWave::Uploader::Base
         @height = img[:height]
       else
         @width, @height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
+      end
+    end
+  end
+
+  def crop
+    if model.crop_x.present?
+      resize_to_fit(400, 400)
+      manipulate! do |img|
+        # img = MiniMagick::Image.open(model.avatar.path)
+        puts "img is #{img.inspect}"
+
+        x = model.crop_x
+        y = model.crop_y
+        w = model.crop_w
+        h = model.crop_h
+
+        size = w << 'x' << h
+        offset = '+' << x << '+' << y
+
+        puts "size is #{size}"
+        puts "offset is #{offset}"
+
+        img.crop("#{size}#{offset}")
+        img
+
       end
     end
   end
@@ -76,16 +102,14 @@ class LogoUploader < CarrierWave::Uploader::Base
   # end
 
   def validate_dimensions
-    height = image[:height]
-    weight = image[:weight]
-    returns height == weight
-  end
-
-  def crop(geometry)
-    manipulate! do |img|      
-      img.crop(geometry)
-      img
-    end    
+    if file.path.nil? # file sometimes is in memory
+        img = ::MiniMagick::Image::read(file.file)
+        width = img[:width]
+        height = img[:height]
+      else
+        width, height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
+    end
+    return height == width
   end
 
   def resize_and_crop(size)  

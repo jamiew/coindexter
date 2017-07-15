@@ -44,7 +44,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    resize_to_limit(600, 600)
+    resize_to_fit(400, 400)
   end
 
   attr_reader :width, :height
@@ -63,8 +63,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   def crop
     if model.crop_x.present?
-      resize_to_limit(600, 600)
+      resize_to_fit(400, 400)
       manipulate! do |img|
+        # img = MiniMagick::Image.open(model.avatar.path)
+        puts "img is #{img.inspect}"
+
         x = model.crop_x
         y = model.crop_y
         w = model.crop_w
@@ -72,6 +75,9 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
         size = w << 'x' << h
         offset = '+' << x << '+' << y
+
+        puts "size is #{size}"
+        puts "offset is #{offset}"
 
         img.crop("#{size}#{offset}")
         img

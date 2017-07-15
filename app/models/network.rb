@@ -7,6 +7,7 @@ class Network < ApplicationRecord
 	accepts_nested_attributes_for :whitepapers
 	belongs_to :category, optional: true
 	belongs_to :user, optional: true
+	include CarrierWave::MiniMagick
 	mount_uploader :logo, NetworkLogoUploader
 	extend FriendlyId
 	include PgSearch
@@ -22,12 +23,15 @@ class Network < ApplicationRecord
 	has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :category_id]
 
 	enum network_status_options: [:concept, :preproduction, :live, :dead]
-	
-	validate :check_dimensions
 
-    def check_dimensions
-	  errors.add :logo, "Logo must be square" if logo.width != logo.height
-  	end
+  	attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+	after_update :crop_logo
+
+	def crop_logo
+		puts "hey 1"
+		puts "crop_x.present #{crop_x.present?}"
+		logo.recreate_versions! if crop_x.present?
+	end
 
 	acts_as_followable
 

@@ -9,7 +9,7 @@ class AvatarCropper
   constructor: ->
     $('#cropbox').Jcrop
       aspectRatio: 1
-      setSelect: [0, 0, 600, 600]
+      setSelect: [0, 0, 400, 400]
       onSelect: @update
       onChange: @update
 

@@ -61,7 +61,7 @@
 				<h6>Founders</h6>
 			</div>
 			<div class="col-md-8 col-xs-12">
-				<% if @network.founders.empty? or @network.founders.blank? or @network.founders == [""] %>
+				<% if @network.founders.nil? or @network.founders.empty? or @network.founders.blank? or @network.founders == [""] %>
 					<% if browser.platform.ios? or browser.platform.android? %>
 						None added yet. Add founders from desktop.
 					<% else %>

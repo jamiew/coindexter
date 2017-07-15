@@ -180,6 +180,7 @@ nav, .navbar {
 				float:left;
 				margin-left:0;
 				margin-bottom:0px;
+				margin-top: 0px;
 				.form-group	{
 					span {
 						color: $primary-orange;
@@ -1033,6 +1034,11 @@ li#coins {
 	.widget-in-info-menu {
 		float:right;
 	}
+	div {
+		h6 {
+			margin-top: 10px !important;
+		}
+	}
 }
 
 .pagination {
@@ -1056,6 +1062,15 @@ h1.list-name {
 	padding-top:7px;
 	padding-bottom: 2px;
 }
+
+form {
+	margin-top:-5px;
+}
+
+.jcrop-holder {
+	margin-top:14px;
+}
+
 .network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .coin-in-categories, .whitepapers, .results, .about, .info-header, form {
 	margin-bottom:24px;
 	div {
@@ -1400,6 +1415,10 @@ ul.action-links {
 	}	
 }
 
+.whitepaper-list-cnt:first-child {
+	margin-top: 0;
+}
+
 span.log-data {
 	font-family: "WhitneyHTF-Semibold";
 }
@@ -1460,6 +1479,14 @@ a.who-posted {
 }
 p#none-matching {
 	margin-top:25px !important;
+}
+
+.label {
+	p.form-guidance {
+		text-transform:none !important;
+		font-family: "WhitneyHTF-Medium" !important;
+		margin-top: -6px;
+	}
 }
 
 p.form-guidance, p.form-error {

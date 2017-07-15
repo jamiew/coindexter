@@ -1,12 +1,13 @@
 <div class="row">
 	<div class="col-md-2 col-md-offset-1 left-nav">
-		<%= render(partial: 'info_menu', object: {user: @user}, locals: {active_item: "account"}) %>
+		<%= render(partial: '/layouts/info_menu', locals: { network: @network, active_item: "details"}) %>
 	</div>
-	<div class="col-md-9 main">
+	<%= render partial: 'related_dropdown', locals: { network: @network } %>
+	<div class="col-md-9 col-xs-12 main">
 		<div class="info-header">
 			<div class="row">
 				<div class="col-md-9 col-xs-12">
-					<%= render(partial: 'user_main_info_header') %>
+					<%= render(partial: 'networks/network_main_info_header', locals: { network: @network }) %>
 				</div>
 			</div>
 		</div>
@@ -14,14 +15,14 @@
 			<div class="row">
 				<div class="col-md-9 col-xs-12">
 					<div class="row">
-	           			<%= form_for @user do |f| %>
+	           			<%= form_for @network do |f| %>
 		            		<div class="row">
 		            			<div class="col-md-4 label">
 					            	<%= f.label "Preview", class: "form-label" %>
 					            	<p class="form-guidance">Please crop as a square</p>
 					            </div>
 		            			<div class="col-md-8">
-					            	<%= image_tag @user.avatar_url(:large), id: "cropbox" %>
+					            	<%= image_tag @network.logo.url, id: "cropbox" %>
 					            </div>
 					        </div>
 				            <% %w[x y w h].each do |attribute| %>

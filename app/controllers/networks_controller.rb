@@ -81,7 +81,11 @@ class NetworksController < ApplicationController
 		@network.user = current_user
 		@network.founders = params[:founders] 
 	    if @network.save
-			redirect_to @network
+	      if !@user.avatar.validate_dimensions
+	        render :crop
+	      else
+			redirect_to @network, notice: "Network created"
+		  end
 		else
 	        render 'new'
 	    end
@@ -91,7 +95,11 @@ class NetworksController < ApplicationController
 		@network = Network.friendly.find(params[:id])
 		@network.founders = params[:founders] 
 	  	if @network.update_attributes(network_params)
-	    	redirect_to @network
+	    	if params[:network][:logo].present? and !@network.logo.validate_dimensions
+	          render :crop
+	        else
+	          redirect_to @network, notice: "Network updated"
+	        end
 		else
 	    	render 'edit'
 	  	end
@@ -142,7 +150,7 @@ class NetworksController < ApplicationController
 	private
 
 	    def network_params
-	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :reddit, :coin_id, :logo, :founders, :github, :differentiator, :coin, :team_location, :blockchain, whitepapers_attributes: [:id, :network_id, :whitepaper_title, :whitepaper, :slug], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
+	    	params.require(:network).permit(:name, :description, :category_id, :link, :slack, :team, :status, :forum, :reddit, :coin_id, :logo, :founders, :github, :differentiator, :coin, :team_location, :blockchain, :crop_x, :crop_y, :crop_w, :crop_h, whitepapers_attributes: [:id, :network_id, :whitepaper_title, :whitepaper, :slug], link_ids: [], founders: [], category_ids: [], coin_ids: [], coins: [])
 	    end
 
 end
