@@ -20,7 +20,7 @@
     </div>
     <div class="row first-in-form_group">
       <div class="col-md-4 label">
-        <%= f.label "PDF" %>
+        <%= f.label "PDF" %>s
       </div>
       <div class="col-md-8">
         <%= f.file_field :whitepaper, class: 'filestyle' %>
@@ -28,10 +28,10 @@
     </div>
     <div class="row">
       <div class="col-md-offset-4 col-md-8">
-        <p class="or">— or —</p>
+        <p class="or">— PDF preferred. If absent, <a id="provide-url">provide a URL</a> —</p>
       </div>
     </div>
-    <div class="row">
+    <div class="row external-url">
       <div class="col-md-4 label">
         <%= f.label "URL" %>
       </div>
