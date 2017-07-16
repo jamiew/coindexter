@@ -15,16 +15,14 @@
 			<div class="row">
 				<div class="col-md-9 col-xs-12">
 					<div class="row">
+						<div class="col-md-4 label">
+			            	<label class="form-label">Preview</label>
+			            	<p class="form-guidance">Please crop as a square</p>
+			            </div>
+            			<div class="col-md-8">
+			            	<%= image_tag @network.logo_url(:large), id: "cropbox" %>
+			            </div>
 	           			<%= form_for @network do |f| %>
-		            		<div class="row">
-		            			<div class="col-md-4 label">
-					            	<%= f.label "Preview", class: "form-label" %>
-					            	<p class="form-guidance">Please crop as a square</p>
-					            </div>
-		            			<div class="col-md-8">
-					            	<%= image_tag @network.logo.url, id: "cropbox" %>
-					            </div>
-					        </div>
 				            <% %w[x y w h].each do |attribute| %>
 								<%= f.hidden_field "crop_#{attribute}" %>
 							<% end %>

@@ -18,6 +18,10 @@ class AvatarCropper
     $('#user_crop_y').val(coords.y)
     $('#user_crop_w').val(coords.w)
     $('#user_crop_h').val(coords.h)
+    $('#network_crop_x').val(coords.x)
+    $('#network_crop_y').val(coords.y)
+    $('#network_crop_w').val(coords.w)
+    $('#network_crop_h').val(coords.h)
     @updatePreview(coords)
 
   updatePreview: (coords) =>

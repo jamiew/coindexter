@@ -93,7 +93,7 @@ class NetworksController < ApplicationController
 
 	def update
 		@network = Network.friendly.find(params[:id])
-		@network.founders = params[:founders] 
+		# @network.founders = params[:founders] 
 	  	if @network.update_attributes(network_params)
 	    	if params[:network][:logo].present? and !@network.logo.validate_dimensions
 	          render :crop

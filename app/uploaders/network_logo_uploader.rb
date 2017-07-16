@@ -26,7 +26,7 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
   # attr_reader :width, :height
   # before :cache, :capture_size
  
-  process resize_to_fit: [400,400]
+  process :resize_to_fit => [100, 100]
 
   version :thumb do
     process :crop
@@ -38,11 +38,11 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process resize_to_fit: [60,60]
+    resize_to_fit(60, 60)
   end
   
   version :select_option do
-    process resize_to_fit: [60,60]
+   resize_to_fit(60, 60)
   end
 
   def default_url
@@ -95,17 +95,6 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  def validate_dimensions
-    if file.path.nil? # file sometimes is in memory
-        img = ::MiniMagick::Image::read(file.file)
-        width = img[:width]
-        height = img[:height]
-      else
-        width, height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
-    end
-    return height == width
-  end
-
   def crop
     if model.crop_x.present?
       resize_to_fit(400, 400)
@@ -124,6 +113,17 @@ class NetworkLogoUploader < CarrierWave::Uploader::Base
 
       end
     end
+  end
+
+  def validate_dimensions
+    if file.path.nil? # file sometimes is in memory
+        img = ::MiniMagick::Image::read(file.file)
+        width = img[:width]
+        height = img[:height]
+      else
+        width, height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
+    end
+    return height == width
   end
 
   def extension_white_list
