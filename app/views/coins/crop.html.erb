@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-md-2 col-md-offset-1 left-nav">
+		<%= render(partial: 'info_menu', locals: {coin: @coin, active_item: "details"}) %>
+	</div>
+	<%= render partial: 'related_dropdown', locals: { coin: @coin } %>
+	<div class="col-md-9 main">
+		<div class="info-header">
+			<%= render(partial: 'coins/coin_main_info_header', locals: { coin: @coin }) %>
+		</div>
+		<div class="content">
+			<div class="row">
+				<div class="col-md-9 col-xs-12">
+					<div class="row">
+						<div class="col-md-4 label">
+			            	<label class="form-label">Preview</label>
+			            	<p class="form-guidance">Please crop as a square</p>
+			            </div>
+	        			<div class="col-md-8">
+			            	<%= image_tag @coin.logo_url(:large), id: "cropbox" %>
+			            </div>
+	           			<%= form_for [@network, @coin] do |f| %>
+				            <% %w[x y w h].each do |attribute| %>
+								<%= f.hidden_field "crop_#{attribute}" %>
+							<% end %>
+	          				<ul class="action-links">
+					          <li class="submit">
+					            <%= f.submit "Crop", class: "form-submit" %> 
+					          </li>
+					        </ul>
+	          			<% end %>
+		          	</div>
+		        </div>
+			</div>
+		</div>
+	</div>
+</div>

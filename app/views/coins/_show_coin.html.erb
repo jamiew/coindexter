@@ -36,7 +36,7 @@
 							<p>None added yet. Add an exchange from desktop.</p>
 						<% else %>
 							<p>
-								<%= link_to "Add an exchange", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+								<%= link_to "Add an exchange", edit_network_coin_url, class: "add-missing-field" %>
 							</p>
 						<% end %>
 					<% else %>
@@ -63,7 +63,7 @@
 							<p>None added yet. Add a description from desktop.</p>
 					<% else %>
 						<p>
-							<%= link_to "What's is #{@coin.name} useful for?", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "What's is #{@coin.name} useful for?", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>
@@ -83,7 +83,7 @@
 						<p>None added yet. Add a symbol from desktop.</p>
 					<% else %>
 						<p>
-							<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% end %>
@@ -191,7 +191,7 @@
 						<p>None added yet. Add the coin type from desktop.
 					<% else %>
 						<p>
-							<%= link_to "Add the type", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Add the type", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>
@@ -209,7 +209,7 @@
 						<p>None added yet. Add the proof_algorithm from desktop.
 					<% else %>
 						<p>
-							<%= link_to "Add the proof algorithm", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Add the proof algorithm", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>
@@ -227,7 +227,7 @@
 						<p>None added yet. Add the monetary_policy from desktop.
 					<% else %>
 						<p>
-							<%= link_to "Add the monetary policy", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Add the monetary policy", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>

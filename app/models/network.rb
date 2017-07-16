@@ -25,9 +25,9 @@ class Network < ApplicationRecord
 	enum network_status_options: [:concept, :preproduction, :live, :dead]
 
   	attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-	after_update :crop_avatar
+	after_update :crop_logo
 
-	def crop_avatar	
+	def crop_logo
 		logo.recreate_versions! if crop_x.present?
 	end
 

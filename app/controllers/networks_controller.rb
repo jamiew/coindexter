@@ -81,7 +81,7 @@ class NetworksController < ApplicationController
 		@network.user = current_user
 		@network.founders = params[:founders] 
 	    if @network.save
-	      if !@user.avatar.validate_dimensions
+	      if !@network.logo.validate_dimensions
 	        render :crop
 	      else
 			redirect_to @network, notice: "Network created"

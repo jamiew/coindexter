@@ -1,8 +1,6 @@
-# encoding: utf-8
-
 class LogoUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
+ # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   # include CarrierWaveDirect::Uploader
@@ -26,7 +24,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   # attr_reader :width, :height
   # before :cache, :capture_size
  
-  process resize_to_fit: [400,400]
+  process :resize_to_fit => [100, 100]
 
   version :thumb do
     process :crop
@@ -38,11 +36,11 @@ class LogoUploader < CarrierWave::Uploader::Base
   end
 
   version :small do
-    process resize_to_fit: [60,60]
+    resize_to_fit(60, 60)
   end
   
   version :select_option do
-    process resize_to_fit: [60,60]
+   resize_to_fit(60, 60)
   end
 
   def default_url
@@ -129,6 +127,5 @@ class LogoUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpg jpeg gif png)
   end
-
 
 end
