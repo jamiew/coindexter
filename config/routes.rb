@@ -84,6 +84,8 @@ Rails.application.routes.draw do
 
   get 'questions', to: 'links#index', :as => :questions
 
+  get '/loaderio-f78e3355deb50cdf9149e06780c03507', to: 'users#loader'
+
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'
     get 'signin', to: 'devise/sessions#new'

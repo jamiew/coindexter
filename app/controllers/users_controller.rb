@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     @active_item = "account"
   end
 
+  def loader
+    render :layout => 'other'
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
