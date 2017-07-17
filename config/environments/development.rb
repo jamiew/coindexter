@@ -65,7 +65,7 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   config.action_mailer.mailgun_settings = {
-    api_key: 'key-84e04576e169545ef111d461049b3385',
+    api_key: ENV["MAILGUN_API_KEY"],
     domain: 'mail.coindexter.io'
   }
 

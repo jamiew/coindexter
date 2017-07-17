@@ -1,0 +1,10 @@
+<div id="mailing-list">
+	<div id="mailing-list-meta">
+		<p>Get updates on Coindexter</p>
+		<span class="glyphicon glyphicon-remove"></span>
+	</div>
+	<%= form_tag(newsletters_path, id: "mailing-list-form") do %>
+		<%= text_field_tag("email", nil, placeholder: "Email address", id: "newsletter-email-capture") %>
+		<%= submit_tag("Submit", remote: true, id: "newsletter-email-submit", disabled: true)  %>
+	<% end %>
+</div>

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   prepend_before_action :user_params, if: :devise_controller?
 
-  before_filter :set_paper_trail_whodunnit
+  before_action :set_paper_trail_whodunnit
 
   before_action :store_current_location, :unless => :devise_controller?
 
@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
 
   def about
     render 'layouts/about'
+  end
+
+  def respond_modal_with(*args, &blk)
+    options = args.extract_options!
+    options[:responder] = ModalResponder
+    respond_with *args, options, &blk
   end
 
   private
@@ -27,5 +33,6 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     request.referrer || root_path
   end
+
   
 end

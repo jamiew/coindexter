@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.1.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -71,7 +71,7 @@ gem 'paper_trail'
 
 #emailing
 gem 'mailgun_rails'
-gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+gem 'mailgun-ruby', '~>1.1.6', require: 'mailgun'
 
 #readpdfs
 gem 'pdf-reader'

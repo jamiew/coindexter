@@ -1526,3 +1526,62 @@ div.status-cnt {
 .external-url {
 	display:none;
 }
+div#mailing-list {
+	div#mailing-list-meta {
+		p {
+			font-family: "WhitneyHTF-Medium";
+			margin-bottom: 0.6em;
+			margin-top: 0.4em;
+			float:left;
+		}
+		span {
+			float: right;
+			&:hover {
+				cursor:pointer;
+			}
+		}
+	}
+	padding: 15px 20px 15px 20px;
+	background-color: $navbar-orange;
+	border: 3px solid $border-orange;
+	border-radius: 4px;
+	position: fixed;
+	bottom: 15px;
+	left: 15px;
+	form#mailing-list-form {
+		margin-bottom: 0;
+		padding: 0;
+		input {
+				color: $text;
+				font-family: "WhitneyHTF-Medium";
+				letter-spacing: 0.01em;
+				font-size:16px;
+				&:active {
+					color:$text;
+				}
+				&:focus {
+					outline:none;
+					box-shadow: 0 0 2px 0 $primary-orange;
+				}
+				box-shadow:none;
+				border: 1px solid $border-orange;
+				padding: 18px 18px 18px;
+				border-radius:4px;
+				background-color: #fff;
+				&:disabled {
+					opacity:0.6;
+				}
+				width: 300px;
+				float: left;
+				&[type=submit] {
+					background: $primary-orange;		
+					color:white;
+					float: left;
+					margin-left: -100px;
+					width: 100px;
+					border-radius: 0px 4px 4px 0px;
+					z-index: 999;
+				}
+		}
+	}
+}

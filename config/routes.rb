@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   
   resources :categories
   
+  resources :newsletters do
+    get :prevent_display
+    get :restore_cookie
+  end
+
   resources :users do
     get :following
     get :activity

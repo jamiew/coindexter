@@ -6,6 +6,10 @@
   <body>
     <%= javascript_include_tag "show_alerts" %>
   	<%= render 'layouts/header' %>
+    <div id="modal-holder"></div>
+    <% unless @subscribed_already == "true" or browser.platform.ios? or browser.platform.android? %> 
+      <%= render 'newsletters/new' %>
+    <% end %>
     <div id="wrap">
     	<div class="container main-container">
     	  	<%= yield %>

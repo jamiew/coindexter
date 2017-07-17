@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  respond_to :html, :json
   before_action :authenticate_user!, only: [:edit]
 
   # caches_action :index, expires_in: 10.minute
@@ -43,6 +44,8 @@ class UsersController < ApplicationController
 
   def index
     @logs = get_all_logs.paginate(:page => params[:page], :per_page => 10)  
+    @subscribed_already = cookies['coindexter-newsletter']
+    puts @subscribed_already == "false"
     respond_to do |format|
       format.html
       format.js
@@ -93,7 +96,7 @@ class UsersController < ApplicationController
       format.json
     end
   end
-
+  
   private
 
     def user_params
