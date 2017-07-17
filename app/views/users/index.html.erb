@@ -31,3 +31,6 @@
 		</ul>
 	</div>
 </div>
+<% unless @subscribed_already == "true" or browser.platform.ios? or browser.platform.android? %> 
+    <%= render 'newsletters/new' %>
+<% end %>
