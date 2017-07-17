@@ -61,6 +61,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def loader 
+    render layout: "other"
+  end
+
   def show
     if params[:id].nil?
       @user = User.friendly.find(params[:username])
