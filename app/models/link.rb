@@ -15,6 +15,8 @@ class Link < ApplicationRecord
 
   nilify_blanks
 
+  auto_strip_attributes :link
+
 	def should_generate_new_friendly_id?
 		!has_friendly_id_slug? || title_changed?
   	end

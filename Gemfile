@@ -108,6 +108,8 @@ gem 'puma_worker_killer'
 
 gem 'nilify_blanks'
 
+gem "auto_strip_attributes", "~> 2.1"
+
 group :production do 
   gem 'rails_12factor'
 end
