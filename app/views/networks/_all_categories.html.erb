@@ -6,9 +6,7 @@
 					<div class="col-md-12 col-xs-12">
 						<h1 class="list-name"><%= category.name %></h1>
 						<% category.networks.each_with_index do |network, i| %>
-							<% cache network do %>
-								<%= render 'network_widget', :network => network, :i => i %>
-							<% end %>
+							<%= render 'network_widget', :network => network, :i => i %>
 						<% end %>
 					</div>
 				</div>
