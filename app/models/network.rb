@@ -5,7 +5,7 @@ class Network < ApplicationRecord
 	has_many :comments, through: :links
 	has_many :whitepapers
 	accepts_nested_attributes_for :whitepapers
-	belongs_to :category, optional: true
+	belongs_to :category, optional: true, touch: true
 	belongs_to :user, optional: true
 	include CarrierWave::MiniMagick
 	mount_uploader :logo, NetworkLogoUploader
