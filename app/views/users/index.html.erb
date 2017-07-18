@@ -19,9 +19,7 @@
 					</div>
 				</div>
 			</li>
-			<% cache @logs do %>
-				<%= render 'shared/logs', collection: @logs, as: :log, locals: {show_tag: false} %>
-			<% end %>
+			<%= render 'shared/logs', collection: @logs, as: :log, locals: {show_tag: false}, cached: true %>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
 					<p class="loading-more">Loading more...</p>
