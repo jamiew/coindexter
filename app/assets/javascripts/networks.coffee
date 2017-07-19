@@ -9,12 +9,11 @@ $ ->
     $('.external-url').show()
 
   $('ul#network-related-dropdown > li').click ->
-    # alert $(this).attr 'data-link'
     selector = $(this).attr 'data-link'
     $(location).attr 'href', selector
       
-
   $whitepaperCount = 0
+  
   $("#add-another-whitepaper").on "click", ->
     $parent_id = $(this).parent().attr 'id'
     $parent_id_length = $parent_id.length

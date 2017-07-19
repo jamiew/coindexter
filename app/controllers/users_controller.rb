@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   respond_to :html, :json
   before_action :authenticate_user!, only: [:edit]
 
-  caches_action :index, :layout => false, expires_in: 10.minute
+  # caches_action :index, :layout => false, expires_in: 10.minute
 
   def new
     @user = User.new
