@@ -48,7 +48,7 @@ class User < ApplicationRecord
   end
 
   def password_required?
-    new_record? ? super : false
+    new_record? ? true : false
   end
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h

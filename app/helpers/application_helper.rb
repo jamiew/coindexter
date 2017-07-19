@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def page_description(page_description)
-    base_description = "Coindexter is a way to research blockchain networks and app coins."
+    base_description = "Coindexter is a a collaborative library for long-term investors in decentralized, blockchain networks"
     if page_description.empty?
       base_description
     else
