@@ -3,7 +3,7 @@ class NetworksController < ApplicationController
 	before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
 
 	def index
-		@networks = Network.all
+		# @networks = Network.all
 		@categories = Category.all.order("name ASC")
 		page_title = "networks"
 		respond_to do |format|

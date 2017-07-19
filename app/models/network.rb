@@ -16,8 +16,9 @@ class Network < ApplicationRecord
 
 	nilify_blanks
 
-	auto_strip_attributes :link, :github, :reddit, :forum, :slacks
+	auto_strip_attributes :link, :github, :reddit, :forum, :slack
 
+	validates :logo, presence: true
 	validates :name, presence: true, uniqueness:true
 
 	friendly_id :name, use: [:slugged, :history]

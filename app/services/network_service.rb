@@ -27,7 +27,7 @@ class NetworkService < LogService
 		      	if defined?(version.user) && !version.user.nil?
 	    			self.user = version.user
 	  			end
-				set_coins_and_networks(feed_type, object)
+				set_coins_and_networks(feed_type, object.id)
 				log_set << self.dup
 			end
 	    end
@@ -137,6 +137,8 @@ class NetworkService < LogService
 						change_attr = "Network"
 					when "type"
 						change_attr = "Asset type"
+					when "team_location"
+						change_attr = "Location"	
 					when "created_at"
 						abort_log = true
 					when "coin_status"

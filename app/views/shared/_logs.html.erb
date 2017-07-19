@@ -1,13 +1,11 @@
-<% @logs.each do |log| %>
-	<% cache log do %>		
-		<% if log.feed_type == "network_log" %>
-			<%= render(partial: 'networks/log', locals: {log: log, show_tag: true}) %>
-		<% elsif log.feed_type == "coin_log" %>
-			<%= render(partial: 'coins/log', locals: {log: log, show_tag: true}) %>	
-		<% elsif log.feed_type == "link" %>
-			<%= render(partial: 'links/show_all_links', locals: {link: log.data, coins: log.coins, networks: log.networks, user: log.user, show_tag: true}) %>
-		<% elsif log.feed_type == "whitepaper" %>
-			<%= render(partial: 'whitepapers/single_whitepaper', locals: {wp: log.data, network: log.networks, user: log.user, show_tag: false}) %>
-		<% end %>
+<% @logs.each do |log| %>	
+	<% if log.feed_type == "network_log" %>
+		<%= render(partial: 'networks/log', locals: {log: log, show_tag: true}) %>
+	<% elsif log.feed_type == "coin_log" %>
+		<%= render(partial: 'coins/log', locals: {log: log, show_tag: true}) %>	
+	<% elsif log.feed_type == "link" %>
+		<%= render(partial: 'links/show_all_links', locals: {link: log.data, coins: log.coins, networks: log.networks, user: log.user, show_tag: true}) %>
+	<% elsif log.feed_type == "whitepaper" %>
+		<%= render(partial: 'whitepapers/single_whitepaper', locals: {wp: log.data, network: log.networks, user: log.user, show_tag: false}) %>
 	<% end %>
 <% end %>

@@ -1,27 +1,25 @@
-<% cache network do %>
-	<%= link_to network, class: "network-widget widget #{network.category.name.downcase unless network.category.nil?}", :data => { :status => network.status.downcase, :category => network.category.nil? ? 'none' : network.category.name.downcase.gsub(" ","") } do %>
-		<% if defined? info_menu %>
-			<div class="col-md-9 <%= network.category.name.downcase unless network.category.nil? %>  network-in-categories widget-in-info-menu">
-				<% if network.logo.nil? || network.logo.blank? %>
-					<%= image_tag "fallback/default.png", size: '60x60', class: 'network-logo' %>
-				<% else %>
-					<%= image_tag network.logo_url(:thumb), size: '60x60', class: 'network-logo' %>
-				<% end %>
-				<h6><%= network.name.downcase[0..15] %></h6>
-			</div>
-		<% else %>
-			<div class="col-md-3 col-xs-5 <%= network.category.name.downcase unless network.category.nil? %>  
-				<%= i == 0 ? 'first-network-widget' : '' %> 
-				<%= i != 0 && i % 3 != 0 ? "col-md-offset-1" : "col-md-offset-0" %>
-				<%= i != 0 && i % 2 != 0 ? "col-xs-offset-1" : "col-xs-offset-0" %>
-				network-in-categories">
-				<% if network.logo.nil? || network.logo.blank? %>
-					<%= image_tag "fallback/default.png", size: '60x60', class: 'network-logo' %>
-				<% else %>
-					<%= image_tag network.logo_url(:thumb), size: '60x60', class: 'network-logo' %>
-				<% end %>
-				<h6><%= network.name.downcase[0..15] %></h6>
-			</div>
-		<% end %>
+<%= link_to network, class: "network-widget widget #{network.category.name.downcase unless network.category.nil?}", :data => { :status => network.status.downcase, :category => network.category.nil? ? 'none' : network.category.name.downcase.gsub(" ","") } do %>
+	<% if defined? info_menu %>
+		<div class="col-md-9 <%= network.category.name.downcase unless network.category.nil? %>  network-in-categories widget-in-info-menu">
+			<% if network.logo.nil? || network.logo.blank? %>
+				<%= image_tag "fallback/default.png", size: '60x60', class: 'network-logo' %>
+			<% else %>
+				<%= image_tag network.logo_url(:thumb), size: '60x60', class: 'network-logo' %>
+			<% end %>
+			<h6><%= network.name.downcase[0..15] %></h6>
+		</div>
+	<% else %>
+		<div class="col-md-3 col-xs-5 <%= network.category.name.downcase unless network.category.nil? %>  
+			<%= i == 0 ? 'first-network-widget' : '' %> 
+			<%= i != 0 && i % 3 != 0 ? "col-md-offset-1" : "col-md-offset-0" %>
+			<%= i != 0 && i % 2 != 0 ? "col-xs-offset-1" : "col-xs-offset-0" %>
+			network-in-categories">
+			<% if network.logo.nil? || network.logo.blank? %>
+				<%= image_tag "fallback/default.png", size: '60x60', class: 'network-logo' %>
+			<% else %>
+				<%= image_tag network.logo_url(:thumb), size: '60x60', class: 'network-logo' %>
+			<% end %>
+			<h6><%= network.name.downcase[0..15] %></h6>
+		</div>
 	<% end %>
 <% end %>

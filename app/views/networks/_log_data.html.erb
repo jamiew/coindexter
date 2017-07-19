@@ -90,6 +90,12 @@
 
 										<%= image_tag change[:change].first, size: '16x16', id: 'network-logo-inline' %> to <%=  %> <%= image_tag log.networks.logo, size: '16x16', id: 'network-logo-inline' %>
 								<% end %>
+							<% else %>
+								<% if change[:change_type] == "added" %>
+									<p>Added <span class="change_attr"><%= change[:change_attr].downcase %></span>: "<%= change[:change].second %>"</p>
+								<% elsif change[:change_type] == "edited" %>
+									<p>Changed <span class="change_attr"><%= change[:change_attr].downcase %> from "<%= change[:change].first %>" to : "<%= change[:change].second %>"</p>
+								<% end %>
 						<% end %>
 					</li>
 			<% end %>
