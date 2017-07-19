@@ -34,6 +34,10 @@ $ ->
     $(this).before "<input type='text' name='founders[]'' id='founders'>"
 
   $prev_scroll_top = 0
+  
+  $('.network-option').each ->
+    url = $(this).data 'icon'
+    $(this).css 'background-image', "url('" + url + "')"
 
   $('.coin-option').each ->
     url = $(this).data 'icon'

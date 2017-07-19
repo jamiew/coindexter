@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-4 link-association">
 			<% unless defined? needs_tag %>
-				<% if link.networks.empty? %>
+				<% if link.networks.nil? or link.networks.empty? %>
 		 		<div>&nbsp;</div>
 				<% else %>
 					<% link.networks.each do |network| %>

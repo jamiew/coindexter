@@ -1,6 +1,6 @@
 <%= javascript_include_tag "add_another" %>
 
-<%= form_for [@network, @link], authenticity_token: true, html: { multipart: true } do |f| %>
+<%= form_for [@link], authenticity_token: true, html: { multipart: true } do |f| %>
 	<div class="row">
 		<div class="col-md-4 label">
 			<%= f.label "Question", class: "form-label" %>
@@ -23,7 +23,8 @@
 			<%= f.label "Networks", class: "form-input" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.collection_select :network_ids, Network.all.order("name ASC").map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, @network.nil? ? {} : {selected: @network.id}, {multiple: true, size: 4, id: "link-option", :include_hidden => false} %>
+			<%= f.collection_select :networks, Network.all.order("name ASC").map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, @network.nil? ? {} : {selected: @network.id}, {multiple: true, size: 4, id: "link-option", :include_blank => false} %>
+			<%#= f.hidden_field :networks, :value => @link.networks %>
 		</div>
 	</div>
 	<div class="row">
