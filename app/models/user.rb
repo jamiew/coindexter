@@ -48,7 +48,7 @@ class User < ApplicationRecord
   end
 
   def password_required?
-    super && blank?
+    (authentications.empty? || !password.blank?) && super
   end
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
