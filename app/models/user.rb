@@ -48,7 +48,7 @@ class User < ApplicationRecord
   end
 
   def password_required?
-    provider.nil? or provider == 'email'
+    !defined? provider or provider.nil? or provider == 'email'
   end
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
