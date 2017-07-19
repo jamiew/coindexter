@@ -4,7 +4,7 @@ class Link < ApplicationRecord
 	friendly_id :title, use: [:slugged, :history]
 	has_many :comments, as: :commentable
 	belongs_to :user
-	has_and_belongs_to_many :networks
+	has_and_belongs_to_many :networks, validate: false
 	attr_accessor :comment_count
 
   include PgSearch

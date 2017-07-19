@@ -61,17 +61,13 @@ class LinksController < ApplicationController
 	end
 
 	def create
-		puts "link params are #{link_params.inspect}"
 		@link = current_user.links.new(link_params)
 		if @link.save
-			# binding.pry
 	    	if @link.networks.nil?
-	    		puts 'hey'
 	    		redirect_to @link
 	    	else 
-	    		# puts "@link.networks is #{@link.networks.inspect}"
-	    		# @network = @link.networks.first
-	    		redirect_to @link
+	    		@network = @link.networks.first
+	    		redirect_to network_link_path(@network, @link)
 	    	end
 		else
 	        puts @link.errors.messages
@@ -98,7 +94,7 @@ class LinksController < ApplicationController
 	private
 
 	    def link_params
-	    	params.require(:link).permit(:link, :title, :body, :networks, coin_ids: [], network_ids: [])
+	    	params.require(:link).permit(:link, :title, :body, :networks => [], :network_ids => [])
 	    end	
 
 end

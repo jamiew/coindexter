@@ -6,18 +6,20 @@
 		 		<div>&nbsp;</div>
 				<% else %>
 					<% link.networks.each do |network| %>
-						<%= link_to network, class: "user-log-classification-anchor" do %>
-							<div class="user-log-classification">
-								<div class="user-log-classification-link">
-									<% unless network.logo.nil? %>
-										<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
-									<% end %>
-									<%= truncate(network.name, length: 16) %>
+						<% unless network.nil? %>
+							<%= link_to network, class: "user-log-classification-anchor" do %>
+								<div class="user-log-classification">
+									<div class="user-log-classification-link">
+										<% unless network.logo.nil? %>
+											<%= image_tag(network.logo.small.url, size: "20x20") unless network.logo.blank? %>
+										<% end %>
+										<%= truncate(network.name, length: 16) %>
+										<div style="clear:both;"></div>
+									</div>
 									<div style="clear:both;"></div>
 								</div>
 								<div style="clear:both;"></div>
-							</div>
-							<div style="clear:both;"></div>
+							<% end %>
 						<% end %>
 					<% end %>
 				<% end %>
