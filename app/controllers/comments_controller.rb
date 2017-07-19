@@ -16,9 +16,9 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new comment_params
       @comment.user = current_user
       if @comment.save
-        redirect_to :back
+        redirect_back fallback_location: root_path
       else
-        redirect_to :back, notice: "There was an error posting your comment"
+        redirect_back fallback_location: root_path, notice: "There was an error posting your comment"
       end
     end
 
@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
 
     def find_commentable
       @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
-      @commentable = Link.friendly.find(params[:link_id]) if params[:link_id]
+      @commentable = Link.friendly.find(params[:link]) if params[:link_id]
     end
 
 end

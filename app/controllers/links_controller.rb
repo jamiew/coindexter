@@ -64,7 +64,7 @@ class LinksController < ApplicationController
 		@link = current_user.links.new(link_params)
 		if @link.save
 	    	if @link.networks.nil?
-	    		redirect_to @link
+	    		redirect_to link_path(@link)
 	    	else 
 	    		@network = @link.networks.first
 	    		redirect_to network_link_path(@network, @link)

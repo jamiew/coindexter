@@ -1,5 +1,9 @@
 <div class="col-md-8 link-data">
-	<h6 class="link-title"><%= link_to link.title, link.link %></h6>
+	<% if link.link.nil? %>
+		<h6 class="link-title"><%= link.title %></h6>
+	<% else %>
+		<h6 class="link-title"><%= link_to link.title, link.link %></h6>
+	<% end %>
 	<%= render partial: '/shared/who_posted', locals: {user: link.user, created_at: link.created_at} %>
 	<% if link.comment_count > 1 || link.comment_count == 0 %>
 		<h6 class="comment-count"><%= link_to "#{link.comment_count} comments", link %></h6>
