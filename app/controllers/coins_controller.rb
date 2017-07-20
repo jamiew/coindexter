@@ -31,9 +31,9 @@ class CoinsController < ApplicationController
 
 	def show
 		@active_item = "details"
-		puts "show params are #{params.inspect}"
 		@coin = Coin.friendly.find(params[:id])
-		@network = Network.friendly.find(params[:network_id])
+		@network = @coin.network
+		puts "network is #{@coin.network}"
 		if current_user && current_user.following?(@coin)
 			@following = true
 		else 
@@ -113,11 +113,17 @@ class CoinsController < ApplicationController
 
 	def update
 		@coin = Coin.friendly.find(params[:id])
-		puts "coin params are #{params[:id]}"
+		puts "coin params are #{params.inspect}"
 		@network = Network.find(params[:coin][:network_id].second)
+		puts "network is #{@network}"
 		@coin.network = @network
+		puts "coin network is #{@coin.network}"
 	    @coin.save
+	    puts "coin is #{@coin.network}"
 	  	if @coin.update_attributes(coin_params)
+	  		@coin.network = @network
+	  		@coin.save
+	  		puts "coin after update is #{@coin.network}"
 	  		if params[:coin][:logo].present? and !@coin.logo.validate_dimensions
 	          render :crop
 	        else

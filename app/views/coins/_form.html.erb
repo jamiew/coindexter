@@ -115,7 +115,7 @@
 			<h6 class="label-helper">Select one or more</h6>
 		</div>
 		<div class="col-md-8">
-			<%= f.collection_select :network_id, Network.all.order("name ASC").map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, @coin.network.nil? ? {} : {selected: @coin.network.id}, {multiple: true, size: 4, id: "network-option"} %>
+			<%= f.collection_select :network_id, Network.all.order("name ASC").map { |n| [n.id, n.name, {'data-icon' => n.logo}, {class: 'network-option'}]}, :first, :second, @network.nil? ? {} : {selected: @network.id}, {multiple: true, size: 4, id: "network-option"} %>
 		</div>
 	</div>
 	<div class="row first-in-form-group">
