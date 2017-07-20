@@ -1,12 +1,12 @@
 <ul class="info-menu">
 	<li <%= "class=active-item" if active_item == "details" %> id="details">
-		<%= link_to "Details", network_coin_path(@coin.network, @coin) %>
+		<%= link_to "Details", network_coin_path %>
 	</li>
 	<li <%= "class=active-item" if active_item == "ico" %> id="ico">
-		<%= link_to "ICO terms", ico_network_coin_path(@coin.network, @coin) %>
+		<%= link_to "ICO terms", ico_network_coin_path %>
 	</li>
 	<li <%= "class=active-item" if active_item == "log" %> id="log">
-		<%= link_to "Logs", logs_network_coin_path(@coin.network, @coin) %>
+		<%= link_to "Logs", logs_network_coin_path %>
 	</li>
 	<li class="menu-title" id="network">networks<br>
 		<% unless coin.network.nil? %>
