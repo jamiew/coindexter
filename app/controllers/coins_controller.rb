@@ -115,7 +115,7 @@ class CoinsController < ApplicationController
 		@coin = Coin.friendly.find(params[:id])
 		puts "coin params are #{params[:id]}"
 		@network = Network.find(params[:coin][:network_id].second)
-		# @coin.network = @network
+		@coin.network = @network
 	    @coin.save
 	  	if @coin.update_attributes(coin_params)
 	  		if params[:coin][:logo].present? and !@coin.logo.validate_dimensions
