@@ -14,28 +14,26 @@
 <meta property="og:type" content="website" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="google-site-verification" content="hNGEZWvoE9z655HgNsCx9uA1Sky4323HWQKDef7zweg" />
-<link rel="icon" sizes="180x180" href="/assets/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-touch-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-touch-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="/assets/favicon-16x16.png" sizes="16x16">
-<link rel="icon" type="image/png" href="/assets/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/assets/favicon-194x194.png" sizes="194x194">
-<link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96">
+<%= favicon_link_tag "apple-icon-57x57.png", rel: "apple-touch-icon", sizes: "57x57" %>
+<%= favicon_link_tag "apple-icon-60x60.png", rel: "apple-touch-icon", sizes: "60x60" %>
+<%= favicon_link_tag "apple-icon-72x72.png", rel: "apple-touch-icon", sizes: "72x72" %>
+<%= favicon_link_tag "apple-icon-76x76.png", rel: "apple-touch-icon", sizes: "76x76" %>
+<%= favicon_link_tag "apple-icon-114x114.png", rel: "apple-touch-icon", sizes: "114x114" %>
+<%= favicon_link_tag "apple-icon-120x120.png", rel: "apple-touch-icon", sizes: "120x120" %>
+<%= favicon_link_tag "apple-icon-144x144.png", rel: "apple-touch-icon", sizes: "144x144" %>
+<%= favicon_link_tag "apple-icon-152x152.png", rel: "apple-touch-icon", sizes: "152x152" %>
+<%= favicon_link_tag "apple-icon-180x180.png", rel: "apple-touch-icon", sizes: "180x180" %>
+<%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+<%= favicon_link_tag 'favicon-96x96.png', :rel => 'icon' %>
+<%= favicon_link_tag 'favicon-16x16.png', :rel => 'icon' %>
+<%= favicon_link_tag 'favicon-32x32.png', :rel => 'icon' %>
+<%= favicon_link_tag 'favicon-194x194.png', :rel => 'icon' %>
 <link rel="manifest" href="/manifest.json">
-<link rel="shortcut icon" href="/assets/favicon.ico">
 <meta name="apple-mobile-web-app-title" content="Coindexter">
 <meta name="application-name" content="Coindexter">
 <meta name="msapplication-TileColor" content="#eb6b33">
 <meta name="theme-color" content="#eb6b33">
 <title><%= full_title(yield(:title)) %></title>
-<%= favicon_link_tag 'favicon-32x32.png' %>
 <%= content_for :head %>
 <%= render 'layouts/shim' %>
 <script>
