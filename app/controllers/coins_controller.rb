@@ -114,7 +114,7 @@ class CoinsController < ApplicationController
 	def update
 		@coin = Coin.friendly.find(params[:id])
 		puts "coin params are #{params.inspect}"
-		@network = Network.find(params[:coin][:network_id].second)
+		@network = Network.find(params[:coin][:network_id])
 		puts "network is #{@network}"
 		@coin.network = @network
 		puts "coin network is #{@coin.network}"
