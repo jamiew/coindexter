@@ -112,9 +112,14 @@ class CoinsController < ApplicationController
 	end
 
 	def update
-		@coin = Coin.friendly.find(params[:id])
+		coin_exists = Coin.friendly.exists? params[:id]
+		if coin_exists
+			@coin = Coin.friendly.find(params[:id])
+		else
+			@coin = Coin.where(:symbol => params[:id])
+		end
 		puts "coin params are #{params.inspect}"
-		@network = Network.find(params[:coin][:network_id])
+		@network = Network.friendly.find(params[:network_id])
 		puts "network is #{@network}"
 		@coin.network = @network
 		puts "coin network is #{@coin.network}"
