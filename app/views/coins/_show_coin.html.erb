@@ -170,7 +170,7 @@
 					<h6>Total supply</h6>
 				</div>
 				<div class="col-md-8 col-xs-12 data">
-					<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
+					<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.total_supply.nil? %></p>
 				</div>
 			</div>
 		</li>
