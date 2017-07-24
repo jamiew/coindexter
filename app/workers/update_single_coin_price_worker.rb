@@ -16,27 +16,22 @@ class UpdateSingleCoinPriceWorker
     # if coin doesn't have a symbol or has never appeared in cryptocompare, try to get symbol or cryptocompare id
     if coin.coin_market_cap_id.nil? or coin.symbol.nil?
       fullCoinList = JSON.parse(HTTParty.get('https://www.cryptocompare.com/api/data/coinlist/').body)
-      unless fullCoinList["Data"].select{|key, hash| hash["CoinName"].gsub(".","-").gsub(" ","-").downcase == coin.name.gsub(".","-").gsub(" ","-").downcase }.empty?
+      if !fullCoinList["Data"].select{|key, hash| clean_name(hash["CoinName"]) == clean_name(coin.name) }.empty?
         data = fullCoinList["Data"]
-        indexed_coin = data.select{|key, hash| hash["CoinName"].gsub(".","-").gsub(" ","-").downcase == coin.name.gsub(".","-").gsub(" ","-").downcase }
-        if coin.coin_market_cap_id.nil?
-          coin_market_cap_id = indexed_coin.values.first["Id"]
-          if coin.symbol.nil?
-            symbol = indexed_coin.values.first["Name"]
-            attributes_to_save[:symbol]
-            attributes_to_save[:coin_market_cap_id]
-          else  
-            attributes_to_save[:coin_market_cap_id]
-          end
-        end
+        indexed_coin = data.select{|key, hash| clean_name(hash["CoinName"]) == clean_name(coin.name)}
+        attributes_to_save = save_coin_market_cap_id(indexed_coin, coin, attributes_to_save)
+      elsif !fullCoinList["Data"].select{|key, hash| key == coin.symbol.upcase}.empty?
+        data = fullCoinList["Data"]
+        indexed_coin = data.select{|key, hash| key == coin.symbol }
+        attributes_to_save = save_coin_market_cap_id(indexed_coin, coin, attributes_to_save)
       end
     end
 
     # Get supply info
-    unless coin_market_cap_id.nil?
-      response = JSON.parse(HTTParty.get('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + coin_market_cap_id.to_s).body)
-    else 
+    unless coin.coin_market_cap_id.nil?
       response = JSON.parse(HTTParty.get('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + coin.coin_market_cap_id.to_s).body)
+    else 
+      response = JSON.parse(HTTParty.get('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + attributes_to_save[:coin_market_cap_id].to_s).body)
     end
     if response["response"] == "Error"
       puts "getting supply data for #{coin.name} via coinmarketcap"
@@ -61,8 +56,8 @@ class UpdateSingleCoinPriceWorker
     end
     
     # Get price and 24h change from cryptocompare
-    if !symbol.nil?
-      response = JSON.parse(HTTParty.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + symbol.upcase + '&tsyms=USD').body) 
+    if !attributes_to_save[:symbol].nil?
+      response = JSON.parse(HTTParty.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + attributes_to_save[:symbol].upcase + '&tsyms=USD').body) 
     elsif !coin.symbol.nil? && coin.symbol != ""
       response = JSON.parse(HTTParty.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=' + coin.symbol.upcase + '&tsyms=USD').body)  
     end
@@ -81,7 +76,7 @@ class UpdateSingleCoinPriceWorker
       end
       puts "saving #{coin.name} price info via cryptocompare" 
     else
-      # if Cryptocompare fails, try cooinmarketcap
+      # if Cryptocompare fails, try coinmarketcap
       if altResponse.nil?
         altResponse = JSON.parse(HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.gsub(".","-").gsub(" ","-").downcase).body).first
       end
@@ -89,7 +84,7 @@ class UpdateSingleCoinPriceWorker
         attributes_to_save[:market_cap] = altResponse["market_cap_usd"].to_i
         attributes_to_save[:price] = altResponse["price_usd"].to_f.round(2)
       end
-      puts "saving #{coin.name} price info via cryptocompare" 
+      puts "saving #{coin.name} price info via coinmarketcap" 
     end
     
     unless attributes_to_save.empty?
@@ -102,6 +97,25 @@ class UpdateSingleCoinPriceWorker
       puts "Nothing to save for #{coin.name}"
     end
 
+  end
+
+  def save_coin_market_cap_id(indexed_coin, coin, attributes_to_save)
+    puts indexed_coin
+    if coin.coin_market_cap_id.nil?
+      coin_market_cap_id = indexed_coin.values.first["Id"]
+      if coin.symbol.nil?
+        symbol = indexed_coin.values.first["Name"]
+        attributes_to_save[:symbol] = symbol
+      else  
+      end
+      attributes_to_save[:coin_market_cap_id] = coin_market_cap_id
+    end
+    return attributes_to_save
+  end
+
+  def clean_name(name)
+    cleaned_name = name.strip.gsub(".","-").gsub(" ","-").downcase
+    return cleaned_name
   end
 
   # UpdateSingleCoinPriceWorker.perform_async
