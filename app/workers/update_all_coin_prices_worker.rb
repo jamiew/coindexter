@@ -36,14 +36,12 @@ class UpdateAllCoinPricesWorker
 		      response = JSON.parse(HTTParty.get('https://www.cryptocompare.com/api/data/coinsnapshotfullbyid/?id=' + attributes_to_save[:coin_market_cap_id].to_s).body)
 		    end
 		    if response["response"] == "Error"
-		      puts "getting supply data for #{coin.name} via coinmarketcap"
 		      altResponse = JSON.parse(HTTParty.get('https://api.coinmarketcap.com/v1/ticker/' + coin.name.gsub(".","-").gsub(" ","-").downcase).body).first
 		      unless altResponse.first == "error"
 		        attributes_to_save[:available_supply] = altResponse["available_supply"].to_i
 		        attributes_to_save[:total_supply] = altResponse["total_supply"].to_i
 		      end
 		    else
-		      puts "getting supply data for #{coin.name} via cryptocompare"
 		      data = response["Data"]
 		      available_supply = data.values.second["TotalCoinsMined"].to_i
 		      unless available_supply == 0
@@ -93,10 +91,8 @@ class UpdateAllCoinPricesWorker
 		      if coin.coin_status != "live"
 		        attributes_to_save[:coin_status] = "live"
 		      end
-		      puts "saving #{attributes_to_save} for #{coin.name}"
 		      coin.update_attributes(attributes_to_save)
 		    else
-		      puts "Nothing to save for #{coin.name}"
 		    end
 		end
 
@@ -109,7 +105,6 @@ class UpdateAllCoinPricesWorker
 	      if coin.symbol.nil?
 	        symbol = indexed_coin.values.first["Name"]
 	        attributes_to_save[:symbol] = symbol
-	      else  
 	      end
 	      attributes_to_save[:coin_market_cap_id] = coin_market_cap_id
 	    end

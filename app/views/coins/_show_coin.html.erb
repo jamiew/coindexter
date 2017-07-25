@@ -90,9 +90,6 @@
 			</div>
 		</div>
 	</li>
-	<% if defined? fetching_price %>
-		<%= fetching_price %>
-	<% end %>
 	<% if @fetching_price %>
 		<li class="coin-price-info coin-info-block block">
 			<div class="row">
@@ -110,7 +107,7 @@
 			</div>
 		</li>
 	<% end %>
-	<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
+	<% unless @coin.coin_status != 'live' || @coin.price.nil? %>
 		<li class="coin-price-info coin-info-block block">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4 title-row">
@@ -149,30 +146,36 @@
 				</div>
 			</div>
 			-->
-			<div class="row">
-				<div class="col-md-4 col-xs-12 label">
-					<h6>Network value</h6>
+			<% unless @coin.market_cap.nil? or @coin.market_cap.nil? == 0 %>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Network value</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.market_cap.nil? %></p>
+					</div>
 				</div>
-				<div class="col-md-8 col-xs-12 data">
-					<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.market_cap.nil? %></p>
+			<% end %>
+			<% unless @coin.available_supply.nil? or @coin.available_supply.nil? == 0 %>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Available supply</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 col-xs-12 label">
-					<h6>Available supply</h6>
+			<% end %>
+			<% unless @coin.total_supply.nil? or @coin.total_supply.nil? == 0 %>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Total supply</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.total_supply.nil? %></p>
+					</div>
 				</div>
-				<div class="col-md-8 col-xs-12 data">
-					<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 col-xs-12 label">
-					<h6>Total supply</h6>
-				</div>
-				<div class="col-md-8 col-xs-12 data">
-					<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.total_supply.nil? %></p>
-				</div>
-			</div>
+			<% end %>
 		</li>
 	<% end %>
 	<li class="coin-info-block block">
