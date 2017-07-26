@@ -4,6 +4,11 @@
 
 $ ->
 
+	$('ul#coin-related-dropdown > li').click ->
+		selector = $(this).attr 'data-link'
+		$.get selector, (data) ->
+			$('body').html data
+
 	###
 	if $(".coin-main-info").length > 0
 	chart = new (cryptowatch.Embed)('coinbase', 'btcusd',
@@ -47,11 +52,6 @@ $ ->
 		else 
 			$('.action-links').css 'bottom', 30
 
-
-	$('ul#coin-related-dropdown > li').click ->
-		selector = $(this).attr 'data-link'
-		$.get selector, (data) ->
-  			$('body').html data
 
 
 

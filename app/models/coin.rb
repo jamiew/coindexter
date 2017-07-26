@@ -1,7 +1,7 @@
 class Coin < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :network
-  mount_uploader :logo, LogoUploader
+  mount_uploader :logo, NetworkLogoUploader
   extend FriendlyId
   include PgSearch
   multisearchable :against => [:name]
@@ -28,7 +28,12 @@ class Coin < ApplicationRecord
 
   acts_as_followable
 
-  validate :check_dimensions
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :crop_logo
+
+  def crop_logo
+    logo.recreate_versions! if crop_x.present?
+  end
 
   def symbol_or_name
     unless symbol.nil? or symbol == ""

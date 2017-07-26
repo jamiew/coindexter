@@ -16,9 +16,9 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.new comment_params
       @comment.user = current_user
       if @comment.save
-        redirect_to :back
+        redirect_back fallback_location: root_path
       else
-        redirect_to :back, notice: "There was an error posting your comment"
+        redirect_back fallback_location: root_path, notice: "There was an error posting your comment"
       end
     end
 

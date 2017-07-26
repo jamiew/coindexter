@@ -35,9 +35,9 @@ class User < ApplicationRecord
 
   validates_presence_of     :password, if: :password_required?
   validates_confirmation_of :password, if: :password_required?
-  validates_length_of       :password, within: Devise.password_length, allow_blank: false
+  validates_length_of       :password, within: Devise.password_length, allow_blank: false, if: :password_required?
 
-  validate :check_dimensions
+  # validate :check_dimensions
 
   def check_dimensions
     errors.add :avatar, "must be square" if avatar.width != avatar.height
@@ -48,7 +48,33 @@ class User < ApplicationRecord
   end
 
   def password_required?
-    true
+    !defined? provider or provider.nil? or provider == 'email'
+  end
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :crop_avatar
+
+  def crop_avatar
+    avatar.recreate_versions! if crop_x.present?
+  end
+
+  def google_oauth2_client
+    if !@google_oauth2_client
+      @google_oauth2_client = Google::APIClient.new(:application_name => '   App', :application_version => "1.0.0" )
+      @google_oauth2_client.authorization.update_token!({:access_token =>   google_oauth2.accesstoken, :refresh_token => google_oauth2.refreshtoken})
+    end
+    @google_oauth2_client
+  end
+
+  def self.from_omniauth(identity)
+    user=self.new
+    user.name = identity.name # assuming the user model has a name
+    user.username = identity.name.gsub(" ","") # assuming the user model has a name
+    user.email = identity.email || "#{user.username}-CHANGEME@example.com"
+    user.password = Devise.friendly_token[0,20]
+    user.skip_confirmation!
+    user.save(validate: false)
+    return user
   end
 
   protected

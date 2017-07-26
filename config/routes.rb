@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   
   resources :categories
   
+  resources :newsletters do
+    get :prevent_display
+    get :restore_cookie
+  end
+
   resources :users do
     get :following
     get :activity
@@ -78,6 +83,8 @@ Rails.application.routes.draw do
   get 'networks/:network_id/coin/:id/add_network', to: 'coins#add_network', :as => :add_network_to_coin
 
   get 'questions', to: 'links#index', :as => :questions
+
+  get 'loaderio-f78e3355deb50cdf9149e06780c03507', to: 'users#loader'
 
   devise_scope :user do
     get 'signup', to: 'devise/registrations#new'

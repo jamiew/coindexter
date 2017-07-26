@@ -68,7 +68,7 @@
 			<%= f.label "Category", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			  <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: 'Select a category' }, class: 'form-input' %>
+			  <%= f.collection_select :category_id, Category.all.order('name ASC'), :id, :name, { prompt: 'Select a category' }, class: 'form-input' %>
 		</div>
 	</div>
 	<% unless defined? is_new %>
@@ -98,7 +98,7 @@
 			<%= f.label "Founders", class: "form-label" %>
 		</div>
 		<div class="col-md-8 founder-list">
-			<% if @network.founders.empty? %>
+			<% if @network.founders.nil? or @network.founders.empty? %>
 				<%= text_field_tag 'founders[]' %>
 			<% else %>
 				<% @network.founders.each_with_index do |founder, i| %>

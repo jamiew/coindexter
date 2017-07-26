@@ -1,4 +1,4 @@
-<% @categories.each do |category| %>
+<% cache category do %>
 	<ul class="full-category-cnt" data-category=<%= category.name.gsub(/\s+/, "").downcase %>>
 		<% unless category.networks.empty? %>
 			<li class="category-network-block block">
@@ -6,7 +6,9 @@
 					<div class="col-md-12 col-xs-12">
 						<h1 class="list-name"><%= category.name %></h1>
 						<% category.networks.each_with_index do |network, i| %>
-							<%= render 'network_widget', :network => network, :i => i %>
+							<% cache network do %>
+								<%= render 'network_widget', :network => network, :i => i %>
+							<% end %>
 						<% end %>
 					</div>
 				</div>

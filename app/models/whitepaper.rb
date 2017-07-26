@@ -10,6 +10,8 @@ class Whitepaper < ApplicationRecord
 	# has_paper_trail :class_name => 'Version', :ignore => [:slug, :updated_at, :fulltext, :whitepaper_title]
 	validates_presence_of :whitepaper_title
 
+	nilify_blanks
+
 	def is_external?
 		!external_url.nil? and !external_url.empty?
 	end

@@ -21,13 +21,13 @@ class NetworkService < LogService
 		log_set = []
 
 		versions.each do |version|
-			unless version.changeset == {}
+			unless version.changeset == {} or !still_exists(version.item_type, version.item_id) or !is_worth_showing(version.changeset)
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
 		      	convert_changeset(version)
 		      	if defined?(version.user) && !version.user.nil?
 	    			self.user = version.user
 	  			end
-				set_coins_and_networks(feed_type, object)
+				set_coins_and_networks(feed_type, object.id)
 				log_set << self.dup
 			end
 	    end
@@ -39,23 +39,21 @@ class NetworkService < LogService
 	def get_all_the_logs(user_id=nil)
 		
 		if user_id.nil?
-			versions = PaperTrail::Version.all.limit(5).order("created_at DESC")
+			versions = PaperTrail::Version.all.where.not(whodunnit: 40).limit(5).order("created_at DESC")
 		else
 			versions = PaperTrail::Version.all.where(:whodunnit => user_id).limit(5).order("created_at DESC")
 		end
 		log_set = []
 
 		versions.each do |version|
-			unless version.changeset == {}
+			unless version.changeset == {} or !still_exists(version.item_type, version.item_id) or !is_worth_showing(version.changeset)
 		      	set_metadata(created_at: version.created_at, feed_type: feed_type)
 		      	convert_changeset(version)
 		      	unless version.whodunnit.nil? 
 		      		self.user = User.find(version.whodunnit)
 		      	end
-				if still_exists(version.item_type, version.item_id)
-					set_coins_and_networks(version.item_type, version.item_id)
-					log_set << self.dup
-				end
+				set_coins_and_networks(version.item_type, version.item_id)
+				log_set << self.dup
 			end
 	    end
 
@@ -78,6 +76,16 @@ class NetworkService < LogService
 					return true
 				end
 		end
+	end
+
+	def is_worth_showing(changeset)
+		is_not_empty = false
+		changeset.each do |k,v|
+			unless (v.first.nil? or v.first.blank?) and (v.second.nil? or v.second.blank?)
+				is_not_empty = true
+			end
+		end
+		return is_not_empty
 	end
 
 
@@ -129,6 +137,8 @@ class NetworkService < LogService
 						change_attr = "Network"
 					when "type"
 						change_attr = "Asset type"
+					when "team_location"
+						change_attr = "Location"	
 					when "created_at"
 						abort_log = true
 					when "coin_status"

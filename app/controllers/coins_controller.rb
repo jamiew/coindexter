@@ -32,7 +32,8 @@ class CoinsController < ApplicationController
 	def show
 		@active_item = "details"
 		@coin = Coin.friendly.find(params[:id])
-		@network = Network.friendly.find(params[:network_id])
+		@network = @coin.network
+		puts "network is #{@coin.network}"
 		if current_user && current_user.following?(@coin)
 			@following = true
 		else 
@@ -92,12 +93,11 @@ class CoinsController < ApplicationController
 		@coin = Coin.new(coin_params)
 		@coin.network = @network
 	    if @coin.save
-	    	if @coin.coin_status == "live"
-	    		if @coin.price.nil?
-	    			@fetching_price = true
-	    		end    		
-	    	end
-	    	redirect_to network_coin_path(@network, @coin)
+	      if !@coin.logo.validate_dimensions
+	        render :crop
+	      else
+			redirect_to network_coin_path(@network, @coin), notice: "coin created"
+		  end
 		else
 	        render 'new'
 	    end
@@ -112,26 +112,41 @@ class CoinsController < ApplicationController
 	end
 
 	def update
-		@coin = Coin.friendly.find(params[:id])
+		coin_exists = Coin.friendly.exists? params[:id]
+		if coin_exists
+			@coin = Coin.friendly.find(params[:id])
+		else
+			@coin = Coin.where(:symbol => params[:id])
+		end
+		puts "coin params are #{params.inspect}"
 		@network = Network.friendly.find(params[:network_id])
+		puts "network is #{@network}"
+		@coin.network = @network
+		puts "coin network is #{@coin.network}"
+	    @coin.save
+	    puts "coin is #{@coin.network}"
 	  	if @coin.update_attributes(coin_params)
-	  		puts "coin saved"
 	  		@coin.network = @network
-    		@coin.save
-    		if @coin.coin_status == "live"
-    			if @coin.price.nil?
-	    			@fetching_price = true
-	    			puts "@fetching price #{@fetching_price}"
+	  		@coin.save
+	  		puts "coin after update is #{@coin.network}"
+	  		if params[:coin][:logo].present? and !@coin.logo.validate_dimensions
+	          render :crop
+	        else
+	    		if @coin.coin_status == "live"
+	    			if @coin.price.nil?
+		    			@fetching_price = true
+		    			puts "@fetching price #{@fetching_price}"
+		    		end
+		    		id = @coin.id
+		    		puts "id is #{id}"
+		    		UpdateSingleCoinPriceWorker.perform_async(id)
 	    		end
-	    		id = @coin.id
-	    		puts "id is #{id}"
-	    		UpdateSingleCoinPriceWorker.perform_async(id)
-    		end
-    		if params[:is_ico]
-    			redirect_to ico_network_coin_path(@network, @coin)
-    		else	
-    			redirect_to network_coin_path(@network, @coin)
-    		end
+	    		if params[:is_ico]
+	    			redirect_to ico_network_coin_path(@network, @coin)
+	    		else	
+	    			redirect_to network_coin_path(@network, @coin)
+	    		end
+	    	end
 		else
 	    	render 'edit'
 	  	end
@@ -183,7 +198,7 @@ class CoinsController < ApplicationController
 	private
 
 	    def coin_params
-	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :category_id, :logo, :slug, :coin_type, :saledate, :differentiator, :proof_algorithm, :network_id, :capital_raised, :monetary_policy, :ico_use_of_proceeds, :ico_token_sale_structure, :ico_pricing, :ico_amount_sold, :ico_allocation, :ico_lockup, :ico_buyer_lockup, :ico_founder_lockup, :ico_min_investment_cap, :ico_type_of_min_cap, :ico_max_investment_cap, :ico_currency_accepted, :ico_additional_notes, :ico_planned_end_date, :ico_actual_end_date, networks: [], network_id: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
+	    	params.require(:coin).permit(:name, :symbol, :coin_status, :coin_info, :application_name, :application_description, :application_status, :application_url, :crop_x, :crop_y, :crop_w, :crop_h, :category_id, :logo, :slug, :coin_type, :saledate, :differentiator, :proof_algorithm, :network_id, :capital_raised, :monetary_policy, :ico_use_of_proceeds, :ico_token_sale_structure, :ico_pricing, :ico_amount_sold, :ico_allocation, :ico_lockup, :ico_buyer_lockup, :ico_founder_lockup, :ico_min_investment_cap, :ico_type_of_min_cap, :ico_max_investment_cap, :ico_currency_accepted, :ico_additional_notes, :ico_planned_end_date, :ico_actual_end_date, networks: [], network_id: [], exchanges: {}, repositories: {}, repositories_attributes: [:name, :url, :_destroy], exchanges_attributes: [:name, :url, :_destroy])
 	    end
 
 		def up_or_down(value)

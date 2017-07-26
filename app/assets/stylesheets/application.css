@@ -14,5 +14,5 @@
  *= require_self
  *= require bootstrap3-switch
  *= require jquery-ui
-
+ *= require jquery.Jcrop
  */

@@ -36,7 +36,7 @@
 							<p>None added yet. Add an exchange from desktop.</p>
 						<% else %>
 							<p>
-								<%= link_to "Add an exchange", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+								<%= link_to "Add an exchange", edit_network_coin_url, class: "add-missing-field" %>
 							</p>
 						<% end %>
 					<% else %>
@@ -63,7 +63,7 @@
 							<p>None added yet. Add a description from desktop.</p>
 					<% else %>
 						<p>
-							<%= link_to "What's is #{@coin.name} useful for?", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "What's is #{@coin.name} useful for?", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>
@@ -83,16 +83,13 @@
 						<p>None added yet. Add a symbol from desktop.</p>
 					<% else %>
 						<p>
-							<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Do you know the symbol for #{@coin.name}?", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% end %>
 			</div>
 		</div>
 	</li>
-	<% if defined? fetching_price %>
-		<%= fetching_price %>
-	<% end %>
 	<% if @fetching_price %>
 		<li class="coin-price-info coin-info-block block">
 			<div class="row">
@@ -110,7 +107,7 @@
 			</div>
 		</li>
 	<% end %>
-	<% unless @coin.coin_status != 'live' || @coin.market_cap.nil? %>
+	<% unless @coin.coin_status != 'live' || @coin.price.nil? %>
 		<li class="coin-price-info coin-info-block block">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4 title-row">
@@ -149,30 +146,36 @@
 				</div>
 			</div>
 			-->
-			<div class="row">
-				<div class="col-md-4 col-xs-12 label">
-					<h6>Network value</h6>
+			<% unless @coin.market_cap.nil? or @coin.market_cap.nil? == 0 %>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Network value</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.market_cap.nil? %></p>
+					</div>
 				</div>
-				<div class="col-md-8 col-xs-12 data">
-					<p>$<%= number_to_human(@coin.market_cap, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.market_cap.nil? %></p>
+			<% end %>
+			<% unless @coin.available_supply.nil? or @coin.available_supply.nil? == 0 %>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Available supply</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
+					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 col-xs-12 label">
-					<h6>Available supply</h6>
+			<% end %>
+			<% unless @coin.total_supply.nil? or @coin.total_supply.nil? == 0 %>
+				<div class="row">
+					<div class="col-md-4 col-xs-12 label">
+						<h6>Total supply</h6>
+					</div>
+					<div class="col-md-8 col-xs-12 data">
+						<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.total_supply.nil? %></p>
+					</div>
 				</div>
-				<div class="col-md-8 col-xs-12 data">
-					<p><%= number_to_human(@coin.available_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-4 col-xs-12 label">
-					<h6>Total supply</h6>
-				</div>
-				<div class="col-md-8 col-xs-12 data">
-					<p><%= number_to_human(@coin.total_supply, units: {thousand: "K", million: "mm", billion: "B"}).delete(' ') unless @coin.available_supply.nil? %></p>
-				</div>
-			</div>
+			<% end %>
 		</li>
 	<% end %>
 	<li class="coin-info-block block">
@@ -191,7 +194,7 @@
 						<p>None added yet. Add the coin type from desktop.
 					<% else %>
 						<p>
-							<%= link_to "Add the type", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Add the type", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>
@@ -209,7 +212,7 @@
 						<p>None added yet. Add the proof_algorithm from desktop.
 					<% else %>
 						<p>
-							<%= link_to "Add the proof algorithm", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Add the proof algorithm", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>
@@ -227,7 +230,7 @@
 						<p>None added yet. Add the monetary_policy from desktop.
 					<% else %>
 						<p>
-							<%= link_to "Add the monetary policy", edit_network_coin_path(@coin.network, @coin), class: "add-missing-field" %>
+							<%= link_to "Add the monetary policy", edit_network_coin_url, class: "add-missing-field" %>
 						</p>
 					<% end %>
 				<% else %>

@@ -1,15 +1,11 @@
-<div class="row">
-	<div class="col-md-9">
-		<% if @logs.empty? %>
-			<div class="row">
-				<div class="col-md-8 col-md-offset-4">
-					<ul class="log-list">
-						<li>No activity yet</li>
-					</ul>
-				</div>
-			</div>
-		<% else %>
-			<%= render 'shared/logs', locals: {logs: @logs} %>
-		<% end %>
+<% if @logs.empty? %>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-4">
+			<ul class="log-list">
+				<li>No activity yet</li>
+			</ul>
+		</div>
 	</div>
-</div>
+<% else %>
+	<%= render 'shared/logs', locals: {logs: @logs} %>
+<% end %>

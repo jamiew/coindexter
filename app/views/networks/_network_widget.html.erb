@@ -4,7 +4,7 @@
 			<% if network.logo.nil? || network.logo.blank? %>
 				<%= image_tag "fallback/default.png", size: '60x60', class: 'network-logo' %>
 			<% else %>
-				<%= image_tag network.logo, size: '60x60', class: 'network-logo' %>
+				<%= image_tag network.logo_url(:thumb), size: '60x60', class: 'network-logo' %>
 			<% end %>
 			<h6><%= network.name.downcase[0..15] %></h6>
 		</div>
@@ -17,7 +17,7 @@
 			<% if network.logo.nil? || network.logo.blank? %>
 				<%= image_tag "fallback/default.png", size: '60x60', class: 'network-logo' %>
 			<% else %>
-				<%= image_tag network.logo, size: '60x60', class: 'network-logo' %>
+				<%= image_tag network.logo_url(:thumb), size: '60x60', class: 'network-logo' %>
 			<% end %>
 			<h6><%= network.name.downcase[0..15] %></h6>
 		</div>

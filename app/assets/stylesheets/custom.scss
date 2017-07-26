@@ -180,6 +180,7 @@ nav, .navbar {
 				float:left;
 				margin-left:0;
 				margin-bottom:0px;
+				margin-top: 0px;
 				.form-group	{
 					span {
 						color: $primary-orange;
@@ -1033,6 +1034,11 @@ li#coins {
 	.widget-in-info-menu {
 		float:right;
 	}
+	div {
+		h6 {
+			margin-top: 10px !important;
+		}
+	}
 }
 
 .pagination {
@@ -1056,6 +1062,15 @@ h1.list-name {
 	padding-top:7px;
 	padding-bottom: 2px;
 }
+
+form {
+	margin-top:-5px;
+}
+
+.jcrop-holder {
+	margin-top:14px;
+}
+
 .network-header, .coin-header, .coins-in-statuses, .intro-header, .user-header, .networks-in-categories, .coin-in-categories, .whitepapers, .results, .about, .info-header, form {
 	margin-bottom:24px;
 	div {
@@ -1160,6 +1175,9 @@ ul.network-following-list {
 				margin-top: 0;
 			}
 		}
+	}
+	p {
+		margin-top:10px !important;
 	}
 }
 
@@ -1336,7 +1354,7 @@ ul.action-links {
 .whitepaper-list-cnt {
 	min-height:141px;
 	.whitepaper-thumb-cnt {
-		text-align:center;
+		text-align:right;
 		.whitepaper-thumbnail {
 			/* height:145px; */
 			margin:0;
@@ -1395,6 +1413,10 @@ ul.action-links {
 			}
 		}
 	}	
+}
+
+.whitepaper-list-cnt:first-child {
+	margin-top: 0;
 }
 
 span.log-data {
@@ -1459,6 +1481,16 @@ p#none-matching {
 	margin-top:25px !important;
 }
 
+.label {
+	p.form-guidance {
+		text-transform:none !important;
+		font-family: "WhitneyHTF-Medium" !important;
+		margin-top: -6px;
+		white-space: normal;
+		line-height: 140%;
+	}
+}
+
 p.form-guidance, p.form-error {
 	font-family: "WhitneyHTF-Medium";
 	font-size: 14px;
@@ -1489,4 +1521,69 @@ div.status-cnt {
 }
 .following-cnt {
 	margin-top:-10px;
+}
+#provide-url {
+	cursor:pointer;
+}
+.external-url {
+	display:none;
+}
+div#mailing-list {
+	div#mailing-list-meta {
+		p {
+			font-family: "WhitneyHTF-Medium";
+			margin-bottom: 0.6em;
+			margin-top: 0.4em;
+			float:left;
+		}
+		span {
+			float: right;
+			&:hover {
+				cursor:pointer;
+			}
+		}
+	}
+	padding: 15px 20px 15px 20px;
+	background-color: $navbar-orange;
+	border: 3px solid $border-orange;
+	border-radius: 4px;
+	position: fixed;
+	bottom: 15px;
+	left: 15px;
+	form#mailing-list-form {
+		margin-bottom: 0;
+		padding: 0;
+		input {
+				color: $text;
+				font-family: "WhitneyHTF-Medium";
+				letter-spacing: 0.01em;
+				font-size:16px;
+				&:active {
+					color:$text;
+				}
+				&:focus {
+					outline:none;
+					box-shadow: 0 0 2px 0 $primary-orange;
+				}
+				box-shadow:none;
+				border: 1px solid $border-orange;
+				padding: 18px 18px 18px;
+				border-radius:4px;
+				background-color: #fff;
+				&:disabled {
+					opacity:0.6;
+				}
+				width: 300px;
+				float: left;
+				&[type=submit] {
+					background: $primary-orange;		
+					color:white;
+					float: left;
+					margin-left: -100px;
+					width: 100px;
+					border-radius: 0px 4px 4px 0px;
+					z-index: 999;
+				}
+		}
+	}
 }

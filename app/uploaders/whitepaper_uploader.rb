@@ -15,8 +15,9 @@ class WhitepaperUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   version :thumb do
+    process :output_path
     process :cover
-    process :store_dimensions    
+    process :store_dimensions
   end
 
   def cover 
@@ -26,6 +27,11 @@ class WhitepaperUploader < CarrierWave::Uploader::Base
       img = yield(img) if block_given?
       img
     end
+  end
+
+  def output_path
+    puts "file path is #{file.path}"
+    puts "file file is #{file.file}"
   end
 
   private

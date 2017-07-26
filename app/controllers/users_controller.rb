@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
+  respond_to :html, :json
   before_action :authenticate_user!, only: [:edit]
 
-  # caches_action :index, expires_in: 10.minute
+  # caches_action :index, :layout => false, expires_in: 10.minute
 
   def new
     @user = User.new
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
+    @active_item = "account"
   end
 
   def create
@@ -17,6 +19,9 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.confirmation_instructions(@user, @user.confirmation_token).deliver_later
       flash[:success] = "Please check your email to confirm your email address"
+      if !@user.avatar.validate_dimensions
+        render :crop
+      end
     else
       render 'new'
     end
@@ -25,18 +30,22 @@ class UsersController < ApplicationController
   def update
     @user = User.friendly.find(params[:id])
     if @user.update_attributes(user_params)
-        if get_all_logs(@user.id,nil).empty?
-          redirect_to root_url
+        if params[:user][:avatar].present? and !@user.avatar.validate_dimensions
+          render :crop
         else
-          redirect_to @user
+          redirect_to @user, notice: "Successfully updated user."
         end
+        # redirect_to @user
     else
+        puts @user.errors.inspect
         render 'edit'
     end
   end
 
   def index
     @logs = get_all_logs.paginate(:page => params[:page], :per_page => 10)  
+    @subscribed_already = cookies['coindexter-newsletter']
+    puts @subscribed_already == "false"
     respond_to do |format|
       format.html
       format.js
@@ -52,6 +61,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def loader 
+    render layout: "other"
+  end
+
   def show
     if params[:id].nil?
       @user = User.friendly.find(params[:username])
@@ -62,6 +75,7 @@ class UsersController < ApplicationController
     all_follows = @user.all_follows
     @networks_following = []
     @coins_following = []
+    @active_item = "following"
     all_follows.each do |follow|
       if follow.followable_type == "Network"
         @networks_following << Network.find(follow.followable_id)
@@ -79,17 +93,18 @@ class UsersController < ApplicationController
   def activity
     @user = User.friendly.find(params[:user_id])
     @logs = get_all_logs(@user.id).paginate(:page => params[:page], :per_page => 10)
+    @active_item = "activity"
     respond_to do |format|
       format.html
       format.js
       format.json
     end
   end
-
+  
   private
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username)
+      params.require(:user).permit(:first_name, :last_name, :avatar, :email, :password, :password_confirmation, :username, :crop_x, :crop_y, :crop_w, :crop_h)
     end
 
     def get_all_logs(user_id=nil, since=nil)

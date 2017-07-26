@@ -13,7 +13,7 @@
 					    <li id="header-link-account">
 					    	<% if user_signed_in? %>
 				    			<%= link_to current_user_path(current_user), class: 'user-activity' do   %>
-					    			<%= current_user.avatar.nil? ? "" : image_tag(current_user.avatar, size: '30x30', class: 'avatar') %> 
+					    			<%= current_user.avatar.nil? ? "" : image_tag(current_user.avatar.thumb.url, size: '30x30', class: 'avatar') %> 
 					    			<p><%= current_user.username.nil? ? current_user.first_name : current_user.username %></p>
 				    			<% end %>
 				    			<% if current_user.username.nil? %>
@@ -35,7 +35,7 @@
 						<li id="header-link-feed"><%= link_to 'About', about_url  %></a></li>
 					    <li id="header-link-sales"><%= link_to 'Coin Sales', sales_url %></li>
 						<li id="header-link-links"><%= link_to 'Q&A', questions_url %></a></li>
-					    <li id="header-link-networks"><%= link_to 'Networks', root_url %></a></li>
+					    <li id="header-link-networks"><%= link_to 'Networks', networks_path %></a></li>
 					</ul>
 				</div>
 			</div>

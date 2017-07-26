@@ -13,18 +13,21 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
-  if Rails.root.join('tmp/caching-dev.txt').exist?
-    config.action_controller.perform_caching = false
+   if Rails.root.join('tmp/caching-dev.txt').exist?
+      config.action_controller.perform_caching = true
 
-    config.cache_store = :memory_store, { size: 64.megabytes }
-    config.public_file_server.headers = {
-      'Cache-Control' => 'public, max-age=172800'
-    }
-  else
-    config.action_controller.perform_caching = false
+      config.cache_store = :redis_store, {
+        expires_in: 2.minutes
+      }
+      config.public_file_server.headers = {
+        'Cache-Control' => 'public, max-age=172800'
+      }
+    else
+      config.action_controller.perform_caching = false
 
-    config.cache_store = :null_store
-  end
+      config.cache_store = :null_store
+    end
+
 
   config.action_mailer.perform_deliveries = true
 
@@ -65,7 +68,7 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   config.action_mailer.mailgun_settings = {
-    api_key: 'key-84e04576e169545ef111d461049b3385',
+    api_key: ENV["MAILGUN_API_KEY"],
     domain: 'mail.coindexter.io'
   }
 

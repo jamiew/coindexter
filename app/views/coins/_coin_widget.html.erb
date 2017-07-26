@@ -7,7 +7,7 @@
 			<% if coin.logo.nil? || coin.logo.blank? %>
 				<%= image_tag "fallback/default.png", size: '60x60', class: 'coin-logo' %>
 			<% else %>
-				<%= image_tag coin.logo, size: '60x60', class: 'coin-logo' %>
+				<%= image_tag coin.logo_url(:thumb), size: '60x60', class: 'coin-logo' %>
 			<% end %>
 			<% unless coin.symbol.nil? || coin.symbol == "" %>
 				<h6><%= coin.symbol %></h6>

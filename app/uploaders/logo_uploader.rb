@@ -1,8 +1,6 @@
-# encoding: utf-8
-
 class LogoUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
+ # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   # include CarrierWaveDirect::Uploader
@@ -21,22 +19,34 @@ class LogoUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # Provide a default URL as a default if there hasn't been a file uploaded:
-  def default_url
-    "/assets/fallback/" + [version_name, "default.png"].compact.join('_')
+  # for image size validation
+  # fetching dimensions in uploader, validating it in model
+  # attr_reader :width, :height
+  # before :cache, :capture_size
+ 
+  process :resize_to_fit => [100, 100]
+
+  version :thumb do
+    process :crop
+    resize_to_fill(100, 100)
   end
 
-  process resize_to_fill: [400,400]
-  process crop: '400x400+0+0'
+  version :large do
+    resize_to_fit(400, 400)
+  end
 
   version :small do
-    process resize_to_fill: [60,60]
+    resize_to_fit(60, 60)
   end
   
   version :select_option do
-    process resize_to_fill: [60,60]
+   resize_to_fit(60, 60)
   end
 
+  def default_url
+    "/assets/fallback/" + [version_name, "default.png"].compact.join('_')
+  end
+  
   attr_reader :width, :height
   before :cache, :capture_size_before_cache # callback, example here: http://goo.gl/9VGHI
   def capture_size_before_cache(new_file) 
@@ -50,6 +60,14 @@ class LogoUploader < CarrierWave::Uploader::Base
       end
     end
   end
+
+  # Provide a default URL as a default if there hasn't been a file uploaded:
+  # def default_url
+  #   # For Rails 3.1+ asset pipeline compatibility:
+  #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
+  #
+  #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+  # end
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
@@ -65,9 +83,9 @@ class LogoUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  def extension_white_list
-     %w(jpg jpeg gif png)
-  end
+  # def extension_white_list
+  #   %w(jpg jpeg gif png)
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
@@ -75,28 +93,39 @@ class LogoUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  def validate_dimensions
-    height = image[:height]
-    weight = image[:weight]
-    returns height == weight
-  end
+  def crop
+    if model.crop_x.present?
+      resize_to_fit(400, 400)
+      manipulate! do |img|
 
-  def crop(geometry)
-    manipulate! do |img|      
-      img.crop(geometry)
-      img
-    end    
-  end
+        x = model.crop_x
+        y = model.crop_y
+        w = model.crop_w
+        h = model.crop_h
 
-  def resize_and_crop(size)  
-    manipulate! do |image|                 
-      if image[:width] < image[:height]
-        image.resize("#{image[:height]}x#{image[:height]}") 
-      elsif image[:width] > image[:height] 
-        image.resize("#{image[:width]}x#{image[:width]}") 
+        size = w << 'x' << h
+        offset = '+' << x << '+' << y
+
+        img.crop("#{size}#{offset}")
+        img
+
       end
-      image
     end
+  end
+
+  def validate_dimensions
+    if file.path.nil? # file sometimes is in memory
+        img = ::MiniMagick::Image::read(file.file)
+        width = img[:width]
+        height = img[:height]
+      else
+        width, height = `identify -format "%wx %h" #{file.path}`.split(/x/).map{|dim| dim.to_i }
+    end
+    return height == width
+  end
+
+  def extension_white_list
+    %w(jpg jpeg gif png)
   end
 
 end

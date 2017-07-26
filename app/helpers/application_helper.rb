@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def page_description(page_description)
-    base_description = "Coindexter is a way to research blockchain networks and app coins."
+    base_description = "Coindexter is a a collaborative library for long-term investors in decentralized, blockchain networks"
     if page_description.empty?
       base_description
     else
@@ -36,5 +36,12 @@ module ApplicationHelper
       "#{og_image}"
     end
   end  
+
+  def get_host_without_www(url)
+    uri = URI.parse(url)
+    uri = URI.parse("http://#{url}") if uri.scheme.nil?
+    host = uri.host.downcase
+    host.start_with?('www.') ? host[4..-1] : host
+  end
 
 end

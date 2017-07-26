@@ -1,6 +1,6 @@
 <div class="row">
 	<%= render 'category_menu' %>
 	<div class="col-md-6 main col-xs-12 col-md-offset-1">
-		<%= render 'all_categories'  %>
+		<%= render partial: 'all_categories', collection: @categories, as: :category %>
 	</div>
 </div>

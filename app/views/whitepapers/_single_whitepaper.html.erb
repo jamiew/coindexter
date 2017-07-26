@@ -1,13 +1,27 @@
 <div class="row whitepaper-list-cnt">
 	<div class="col-md-3 col-md-offset-1 col-xs-4 col-md-offset-0 whitepaper-thumb-cnt">
-		<%= link_to network_whitepaper_path(wp.network.name.downcase, wp), class: wp.is_external? ? 'whitepaper-thumbnail-default-wrapper' : '' do %>
-			<% if browser.platform.ios? or browser.platform.android? or wp.is_external? %>
-				<%= image_tag "fallback/default-whitepaper.png", :height => '130', :class => "whitepaper-thumbnail-default"	 %>
-			<% else %>
-				<% if wp.width && wp.width > wp.height %>
-					<%= image_tag wp.whitepaper.thumb, :width => wp.width, :height => wp.height, :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+		<% if wp.is_external? %>
+			<%= link_to wp.external_url, wclass: wp.is_external? ? 'whitepaper-thumbnail-default-wrapper' : '' do %>
+				<% if browser.platform.ios? or browser.platform.android? or wp.is_external? %>
+					<%= image_tag "fallback/default-whitepaper.png", :height => '130', :class => "whitepaper-thumbnail-default"	 %>
+				<% else %>s
+					<% if wp.width && wp.width > wp.height %>
+						<%= image_tag wp.whitepaper.thumb, :width => wp.width, :height => wp.height, :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<% else %>
+						<%= image_tag wp.whitepaper.thumb, :size => '100x145', :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<% end %>
+				<% end %>
+			<% end %>
+		<% else %>
+			<%= link_to network_whitepaper_path(wp.network.name.downcase, wp), class: wp.is_external? ? 'whitepaper-thumbnail-default-wrapper' : '' do %>
+				<% if browser.platform.ios? or browser.platform.android? or wp.is_external? %>
+					<%= image_tag "fallback/default-whitepaper.png", :height => '130', :class => "whitepaper-thumbnail-default"	 %>
 				<% else %>
-					<%= image_tag wp.whitepaper.thumb, :size => '100x145', :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<% if wp.width && wp.width > wp.height %>
+						<%= image_tag wp.whitepaper.thumb, :width => wp.width, :height => wp.height, :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<% else %>
+						<%= image_tag wp.whitepaper.thumb, :size => '100x145', :class => "whitepaper-thumbnail" if wp.whitepaper.thumb  %>
+					<% end %>
 				<% end %>
 			<% end %>
 		<% end %>

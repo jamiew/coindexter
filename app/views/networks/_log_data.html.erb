@@ -39,9 +39,9 @@
 								<% end %>
 							<% when "Link" %>
 								<% if change[:change_type] == "added" %>
-									Added <span class="change_attr">homepage</span>: <%= link_to change[:change].second,  change[:change].second %>
+									Added <span class="change_attr">homepage</span>: <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <span class="change_attr">homepage</span> from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+									Changed <span class="change_attr">homepage</span> from <%= link_to get_host_without_www(change[:change].first), change[:change].first %> to <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% end %>
 							<% when "Description" %>
 								<% if change[:change_type] == "added" %>
@@ -51,27 +51,27 @@
 								<% end %>	
 							<% when "slack" %>
 								<% if change[:change_type] == "added" %>
-									Added <span class="change_attr">Slack</span>: <%= link_to change[:change].second,  change[:change].second %>
+									Added <span class="change_attr">Slack</span>: <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <span class="change_attr">Slack</span> from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+									Changed <span class="change_attr">Slack</span> from <%= link_to get_host_without_www(change[:change].first), change[:change].first %> to <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% end %>
 							<% when "forum" %>
 								<% if change[:change_type] == "added" %>
-									Added <span class="change_attr">forum</span>: <%= link_to change[:change].second,  change[:change].second %>
+									Added <span class="change_attr">forum</span>: <%= link_to get_host_without_www(change[:change].second),  change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <span class="change_attr">forum</span> from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+									Changed <span class="change_attr">forum</span> from <%= link_to get_host_without_www(change[:change].first), change[:change].first %> to <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% end %>
 							<% when "reddit" %>
 								<% if change[:change_type] == "added" %>
-									Added <span class="change_attr">Reddit</span>: <%= link_to change[:change].second.gsub("https://www.reddit.com/",""),  change[:change].second %>
+									Added <span class="change_attr">Reddit</span>: <%= link_to change[:change].second.nil? ? change[:change].second : change[:change].second.gsub("https://www.reddit.com/",""), change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <span class="change_attr">Reddit</span> from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+									Changed <span class="change_attr">Reddit</span> from <%= link_to change[:change].first.nil? ? change[:change].first.gsub("https://www.reddit.com/","") : change[:change].first, change[:change].first %> to <%= link_to change[:change].second.nil? ? change[:change].second : change[:change].second.gsub("https://www.reddit.com/",""), change[:change].second %>
 								<% end %>		
 							<% when "github" %>
 								<% if change[:change_type] == "added" %>
-									Added <span class="change_attr">repository</span>: <%= link_to change[:change].second,  change[:change].second %>
+									Added <span class="change_attr">repository</span>: <%= link_to get_host_without_www(change[:change].second),  change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <span class="change_attr">repository</span> from <%= link_to change[:change].first, change[:change].first %> to <%= link_to change[:change].second, change[:change].second %>
+									Changed <span class="change_attr">repository</span> from <%= link_to get_host_without_www(change[:change].first), change[:change].first %> to <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
 								<% end %>
 							<% when "team" %>
 								<% if change[:change_type] == "added" %>
@@ -89,6 +89,12 @@
 									Changed <span class="change_attr"><%= change[:change_attr] %></span> from 
 
 										<%= image_tag change[:change].first, size: '16x16', id: 'network-logo-inline' %> to <%=  %> <%= image_tag log.networks.logo, size: '16x16', id: 'network-logo-inline' %>
+								<% end %>
+							<% else %>
+								<% if change[:change_type] == "added" %>
+									<p>Added <span class="change_attr"><%= change[:change_attr].downcase %></span>: "<%= change[:change].second %>"</p>
+								<% elsif change[:change_type] == "edited" %>
+									<p>Changed <span class="change_attr"><%= change[:change_attr].downcase %> from "<%= change[:change].first %>" to : "<%= change[:change].second %>"</p>
 								<% end %>
 						<% end %>
 					</li>

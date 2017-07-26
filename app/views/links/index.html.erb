@@ -52,7 +52,7 @@
 							<% if browser.platform.ios? or browser.platform.android? %>
 								Add one from desktop.
 							<% else %>
-								<%= link_to "Add one?", new_link_url(network: @network), remote: true %></p>
+								<%= link_to "Add one?", new_link_url %></p>
 							<% end %>
 						</div>
 					</div>
@@ -68,8 +68,15 @@
 	<% end %>
 </div>
 <ul class="action-links">
-	<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %>
-		Ask a question
-		<% end %>
-	</li>
+	<% if defined?(@network) %>	
+		<li><%= link_to(new_network_link_path(@network), remote: false, class: "action-link", accesskey: 'L') do %>
+			Ask a question
+			<% end %>
+		</li>
+	<% else %>
+		<li><%= link_to(new_link_path, remote: false, class: "action-link", accesskey: 'L') do %>
+			Ask a question
+			<% end %>
+		</li>
+	<% end %>
 </ul>

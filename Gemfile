@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 5.1.2'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -23,6 +23,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 3.0'
+gem 'redis-rails', '~> 5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -71,7 +72,7 @@ gem 'paper_trail'
 
 #emailing
 gem 'mailgun_rails'
-gem 'mailgun-ruby', '~>1.0.2', require: 'mailgun'
+gem 'mailgun-ruby', '~>1.1.6', require: 'mailgun'
 
 #readpdfs
 gem 'pdf-reader'
@@ -106,6 +107,8 @@ gem 'nokogiri'
 gem 'puma_worker_killer'
 
 gem 'nilify_blanks'
+
+gem "auto_strip_attributes", "~> 2.1"
 
 group :production do 
   gem 'rails_12factor'

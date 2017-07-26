@@ -4,7 +4,7 @@ class Link < ApplicationRecord
 	friendly_id :title, use: [:slugged, :history]
 	has_many :comments, as: :commentable
 	belongs_to :user
-	has_and_belongs_to_many :networks
+	has_and_belongs_to_many :networks, validate: false
 	attr_accessor :comment_count
 
   include PgSearch
@@ -12,6 +12,10 @@ class Link < ApplicationRecord
   pg_search_scope :search, :against => :title, :using => { :tsearch => { :prefix => true }, :trigram => { :threshold => 0.3 } }
 
   default_scope { order('created_at DESC') }
+
+  nilify_blanks
+
+  auto_strip_attributes :link
 
 	def should_generate_new_friendly_id?
 		!has_friendly_id_slug? || title_changed?
