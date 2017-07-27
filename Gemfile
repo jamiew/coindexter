@@ -41,6 +41,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'fog-aws'
+gem 'aws-sdk', '~> 2'
 
 # url slugs
 gem 'friendly_id', '~> 5.1.0'
