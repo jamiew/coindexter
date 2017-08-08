@@ -8,10 +8,18 @@
 	</div>
 	<div class="row first-in-form-group">
 		<div class="col-md-4 label">
-			<%= f.label "Capital", class: "form-label" %>
+			<%= f.label "Capital Raised", class: "form-label" %>
 		</div>
 		<div class="col-md-8">
 			<%= f.text_field :capital_raised, class: "form-input" %>
+		</div>
+	</div>
+	<div class="row first-in-form-group">
+		<div class="col-md-4 label">
+			<%= f.label "Pricing", class: "form-label" %>
+		</div>
+		<div class="col-md-8">
+			<%= f.text_field :ico_pricing, class: "form-input" %>
 		</div>
 	</div>
 	<div class="row">
@@ -59,7 +67,7 @@
 			<%= f.label "Planned end date", class: "form-label select-label" %>
 		</div>
 		<div class="col-md-8">
-			<%= f.date_field :ico_planned_end_date, class: "form-input" %>
+			<%= f.date_field :ico_actual_end_date, class: "form-input" %>
 		</div>
 	</div>
 	<div class="row first-in-form-group">
