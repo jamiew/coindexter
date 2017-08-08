@@ -1591,6 +1591,7 @@ div#mailing-list {
 .progress {
   max-width: 600px;
   margin:    0.2em 0 0.2em 0;
+/*  display:none; */
 }
 
 .progress .bar {
@@ -1599,3 +1600,4 @@ div#mailing-list {
   color:   white;
   display: none;
 }
+

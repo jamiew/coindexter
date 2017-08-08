@@ -10,7 +10,6 @@ $ ->
 		progressBar = $('<div class=\'bar\'></div>')
 		barContainer = $('<div class=\'progress\'></div>').append(progressBar)
 		fileInput.after barContainer
-		console.log 'hey'
 		fileInput.fileupload
 			fileInput: fileInput
 			url: form.data('url')
@@ -22,7 +21,6 @@ $ ->
 			replaceFileInput: false
 			progressall: (e, data) ->
 				progress = parseInt(data.loaded / data.total * 100, 10)
-				console.log(progress)
 				progressBar.css 'width', progress + '%'
 				return
 			start: (e) ->
