@@ -59,7 +59,7 @@
 								<% if change[:change_type] == "added" %>
 									Added <span class="change_attr">forum</span>: <%= link_to get_host_without_www(change[:change].second),  change[:change].second %>
 								<% elsif change[:change_type] == "edited" %>
-									Changed <span class="change_attr">forum</span> from <%= link_to get_host_without_www(change[:change].first), change[:change].first %> to <%= link_to get_host_without_www(change[:change].second), change[:change].second %>
+									Changed <span class="change_attr">forum</span> from <%= link_to get_host_without_www(change[:change].first), change[:change].first unless change[:change].first.nil? %> to <%= link_to get_host_without_www(change[:change].second), change[:change].second unless change[:change].second.nil? %>
 								<% end %>
 							<% when "reddit" %>
 								<% if change[:change_type] == "added" %>
