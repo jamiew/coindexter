@@ -1,6 +1,7 @@
 class WhitepapersController < ApplicationController
   
   before_action :authenticate_user!, only: [:edit,:new,:create,:update,:follow,:unfollow]
+  before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
 
   def index
     if defined?(params[:network_id])
@@ -70,4 +71,9 @@ class WhitepapersController < ApplicationController
     def whitepaper_params
       params.require(:whitepaper).permit(:network, :network_id, :whitepaper_title, :whitepaper, :user_id, :external_url)
     end
+
+    def set_s3_direct_post
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+    end
+    
 end

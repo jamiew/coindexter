@@ -10,7 +10,8 @@ class UpdateAllCoinPricesWorker
 
 		Coin.find_each do |coin|
 			
-			coin = Coin.find(coin_id)
+			coin = Coin.find(coin.id)
+			puts "coin.symbol is #{coin.symbol}"
 
 		    # attributes to save
 		    attributes_to_save = Hash.new
@@ -47,11 +48,9 @@ class UpdateAllCoinPricesWorker
 		      unless available_supply == 0
 		        attributes_to_save[:available_supply] = available_supply
 		      end
-		      if coin.total_supply.nil?
-		        total_supply = data.values.second["TotalCoinSupply"].to_i
-		        unless total_supply == 0
-		          attributes_to_save[:total_supply] = total_supply
-		        end
+		      total_supply = data.values.second["TotalCoinSupply"].to_i
+		      unless total_supply == 0
+		        attributes_to_save[:total_supply] = total_supply
 		      end
 		    end
 		    

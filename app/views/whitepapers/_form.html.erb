@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for [@network, @whitepaper] do |f| %>
+  <%= form_for [@network, @whitepaper], html: { class: 'directUpload new_whitepaper', id: 'new_whitepaper', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } } do |f| %>
     <% if @whitepaper.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@whitepaper.errors.count, "error") %> prohibited this whitepaper from being saved:</h2>

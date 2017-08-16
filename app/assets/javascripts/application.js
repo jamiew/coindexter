@@ -20,3 +20,5 @@
 //= require bootstrap-sprockets
 //= require retina_tag
 //= require jquery.Jcrop
+//= require jquery.ui.widget
+//= require z.jquery.fileupload
