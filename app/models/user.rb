@@ -48,6 +48,7 @@ class User < ApplicationRecord
   end
 
   def password_required?
+    puts "tannehill #{!defined? provider or provider.nil? or provider == 'email'}"
     !defined? provider or provider.nil? or provider == 'email'
   end
 

@@ -60,6 +60,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       puts @user.errors.to_a
       puts request.env["omniauth.auth"]
       session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
+      @user.skip_confirmation!
       redirect_to root_url
     end
   end
