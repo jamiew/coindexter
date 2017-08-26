@@ -58,6 +58,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       puts "ENV['omniauth.auth'] is #{ENV['omniauth.auth']}"
       session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
+      @user.skip_confirmation!
       sign_in_and_redirect @user
     end
   end
