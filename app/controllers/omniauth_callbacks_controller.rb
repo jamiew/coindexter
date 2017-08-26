@@ -56,9 +56,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect @user
       set_flash_message(:notice, :success, kind: provider.capitalize) if is_navigational_format?
     else
-      puts 'ENV["omniauth.auth"] is #{ENV["omniauth.auth"]}'
-      puts 'env["omniauth.auth"] is #{env["omniauth.auth"]}'
-      session["devise.#{provider}_data"] = env["omniauth.auth"].except("extra")
+      puts "ENV['omniauth.auth'] is #{ENV['omniauth.auth']}"
+      session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
       sign_in_and_redirect @user
     end
   end
