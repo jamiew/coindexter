@@ -1,14 +1,14 @@
 GIT
-  remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 7389a82f17d2547766c290b6f1398c9da794353b
+  remote: https://github.com/carrierwaveuploader/carrierwave.git
+  revision: c0b7fab3a14ddde0c80bdc540565fd6b4a7a7075
   specs:
-    carrierwave (1.1.0)
+    carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
 
 GIT
-  remote: git://github.com/tcocca/acts_as_follower.git
+  remote: https://github.com/tcocca/acts_as_follower.git
   revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
   branch: master
   specs:
@@ -587,4 +587,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.16.0
