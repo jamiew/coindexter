@@ -56,7 +56,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
-#database 
+#database
 gem 'pg'
 
 #search
@@ -111,7 +111,7 @@ gem 'nilify_blanks'
 
 gem "auto_strip_attributes", "~> 2.1"
 
-group :production do 
+group :production do
   gem 'rails_12factor'
 end
 
